@@ -1,24 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAuxiliarySections, fetchLanguages } from "../actions";
+import {
+  fetchAuxiliarySections,
+  fetchLanguages,
+  fetchAuthentications,
+  fetchSections,
+  fetchOrder,
+} from "../actions/navbarActions";
 
 const Navi = () => {
   const dispatch = useDispatch();
 
   const auxiliarySections = useSelector((state) => state.auxiliarySections);
   const languages = useSelector((state) => state.languages);
+  const authentications = useSelector((state) => state.authentications);
+  const sections = useSelector((state) => state.sections);
+  const order = useSelector((state) => state.order);
 
   const [activeLanguage, setActiveLanguage] = useState("AZ");
 
   useEffect(() => {
-    dispatch(fetchAuxiliarySections());
     dispatch(fetchLanguages());
+    dispatch(fetchAuxiliarySections());
+    dispatch(fetchAuthentications());
+    dispatch(fetchSections());
+    dispatch(fetchOrder());
   }, []);
 
   const handleClickLanguage = (code) => {
-    dispatch(fetchAuxiliarySections(code));
     setActiveLanguage(code);
+    dispatch(fetchAuxiliarySections(code));
+    dispatch(fetchAuthentications(code));
+    dispatch(fetchSections(code));
+    dispatch(fetchOrder(code));
   };
 
   return (
@@ -37,16 +52,17 @@ const Navi = () => {
             })}
           </ul>
           <ul className='nav-items right-items'>
-            <li className='navbar-top__item'>
-              <Link className='navbar-top__link' to='/login'>
-                Daxil ol
-              </Link>
-            </li>
-            <li className='navbar-top__item'>
-              <Link className='navbar-top__link' to='/register'>
-                Qeydiyyatdan keç
-              </Link>
-            </li>
+            {authentications.map((authentication) => {
+              return (
+                <li className='navbar-top__item' key={authentication.id}>
+                  <Link
+                    className='navbar-top__link'
+                    to={`/${authentication.url}`}>
+                    {authentication.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -100,29 +116,18 @@ const Navi = () => {
                     })}
                   </div>
                 </li>
-                <li className='nav-item'>
-                  <Link className='nav-link' to='/'>
-                    Ölkələr
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link' to='/'>
-                    Kalkulyator
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link' to='/'>
-                    Mağazalar
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link' to='/'>
-                    Əlaqə
-                  </Link>
-                </li>
+                {sections.map((section) => {
+                  return (
+                    <li className='nav-item' key={section.id}>
+                      <Link className='nav-link' to={`/${section.url}`}>
+                        {section.name}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
-              <Link className='btn' to='/'>
-                Sifariş et
+              <Link className='btn' to={`/${order.buttonUrl}`}>
+                {order.buttonName}
               </Link>
             </div>
           </nav>

@@ -36,6 +36,7 @@
     padding-bottom: 5px;
     .navbar {
       padding-left: 0;
+      padding-right: 0;
       .nav-link {
         @include text(16px, 600, $text-color);
         padding-left: 25px;
@@ -58,8 +59,13 @@
       }
       .btn {
         @include btn(10px 45px, $primary-color, 16px, $primary-color);
+        text-transform: uppercase;
         &:hover {
           @include btnHover($primary-color);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
         }
       }
     }
