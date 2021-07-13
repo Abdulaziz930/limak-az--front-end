@@ -1,0 +1,33 @@
+@mixin text($f-size, $f-weight, $color) {
+  font-size: $f-size;
+  font-weight: $f-weight;
+  color: $color;
+}
+
+@mixin btn($padding, $bg-color, $f-size, $border) {
+  padding: $padding;
+  background-color: $bg-color;
+  font-size: $f-size;
+  @if ($border == none) {
+    border: none;
+  } @else {
+    border: 1px solid $border;
+  }
+
+  @if ($bg-color == transparent) {
+    color: $primary-color;
+  } @else {
+    color: $secondary-color;
+  }
+  transition: all 0.5s;
+}
+
+@mixin btnHover($bg-color) {
+  @if ($bg-color == transparent) {
+    background-color: $primary-color;
+    color: $secondary-color;
+  } @else {
+    background-color: transparent;
+    color: $primary-color;
+  }
+}

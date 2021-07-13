@@ -1,10 +1,10 @@
-import './App.css';
+import Navi from "./components/Navi";
 
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <>
+      <Navi />
+    </>
   );
 }
 
