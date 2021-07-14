@@ -1,4 +1,12 @@
 body {
   background-color: $background-color;
   font-family: $primary-font;
+  #spinner {
+    .spinner-box {
+      padding-top: 15%;
+      .text-primary-color {
+        color: $primary-color;
+      }
+    }
+  }
 }

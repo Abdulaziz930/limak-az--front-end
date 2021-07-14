@@ -37,6 +37,35 @@
     .navbar {
       padding-left: 0;
       padding-right: 0;
+      .navbar-toggler {
+        .hamburger-menu-icon {
+          position: absolute;
+          width: 10%;
+          height: 5px;
+          background-color: $primary-color;
+          border-radius: 3px;
+          transition: all 0.5s ease-in-out;
+          right: 10px;
+          &::before {
+            @include hambugerMenu(-10px);
+          }
+          &::after {
+            @include hambugerMenu(10px);
+          }
+        }
+      }
+      .open {
+        .hamburger-menu-icon {
+          transform: translateX(-20px);
+          background-color: transparent;
+          &::before {
+            transform: rotate(45deg) translate(15px, -15px);
+          }
+          &::after {
+            transform: rotate(-45deg) translate(15px, 15px);
+          }
+        }
+      }
       .nav-link {
         @include text(16px, 600, $text-color);
         padding-left: 25px;

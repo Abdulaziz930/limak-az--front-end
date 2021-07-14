@@ -5,7 +5,8 @@ import {
   authenticationsReducers,
   sectionsReducers,
   orderReducers,
-} from "./reducers/navbarReducers";
+  advertisementsReducers,
+} from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
@@ -15,6 +16,7 @@ const reducers = combineReducers({
   authentications: authenticationsReducers,
   sections: sectionsReducers,
   order: orderReducers,
+  advertisements: advertisementsReducers,
 });
 
 const store = createStore(

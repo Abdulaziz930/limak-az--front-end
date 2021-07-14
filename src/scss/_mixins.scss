@@ -31,3 +31,16 @@
     color: $primary-color;
   }
 }
+
+@mixin hambugerMenu($transformValue) {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  left: 0;
+  background-color: $primary-color;
+  border-radius: 3px;
+  transform: translateY($transformValue);
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
