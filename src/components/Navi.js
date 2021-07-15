@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchAuxiliarySections,
-  fetchLanguages,
-  fetchAuthentications,
-  fetchSections,
-  fetchOrder,
-} from "../actions";
+import { fetchLanguages, fetchContents } from "../actions";
 import SpinnerWrapper from "./SpinnerWrapper";
 
 const Navi = () => {
   const dispatch = useDispatch();
 
-  const { auxiliarySections, loading } = useSelector(
-    (state) => state.auxiliarySections
-  );
   const { languages } = useSelector((state) => state.languages);
-  const { authentications } = useSelector((state) => state.authentications);
-  const { sections } = useSelector((state) => state.sections);
-  const { order } = useSelector((state) => state.order);
+  const { loading, contents } = useSelector((state) => state.contents);
 
   const [activeLanguage, setActiveLanguage] = useState("AZ");
   const [isOpen, setIsOpen] = useState(false);
@@ -28,18 +17,12 @@ const Navi = () => {
 
   useEffect(() => {
     dispatch(fetchLanguages());
-    dispatch(fetchAuxiliarySections());
-    dispatch(fetchAuthentications());
-    dispatch(fetchSections());
-    dispatch(fetchOrder());
+    dispatch(fetchContents());
   }, [dispatch]);
 
   const handleClickLanguage = (code) => {
     setActiveLanguage(code);
-    dispatch(fetchAuxiliarySections(code));
-    dispatch(fetchAuthentications(code));
-    dispatch(fetchSections(code));
-    dispatch(fetchOrder(code));
+    dispatch(fetchContents(code));
   };
 
   const handleClickHamburgerMenu = () => {
@@ -61,7 +44,7 @@ const Navi = () => {
           <div className='container'>
             <div className='navbar-top'>
               <ul className='nav-items left-items'>
-                {auxiliarySections.map((section) => {
+                {contents.auxiliarySectionsDto.map((section) => {
                   return (
                     <li className='navbar-top__item' key={section.id}>
                       <Link className='navbar-top__link' to={`/${section.url}`}>
@@ -72,7 +55,7 @@ const Navi = () => {
                 })}
               </ul>
               <ul className='nav-items right-items'>
-                {authentications.map((authentication) => {
+                {contents.authenticationsDto.map((authentication) => {
                   return (
                     <li className='navbar-top__item' key={authentication.id}>
                       <Link
@@ -137,7 +120,7 @@ const Navi = () => {
                         })}
                       </div>
                     </li>
-                    {sections.map((section) => {
+                    {contents.sectionsDto.map((section) => {
                       return (
                         <li className='nav-item' key={section.id}>
                           <Link className='nav-link' to={`/${section.url}`}>
@@ -148,8 +131,10 @@ const Navi = () => {
                     })}
                   </ul>
                   <div className='btnBox'>
-                    <Link className='btn' to={`/${order.buttonUrl}`}>
-                      {order.buttonName}
+                    <Link
+                      className='btn'
+                      to={`/${contents.orderDto.buttonUrl}`}>
+                      {contents.orderDto.buttonName}
                     </Link>
                   </div>
                 </div>

@@ -1,21 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import {
-  auxiliarySectionsReducers,
   languagesReducers,
-  authenticationsReducers,
-  sectionsReducers,
-  orderReducers,
+  contentsReducers,
   advertisementsReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const reducers = combineReducers({
-  auxiliarySections: auxiliarySectionsReducers,
   languages: languagesReducers,
-  authentications: authenticationsReducers,
-  sections: sectionsReducers,
-  order: orderReducers,
+  contents: contentsReducers,
   advertisements: advertisementsReducers,
 });
 
