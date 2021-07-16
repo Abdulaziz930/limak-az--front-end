@@ -1,3 +1,19 @@
+@media screen and(max-width: 1024px) {
+  .intro {
+    .calculator {
+      padding: 10px 15px;
+      .calculator-title {
+        margin-bottom: 0;
+        .btn {
+          font-size: 11px;
+        }
+      }
+      .sum {
+        margin-top: 10px;
+      }
+    }
+  }
+}
 @media screen and(max-width: 768px) {
   .header {
     .navbar-bottom {

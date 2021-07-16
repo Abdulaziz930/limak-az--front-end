@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAdvertisements } from "../actions";
+import CalculatorWrapper from "./CalculatorWrapper";
 
 const Intro = () => {
   const settings = {
@@ -26,7 +27,7 @@ const Intro = () => {
     <div className='intro'>
       <div className='container'>
         <div className='row'>
-          <div className='col-md-8'>
+          <div className='col-lg-8'>
             <div className='slider mt-4'>
               <Slider {...settings}>
                 {advertisements.map((advertisement) => {
@@ -45,21 +46,8 @@ const Intro = () => {
               </Slider>
             </div>
           </div>
-          <div className='col-md-4'>
-            <div className='calculator'>
-              <div className='col-xs-6'>
-                <div className='calculator-title'>
-                  <h4>Kalkulyator</h4>
-                  <button className='btn'>Kalkulyatoru sıfırla</button>
-                </div>
-                <select className='ui dropdown'>
-                  <option value=''>Gender</option>
-                  <option value='1'>Male</option>
-                  <option value='0'>Female</option>
-                </select>
-              </div>
-              <div className='col-xs-6'></div>
-            </div>
+          <div className='col-lg-4'>
+            <CalculatorWrapper />
           </div>
         </div>
       </div>

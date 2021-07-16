@@ -13,7 +13,7 @@
   } @else {
     border: 1px solid $border;
   }
-
+  
   @if ($bg-color == transparent) {
     color: $primary-color;
   } @else {
