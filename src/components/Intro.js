@@ -33,7 +33,9 @@ const Intro = () => {
                 {advertisements.map((advertisement) => {
                   return (
                     <div key={advertisement.id}>
-                      <Link to='/' className='slider-img-link'>
+                      <Link
+                        to={`Advertisements/${advertisement.id}`}
+                        className='slider-img-link'>
                         <img
                           src={`./images/${advertisement.image}`}
                           alt={advertisement.title}
