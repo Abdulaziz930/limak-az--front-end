@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchLanguages, fetchContents } from "./actions";
 import SpinnerWrapper from "./components/SpinnerWrapper";
@@ -8,7 +8,6 @@ import Dashboard from "./components/Dashboard";
 function App() {
   const dispatch = useDispatch();
 
-  const { languages } = useSelector((state) => state.languages);
   const { loading } = useSelector((state) => state.contents);
 
   useEffect(() => {

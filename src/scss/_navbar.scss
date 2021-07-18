@@ -1,7 +1,6 @@
 .header {
   .navbar-top {
-    display: flex;
-    justify-content: space-between;
+    @include flexy-box-between();
     padding-top: 10px;
     .right-items {
       .navbar-top__item {
