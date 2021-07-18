@@ -171,274 +171,270 @@ const CalculatorWrapper = () => {
 
   return (
     <>
-      {loading ? (
-        <SpinnerWrapper />
-      ) : (
-        <div className='calculator mt-4'>
-          <div className='calculator-title'>
-            <h4>{contents.calculatorDto.title}</h4>
-            <button className='btn' onClick={handleClickEmpty}>
-              {contents.calculatorDto.emptyButtonName}
-            </button>
-          </div>
-          <div className='row'>
-            <div className='col-md-6'>
-              <div className='country-wrapper'>
-                <div className='form-group'>
-                  <select
-                    className='form-control'
-                    id='country'
-                    value={countryValue}
-                    onChange={(e) => handleChangeCountry(e)}>
-                    {contents.countriesDto.map((country, index) => {
-                      return index === 0 ? (
-                        <option
-                          value={country.value}
-                          key={country.id}
-                          defaultValue>
-                          {country.name}
-                        </option>
-                      ) : (
-                        <option value={country.value} key={country.id}>
-                          {country.name}
-                        </option>
-                      );
-                    })}
-                  </select>
+      <div className='calculator mt-4'>
+        <div className='calculator-title'>
+          <h4>{contents.calculatorsDto[0].title}</h4>
+          <button className='btn' onClick={handleClickEmpty}>
+            {contents.calculatorsDto[0].emptyButtonName}
+          </button>
+        </div>
+        <div className='row'>
+          <div className='col-md-6'>
+            <div className='country-wrapper'>
+              <div className='form-group'>
+                <select
+                  className='form-control'
+                  id='country'
+                  value={countryValue}
+                  onChange={(e) => handleChangeCountry(e)}>
+                  {contents.countriesDto.map((country, index) => {
+                    return index === 0 ? (
+                      <option
+                        value={country.value}
+                        key={country.id}
+                        defaultValue>
+                        {country.name}
+                      </option>
+                    ) : (
+                      <option value={country.value} key={country.id}>
+                        {country.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+            <div className='weight-wrapper'>
+              <div className='input-group'>
+                <input
+                  type='text'
+                  className='form-control'
+                  aria-label='Text input with dropdown button'
+                  placeholder={contents.weightInputsDto[0].inputName}
+                  value={weightValue}
+                  onChange={(e) => handleChangeWeight(e)}
+                />
+                <div className='input-group-append'>
+                  <div className='form-group'>
+                    <select
+                      className='form-control'
+                      id='weight'
+                      value={weightUnitsValue}
+                      onChange={(e) => handleChangeWeightUnit(e)}>
+                      {contents.weightsDto.map((weight, index) => {
+                        return index === 0 ? (
+                          <option
+                            value={weight.value}
+                            key={weight.id}
+                            defaultValue>
+                            {weight.name}
+                          </option>
+                        ) : (
+                          <option value={weight.value} key={weight.id}>
+                            {weight.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
                 </div>
               </div>
-              <div className='weight-wrapper'>
-                <div className='input-group'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    aria-label='Text input with dropdown button'
-                    placeholder={contents.weightInputDto.inputName}
-                    value={weightValue}
-                    onChange={(e) => handleChangeWeight(e)}
-                  />
-                  <div className='input-group-append'>
-                    <div className='form-group'>
-                      <select
-                        className='form-control'
-                        id='weight'
-                        value={weightUnitsValue}
-                        onChange={(e) => handleChangeWeightUnit(e)}>
-                        {contents.weightsDto.map((weight, index) => {
+            </div>
+            <div className='width-wrapper'>
+              <div className='input-group'>
+                <input
+                  type='text'
+                  className='form-control'
+                  aria-label='Text input with dropdown button'
+                  placeholder={contents.widthInputsDto[0].inputName}
+                  value={widthValue}
+                  onChange={(e) => handleChangeWidth(e)}
+                />
+                <div className='input-group-append'>
+                  <div className='form-group'>
+                    <select
+                      className='form-control'
+                      id='width'
+                      value={widthUnitsValue}
+                      onChange={(e) => handleChangeWidthUnit(e)}>
+                      {contents.unitsOfLengthsDto.map(
+                        (unitsOfLength, index) => {
                           return index === 0 ? (
                             <option
-                              value={weight.value}
-                              key={weight.id}
+                              value={unitsOfLength.value}
+                              key={unitsOfLength.id}
                               defaultValue>
-                              {weight.name}
+                              {unitsOfLength.name}
                             </option>
                           ) : (
-                            <option value={weight.value} key={weight.id}>
-                              {weight.name}
+                            <option
+                              value={unitsOfLength.value}
+                              key={unitsOfLength.id}>
+                              {unitsOfLength.name}
                             </option>
                           );
-                        })}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='width-wrapper'>
-                <div className='input-group'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    aria-label='Text input with dropdown button'
-                    placeholder={contents.widthInputDto.inputName}
-                    value={widthValue}
-                    onChange={(e) => handleChangeWidth(e)}
-                  />
-                  <div className='input-group-append'>
-                    <div className='form-group'>
-                      <select
-                        className='form-control'
-                        id='width'
-                        value={widthUnitsValue}
-                        onChange={(e) => handleChangeWidthUnit(e)}>
-                        {contents.unitsOfLengthsDto.map(
-                          (unitsOfLength, index) => {
-                            return index === 0 ? (
-                              <option
-                                value={unitsOfLength.value}
-                                key={unitsOfLength.id}
-                                defaultValue>
-                                {unitsOfLength.name}
-                              </option>
-                            ) : (
-                              <option
-                                value={unitsOfLength.value}
-                                key={unitsOfLength.id}>
-                                {unitsOfLength.name}
-                              </option>
-                            );
-                          }
-                        )}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='height-wrapper'>
-                <div className='input-group'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    aria-label='Text input with dropdown button'
-                    placeholder={contents.heightInputDto.inputName}
-                    value={heightValue}
-                    onChange={(e) => handleChangeHeight(e)}
-                  />
-                  <div className='input-group-append'>
-                    <div className='form-group'>
-                      <select
-                        className='form-control'
-                        id='height'
-                        value={heightUnitValue}
-                        onChange={(e) => handleChangeHeightUnit(e)}>
-                        {contents.unitsOfLengthsDto.map(
-                          (unitsOfLength, index) => {
-                            return index === 0 ? (
-                              <option
-                                value={unitsOfLength.value}
-                                key={unitsOfLength.id}
-                                defaultValue>
-                                {unitsOfLength.name}
-                              </option>
-                            ) : (
-                              <option
-                                value={unitsOfLength.value}
-                                key={unitsOfLength.id}>
-                                {unitsOfLength.name}
-                              </option>
-                            );
-                          }
-                        )}
-                      </select>
-                    </div>
+                        }
+                      )}
+                    </select>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='col-md-6'>
-              <div className='city-wrapper'>
-                <div className='form-group'>
-                  <select
-                    className='form-control'
-                    id='city'
-                    value={cityValue}
-                    onChange={(e) => handleChangeCity(e)}>
-                    {contents.citiesDto.map((city, index) => {
-                      return index === 0 ? (
-                        <option value={city.value} key={city.id} defaultValue>
-                          {city.name}
-                        </option>
-                      ) : (
-                        <option value={city.value} key={city.id}>
-                          {city.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
-              <div className='count-input-wrapper'>
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    id='count'
-                    placeholder={contents.boxCountInputDto.inputName}
-                    value={countValue}
-                    onChange={(e) => handleChangeCount(e)}
-                  />
-                </div>
-              </div>
-              <div className='length-wrapper'>
-                <div className='input-group'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    aria-label='Text input with dropdown button'
-                    placeholder={contents.lengthInputDto.inputName}
-                    value={lengthValue}
-                    onChange={(e) => handleChangeLength(e)}
-                  />
-                  <div className='input-group-append'>
-                    <div className='form-group'>
-                      <select
-                        className='form-control'
-                        id='length'
-                        value={lengthUnitsValue}
-                        onChange={(e) => handleChangeLengthUnit(e)}>
-                        {contents.unitsOfLengthsDto.map(
-                          (unitsOfLength, index) => {
-                            return index === 0 ? (
-                              <option
-                                value={unitsOfLength.value}
-                                key={unitsOfLength.id}
-                                defaultValue>
-                                {unitsOfLength.name}
-                              </option>
-                            ) : (
-                              <option
-                                value={unitsOfLength.value}
-                                key={unitsOfLength.id}>
-                                {unitsOfLength.name}
-                              </option>
-                            );
-                          }
-                        )}
-                      </select>
-                    </div>
+            <div className='height-wrapper'>
+              <div className='input-group'>
+                <input
+                  type='text'
+                  className='form-control'
+                  aria-label='Text input with dropdown button'
+                  placeholder={contents.heightInputsDto[0].inputName}
+                  value={heightValue}
+                  onChange={(e) => handleChangeHeight(e)}
+                />
+                <div className='input-group-append'>
+                  <div className='form-group'>
+                    <select
+                      className='form-control'
+                      id='height'
+                      value={heightUnitValue}
+                      onChange={(e) => handleChangeHeightUnit(e)}>
+                      {contents.unitsOfLengthsDto.map(
+                        (unitsOfLength, index) => {
+                          return index === 0 ? (
+                            <option
+                              value={unitsOfLength.value}
+                              key={unitsOfLength.id}
+                              defaultValue>
+                              {unitsOfLength.name}
+                            </option>
+                          ) : (
+                            <option
+                              value={unitsOfLength.value}
+                              key={unitsOfLength.id}>
+                              {unitsOfLength.name}
+                            </option>
+                          );
+                        }
+                      )}
+                    </select>
                   </div>
                 </div>
               </div>
-              <div className='type-wrapper'>
-                <div className='form-group'>
-                  <select
-                    className='form-control'
-                    id='type'
-                    value={typeValue}
-                    onChange={(e) => handleChangeType(e)}>
-                    {contents.productTypesDto.map((productType, index) => {
-                      return index === 0 ? (
-                        <option
-                          value={productType.value}
-                          key={productType.id}
-                          defaultValue>
-                          {productType.name}
-                        </option>
-                      ) : (
-                        <option value={productType.value} key={productType.id}>
-                          {productType.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
-              <div className='btnbox'>
-                <button className='btn' onClick={handleClickSum}>
-                  {contents.calculatorDto.sumButtonName}
-                </button>
+            </div>
+          </div>
+          <div className='col-md-6'>
+            <div className='city-wrapper'>
+              <div className='form-group'>
+                <select
+                  className='form-control'
+                  id='city'
+                  value={cityValue}
+                  onChange={(e) => handleChangeCity(e)}>
+                  {contents.citiesDto.map((city, index) => {
+                    return index === 0 ? (
+                      <option value={city.value} key={city.id} defaultValue>
+                        {city.name}
+                      </option>
+                    ) : (
+                      <option value={city.value} key={city.id}>
+                        {city.name}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
-            <div className='col-md-12'>
-              <div className='sum'>
-                <p className='sum-text'>
-                  {contents.calculatorDto.sumLabelName}:
-                </p>
-                <p className='sum-count'>$ {sum}</p>
+            <div className='count-input-wrapper'>
+              <div className='form-group'>
+                <input
+                  type='text'
+                  className='form-control'
+                  id='count'
+                  placeholder={contents.boxCountInputsDto[0].inputName}
+                  value={countValue}
+                  onChange={(e) => handleChangeCount(e)}
+                />
               </div>
+            </div>
+            <div className='length-wrapper'>
+              <div className='input-group'>
+                <input
+                  type='text'
+                  className='form-control'
+                  aria-label='Text input with dropdown button'
+                  placeholder={contents.lengthInputsDto[0].inputName}
+                  value={lengthValue}
+                  onChange={(e) => handleChangeLength(e)}
+                />
+                <div className='input-group-append'>
+                  <div className='form-group'>
+                    <select
+                      className='form-control'
+                      id='length'
+                      value={lengthUnitsValue}
+                      onChange={(e) => handleChangeLengthUnit(e)}>
+                      {contents.unitsOfLengthsDto.map(
+                        (unitsOfLength, index) => {
+                          return index === 0 ? (
+                            <option
+                              value={unitsOfLength.value}
+                              key={unitsOfLength.id}
+                              defaultValue>
+                              {unitsOfLength.name}
+                            </option>
+                          ) : (
+                            <option
+                              value={unitsOfLength.value}
+                              key={unitsOfLength.id}>
+                              {unitsOfLength.name}
+                            </option>
+                          );
+                        }
+                      )}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='type-wrapper'>
+              <div className='form-group'>
+                <select
+                  className='form-control'
+                  id='type'
+                  value={typeValue}
+                  onChange={(e) => handleChangeType(e)}>
+                  {contents.productTypesDto.map((productType, index) => {
+                    return index === 0 ? (
+                      <option
+                        value={productType.value}
+                        key={productType.id}
+                        defaultValue>
+                        {productType.name}
+                      </option>
+                    ) : (
+                      <option value={productType.value} key={productType.id}>
+                        {productType.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+            <div className='btnbox'>
+              <button className='btn' onClick={handleClickSum}>
+                {contents.calculatorsDto[0].sumButtonName}
+              </button>
+            </div>
+          </div>
+          <div className='col-md-12'>
+            <div className='sum'>
+              <p className='sum-text'>
+                {contents.calculatorsDto[0].sumLabelName}:
+              </p>
+              <p className='sum-count'>$ {sum}</p>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

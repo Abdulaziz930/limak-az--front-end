@@ -75,3 +75,48 @@
     }
   }
 }
+.How-It-Works-wrapper {
+  margin-top: 30px;
+  background-color: $secondary-color;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  .title {
+    margin-bottom: 40px;
+    h1 {
+      text-align: center;
+      @include text(36px, 600, $text-color);
+    }
+  }
+  .How-It-Works__items {
+    .col-md-4 {
+      padding-left: 0;
+      padding-right: 0;
+      .How-It-Works__item {
+        border: 1px solid #e6e9ef;
+        padding: 30px 60px;
+        height: 100%;
+        &:first-child,
+        :nth-child(2) {
+          border-right: none;
+        }
+        .imgBox {
+          @include flexy-box();
+          margin-bottom: 35px;
+        }
+        .title {
+          margin-bottom: 15px;
+          text-align: center;
+          h4 {
+            @include text(22px, 700, $text-color);
+          }
+        }
+        .description {
+          text-align: center;
+          p {
+            @include text(14px, 400, $text-color);
+          }
+        }
+      }
+    }
+  }
+}

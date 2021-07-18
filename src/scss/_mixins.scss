@@ -13,7 +13,7 @@
   } @else {
     border: 1px solid $border;
   }
-  
+
   @if ($bg-color == transparent) {
     color: $primary-color;
   } @else {
@@ -43,4 +43,10 @@
   transform: translateY($transformValue);
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+}
+
+@mixin flexy-box() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
