@@ -8,6 +8,12 @@ import {
   FETCH_ADVERTISEMENTS,
   FETCH_ADVERTISEMENTS_SUCCESS,
   FETCH_ADVERTISEMENTS_FAIL,
+  FETCH_CERTIFICATE_CONTENTS,
+  FETCH_CERTIFICATE_CONTENTS_FAIL,
+  FETCH_CERTIFICATE_CONTENTS_SUCCESS,
+  FETCH_CERTIFICATE,
+  FETCH_CERTIFICATE_SUCCESS,
+  FETCH_CERTIFICATE_FAIL,
 } from "../constants";
 
 export const languagesReducers = (
@@ -91,110 +97,56 @@ export const advertisementsReducers = (
   }
 };
 
-// export const auxiliarySectionsReducers = (
-//   state = { loading: false, auxiliarySections: [] },
-//   action
-// ) => {
-//   switch (action.type) {
-//     case FETCH_AUXILIARY_SECTIONS:
-//       return {
-//         ...state,
-//         loading: true,
-//       };
-//     case FETCH_AUXILIARY_SECTIONS_SUCCESS:
-//       return {
-//         ...state,
-//         auxiliarySections: action.payload,
-//         loading: false,
-//       };
-//     case FETCH_AUXILIARY_SECTIONS_FAIL:
-//       return {
-//         ...state,
-//         error: action.payload,
-//         loading: false,
-//       };
-//     default:
-//       return state;
-//   }
-// };
+export const certificateContentsReducer = (
+  state = { loading: false, certificateContents: [] },
+  action
+) => {
+  switch (action.type) {
+    case FETCH_CERTIFICATE_CONTENTS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FETCH_CERTIFICATE_CONTENTS_SUCCESS:
+      return {
+        ...state,
+        certificateContents: action.payload,
+        loading: false,
+      };
+    case FETCH_CERTIFICATE_CONTENTS_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
 
-// export const authenticationsReducers = (
-//   state = { loading: false, authentications: [] },
-//   action
-// ) => {
-//   switch (action.type) {
-//     case FETCH_AUTHENTICATIONS:
-//       return {
-//         ...state,
-//         loading: true,
-//       };
-//     case FETCH_AUTHENTICATIONS_SUCCESS:
-//       return {
-//         ...state,
-//         authentications: action.payload,
-//         loading: false,
-//       };
-//     case FETCH_AUTHENTICATIONS_FAIL:
-//       return {
-//         ...state,
-//         error: action.payload,
-//         loading: false,
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// export const sectionsReducers = (
-//   state = { loading: false, sections: [] },
-//   action
-// ) => {
-//   switch (action.type) {
-//     case FETCH_SECTIONS:
-//       return {
-//         ...state,
-//         loading: true,
-//       };
-//     case FETCH_SECTIONS_SUCCESS:
-//       return {
-//         ...state,
-//         sections: action.payload,
-//         loading: false,
-//       };
-//     case FETCH_SECTIONS_FAIL:
-//       return {
-//         ...state,
-//         error: action.payload,
-//         loading: false,
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// export const orderReducers = (
-//   state = { loading: false, order: {} },
-//   action
-// ) => {
-//   switch (action.type) {
-//     case FETCH_ORDER:
-//       return {
-//         ...state,
-//         loading: true,
-//       };
-//     case FETCH_ORDER_SUCCESS:
-//       return {
-//         ...state,
-//         order: action.payload,
-//         loading: false,
-//       };
-//     case FETCH_ORDER_FAIL:
-//       return {
-//         ...state,
-//         error: action.payload,
-//         loading: false,
-//       };
-//     default:
-//       return state;
-//   }
-// };
+export const certificateReducer = (
+  state = { loading: false, certificate: [] },
+  action
+) => {
+  switch (action.type) {
+    case FETCH_CERTIFICATE:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FETCH_CERTIFICATE_SUCCESS:
+      return {
+        ...state,
+        certificate: action.payload,
+        loading: false,
+      };
+    case FETCH_CERTIFICATE_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

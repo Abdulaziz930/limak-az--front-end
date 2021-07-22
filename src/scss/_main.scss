@@ -118,3 +118,101 @@
     }
   }
 }
+.tariffs {
+  padding-top: 60px;
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    h2 {
+      @include text(36px, 600, $text-color);
+    }
+  }
+  .content {
+    .tab-content {
+      background-color: $secondary-color;
+      padding: 30px;
+    }
+    a.active {
+      border-top: 3px solid $primary-color;
+    }
+    .nav-tabs {
+      .nav-link {
+        border-top-left-radius: none !important;
+        border-top-right-radius: none !important;
+      }
+    }
+    #uncontrolled-tab-example-tab-turkey,
+    #uncontrolled-tab-example-tab-usa {
+      // background-image: url("http://localhost:3000/images/order-turkey.png");
+      // background-repeat: no-repeat;
+      // background-position-y: 50%;
+      // padding: 15px 45px 15px 40px;
+      // background-position-x: 12%;
+      @include text(16px, 600, $link-color);
+      padding: 15px 30px;
+    }
+    .tab-header {
+      display: flex;
+      .title {
+        @include flexy-box();
+        padding-left: 30px;
+        h4 {
+          @include text(22px, 600, $text-color);
+        }
+      }
+    }
+    .tab-main {
+      .type {
+        margin-top: 40px;
+        .type-title {
+          h5 {
+            @include text(16px, 600, $text-color);
+          }
+        }
+        ul {
+          list-style-type: none;
+          padding-left: 0;
+          li {
+            @include flexy-box-between();
+            padding: 10px 0;
+            border-bottom: 1px dashed $border-color;
+            .tariff-title {
+              @include text(16px, 400, $text-color);
+            }
+            .tariff-price {
+              @include text(20px, 600, $second-text-color);
+            }
+          }
+        }
+      }
+    }
+    .tab-description {
+      margin-top: 50px;
+      p {
+        @include text(14px, 400, $text-color);
+        line-height: 28px;
+      }
+    }
+  }
+}
+.certificates {
+  background-color: $secondary-color;
+  margin-top: 70px;
+  padding: 60px 0 80px;
+  .header {
+    text-align: center;
+    h2 {
+      @include text(36px, 600, $text-color);
+      margin-bottom: 40px;
+    }
+  }
+  .content {
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    padding: 30px;
+    .imgBox {
+      @include flexy-box();
+      height: 100%;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLanguages, fetchContents } from "../actions";
+import { fetchLanguages, fetchContents, fetchCertificate } from "../actions";
 import SpinnerWrapper from "./SpinnerWrapper";
 
 const Navi = () => {
@@ -23,6 +23,7 @@ const Navi = () => {
   const handleClickLanguage = (code) => {
     setActiveLanguage(code);
     dispatch(fetchContents(code));
+    dispatch(fetchCertificate(code));
   };
 
   const handleClickHamburgerMenu = () => {
