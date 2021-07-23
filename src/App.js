@@ -18,11 +18,11 @@ function App() {
 
   return (
     <>
+      <Navi />
       {loading ? (
         <SpinnerWrapper />
       ) : (
         <>
-          <Navi />
           <Dashboard />
         </>
       )}

@@ -90,6 +90,18 @@
       }
     }
   }
+  .certificates {
+    .header {
+      h2 {
+        font-size: 30px;
+      }
+    }
+    .content {
+      .imgBox {
+        padding-bottom: 45px;
+      }
+    }
+  }
 }
 @media screen and(max-width: 360px) {
   .header {

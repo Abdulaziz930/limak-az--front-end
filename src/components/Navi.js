@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLanguages, fetchContents, fetchCertificate } from "../actions";
-import SpinnerWrapper from "./SpinnerWrapper";
+import { fetchLanguages, fetchContents } from "../actions";
+import language from "../translation/language.json";
 
 const Navi = () => {
   const dispatch = useDispatch();
 
   const { languages } = useSelector((state) => state.languages);
-  const { loading, contents } = useSelector((state) => state.contents);
 
-  const [activeLanguage, setActiveLanguage] = useState("AZ");
   const [isOpen, setIsOpen] = useState(false);
   const [hamburgerMenuClassName, setHamburgerMenuClassName] =
     useState("navbar-toggler");
 
-  // useEffect(() => {
-  //   dispatch(fetchLanguages());
-  //   dispatch(fetchContents());
-  // }, [dispatch]);
+  useEffect(() => {
+    if (localStorage.getItem("language") === null) {
+      localStorage.setItem("language", "AZ");
+    }
+  }, []);
 
   const handleClickLanguage = (code) => {
-    setActiveLanguage(code);
+    localStorage.setItem("language", code);
     dispatch(fetchContents(code));
-    dispatch(fetchCertificate(code));
+    dispatch(fetchLanguages(code));
   };
 
   const handleClickHamburgerMenu = () => {
@@ -36,13 +35,15 @@ const Navi = () => {
     }
   };
 
+  let getLanguage = localStorage.getItem("language");
+
   return (
     <>
       <div className='header'>
         <div className='container'>
           <div className='navbar-top'>
             <ul className='nav-items left-items'>
-              {contents.auxiliarySectionsDto.map((section) => {
+              {language[getLanguage].auxiliarySections.map((section) => {
                 return (
                   <li className='navbar-top__item' key={section.id}>
                     <Link className='navbar-top__link' to={`/${section.url}`}>
@@ -53,7 +54,7 @@ const Navi = () => {
               })}
             </ul>
             <ul className='nav-items right-items'>
-              {contents.authenticationsDto.map((authentication) => {
+              {language[getLanguage].authentications.map((authentication) => {
                 return (
                   <li className='navbar-top__item' key={authentication.id}>
                     <Link
@@ -101,8 +102,9 @@ const Navi = () => {
                       data-toggle='dropdown'
                       aria-haspopup='true'
                       aria-expanded='false'>
-                      {activeLanguage}
+                      {localStorage.getItem("language")}
                     </Link>
+
                     <div
                       className='dropdown-menu'
                       aria-labelledby='navbarDropdown'>
@@ -118,7 +120,7 @@ const Navi = () => {
                       })}
                     </div>
                   </li>
-                  {contents.sectionsDto.map((section) => {
+                  {language[getLanguage].sections.map((section) => {
                     return (
                       <li className='nav-item' key={section.id}>
                         <Link className='nav-link' to={`/${section.url}`}>
@@ -131,8 +133,8 @@ const Navi = () => {
                 <div className='btnBox'>
                   <Link
                     className='btn'
-                    to={`/${contents.ordersDto[0].buttonUrl}`}>
-                    {contents.ordersDto[0].buttonName}
+                    to={`/${language[getLanguage].order.buttonUrl}`}>
+                    {language[getLanguage].order.buttonName}
                   </Link>
                 </div>
               </div>

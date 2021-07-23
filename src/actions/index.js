@@ -23,7 +23,10 @@ export const fetchLanguages = () => async (dispatch) => {
   try {
     const response = await api.get("Language");
 
-    dispatch({ type: FETCH_LANGUAGES_SUCCESS, payload: response.data });
+    dispatch({
+      type: FETCH_LANGUAGES_SUCCESS,
+      payload: response.data,
+    });
   } catch (e) {
     dispatch({
       type: FETCH_LANGUAGES_FAIL,
@@ -41,7 +44,10 @@ export const fetchContents =
       const response = await api.get(
         `Content/getContentWebSite/${languageCode}`
       );
-      dispatch({ type: FETCH_CONTENTS_SUCCESS, payload: response.data });
+      dispatch({
+        type: FETCH_CONTENTS_SUCCESS,
+        payload: response.data,
+      });
     } catch (e) {
       dispatch({
         type: FETCH_CONTENTS_FAIL,

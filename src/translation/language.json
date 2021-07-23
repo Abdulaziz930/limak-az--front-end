@@ -1,0 +1,191 @@
+{
+  "AZ": {
+    "sections": [
+      {
+        "id": 1,
+        "name": "Ölkələr",
+        "url": "countries"
+      },
+      {
+        "id": 2,
+        "name": "Kalkulyator",
+        "url": "calculator"
+      },
+      {
+        "id": 3,
+        "name": "Mağazalar",
+        "url": "shops"
+      },
+      {
+        "id": 4,
+        "name": "Əlaqə",
+        "url": "contact"
+      }
+    ],
+    "auxiliarySections": [
+      {
+        "id": 1,
+        "name": "Qaydalar",
+        "url": "rules"
+      },
+      {
+        "id": 2,
+        "name": "Suallar",
+        "url": "questions"
+      },
+      {
+        "id": 3,
+        "name": "Haqqımızda",
+        "url": "about"
+      },
+      {
+        "id": 4,
+        "name": "Gizlilik Şərtləri",
+        "url": "privacy"
+      }
+    ],
+    "authentications": [
+      {
+        "id": 1,
+        "name": "Daxil ol",
+        "url": "login"
+      },
+      {
+        "id": 2,
+        "name": "Qeydiyyat",
+        "url": "register"
+      }
+    ],
+    "order": {
+      "id": 1,
+      "buttonName": "Sifariş et",
+      "buttonUrl": "order"
+    }
+  },
+  "RU": {
+    "sections": [
+      {
+        "id": 5,
+        "name": "Страны",
+        "url": "countries"
+      },
+      {
+        "id": 6,
+        "name": "Калькулятор",
+        "url": "calculator"
+      },
+      {
+        "id": 7,
+        "name": "Магазины",
+        "url": "shops"
+      },
+      {
+        "id": 8,
+        "name": "Контакты",
+        "url": "contact"
+      }
+    ],
+    "auxiliarySections": [
+      {
+        "id": 5,
+        "name": "Правила",
+        "url": "rules"
+      },
+      {
+        "id": 6,
+        "name": "Вопросы",
+        "url": "questions"
+      },
+      {
+        "id": 7,
+        "name": "О нас",
+        "url": "about"
+      },
+      {
+        "id": 8,
+        "name": "Политика конфиденциальности",
+        "url": "privacy"
+      }
+    ],
+    "authentications": [
+      {
+        "id": 3,
+        "name": "Войти",
+        "url": "login"
+      },
+      {
+        "id": 4,
+        "name": "Регистрация",
+        "url": "register"
+      }
+    ],
+    "order": {
+      "id": 2,
+      "buttonName": "ЗАКАЗАТЬ",
+      "buttonUrl": "order"
+    }
+  },
+  "EN": {
+    "sections": [
+      {
+        "id": 11,
+        "name": "Countries",
+        "url": "countries"
+      },
+      {
+        "id": 12,
+        "name": "Calculator",
+        "url": "calculator"
+      },
+      {
+        "id": 13,
+        "name": "Shops",
+        "url": "shops"
+      },
+      {
+        "id": 14,
+        "name": "Contact",
+        "url": "contact"
+      }
+    ],
+    "auxiliarySections": [
+      {
+        "id": 11,
+        "name": "Rules",
+        "url": "rules"
+      },
+      {
+        "id": 12,
+        "name": "Questions",
+        "url": "questions"
+      },
+      {
+        "id": 13,
+        "name": "About",
+        "url": "about"
+      },
+      {
+        "id": 14,
+        "name": "Privacy",
+        "url": "privacy"
+      }
+    ],
+    "authentications": [
+      {
+        "id": 5,
+        "name": "Login",
+        "url": "login"
+      },
+      {
+        "id": 6,
+        "name": "Register",
+        "url": "register"
+      }
+    ],
+    "order": {
+      "id": 3,
+      "buttonName": "Order",
+      "buttonUrl": "order"
+    }
+  }
+}
