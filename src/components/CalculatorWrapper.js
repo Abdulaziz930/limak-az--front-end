@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import SpinnerWrapper from "./SpinnerWrapper";
+import language from "../translation/language.json";
 
 const CalculatorWrapper = () => {
-  const { loading, contents } = useSelector((state) => state.contents);
+  const { contents } = useSelector((state) => state.contents);
 
   const [weightValue, setWeightValue] = useState("");
   const [weightUnitsValue, setWeightUnitsValue] = useState("");
@@ -169,6 +169,9 @@ const CalculatorWrapper = () => {
     }
   };
 
+  const getLanguage = localStorage.getItem("language");
+  const getContent = JSON.parse(localStorage.getItem("content"));
+
   return (
     <>
       <div className='calculator mt-4'>
@@ -210,7 +213,7 @@ const CalculatorWrapper = () => {
                   type='text'
                   className='form-control'
                   aria-label='Text input with dropdown button'
-                  placeholder={contents.weightInputsDto[0].inputName}
+                  placeholder={language[getLanguage].weightInput.placeholder}
                   value={weightValue}
                   onChange={(e) => handleChangeWeight(e)}
                 />
@@ -246,7 +249,7 @@ const CalculatorWrapper = () => {
                   type='text'
                   className='form-control'
                   aria-label='Text input with dropdown button'
-                  placeholder={contents.widthInputsDto[0].inputName}
+                  placeholder={language[getLanguage].widthInput.placeholder}
                   value={widthValue}
                   onChange={(e) => handleChangeWidth(e)}
                 />
@@ -286,7 +289,7 @@ const CalculatorWrapper = () => {
                   type='text'
                   className='form-control'
                   aria-label='Text input with dropdown button'
-                  placeholder={contents.heightInputsDto[0].inputName}
+                  placeholder={language[getLanguage].heightInput.placeholder}
                   value={heightValue}
                   onChange={(e) => handleChangeHeight(e)}
                 />
@@ -349,7 +352,7 @@ const CalculatorWrapper = () => {
                   type='text'
                   className='form-control'
                   id='count'
-                  placeholder={contents.boxCountInputsDto[0].inputName}
+                  placeholder={language[getLanguage].boxCountInput.placeholder}
                   value={countValue}
                   onChange={(e) => handleChangeCount(e)}
                 />
@@ -361,7 +364,7 @@ const CalculatorWrapper = () => {
                   type='text'
                   className='form-control'
                   aria-label='Text input with dropdown button'
-                  placeholder={contents.lengthInputsDto[0].inputName}
+                  placeholder={language[getLanguage].lengthInput.placeholder}
                   value={lengthValue}
                   onChange={(e) => handleChangeLength(e)}
                 />

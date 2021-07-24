@@ -1,28 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLanguages, fetchContents } from "../actions";
+import { fetchLanguages, fetchContents, fetchCertificate } from "../actions";
 import language from "../translation/language.json";
 
 const Navi = () => {
   const dispatch = useDispatch();
 
   const { languages } = useSelector((state) => state.languages);
+  const { contents } = useSelector((state) => state.contents);
+  const { certificate } = useSelector((state) => state.certificate);
 
   const [isOpen, setIsOpen] = useState(false);
   const [hamburgerMenuClassName, setHamburgerMenuClassName] =
     useState("navbar-toggler");
 
+  if (localStorage.getItem("language") === null) {
+    localStorage.setItem("language", "AZ");
+  }
+
   useEffect(() => {
-    if (localStorage.getItem("language") === null) {
-      localStorage.setItem("language", "AZ");
-    }
-  }, []);
+    localStorage.setItem("content", JSON.stringify(contents));
+    localStorage.setItem("certificateContent", JSON.stringify(certificate));
+  }, [contents, certificate]);
 
   const handleClickLanguage = (code) => {
     localStorage.setItem("language", code);
     dispatch(fetchContents(code));
     dispatch(fetchLanguages(code));
+    dispatch(fetchCertificate(code));
   };
 
   const handleClickHamburgerMenu = () => {
@@ -35,7 +41,7 @@ const Navi = () => {
     }
   };
 
-  let getLanguage = localStorage.getItem("language");
+  const getLanguage = localStorage.getItem("language");
 
   return (
     <>

@@ -60,6 +60,21 @@
       "id": 1,
       "buttonName": "Sifariş et",
       "buttonUrl": "order"
+    },
+    "weightInput": {
+      "placeholder": "Çəki"
+    },
+    "widthInput": {
+      "placeholder": "En"
+    },
+    "lengthInput": {
+      "placeholder": "Uzunqluq"
+    },
+    "heightInput": {
+      "placeholder": "Hündürlük"
+    },
+    "boxCountInput": {
+      "placeholder": "Bağlama sayı"
     }
   },
   "RU": {
@@ -123,6 +138,21 @@
       "id": 2,
       "buttonName": "ЗАКАЗАТЬ",
       "buttonUrl": "order"
+    },
+    "weightInput": {
+      "placeholder": "Вес"
+    },
+    "widthInput": {
+      "placeholder": "Ширина"
+    },
+    "lengthInput": {
+      "placeholder": "Длина"
+    },
+    "heightInput": {
+      "placeholder": "Высота"
+    },
+    "boxCountInput": {
+      "placeholder": "Количество"
     }
   },
   "EN": {
@@ -186,6 +216,21 @@
       "id": 3,
       "buttonName": "Order",
       "buttonUrl": "order"
+    },
+    "weightInput": {
+      "placeholder": "Weight"
+    },
+    "widthInput": {
+      "placeholder": "Width"
+    },
+    "lengthInput": {
+      "placeholder": "Length"
+    },
+    "heightInput": {
+      "placeholder": "Height"
+    },
+    "boxCountInput": {
+      "placeholder": "Count"
     }
   }
 }

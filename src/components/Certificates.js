@@ -13,13 +13,23 @@ const Certificates = () => {
 
   useEffect(() => {
     dispatch(fetchCertificateContents());
-  }, [dispatch]);
+    if (
+      localStorage.getItem("certificateContent") === null ||
+      localStorage.getItem("certificateContent").length === 0
+    ) {
+      localStorage.setItem("certificateContent", JSON.stringify(certificate));
+    }
+  }, [dispatch, certificate]);
+
+  const getCertificateContent = JSON.parse(
+    localStorage.getItem("certificateContent")
+  );
 
   return (
     <div className='certificates'>
       <div className='container'>
         <div className='header'>
-          <h2>{certificate[0].title}</h2>
+          <h2>{getCertificateContent[0].title}</h2>
         </div>
         <div className='content'>
           <div className='row'>

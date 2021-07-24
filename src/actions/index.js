@@ -92,7 +92,7 @@ export const fetchCertificateContents = () => async (dispatch) => {
 };
 
 export const fetchCertificate =
-  (languageCode = "AZ") =>
+  (languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {
     dispatch({ type: FETCH_CERTIFICATE });
 
