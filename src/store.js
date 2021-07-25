@@ -1,20 +1,34 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import {
   languagesReducers,
-  contentsReducers,
+  calculatorContentReducer,
+  countryContentReducers,
+  cityContentReducers,
+  weightContentReducers,
+  unitsOfLengthContentReducers,
+  productTypesContentReducers,
   advertisementsReducers,
   certificateContentsReducer,
   certificateReducer,
+  howItWorksContentReducers,
+  howItWorksCardContentReducers
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const reducers = combineReducers({
   languages: languagesReducers,
-  contents: contentsReducers,
+  calculatorContent: calculatorContentReducer,
+  countries: countryContentReducers,
+  cities: cityContentReducers,
+  weights: weightContentReducers,
+  unitsOfLength: unitsOfLengthContentReducers,
+  productTypes: productTypesContentReducers,
   advertisements: advertisementsReducers,
   certificateContents: certificateContentsReducer,
   certificate: certificateReducer,
+  howItWorkContent: howItWorksContentReducers,
+  howItWorkCardContent: howItWorksCardContentReducers
 });
 
 const store = createStore(

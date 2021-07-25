@@ -1,18 +1,27 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchHowItWorksContent, fetchHowItWorksCardContent } from "../actions";
 
 const HowItWorks = () => {
-  const { contents } = useSelector((state) => state.contents);
+  const dispatch = useDispatch();
+
+  const { content } = useSelector((state) => state.howItWorkContent);
+  const { contents } = useSelector((state) => state.howItWorkCardContent);
+
+  useEffect(() => {
+    dispatch(fetchHowItWorksContent());
+    dispatch(fetchHowItWorksCardContent());
+  }, [dispatch]);
 
   return (
     <div className='How-It-Works-wrapper'>
       <div className='container'>
         <div className='title'>
-          <h1>{contents.howItWorksDto[0].title}</h1>
+          <h1>{content.title}</h1>
         </div>
         <div className='How-It-Works__items'>
           <div className='row'>
-            {contents.howItWorkCardsDto.map((howItWorkCard) => {
+            {contents.map((howItWorkCard) => {
               return (
                 <div className='col-md-4' key={howItWorkCard.id}>
                   <div className='How-It-Works__item'>

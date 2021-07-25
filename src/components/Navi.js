@@ -1,15 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLanguages, fetchContents, fetchCertificate } from "../actions";
+import {
+  fetchLanguages,
+  fetchCertificate,
+  fetchCalculatorContent,
+  fetchCountriesContent,
+  fetchCitiesContent,
+  fetchWeightContent,
+  fetchUnitsOfLengthContent,
+  fetchProductTypesContent,
+  fetchHowItWorksContent,
+  fetchHowItWorksCardContent,
+} from "../actions";
 import language from "../translation/language.json";
 
 const Navi = () => {
   const dispatch = useDispatch();
 
   const { languages } = useSelector((state) => state.languages);
-  const { contents } = useSelector((state) => state.contents);
-  const { certificate } = useSelector((state) => state.certificate);
 
   const [isOpen, setIsOpen] = useState(false);
   const [hamburgerMenuClassName, setHamburgerMenuClassName] =
@@ -20,15 +29,21 @@ const Navi = () => {
   }
 
   useEffect(() => {
-    localStorage.setItem("content", JSON.stringify(contents));
-    localStorage.setItem("certificateContent", JSON.stringify(certificate));
-  }, [contents, certificate]);
+    dispatch(fetchLanguages());
+  }, [dispatch]);
 
   const handleClickLanguage = (code) => {
     localStorage.setItem("language", code);
-    dispatch(fetchContents(code));
     dispatch(fetchLanguages(code));
-    dispatch(fetchCertificate(code));
+    dispatch(fetchCalculatorContent(localStorage.getItem("language")));
+    dispatch(fetchCountriesContent(localStorage.getItem("language")));
+    dispatch(fetchCitiesContent(localStorage.getItem("language")));
+    dispatch(fetchWeightContent(localStorage.getItem("language")));
+    dispatch(fetchUnitsOfLengthContent(localStorage.getItem("language")));
+    dispatch(fetchProductTypesContent(localStorage.getItem("language")));
+    dispatch(fetchCertificate(localStorage.getItem("language")));
+    dispatch(fetchHowItWorksContent(localStorage.getItem("language")));
+    dispatch(fetchHowItWorksCardContent(localStorage.getItem("language")));
   };
 
   const handleClickHamburgerMenu = () => {

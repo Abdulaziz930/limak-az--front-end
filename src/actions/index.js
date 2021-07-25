@@ -1,56 +1,145 @@
-import {
-  FETCH_LANGUAGES,
-  FETCH_LANGUAGES_SUCCESS,
-  FETCH_LANGUAGES_FAIL,
-  FETCH_CONTENTS,
-  FETCH_CONTENTS_SUCCESS,
-  FETCH_CONTENTS_FAIL,
-  FETCH_ADVERTISEMENTS,
-  FETCH_ADVERTISEMENTS_SUCCESS,
-  FETCH_ADVERTISEMENTS_FAIL,
-  FETCH_CERTIFICATE_CONTENTS,
-  FETCH_CERTIFICATE_CONTENTS_SUCCESS,
-  FETCH_CERTIFICATE_CONTENTS_FAIL,
-  FETCH_CERTIFICATE,
-  FETCH_CERTIFICATE_SUCCESS,
-  FETCH_CERTIFICATE_FAIL,
-} from "../constants";
+import * as CONSTANT from "../constants";
 import api from "../api";
 
 export const fetchLanguages = () => async (dispatch) => {
-  dispatch({ type: FETCH_LANGUAGES });
+  dispatch({ type: CONSTANT.FETCH_LANGUAGES });
 
   try {
     const response = await api.get("Language");
 
     dispatch({
-      type: FETCH_LANGUAGES_SUCCESS,
+      type: CONSTANT.FETCH_LANGUAGES_SUCCESS,
       payload: response.data,
     });
   } catch (e) {
     dispatch({
-      type: FETCH_LANGUAGES_FAIL,
+      type: CONSTANT.FETCH_LANGUAGES_FAIL,
       payload: e.message ? e.message : e,
     });
   }
 };
 
-export const fetchContents =
-  (languageCode = "AZ") =>
+export const fetchCalculatorContent =
+  (languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {
-    dispatch({ type: FETCH_CONTENTS });
+    dispatch({ type: CONSTANT.FETCH_CALCULATOR_CONTENT });
 
     try {
       const response = await api.get(
-        `Content/getContentWebSite/${languageCode}`
+        `Content/getCalculatorContent/${languageCode}`
       );
       dispatch({
-        type: FETCH_CONTENTS_SUCCESS,
+        type: CONSTANT.FETCH_CALCULATOR_CONTENT_SUCCESS,
         payload: response.data,
       });
     } catch (e) {
       dispatch({
-        type: FETCH_CONTENTS_FAIL,
+        type: CONSTANT.FETCH_CALCULATOR_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchCountriesContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_COUNTRIES_CONTENT });
+
+    try {
+      const response = await api.get(
+        `Content/getContriesContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_COUNTRIES_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_COUNTRIES_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchCitiesContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_CITIES_CONTENT });
+
+    try {
+      const response = await api.get(
+        `Content/getCitiesContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_CITIES_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_COUNTRIES_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchWeightContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_WEIGHT_CONTENT });
+
+    try {
+      const response = await api.get(
+        `Content/getWeightContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_WEIGHT_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_WEIGHT_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchUnitsOfLengthContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_UNITS_OF_LENGTH_CONTENT });
+
+    try {
+      const response = await api.get(
+        `Content/getUnitsOfLengthContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_UNITS_OF_LENGTH_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_UNITS_OF_LENGTH_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchProductTypesContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_PRODUCT_TYPES_CONTENT });
+
+    try {
+      const response = await api.get(
+        `Content/getProductTypesContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_PRODUCT_TYPES_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_PRODUCT_TYPES_CONTENT_FAIL,
         payload: e.message ? e.message : e,
       });
     }
@@ -59,33 +148,78 @@ export const fetchContents =
 export const fetchAdvertisements =
   (count = 10) =>
   async (dispatch) => {
-    dispatch({ type: FETCH_ADVERTISEMENTS });
+    dispatch({ type: CONSTANT.FETCH_ADVERTISEMENTS });
 
     try {
       const response = await api.get(`Advertisements/count/${count}`);
 
-      dispatch({ type: FETCH_ADVERTISEMENTS_SUCCESS, payload: response.data });
+      dispatch({
+        type: CONSTANT.FETCH_ADVERTISEMENTS_SUCCESS,
+        payload: response.data,
+      });
     } catch (e) {
       dispatch({
-        type: FETCH_ADVERTISEMENTS_FAIL,
+        type: CONSTANT.FETCH_ADVERTISEMENTS_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchHowItWorksContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_HOW_IT_WORKS_CONTENT });
+
+    try {
+      const response = await api.get(
+        `Content/getHowItWorkContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_HOW_IT_WORKS_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_HOW_IT_WORKS_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchHowItWorksCardContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_HOW_IT_WORKS_CARD_CONTENT });
+
+    try {
+      const response = await api.get(
+        `Content/getHowItWorkCardContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_HOW_IT_WORKS_CARD_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_HOW_IT_WORKS_CARD_CONTENT_FAIL,
         payload: e.message ? e.message : e,
       });
     }
   };
 
 export const fetchCertificateContents = () => async (dispatch) => {
-  dispatch({ type: FETCH_CERTIFICATE_CONTENTS });
+  dispatch({ type: CONSTANT.FETCH_CERTIFICATE_CONTENTS });
 
   try {
     const response = await api.get("CertificateContent");
 
     dispatch({
-      type: FETCH_CERTIFICATE_CONTENTS_SUCCESS,
+      type: CONSTANT.FETCH_CERTIFICATE_CONTENTS_SUCCESS,
       payload: response.data,
     });
   } catch (e) {
     dispatch({
-      type: FETCH_CERTIFICATE_CONTENTS_FAIL,
+      type: CONSTANT.FETCH_CERTIFICATE_CONTENTS_FAIL,
       payload: e.message ? e.message : e,
     });
   }
@@ -94,16 +228,19 @@ export const fetchCertificateContents = () => async (dispatch) => {
 export const fetchCertificate =
   (languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {
-    dispatch({ type: FETCH_CERTIFICATE });
+    dispatch({ type: CONSTANT.FETCH_CERTIFICATE });
 
     try {
       const response = await api.get(
-        `Content/getContnentCertificate/${languageCode}`
+        `Content/getCertificateContent/${languageCode}`
       );
-      dispatch({ type: FETCH_CERTIFICATE_SUCCESS, payload: response.data });
+      dispatch({
+        type: CONSTANT.FETCH_CERTIFICATE_SUCCESS,
+        payload: response.data,
+      });
     } catch (e) {
       dispatch({
-        type: FETCH_CERTIFICATE_FAIL,
+        type: CONSTANT.FETCH_CERTIFICATE_FAIL,
         payload: e.message ? e.message : e,
       });
     }

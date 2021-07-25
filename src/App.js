@@ -1,31 +1,19 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchLanguages, fetchContents, fetchCertificate } from "./actions";
+import React, { Suspense } from "react";
 import SpinnerWrapper from "./components/SpinnerWrapper";
 import Navi from "./components/Navi";
-import Dashboard from "./components/Dashboard";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
-  const dispatch = useDispatch();
-
-  const { loading } = useSelector((state) => state.contents);
-
-  useEffect(() => {
-    dispatch(fetchLanguages());
-    dispatch(fetchContents());
-    dispatch(fetchCertificate());
-  }, [dispatch]);
+  const Home = React.lazy(() => import("./components/Home"));
 
   return (
     <>
       <Navi />
-      {loading ? (
-        <SpinnerWrapper />
-      ) : (
-        <>
-          <Dashboard />
-        </>
-      )}
+      <Suspense fallback={<SpinnerWrapper />}>
+        <Switch>
+          <Route exact path='/' component={Home} />
+        </Switch>
+      </Suspense>
     </>
   );
 }

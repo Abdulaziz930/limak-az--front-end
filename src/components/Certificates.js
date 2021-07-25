@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCertificateContents } from "../actions";
+import { fetchCertificate, fetchCertificateContents } from "../actions";
 
 const Certificates = () => {
   const dispatch = useDispatch();
@@ -12,24 +12,15 @@ const Certificates = () => {
   const { certificate } = useSelector((state) => state.certificate);
 
   useEffect(() => {
+    dispatch(fetchCertificate());
     dispatch(fetchCertificateContents());
-    if (
-      localStorage.getItem("certificateContent") === null ||
-      localStorage.getItem("certificateContent").length === 0
-    ) {
-      localStorage.setItem("certificateContent", JSON.stringify(certificate));
-    }
-  }, [dispatch, certificate]);
-
-  const getCertificateContent = JSON.parse(
-    localStorage.getItem("certificateContent")
-  );
+  }, [dispatch]);
 
   return (
     <div className='certificates'>
       <div className='container'>
         <div className='header'>
-          <h2>{getCertificateContent[0].title}</h2>
+          <h2>{certificate.title}</h2>
         </div>
         <div className='content'>
           <div className='row'>

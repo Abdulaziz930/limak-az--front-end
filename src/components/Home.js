@@ -4,8 +4,7 @@ import HowItWorks from "./HowItWorks";
 import Intro from "./Intro";
 import News from "./News";
 import Tariffs from "./Tariffs";
-
-const Dashboard = () => {
+const Home = () => {
   return (
     <div className='main'>
       <Intro />
@@ -17,4 +16,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;

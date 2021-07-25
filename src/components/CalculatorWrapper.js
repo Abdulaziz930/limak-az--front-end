@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import language from "../translation/language.json";
+import {
+  fetchCalculatorContent,
+  fetchCountriesContent,
+  fetchCitiesContent,
+  fetchWeightContent,
+  fetchUnitsOfLengthContent,
+  fetchProductTypesContent,
+} from "../actions";
 
 const CalculatorWrapper = () => {
-  const { contents } = useSelector((state) => state.contents);
+  const dispatch = useDispatch();
+
+  const { calculatorContent } = useSelector((state) => state.calculatorContent);
+  const { countries } = useSelector((state) => state.countries);
+  const { cities } = useSelector((state) => state.cities);
+  const { weights } = useSelector((state) => state.weights);
+  const { unitsOfLength } = useSelector((state) => state.unitsOfLength);
+  const { productTypes } = useSelector((state) => state.productTypes);
 
   const [weightValue, setWeightValue] = useState("");
   const [weightUnitsValue, setWeightUnitsValue] = useState("");
@@ -20,16 +35,22 @@ const CalculatorWrapper = () => {
   const [sum, setSum] = useState(0.0);
 
   useEffect(() => {
-    if (contents.countriesDto !== undefined) {
-      setCountryValue(contents.countriesDto[0].value);
-      setCityValue(contents.citiesDto[0].value);
-      setTypeValue(contents.productTypesDto[0].value);
-      setWeightUnitsValue(contents.weightsDto[0].value);
-      setWidthUnitsValue(contents.unitsOfLengthsDto[0].value);
-      setLengthUnitsValue(contents.unitsOfLengthsDto[0].value);
-      setHeightUnitValue(contents.unitsOfLengthsDto[0].value);
+    dispatch(fetchCalculatorContent());
+    dispatch(fetchCountriesContent());
+    dispatch(fetchCitiesContent());
+    dispatch(fetchWeightContent());
+    dispatch(fetchUnitsOfLengthContent());
+    dispatch(fetchProductTypesContent());
+    if (countries !== undefined) {
+      setCountryValue(countries[0]);
+      setCityValue(cities[0]);
+      setTypeValue(productTypes[0]);
+      setWeightUnitsValue(weights[0]);
+      setWidthUnitsValue(unitsOfLength[0]);
+      setLengthUnitsValue(unitsOfLength[0]);
+      setHeightUnitValue(unitsOfLength[0]);
     }
-  }, [contents]);
+  }, [dispatch]);
 
   const handleChangeWeight = (e) => {
     setWeightValue(e.target.value);
@@ -80,13 +101,13 @@ const CalculatorWrapper = () => {
   };
 
   const handleClickEmpty = () => {
-    setCountryValue(contents.countriesDto[0].value);
-    setCityValue(contents.citiesDto[0].value);
-    setTypeValue(contents.productTypesDto[0].value);
-    setWeightUnitsValue(contents.weightsDto[0].value);
-    setWidthUnitsValue(contents.unitsOfLengthsDto[0].value);
-    setLengthUnitsValue(contents.unitsOfLengthsDto[0].value);
-    setHeightUnitValue(contents.unitsOfLengthsDto[0].value);
+    setCountryValue(countries[0].value);
+    setCityValue(cities[0].value);
+    setTypeValue(productTypes[0].value);
+    setWeightUnitsValue(weights[0].value);
+    setWidthUnitsValue(unitsOfLength[0].value);
+    setLengthUnitsValue(unitsOfLength[0].value);
+    setHeightUnitValue(unitsOfLength[0].value);
     setWeightValue("");
     setWidthValue("");
     setHeightValue("");
@@ -170,15 +191,14 @@ const CalculatorWrapper = () => {
   };
 
   const getLanguage = localStorage.getItem("language");
-  const getContent = JSON.parse(localStorage.getItem("content"));
 
   return (
     <>
       <div className='calculator mt-4'>
         <div className='calculator-title'>
-          <h4>{contents.calculatorsDto[0].title}</h4>
+          <h4>{calculatorContent.title}</h4>
           <button className='btn' onClick={handleClickEmpty}>
-            {contents.calculatorsDto[0].emptyButtonName}
+            {calculatorContent.emptyButtonName}
           </button>
         </div>
         <div className='row'>
@@ -190,7 +210,7 @@ const CalculatorWrapper = () => {
                   id='country'
                   value={countryValue}
                   onChange={(e) => handleChangeCountry(e)}>
-                  {contents.countriesDto.map((country, index) => {
+                  {countries.map((country, index) => {
                     return index === 0 ? (
                       <option
                         value={country.value}
@@ -224,7 +244,7 @@ const CalculatorWrapper = () => {
                       id='weight'
                       value={weightUnitsValue}
                       onChange={(e) => handleChangeWeightUnit(e)}>
-                      {contents.weightsDto.map((weight, index) => {
+                      {weights.map((weight, index) => {
                         return index === 0 ? (
                           <option
                             value={weight.value}
@@ -260,24 +280,22 @@ const CalculatorWrapper = () => {
                       id='width'
                       value={widthUnitsValue}
                       onChange={(e) => handleChangeWidthUnit(e)}>
-                      {contents.unitsOfLengthsDto.map(
-                        (unitsOfLength, index) => {
-                          return index === 0 ? (
-                            <option
-                              value={unitsOfLength.value}
-                              key={unitsOfLength.id}
-                              defaultValue>
-                              {unitsOfLength.name}
-                            </option>
-                          ) : (
-                            <option
-                              value={unitsOfLength.value}
-                              key={unitsOfLength.id}>
-                              {unitsOfLength.name}
-                            </option>
-                          );
-                        }
-                      )}
+                      {unitsOfLength.map((unitsOfLength, index) => {
+                        return index === 0 ? (
+                          <option
+                            value={unitsOfLength.value}
+                            key={unitsOfLength.id}
+                            defaultValue>
+                            {unitsOfLength.name}
+                          </option>
+                        ) : (
+                          <option
+                            value={unitsOfLength.value}
+                            key={unitsOfLength.id}>
+                            {unitsOfLength.name}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
                 </div>
@@ -300,24 +318,22 @@ const CalculatorWrapper = () => {
                       id='height'
                       value={heightUnitValue}
                       onChange={(e) => handleChangeHeightUnit(e)}>
-                      {contents.unitsOfLengthsDto.map(
-                        (unitsOfLength, index) => {
-                          return index === 0 ? (
-                            <option
-                              value={unitsOfLength.value}
-                              key={unitsOfLength.id}
-                              defaultValue>
-                              {unitsOfLength.name}
-                            </option>
-                          ) : (
-                            <option
-                              value={unitsOfLength.value}
-                              key={unitsOfLength.id}>
-                              {unitsOfLength.name}
-                            </option>
-                          );
-                        }
-                      )}
+                      {unitsOfLength.map((unitsOfLength, index) => {
+                        return index === 0 ? (
+                          <option
+                            value={unitsOfLength.value}
+                            key={unitsOfLength.id}
+                            defaultValue>
+                            {unitsOfLength.name}
+                          </option>
+                        ) : (
+                          <option
+                            value={unitsOfLength.value}
+                            key={unitsOfLength.id}>
+                            {unitsOfLength.name}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
                 </div>
@@ -332,7 +348,7 @@ const CalculatorWrapper = () => {
                   id='city'
                   value={cityValue}
                   onChange={(e) => handleChangeCity(e)}>
-                  {contents.citiesDto.map((city, index) => {
+                  {cities.map((city, index) => {
                     return index === 0 ? (
                       <option value={city.value} key={city.id} defaultValue>
                         {city.name}
@@ -375,24 +391,22 @@ const CalculatorWrapper = () => {
                       id='length'
                       value={lengthUnitsValue}
                       onChange={(e) => handleChangeLengthUnit(e)}>
-                      {contents.unitsOfLengthsDto.map(
-                        (unitsOfLength, index) => {
-                          return index === 0 ? (
-                            <option
-                              value={unitsOfLength.value}
-                              key={unitsOfLength.id}
-                              defaultValue>
-                              {unitsOfLength.name}
-                            </option>
-                          ) : (
-                            <option
-                              value={unitsOfLength.value}
-                              key={unitsOfLength.id}>
-                              {unitsOfLength.name}
-                            </option>
-                          );
-                        }
-                      )}
+                      {unitsOfLength.map((unitsOfLength, index) => {
+                        return index === 0 ? (
+                          <option
+                            value={unitsOfLength.value}
+                            key={unitsOfLength.id}
+                            defaultValue>
+                            {unitsOfLength.name}
+                          </option>
+                        ) : (
+                          <option
+                            value={unitsOfLength.value}
+                            key={unitsOfLength.id}>
+                            {unitsOfLength.name}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
                 </div>
@@ -405,7 +419,7 @@ const CalculatorWrapper = () => {
                   id='type'
                   value={typeValue}
                   onChange={(e) => handleChangeType(e)}>
-                  {contents.productTypesDto.map((productType, index) => {
+                  {productTypes.map((productType, index) => {
                     return index === 0 ? (
                       <option
                         value={productType.value}
@@ -424,15 +438,13 @@ const CalculatorWrapper = () => {
             </div>
             <div className='btnbox'>
               <button className='btn' onClick={handleClickSum}>
-                {contents.calculatorsDto[0].sumButtonName}
+                {calculatorContent.sumButtonName}
               </button>
             </div>
           </div>
           <div className='col-md-12'>
             <div className='sum'>
-              <p className='sum-text'>
-                {contents.calculatorsDto[0].sumLabelName}:
-              </p>
+              <p className='sum-text'>{calculatorContent.sumLabelName}:</p>
               <p className='sum-count'>$ {sum}</p>
             </div>
           </div>
