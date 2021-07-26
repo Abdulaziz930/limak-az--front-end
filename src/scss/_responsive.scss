@@ -39,6 +39,16 @@
       }
     }
   }
+  .news {
+    .news-card {
+      .card-caption {
+        bottom: -13%;
+        .caption-title {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
 }
 @media screen and(max-width: 576px) {
   .header {
@@ -99,6 +109,14 @@
     .content {
       .imgBox {
         padding-bottom: 45px;
+      }
+    }
+  }
+  .news {
+    .news-card {
+      margin-bottom: 15px;
+      .card-caption {
+        bottom: -5%;
       }
     }
   }

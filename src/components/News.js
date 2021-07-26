@@ -16,6 +16,15 @@ const News = () => {
                   alt=''
                   className='img-fluid'
                 />
+                <div className='card-caption'>
+                  <h4 className='caption-title'>
+                    Türkiyə anbarımız yeni ünvanda!
+                  </h4>
+                  <p className='caption-date'>
+                    <i className='far fa-calendar-alt'></i>
+                    <span className='date'>23.07.2021</span>
+                  </p>
+                </div>
               </div>
             </div>
             <div className='col-md-4'>
@@ -25,6 +34,15 @@ const News = () => {
                   alt=''
                   className='img-fluid'
                 />
+                <div className='card-caption'>
+                  <h4 className='caption-title'>
+                    Limak.az Xırdalanda xidmətinizdədir
+                  </h4>
+                  <p className='caption-date'>
+                    <i className='far fa-calendar-alt'></i>
+                    <span className='date'>23.07.2021</span>
+                  </p>
+                </div>
               </div>
             </div>
             <div className='col-md-4'>
@@ -34,6 +52,15 @@ const News = () => {
                   alt=''
                   className='img-fluid'
                 />
+                <div className='card-caption'>
+                  <h4 className='caption-title'>
+                    BirKart-la sifariş et, faizsiz ödə!
+                  </h4>
+                  <p className='caption-date'>
+                    <i className='far fa-calendar-alt'></i>
+                    <span className='date'>23.07.2021</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
