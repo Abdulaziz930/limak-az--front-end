@@ -12,6 +12,8 @@ import {
   fetchProductTypesContent,
   fetchHowItWorksContent,
   fetchHowItWorksCardContent,
+  fetchAdvertisementTitle,
+  fetchAdvertisements,
 } from "../actions";
 import language from "../translation/language.json";
 
@@ -44,6 +46,8 @@ const Navi = () => {
     dispatch(fetchCertificate(localStorage.getItem("language")));
     dispatch(fetchHowItWorksContent(localStorage.getItem("language")));
     dispatch(fetchHowItWorksCardContent(localStorage.getItem("language")));
+    dispatch(fetchAdvertisementTitle(localStorage.getItem("language")));
+    dispatch(fetchAdvertisements(3, localStorage.getItem("language")));
   };
 
   const handleClickHamburgerMenu = () => {

@@ -146,12 +146,14 @@ export const fetchProductTypesContent =
   };
 
 export const fetchAdvertisements =
-  (count = 10) =>
+  (count = 10, languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {
     dispatch({ type: CONSTANT.FETCH_ADVERTISEMENTS });
 
     try {
-      const response = await api.get(`Advertisements/count/${count}`);
+      const response = await api.get(
+        `Content/getAdvertisimentContent/${languageCode}/${count}`
+      );
 
       dispatch({
         type: CONSTANT.FETCH_ADVERTISEMENTS_SUCCESS,
@@ -241,6 +243,27 @@ export const fetchCertificate =
     } catch (e) {
       dispatch({
         type: CONSTANT.FETCH_CERTIFICATE_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchAdvertisementTitle =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_ADVERTISEMENT_TITLE });
+
+    try {
+      const response = await api.get(
+        `Content/GetAdvertisimentTitleContent/${languageCode}`
+      );
+      dispatch({
+        type: CONSTANT.FETCH_ADVERTISEMENT_TITLE_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_ADVERTISEMENT_TITLE_FAIL,
         payload: e.message ? e.message : e,
       });
     }

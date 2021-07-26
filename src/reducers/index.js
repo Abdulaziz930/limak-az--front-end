@@ -190,7 +190,7 @@ export const productTypesContentReducers = (
 };
 
 export const advertisementsReducers = (
-  state = { loading: false, advertisements: [] },
+  state = { loading: false, advertisements: {} },
   action
 ) => {
   switch (action.type) {
@@ -314,6 +314,33 @@ export const certificateReducer = (
         loading: false,
       };
     case CONSTANT.FETCH_CERTIFICATE_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const advertisimentTitleContentReducers = (
+  state = { loading: false, content: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_ADVERTISEMENT_TITLE:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_ADVERTISEMENT_TITLE_SUCCESS:
+      return {
+        ...state,
+        content: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_ADVERTISEMENT_TITLE_FAIL:
       return {
         ...state,
         error: action.payload,

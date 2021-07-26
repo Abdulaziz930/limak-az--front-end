@@ -11,7 +11,8 @@ import {
   certificateContentsReducer,
   certificateReducer,
   howItWorksContentReducers,
-  howItWorksCardContentReducers
+  howItWorksCardContentReducers,
+  advertisimentTitleContentReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -28,7 +29,8 @@ const reducers = combineReducers({
   certificateContents: certificateContentsReducer,
   certificate: certificateReducer,
   howItWorkContent: howItWorksContentReducers,
-  howItWorkCardContent: howItWorksCardContentReducers
+  howItWorkCardContent: howItWorksCardContentReducers,
+  advertisimentTitleContent: advertisimentTitleContentReducers,
 });
 
 const store = createStore(
