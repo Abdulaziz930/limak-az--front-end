@@ -265,4 +265,9 @@
 }
 .recomendedShops {
   padding: 60px 0 30px;
+  img {
+    pointer-events: none;
+    cursor: default;
+    outline: none;
+  }
 }

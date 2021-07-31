@@ -13,6 +13,7 @@ import {
   howItWorksContentReducers,
   howItWorksCardContentReducers,
   advertisimentTitleContentReducers,
+  recommendedShopsReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -31,6 +32,7 @@ const reducers = combineReducers({
   howItWorkContent: howItWorksContentReducers,
   howItWorkCardContent: howItWorksCardContentReducers,
   advertisimentTitleContent: advertisimentTitleContentReducers,
+  recommendedShops: recommendedShopsReducers,
 });
 
 const store = createStore(

@@ -268,3 +268,21 @@ export const fetchAdvertisementTitle =
       });
     }
   };
+
+export const fetchRecommendedShops = () => async (dispatch) => {
+  dispatch({ type: CONSTANT.FETCH_RECOMMENDED_SHOPS });
+
+  try {
+    const response = await api.get("Shop");
+
+    dispatch({
+      type: CONSTANT.FETCH_RECOMMENDED_SHOPS_SUCCESS,
+      payload: response.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: CONSTANT.FETCH_RECOMMENDED_SHOPS_FAIL,
+      payload: e.message ? e.message : e,
+    });
+  }
+};

@@ -350,3 +350,30 @@ export const advertisimentTitleContentReducers = (
       return state;
   }
 };
+
+export const recommendedShopsReducers = (
+  state = { loading: false, recommendedShops: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_RECOMMENDED_SHOPS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_RECOMMENDED_SHOPS_SUCCESS:
+      return {
+        ...state,
+        recommendedShops: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_RECOMMENDED_SHOPS_FAIL:
+      return {
+        ...state,
+        recommendedShops: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
