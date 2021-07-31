@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-// import { fetchAdvertisements } from "../actions";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchAdvertisements } from "../actions";
 import CalculatorWrapper from "./CalculatorWrapper";
 
 const Intro = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const settings = {
     infinite: true,
@@ -19,9 +19,9 @@ const Intro = () => {
 
   const { advertisements } = useSelector((state) => state.advertisements);
 
-  // useEffect(() => {
-  //   dispatch(fetchAdvertisements(3));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchAdvertisements(3));
+  }, [dispatch]);
 
   return (
     <div className='intro'>
@@ -30,7 +30,7 @@ const Intro = () => {
           <div className='col-lg-8'>
             <div className='slider mt-4'>
               <Slider {...settings}>
-                {advertisements.advertisementDto.map((advertisement) => {
+                {advertisements?.map((advertisement) => {
                   return (
                     <div key={advertisement.id}>
                       <Link

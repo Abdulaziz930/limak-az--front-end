@@ -3,6 +3,7 @@ import Certificates from "./Certificates";
 import HowItWorks from "./HowItWorks";
 import Intro from "./Intro";
 import News from "./News";
+import RecomendedShops from "./RecomendedShops";
 import Tariffs from "./Tariffs";
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Tariffs />
       <Certificates />
       <News />
+      <RecomendedShops />
     </div>
   );
 };

@@ -1,18 +1,18 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import SpinnerWrapper from "./components/SpinnerWrapper";
 import Navi from "./components/Navi";
 import { Route, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { fetchAdvertisements } from "./actions";
+// import { useDispatch } from "react-redux";
+// import { fetchAdvertisements } from "./actions";
 
 function App() {
   const Home = React.lazy(() => import("./components/Home"));
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchAdvertisements(3));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAdvertisements(3));
+  // }, [dispatch]);
 
   return (
     <>

@@ -190,7 +190,7 @@ export const productTypesContentReducers = (
 };
 
 export const advertisementsReducers = (
-  state = { loading: false, advertisements: {} },
+  state = { loading: false, advertisements: [] },
   action
 ) => {
   switch (action.type) {

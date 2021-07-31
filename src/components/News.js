@@ -22,7 +22,7 @@ const News = () => {
         </div>
         <div className='content'>
           <div className='row'>
-            {advertisements.advertisementDto.map((advertisement) => {
+            {advertisements?.map((advertisement) => {
               const date = new Date(advertisement.creationDate);
               return (
                 <div className='col-md-4' key={advertisement.id}>
