@@ -14,6 +14,8 @@ import {
   howItWorksCardContentReducers,
   advertisimentTitleContentReducers,
   recommendedShopsReducers,
+  socialMediasReducers,
+  contactReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -33,6 +35,8 @@ const reducers = combineReducers({
   howItWorkCardContent: howItWorksCardContentReducers,
   advertisimentTitleContent: advertisimentTitleContentReducers,
   recommendedShops: recommendedShopsReducers,
+  socialMedias: socialMediasReducers,
+  contact: contactReducers,
 });
 
 const store = createStore(

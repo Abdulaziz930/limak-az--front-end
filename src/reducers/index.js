@@ -1,7 +1,11 @@
 import * as CONSTANT from "../constants";
 
 export const languagesReducers = (
-  state = { loading: false, languages: [] },
+  state = {
+    loading: false,
+    languages: [],
+    activeLanguage: localStorage.getItem("language"),
+  },
   action
 ) => {
   switch (action.type) {
@@ -13,13 +17,14 @@ export const languagesReducers = (
     case CONSTANT.FETCH_LANGUAGES_SUCCESS:
       return {
         ...state,
-        languages: action.payload,
+        languages: action.payload.languages,
+        activeLanguage: action.payload.activeLanguage,
         loading: false,
       };
     case CONSTANT.FETCH_LANGUAGES_FAIL:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload.languages,
         loading: false,
       };
     default:
@@ -371,6 +376,60 @@ export const recommendedShopsReducers = (
       return {
         ...state,
         recommendedShops: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const socialMediasReducers = (
+  state = { loading: false, socialMedias: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_SOCIAL_MEDIAS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_SOCIAL_MEDIAS_SUCCESS:
+      return {
+        ...state,
+        socialMedias: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_SOCIAL_MEDIAS_FAIL:
+      return {
+        ...state,
+        socialMedias: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const contactReducers = (
+  state = { loading: false, contact: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_CONTACT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_CONTACT_SUCCESS:
+      return {
+        ...state,
+        contact: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_CONTACT_FAIL:
+      return {
+        ...state,
+        contact: action.payload,
         loading: false,
       };
     default:

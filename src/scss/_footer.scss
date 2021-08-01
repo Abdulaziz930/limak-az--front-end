@@ -31,14 +31,20 @@
               color: $secondary-color;
             }
           }
-          .fb-link {
-            padding: 7px 13px;
+          &:first-child {
+            a {
+              padding: 7px 13px;
+            }
           }
-          .ing-link {
-            padding: 7px 11px;
+          &:nth-child(2) {
+            a {
+              padding: 7px 11px;
+            }
           }
-          .tw-link {
-            padding: 7px 11px;
+          &:last-child {
+            a {
+              padding: 7px 11px;
+            }
           }
         }
       }
@@ -91,6 +97,7 @@
           font-weight: 900;
           padding-right: 65px;
           position: relative;
+          text-transform: uppercase;
           span {
             font-size: 12px;
             position: absolute;

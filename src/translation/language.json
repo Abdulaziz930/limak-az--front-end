@@ -75,7 +75,13 @@
     },
     "boxCountInput": {
       "placeholder": "Bağlama sayı"
-    }
+    },
+    "description": "'Limak VM' MMC sürətli poçtdaşıma və kuryer şirkətidir. Fiziki və hüquqi şəxslərin sifariş etdikləri yükləri xaricdəki anbarlarına qəbul edir, onların Azərbaycana daşınıb, müştəriyə təhvil verilməsini təmin edir.",
+    "social_media_title": "Bizi sosial şəbəkələrdən izləyin",
+    "section_title": "Bölmələr",
+    "phone": "Dəstək <br /> Xətti",
+    "app": "Mobil Tətbiqlərimiz",
+    "copy_right": "© 2018 Limak.az | Bütün hüquqlar qorunur"
   },
   "RU": {
     "sections": [
@@ -153,7 +159,13 @@
     },
     "boxCountInput": {
       "placeholder": "Количество"
-    }
+    },
+    "description": "ООО Limak VM - компания экспресс почтовой и курьерской службы. Принимает на свои зарубежные склады заказанные физическими и юридическими лицами грузы, обеспечивает их перевозку в Азербайджан и доставку клиентам.",
+    "social_media_title": "Следите за нами в соцсетях",
+    "section_title": "Разделы",
+    "phone": "СЛУЖБА <br /> ПОДДЕРЖКИ",
+    "app": "Наши мобильные приложения",
+    "copy_right": "© 2018 Limak.az | Все права защищены"
   },
   "EN": {
     "sections": [
@@ -231,6 +243,12 @@
     },
     "boxCountInput": {
       "placeholder": "Count"
-    }
+    },
+    "description": "Limak VM LLC is an express postal and courier service company. It accepts goods ordered by individuals and legal entities to its foreign warehouses, ensures their transportation to Azerbaijan and delivery to customers.",
+    "social_media_title": "Follow us on social networks",
+    "section_title": "Sections",
+    "phone": "Support <br /> Service",
+    "app": "Our Mobile Applications",
+    "copy_right": "© 2018 Limak.az | All rights reserved"
   }
 }

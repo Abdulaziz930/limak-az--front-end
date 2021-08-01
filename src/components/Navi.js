@@ -14,13 +14,14 @@ import {
   fetchHowItWorksCardContent,
   fetchAdvertisementTitle,
   fetchAdvertisements,
+  fetchContact,
 } from "../actions";
 import language from "../translation/language.json";
 
 const Navi = () => {
   const dispatch = useDispatch();
 
-  const { languages } = useSelector((state) => state.languages);
+  const { languages, activeLanguage } = useSelector((state) => state.languages);
 
   const [isOpen, setIsOpen] = useState(false);
   const [hamburgerMenuClassName, setHamburgerMenuClassName] =
@@ -48,6 +49,7 @@ const Navi = () => {
     dispatch(fetchHowItWorksCardContent(localStorage.getItem("language")));
     dispatch(fetchAdvertisementTitle(localStorage.getItem("language")));
     dispatch(fetchAdvertisements(3, localStorage.getItem("language")));
+    dispatch(fetchContact(localStorage.getItem("language")));
   };
 
   const handleClickHamburgerMenu = () => {
@@ -60,15 +62,13 @@ const Navi = () => {
     }
   };
 
-  const getLanguage = localStorage.getItem("language");
-
   return (
     <>
       <div className='header'>
         <div className='container'>
           <div className='navbar-top'>
             <ul className='nav-items left-items'>
-              {language[getLanguage].auxiliarySections.map((section) => {
+              {language[activeLanguage].auxiliarySections.map((section) => {
                 return (
                   <li className='navbar-top__item' key={section.id}>
                     <Link className='navbar-top__link' to={`/${section.url}`}>
@@ -79,17 +79,19 @@ const Navi = () => {
               })}
             </ul>
             <ul className='nav-items right-items'>
-              {language[getLanguage].authentications.map((authentication) => {
-                return (
-                  <li className='navbar-top__item' key={authentication.id}>
-                    <Link
-                      className='navbar-top__link'
-                      to={`/${authentication.url}`}>
-                      {authentication.name}
-                    </Link>
-                  </li>
-                );
-              })}
+              {language[activeLanguage].authentications.map(
+                (authentication) => {
+                  return (
+                    <li className='navbar-top__item' key={authentication.id}>
+                      <Link
+                        className='navbar-top__link'
+                        to={`/${authentication.url}`}>
+                        {authentication.name}
+                      </Link>
+                    </li>
+                  );
+                }
+              )}
             </ul>
           </div>
         </div>
@@ -145,7 +147,7 @@ const Navi = () => {
                       })}
                     </div>
                   </li>
-                  {language[getLanguage].sections.map((section) => {
+                  {language[activeLanguage].sections.map((section) => {
                     return (
                       <li className='nav-item' key={section.id}>
                         <Link className='nav-link' to={`/${section.url}`}>
@@ -158,8 +160,8 @@ const Navi = () => {
                 <div className='btnBox'>
                   <Link
                     className='btn'
-                    to={`/${language[getLanguage].order.buttonUrl}`}>
-                    {language[getLanguage].order.buttonName}
+                    to={`/${language[activeLanguage].order.buttonUrl}`}>
+                    {language[activeLanguage].order.buttonName}
                   </Link>
                 </div>
               </div>

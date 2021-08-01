@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import language from "../translation/language.json";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchSocialMedias, fetchContact } from "../actions";
 
 const Footer = () => {
+  const dispatch = useDispatch();
+
+  const { activeLanguage } = useSelector((state) => state.languages);
+  const { socialMedias } = useSelector((state) => state.socialMedias);
+  const { contact } = useSelector((state) => state.contact);
+
+  useEffect(() => {
+    dispatch(fetchSocialMedias());
+    dispatch(fetchContact());
+  }, [dispatch]);
+
   return (
     <div className='footer'>
       <div className='footer-top'>
@@ -12,44 +26,24 @@ const Footer = () => {
                 <img src='./images/logo-footer.png' alt='' />
               </div>
               <div className='description'>
-                <p>
-                  "Limak VM" MMC sürətli poçtdaşıma və kuryer şirkətidir. Fiziki
-                  və hüquqi şəxslərin sifariş etdikləri yükləri xaricdəki
-                  anbarlarına qəbul edir, onların Azərbaycana daşınıb, müştəriyə
-                  təhvil verilməsini təmin edir.
-                </p>
+                <p>{language[activeLanguage].description}</p>
               </div>
               <div className='social-media-box'>
-                <h5>Bizi sosial şəbəkələrdən izləyin</h5>
+                <h5>{language[activeLanguage].social_media_title}</h5>
                 <div className='social-medias-wrapper'>
                   <ul className='social-medias'>
-                    <li>
-                      <a
-                        href='https://www.facebook.com/Limakaz/'
-                        target='_blank'
-                        rel='noreferrer'
-                        className='fb-link'>
-                        <i className='fab fa-facebook-f'></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='https://www.instagram.com/limak.az/'
-                        target='_blank'
-                        rel='noreferrer'
-                        className='ing-link'>
-                        <i className='fab fa-instagram'></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='https://twitter.com/limak_az'
-                        target='_blank'
-                        rel='noreferrer'
-                        className='tw-link'>
-                        <i className='fab fa-twitter'></i>
-                      </a>
-                    </li>
+                    {socialMedias.map((socialMedia) => {
+                      return (
+                        <li>
+                          <a
+                            href={socialMedia.url}
+                            target='_blank'
+                            rel='noreferrer'>
+                            <i className={socialMedia.icon}></i>
+                          </a>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
@@ -57,40 +51,34 @@ const Footer = () => {
             <div className='col-md-4'>
               <div className='sections'>
                 <div className='section-title'>
-                  <h4>Bölmələr</h4>
+                  <h4>{language[activeLanguage].section_title}</h4>
                 </div>
                 <div className='section-content'>
                   <div className='row'>
                     <div className='col-md-6'>
                       <ul>
-                        <li>
-                          <Link to='/countries'>Ölkələr</Link>
-                        </li>
-                        <li>
-                          <Link to='/shops'>Mağazalar</Link>
-                        </li>
-                        <li>
-                          <Link to='/calculator'>Kalkulayor</Link>
-                        </li>
-                        <li>
-                          <Link to='/contact'>Əlaqə</Link>
-                        </li>
+                        {language[activeLanguage].sections.map((section) => {
+                          return (
+                            <li key={section.id}>
+                              <Link to={`/${section.url}`}>{section.name}</Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                     <div className='col-md-6'>
                       <ul>
-                        <li>
-                          <Link to='/rules'>Qaydalar</Link>
-                        </li>
-                        <li>
-                          <Link to='/questions'>Suallar</Link>
-                        </li>
-                        <li>
-                          <Link to='/about'>Haqqımızda</Link>
-                        </li>
-                        <li>
-                          <Link to='/privacy'>Gizlilik Şərləri</Link>
-                        </li>
+                        {language[activeLanguage].auxiliarySections.map(
+                          (section) => {
+                            return (
+                              <li key={section.id}>
+                                <Link to={`/${section.url}`}>
+                                  {section.name}
+                                </Link>
+                              </li>
+                            );
+                          }
+                        )}
                       </ul>
                     </div>
                   </div>
@@ -102,20 +90,15 @@ const Footer = () => {
                 <div className='tel'>
                   <a href='tel:*9595'>
                     *9595
-                    <span>
-                      DƏSTƏK
-                      <br />
-                      XƏTTİ
-                    </span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: language[activeLanguage].phone,
+                      }}></span>
                   </a>
                 </div>
-                <p>
-                  Səbail rayonu, Lermontov küç. 40A (İçərişəhər
-                  metrostansiyasının yaxınlığı, "Azeurotel" baş ofisinin yanı)
-                  Bakı/Azərbaycan
-                </p>
+                <p>{contact.location}</p>
                 <div className='mobile'>
-                  <h5>Mobil Tətbiqlər</h5>
+                  <h5>{language[activeLanguage].app}</h5>
                   <div className='mobile-content'>
                     <a
                       href='https://play.google.com/store/apps/details?id=az.limak'
@@ -135,7 +118,7 @@ const Footer = () => {
           <div className='row'>
             <div className='col-md-6'>
               <p className='copy-right'>
-                © 2018 Limak.az | Bütün hüquqlar qorunur
+                {language[activeLanguage].copy_right}
               </p>
             </div>
             <div className='col-md-6'>

@@ -9,7 +9,10 @@ export const fetchLanguages = () => async (dispatch) => {
 
     dispatch({
       type: CONSTANT.FETCH_LANGUAGES_SUCCESS,
-      payload: response.data,
+      payload: {
+        languages: response.data,
+        activeLanguage: localStorage.getItem("language"),
+      },
     });
   } catch (e) {
     dispatch({
@@ -286,3 +289,43 @@ export const fetchRecommendedShops = () => async (dispatch) => {
     });
   }
 };
+
+export const fetchSocialMedias = () => async (dispatch) => {
+  dispatch({ type: CONSTANT.FETCH_SOCIAL_MEDIAS });
+
+  try {
+    const response = await api.get("SocialMedia");
+
+    dispatch({
+      type: CONSTANT.FETCH_SOCIAL_MEDIAS_SUCCESS,
+      payload: response.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: CONSTANT.FETCH_SOCIAL_MEDIAS_FAIL,
+      payload: e.message ? e.message : e,
+    });
+  }
+};
+
+export const fetchContact =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_CONTACT });
+
+    try {
+      const response = await api.get(
+        `Content/getContactContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_CONTACT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_CONTACT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
