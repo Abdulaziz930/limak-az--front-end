@@ -1,0 +1,152 @@
+.footer {
+  background-color: $second-background-color;
+  .footer-top {
+    padding: 40px 0 30px;
+    border-bottom: 1px solid $second-border-color;
+    .description {
+      margin-top: 30px;
+      p {
+        @include text(11px, 400, $third-text-color);
+        line-height: 18px;
+      }
+    }
+    .social-media-box {
+      h5 {
+        @include text(15px, 500, $secondary-color);
+        margin: 20px 0 25px;
+      }
+      .social-medias {
+        display: flex;
+        li {
+          &:not(:first-child) {
+            padding-left: 15px;
+          }
+          a {
+            color: $primary-color;
+            border: 1px solid $primary-color;
+            border-radius: 50%;
+            transition: all 0.5s;
+            &:hover {
+              background-color: $primary-color;
+              color: $secondary-color;
+            }
+          }
+          .fb-link {
+            padding: 7px 13px;
+          }
+          .ing-link {
+            padding: 7px 11px;
+          }
+          .tw-link {
+            padding: 7px 11px;
+          }
+        }
+      }
+    }
+    .sections {
+      padding-left: 25px;
+      .section-title {
+        margin-top: 17px;
+        margin-bottom: 25px;
+        h4 {
+          @include text(17px, 500, $secondary-color);
+        }
+      }
+      .section-content {
+        li {
+          margin-top: 10px;
+          a {
+            position: relative;
+            @include text(16px, 400, $third-text-color);
+            &::before {
+              content: "";
+              position: absolute;
+              background-color: $secondary-color;
+              width: 0;
+              height: 2px;
+              border-radius: 5px;
+              bottom: -10%;
+              left: 0;
+              transition: all 0.5s;
+            }
+            &:hover {
+              text-decoration: none;
+              color: $secondary-color;
+              &::before {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .contact {
+      .tel {
+        display: flex;
+        justify-content: flex-end;
+        a {
+          color: #ffff;
+          text-decoration: none;
+          font-size: 32px;
+          font-weight: 900;
+          padding-right: 65px;
+          position: relative;
+          span {
+            font-size: 12px;
+            position: absolute;
+            text-align: left;
+            line-height: 12px;
+            right: 8px;
+            top: 9px;
+          }
+          &::after {
+            content: url("http://localhost:3000/images/phone.png");
+            right: 0;
+            position: absolute;
+            bottom: 13px;
+            top: -3px;
+          }
+        }
+      }
+      p {
+        @include text(13px, 400, $third-text-color);
+        text-align: right;
+        margin-top: 15px;
+      }
+      .mobile {
+        margin-top: 40px;
+        h5 {
+          @include text(15px, 500, $secondary-color);
+          text-align: right;
+          margin-bottom: 15px;
+        }
+        .mobile-content {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+  .footer-bottom {
+    padding: 20px 0;
+    .copy-right {
+      @include text(14px, 400, $third-text-color);
+      margin-top: 5px;
+    }
+    .cards {
+      display: flex;
+      justify-content: flex-end;
+      .card-box {
+        img {
+          &:not(:first-child) {
+            padding-left: 30px;
+          }
+        }
+      }
+    }
+  }
+}

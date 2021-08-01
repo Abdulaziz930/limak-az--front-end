@@ -7,6 +7,7 @@ import store from "./store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./scss/index.scss";
+import "@fortawesome/fontawesome-free";
 
 ReactDOM.render(
   <React.StrictMode>

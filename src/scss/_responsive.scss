@@ -120,6 +120,61 @@
       }
     }
   }
+  .footer {
+    .footer-top {
+      .logo-box {
+        @include flexy-box();
+      }
+      .description {
+        p {
+          text-align: center;
+        }
+      }
+      .social-media-box {
+        h5 {
+          text-align: center;
+        }
+        .social-medias-wrapper {
+          @include flexy-box();
+        }
+      }
+      .sections {
+        .section-title {
+          h4 {
+            text-align: center;
+          }
+        }
+        .section-content {
+          @include flexy-box();
+          text-align: center;
+        }
+      }
+      .contact {
+        .tel {
+          @include flexy-box();
+        }
+        p {
+          text-align: center;
+        }
+        .mobile {
+          h5 {
+            text-align: center;
+          }
+          .mobile-content {
+            @include flexy-box();
+          }
+        }
+      }
+    }
+    .footer-bottom {
+      .copy-right {
+        text-align: center;
+      }
+      .cards {
+        @include flexy-box();
+      }
+    }
+  }
 }
 @media screen and(max-width: 360px) {
   .header {
