@@ -34,7 +34,7 @@ const Footer = () => {
                   <ul className='social-medias'>
                     {socialMedias.map((socialMedia) => {
                       return (
-                        <li>
+                        <li key={socialMedia.id}>
                           <a
                             href={socialMedia.url}
                             target='_blank'

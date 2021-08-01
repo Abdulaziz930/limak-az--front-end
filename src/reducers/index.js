@@ -436,3 +436,57 @@ export const contactReducers = (
       return state;
   }
 };
+
+export const contactsReducers = (
+  state = { loading: true, contacts: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_CONTACTS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_CONTACTS_SUCCESS:
+      return {
+        ...state,
+        contacts: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_CONTACTS_FAIL:
+      return {
+        ...state,
+        contacts: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const contactContentReducers = (
+  state = { loading: true, contactContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_CONTACT_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_CONTACT_CONTENT_SUCCESS:
+      return {
+        ...state,
+        contactContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_CONTACT_CONTENT_FAIL:
+      return {
+        ...state,
+        contactContent: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

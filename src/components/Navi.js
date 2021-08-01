@@ -15,6 +15,8 @@ import {
   fetchAdvertisementTitle,
   fetchAdvertisements,
   fetchContact,
+  fetchContacts,
+  fetchContactContent,
 } from "../actions";
 import language from "../translation/language.json";
 
@@ -50,6 +52,8 @@ const Navi = () => {
     dispatch(fetchAdvertisementTitle(localStorage.getItem("language")));
     dispatch(fetchAdvertisements(3, localStorage.getItem("language")));
     dispatch(fetchContact(localStorage.getItem("language")));
+    dispatch(fetchContacts(localStorage.getItem("language")));
+    dispatch(fetchContactContent(localStorage.getItem("language")));
   };
 
   const handleClickHamburgerMenu = () => {

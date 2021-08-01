@@ -329,3 +329,47 @@ export const fetchContact =
       });
     }
   };
+
+export const fetchContacts =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_CONTACTS });
+
+    try {
+      const response = await api.get(
+        `ContactContent/getContactsContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_CONTACTS_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_CONTACTS_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchContactContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_CONTACT_CONTENT });
+
+    try {
+      const response = await api.get(
+        `ContactContent/getContactContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_CONTACT_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_CONTACT_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

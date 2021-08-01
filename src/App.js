@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const Home = React.lazy(() => import("./components/Home"));
+  const Contact = React.lazy(() => import("./components/Contact"));
 
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
       <Suspense fallback={<SpinnerWrapper />}>
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route path='/contact' component={Contact} />
         </Switch>
       </Suspense>
       <Footer />

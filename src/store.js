@@ -16,6 +16,8 @@ import {
   recommendedShopsReducers,
   socialMediasReducers,
   contactReducers,
+  contactsReducers,
+  contactContentReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -37,6 +39,8 @@ const reducers = combineReducers({
   recommendedShops: recommendedShopsReducers,
   socialMedias: socialMediasReducers,
   contact: contactReducers,
+  contacts: contactsReducers,
+  contactContent: contactContentReducers,
 });
 
 const store = createStore(

@@ -271,3 +271,83 @@
     outline: none;
   }
 }
+.contact-wrapper {
+  .contact-header {
+    padding: 30px 0;
+    h4 {
+      @include text(23px, 400, $text-color);
+      text-transform: uppercase;
+    }
+  }
+  .contact-content {
+    background-color: $secondary-color;
+    padding: 60px 0 0;
+    h1 {
+      @include text(48px, 700, $text-color);
+      margin-bottom: 20px;
+    }
+    .tab-content {
+      margin-top: 25px;
+      .tab-item {
+        margin-top: 22px;
+        i {
+          font-size: 25px;
+          color: $primary-color;
+        }
+      }
+      .phone,
+      .mail {
+        display: flex;
+        span {
+          padding-left: 15px;
+          font-size: 18px;
+        }
+      }
+      .location {
+        span {
+          padding-left: 15px;
+          font-size: 15px;
+        }
+      }
+      .services {
+        .service-item {
+          display: flex;
+          margin-bottom: 5px;
+          h5 {
+            @include text(18px, 700, $text-color);
+          }
+          span {
+            padding-left: 15px;
+          }
+        }
+      }
+    }
+    a.active {
+      border-top: 3px solid $primary-color;
+    }
+    .nav-item {
+      @include text(16px, 600, $link-color);
+      padding: 15px 30px;
+    }
+    .question-box {
+      h4 {
+        @include text(23px, 700, $text-color);
+      }
+      .btn {
+        @include btn(10px 16px, transparent, 14px, $primary-color);
+        text-transform: uppercase;
+        margin-top: 10px;
+        &:hover {
+          @include btnHover(transparent);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+    .map-wrapper {
+      margin-top: 60px;
+    }
+  }
+}
