@@ -278,6 +278,28 @@
       @include text(23px, 400, $text-color);
       text-transform: uppercase;
     }
+    .contact-header-wrapper {
+      @include flexy-box-between();
+      .breadcrumb {
+        background-color: transparent;
+        margin-bottom: 0;
+        padding: 0;
+        .breadcrumb-item {
+          a {
+            color: $primary-color;
+            text-transform: capitalize;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          span {
+            text-transform: capitalize;
+            pointer-events: none;
+            cursor: default;
+          }
+        }
+      }
+    }
   }
   .contact-content {
     background-color: $secondary-color;

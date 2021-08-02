@@ -49,6 +49,18 @@
       }
     }
   }
+  .contact-wrapper {
+    .contact-content {
+      .question-box {
+        h4 {
+          font-size: 17px;
+        }
+        .btn {
+          padding: 8px 3px;
+        }
+      }
+    }
+  }
 }
 @media screen and(max-width: 576px) {
   .header {
@@ -172,6 +184,13 @@
       }
       .cards {
         @include flexy-box();
+      }
+    }
+  }
+  .contact-wrapper {
+    .contact-content {
+      .question-box {
+        margin-top: 30px;
       }
     }
   }

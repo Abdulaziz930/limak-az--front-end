@@ -125,16 +125,15 @@ const Navi = () => {
                 id='navbarSupportedContent'>
                 <ul className='navbar-nav mr-auto'>
                   <li className='nav-item dropdown'>
-                    <Link
+                    <p
                       className='nav-link dropdown-toggle'
-                      to='/'
                       id='navbarDropdown'
                       role='button'
                       data-toggle='dropdown'
                       aria-haspopup='true'
                       aria-expanded='false'>
                       {localStorage.getItem("language")}
-                    </Link>
+                    </p>
 
                     <div
                       className='dropdown-menu'

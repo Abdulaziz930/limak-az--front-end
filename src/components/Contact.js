@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Tabs, Tab } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts, fetchContactContent } from "../actions";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,10 @@ const Contact = () => {
     <div className='contact-wrapper'>
       <div className='contact-header'>
         <div className='container'>
-          <h4>{contactContent.pageTitle}</h4>
+          <div className='contact-header-wrapper'>
+            <h4>{contactContent.pageTitle}</h4>
+            <Breadcrumbs />
+          </div>
         </div>
       </div>
       <div className='contact-content'>

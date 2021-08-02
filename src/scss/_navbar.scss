@@ -36,6 +36,11 @@
     .navbar {
       padding-left: 0;
       padding-right: 0;
+      .dropdown {
+        p {
+          margin-bottom: 0;
+        }
+      }
       .navbar-toggler {
         .hamburger-menu-icon {
           position: absolute;
