@@ -17,6 +17,7 @@ import {
   fetchContact,
   fetchContacts,
   fetchContactContent,
+  fetchShopContent,
 } from "../actions";
 import language from "../translation/language.json";
 
@@ -54,6 +55,7 @@ const Navi = () => {
     dispatch(fetchContact(localStorage.getItem("language")));
     dispatch(fetchContacts(localStorage.getItem("language")));
     dispatch(fetchContactContent(localStorage.getItem("language")));
+    dispatch(fetchShopContent(localStorage.getItem("language")));
   };
 
   const handleClickHamburgerMenu = () => {
@@ -104,7 +106,7 @@ const Navi = () => {
             <nav className='navbar navbar-expand-lg'>
               <Link className='navbar-brand' to='/'>
                 <img
-                  src='./images/Limak-logo.png'
+                  src='http://localhost:3000/images/Limak-Logo.png'
                   alt='limak-logo'
                   className='img-fluid'
                 />

@@ -373,3 +373,67 @@ export const fetchContactContent =
       });
     }
   };
+
+export const fetchShops =
+  (countryId = 1, skipCount = 0, takeCount = 12) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_SHOPS });
+
+    try {
+      const response = await api.get(
+        `Shop/getAllShops/${countryId}/${skipCount}/${takeCount}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_SHOPS_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_SHOPS_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const getShopsCount =
+  (countryId = 1) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.GET_SHOPS_COUNT });
+
+    try {
+      const response = await api.get(`Shop/getShopsCount/${countryId}`);
+
+      dispatch({
+        type: CONSTANT.GET_SHOPS_COUNT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.GET_SHOPS_COUNT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchShopContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_SHOP_CONTENT });
+
+    try {
+      const response = await api.get(
+        `ShopContent/getShopContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_SHOP_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_SHOP_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

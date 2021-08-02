@@ -23,7 +23,10 @@ const Footer = () => {
           <div className='row'>
             <div className='col-md-3'>
               <div className='logo-box'>
-                <img src='./images/logo-footer.png' alt='' />
+                <img
+                  src='http://localhost:3000/images/logo-footer.png'
+                  alt=''
+                />
               </div>
               <div className='description'>
                 <p>{language[activeLanguage].description}</p>

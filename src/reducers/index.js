@@ -490,3 +490,84 @@ export const contactContentReducers = (
       return state;
   }
 };
+
+export const shopsReducers = (
+  state = { loading: false, shops: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_SHOPS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_SHOPS_SUCCESS:
+      return {
+        ...state,
+        shops: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_SHOPS_FAIL:
+      return {
+        ...state,
+        shops: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const shopsCountReducers = (
+  state = { loading: false, shopsCount: 1 },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.GET_SHOPS_COUNT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.GET_SHOPS_COUNT_SUCCESS:
+      return {
+        ...state,
+        shopsCount: action.payload,
+        loading: false,
+      };
+    case CONSTANT.GET_SHOPS_COUNT_FAIL:
+      return {
+        ...state,
+        shopsCount: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const shopContentReducers = (
+  state = { loading: false, shopContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_SHOP_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_SHOP_CONTENT_SUCCESS:
+      return {
+        ...state,
+        shopContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_SHOP_CONTENT_FAIL:
+      return {
+        ...state,
+        shopContent: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

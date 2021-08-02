@@ -18,6 +18,9 @@ import {
   contactReducers,
   contactsReducers,
   contactContentReducers,
+  shopsReducers,
+  shopsCountReducers,
+  shopContentReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -41,6 +44,9 @@ const reducers = combineReducers({
   contact: contactReducers,
   contacts: contactsReducers,
   contactContent: contactContentReducers,
+  shops: shopsReducers,
+  shopsCount: shopsCountReducers,
+  shopContent: shopContentReducers,
 });
 
 const store = createStore(

@@ -280,25 +280,6 @@
     }
     .contact-header-wrapper {
       @include flexy-box-between();
-      .breadcrumb {
-        background-color: transparent;
-        margin-bottom: 0;
-        padding: 0;
-        .breadcrumb-item {
-          a {
-            color: $primary-color;
-            text-transform: capitalize;
-            &:hover {
-              text-decoration: none;
-            }
-          }
-          span {
-            text-transform: capitalize;
-            pointer-events: none;
-            cursor: default;
-          }
-        }
-      }
     }
   }
   .contact-content {
@@ -370,6 +351,102 @@
     }
     .map-wrapper {
       margin-top: 60px;
+    }
+  }
+}
+.shops-wrapper {
+  .shop-header {
+    padding: 30px 0;
+    h4 {
+      @include text(23px, 400, $text-color);
+      text-transform: uppercase;
+    }
+    .shop-header-wrapper {
+      @include flexy-box-between();
+    }
+  }
+  .shop-content {
+    background-color: $secondary-color;
+    padding: 60px 0;
+    .country-box {
+      border: 1px solid $border-color;
+      border-radius: 10px;
+      padding: 25px;
+      h4 {
+        position: relative;
+        @include text(17px, 600, $primary-color);
+        margin-bottom: 22px;
+        &::before {
+          content: "";
+          height: 4px;
+          position: absolute;
+          width: 52px;
+          left: 0;
+          background-color: $primary-color;
+          bottom: -15px;
+        }
+      }
+      .countries {
+        list-style-type: none;
+        padding-left: 0;
+        li {
+          padding: 10px 0;
+          span {
+            @include text(16px, 400, $text-color);
+            text-transform: capitalize;
+            cursor: pointer;
+          }
+          .active {
+            color: $primary-color;
+            border-bottom: 1px solid $primary-color;
+          }
+        }
+      }
+    }
+    .shop-content-header {
+      margin-bottom: 15px;
+      h2 {
+        @include text(30px, 700, $text-color);
+      }
+    }
+    a {
+      color: $text-color;
+      transition: all 0.3s;
+      &:hover {
+        color: $primary-color;
+        text-decoration: none;
+      }
+    }
+    .col-md-4 {
+      margin-bottom: 15px;
+    }
+    .shop-box {
+      background-color: #f9f9f8;
+      border-radius: 10px;
+      text-align: center;
+      padding: 15px;
+      margin-top: 15px;
+      height: 100%;
+      @include flexy-box();
+      img {
+        padding-bottom: 15px;
+      }
+    }
+    .button-box {
+      @include flexy-box();
+      margin-top: 30px;
+      .btn {
+        @include btn(10px 25px, transparent, 15px, $primary-color);
+        text-transform: uppercase;
+        margin-top: 10px;
+        &:hover {
+          @include btnHover(transparent);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
     }
   }
 }
