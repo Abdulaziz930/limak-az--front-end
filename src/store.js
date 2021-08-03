@@ -21,6 +21,11 @@ import {
   shopsReducers,
   shopsCountReducers,
   shopContentReducers,
+  countriesContentReducers,
+  exchangeRateReducers,
+  calculatorInformationContentReducers,
+  currencyReducers,
+  calculatorContentReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -47,6 +52,11 @@ const reducers = combineReducers({
   shops: shopsReducers,
   shopsCount: shopsCountReducers,
   shopContent: shopContentReducers,
+  countryContent: countriesContentReducers,
+  exchangeRate: exchangeRateReducers,
+  calculatorInformationContent: calculatorInformationContentReducers,
+  currencies: currencyReducers,
+  calculatorPageContent: calculatorContentReducers,
 });
 
 const store = createStore(

@@ -8,6 +8,8 @@ function App() {
   const Home = React.lazy(() => import("./components/Home"));
   const Contact = React.lazy(() => import("./components/Contact"));
   const Shops = React.lazy(() => import("./components/Shops"));
+  const Countries = React.lazy(() => import("./components/Countries"));
+  const Calculator = React.lazy(() => import("./components/Calculator"));
 
   return (
     <>
@@ -17,6 +19,8 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/contact' component={Contact} />
           <Route path='/shops' component={Shops} />
+          <Route path='/countries' component={Countries} />
+          <Route path='/calculator' component={Calculator} />
         </Switch>
       </Suspense>
       <Footer />

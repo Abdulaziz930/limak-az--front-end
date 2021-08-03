@@ -1,11 +1,11 @@
 import * as CONSTANT from "../constants";
-import api from "../api";
+import { mainAPI, excahgeRateAPI } from "../api";
 
 export const fetchLanguages = () => async (dispatch) => {
   dispatch({ type: CONSTANT.FETCH_LANGUAGES });
 
   try {
-    const response = await api.get("Language");
+    const response = await mainAPI.get("Language");
 
     dispatch({
       type: CONSTANT.FETCH_LANGUAGES_SUCCESS,
@@ -28,7 +28,7 @@ export const fetchCalculatorContent =
     dispatch({ type: CONSTANT.FETCH_CALCULATOR_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getCalculatorContent/${languageCode}`
       );
       dispatch({
@@ -49,7 +49,7 @@ export const fetchCountriesContent =
     dispatch({ type: CONSTANT.FETCH_COUNTRIES_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getContriesContent/${languageCode}`
       );
       dispatch({
@@ -70,7 +70,7 @@ export const fetchCitiesContent =
     dispatch({ type: CONSTANT.FETCH_CITIES_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getCitiesContent/${languageCode}`
       );
       dispatch({
@@ -91,7 +91,7 @@ export const fetchWeightContent =
     dispatch({ type: CONSTANT.FETCH_WEIGHT_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getWeightContent/${languageCode}`
       );
       dispatch({
@@ -112,7 +112,7 @@ export const fetchUnitsOfLengthContent =
     dispatch({ type: CONSTANT.FETCH_UNITS_OF_LENGTH_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getUnitsOfLengthContent/${languageCode}`
       );
       dispatch({
@@ -133,7 +133,7 @@ export const fetchProductTypesContent =
     dispatch({ type: CONSTANT.FETCH_PRODUCT_TYPES_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getProductTypesContent/${languageCode}`
       );
       dispatch({
@@ -154,7 +154,7 @@ export const fetchAdvertisements =
     dispatch({ type: CONSTANT.FETCH_ADVERTISEMENTS });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getAdvertisimentContent/${languageCode}/${count}`
       );
 
@@ -176,7 +176,7 @@ export const fetchHowItWorksContent =
     dispatch({ type: CONSTANT.FETCH_HOW_IT_WORKS_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getHowItWorkContent/${languageCode}`
       );
       dispatch({
@@ -197,7 +197,7 @@ export const fetchHowItWorksCardContent =
     dispatch({ type: CONSTANT.FETCH_HOW_IT_WORKS_CARD_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getHowItWorkCardContent/${languageCode}`
       );
       dispatch({
@@ -216,7 +216,7 @@ export const fetchCertificateContents = () => async (dispatch) => {
   dispatch({ type: CONSTANT.FETCH_CERTIFICATE_CONTENTS });
 
   try {
-    const response = await api.get("CertificateContent");
+    const response = await mainAPI.get("CertificateContent");
 
     dispatch({
       type: CONSTANT.FETCH_CERTIFICATE_CONTENTS_SUCCESS,
@@ -236,7 +236,7 @@ export const fetchCertificate =
     dispatch({ type: CONSTANT.FETCH_CERTIFICATE });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getCertificateContent/${languageCode}`
       );
       dispatch({
@@ -257,7 +257,7 @@ export const fetchAdvertisementTitle =
     dispatch({ type: CONSTANT.FETCH_ADVERTISEMENT_TITLE });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/GetAdvertisimentTitleContent/${languageCode}`
       );
       dispatch({
@@ -276,7 +276,7 @@ export const fetchRecommendedShops = () => async (dispatch) => {
   dispatch({ type: CONSTANT.FETCH_RECOMMENDED_SHOPS });
 
   try {
-    const response = await api.get("Shop");
+    const response = await mainAPI.get("Shop");
 
     dispatch({
       type: CONSTANT.FETCH_RECOMMENDED_SHOPS_SUCCESS,
@@ -294,7 +294,7 @@ export const fetchSocialMedias = () => async (dispatch) => {
   dispatch({ type: CONSTANT.FETCH_SOCIAL_MEDIAS });
 
   try {
-    const response = await api.get("SocialMedia");
+    const response = await mainAPI.get("SocialMedia");
 
     dispatch({
       type: CONSTANT.FETCH_SOCIAL_MEDIAS_SUCCESS,
@@ -314,7 +314,7 @@ export const fetchContact =
     dispatch({ type: CONSTANT.FETCH_CONTACT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Content/getContactContent/${languageCode}`
       );
 
@@ -336,7 +336,7 @@ export const fetchContacts =
     dispatch({ type: CONSTANT.FETCH_CONTACTS });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `ContactContent/getContactsContent/${languageCode}`
       );
 
@@ -358,7 +358,7 @@ export const fetchContactContent =
     dispatch({ type: CONSTANT.FETCH_CONTACT_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `ContactContent/getContactContent/${languageCode}`
       );
 
@@ -380,7 +380,7 @@ export const fetchShops =
     dispatch({ type: CONSTANT.FETCH_SHOPS });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `Shop/getAllShops/${countryId}/${skipCount}/${takeCount}`
       );
 
@@ -402,7 +402,7 @@ export const getShopsCount =
     dispatch({ type: CONSTANT.GET_SHOPS_COUNT });
 
     try {
-      const response = await api.get(`Shop/getShopsCount/${countryId}`);
+      const response = await mainAPI.get(`Shop/getShopsCount/${countryId}`);
 
       dispatch({
         type: CONSTANT.GET_SHOPS_COUNT_SUCCESS,
@@ -422,7 +422,7 @@ export const fetchShopContent =
     dispatch({ type: CONSTANT.FETCH_SHOP_CONTENT });
 
     try {
-      const response = await api.get(
+      const response = await mainAPI.get(
         `ShopContent/getShopContent/${languageCode}`
       );
 
@@ -433,6 +433,114 @@ export const fetchShopContent =
     } catch (e) {
       dispatch({
         type: CONSTANT.FETCH_SHOP_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchCountryContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_COUNTRY_CONTENT });
+
+    try {
+      const response = await mainAPI.get(
+        `CountryContent/getCountryCountent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_COUNTRY_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_COUNTRY_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const getExchangeRate =
+  (currency = "AZN") =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.GET_EXCAHGE_RATE });
+
+    try {
+      const response = await excahgeRateAPI.get("latest", {
+        params: {
+          base: currency,
+        },
+      });
+
+      dispatch({
+        type: CONSTANT.GET_EXCAHGE_RATE_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.GET_EXCAHGE_RATE_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchCalculatorInformationContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_CALCULATOR_INFORMATION_CONTENT });
+
+    try {
+      const response = await mainAPI.get(
+        `CalculatorContent/getCalculatorInformationContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_CALCULATOR_INFORMATION_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_CALCULATOR_INFORMATION_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchCurrency = () => async (dispatch) => {
+  dispatch({ type: CONSTANT.FETCH_CURRENCY });
+
+  try {
+    const response = await mainAPI.get("CalculatorContent/getCurrency");
+
+    dispatch({
+      type: CONSTANT.FETCH_CURRENCY_SUCCESS,
+      payload: response.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: CONSTANT.FETCH_CURRENCY_FAIL,
+      payload: e.message ? e.message : e,
+    });
+  }
+};
+
+export const fetchCalculatorPageContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_CALCULATOR_PAGE_CONTENT });
+
+    try {
+      const response = await mainAPI.get(
+        `CalculatorContent/getCalculatorContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_CALCULATOR_PAGE_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_CALCULATOR_PAGE_CONTENT_FAIL,
         payload: e.message ? e.message : e,
       });
     }

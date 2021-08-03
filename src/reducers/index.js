@@ -571,3 +571,138 @@ export const shopContentReducers = (
       return state;
   }
 };
+
+export const countriesContentReducers = (
+  state = { loading: false, countryContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_COUNTRY_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_COUNTRY_CONTENT_SUCCESS:
+      return {
+        ...state,
+        countryContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_COUNTRY_CONTENT_FAIL:
+      return {
+        ...state,
+        countryContent: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const exchangeRateReducers = (
+  state = { loading: false, exchangeRate: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.GET_EXCAHGE_RATE:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.GET_EXCAHGE_RATE_SUCCESS:
+      return {
+        ...state,
+        exchangeRate: action.payload,
+        loading: false,
+      };
+    case CONSTANT.GET_EXCAHGE_RATE_FAIL:
+      return {
+        ...state,
+        exchangeRate: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const calculatorInformationContentReducers = (
+  state = { loading: false, calculatorInformationContent: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_CALCULATOR_INFORMATION_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_CALCULATOR_INFORMATION_CONTENT_SUCCESS:
+      return {
+        ...state,
+        calculatorInformationContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_CALCULATOR_INFORMATION_CONTENT_FAIL:
+      return {
+        ...state,
+        calculatorInformationContent: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const currencyReducers = (
+  state = { loading: false, currencies: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_CURRENCY:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_CURRENCY_SUCCESS:
+      return {
+        ...state,
+        currencies: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_CURRENCY_FAIL:
+      return {
+        ...state,
+        currencies: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const calculatorContentReducers = (
+  state = { loading: false, calculatorPageContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_CALCULATOR_PAGE_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_CALCULATOR_PAGE_CONTENT_SUCCESS:
+      return {
+        ...state,
+        calculatorPageContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_CALCULATOR_PAGE_CONTENT_FAIL:
+      return {
+        ...state,
+        calculatorPageContent: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

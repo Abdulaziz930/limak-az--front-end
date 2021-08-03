@@ -7,74 +7,6 @@
       }
     }
   }
-  .calculator {
-    background-color: $secondary-color;
-    border-radius: 10px;
-    padding: 25px 15px;
-    .calculator-title {
-      @include flexy-box-between();
-      margin-bottom: 25px;
-      h4 {
-        @include text(22px, 600, $text-color);
-      }
-      .btn {
-        color: $third-text-color;
-        font-size: 14px;
-        margin-bottom: 0.5rem;
-        &:focus {
-          outline: none;
-          box-shadow: none;
-        }
-      }
-    }
-    .form-control {
-      @include text(12px, 400, $form-color);
-      border-radius: 5px;
-      height: 40px;
-      padding-left: 4px;
-      &::placeholder {
-        @include text(12px, 400, $form-color);
-      }
-      &:focus {
-        border-color: inherit;
-        box-shadow: none;
-      }
-      option {
-        &:hover {
-          background-color: red !important;
-        }
-      }
-    }
-    .input-group-append {
-      .form-control {
-        border-radius: 0 5px 5px 0;
-      }
-    }
-    .btnbox {
-      .btn {
-        @include btn(10px, transparent, 14px, $primary-color);
-        width: 100%;
-        &:hover {
-          @include btnHover(transparent);
-        }
-        &:focus {
-          outline: none;
-          box-shadow: none;
-        }
-        &:active {
-          transform: translateY(-5px);
-        }
-      }
-    }
-    .sum {
-      @include flexy-box-between();
-      margin-top: 20px;
-      font-size: 14px;
-      .sum-count {
-        font-weight: 600;
-      }
-    }
-  }
 }
 .How-It-Works-wrapper {
   margin-top: 30px;
@@ -128,68 +60,6 @@
     margin-bottom: 40px;
     h2 {
       @include text(36px, 600, $text-color);
-    }
-  }
-  .content {
-    .tab-content {
-      background-color: $secondary-color;
-      padding: 30px;
-    }
-    a.active {
-      border-top: 3px solid $primary-color;
-    }
-    .nav-tabs {
-      .nav-link {
-        border-top-left-radius: none !important;
-        border-top-right-radius: none !important;
-      }
-    }
-    #uncontrolled-tab-example-tab-turkey,
-    #uncontrolled-tab-example-tab-usa {
-      @include text(16px, 600, $link-color);
-      padding: 15px 30px;
-    }
-    .tab-header {
-      display: flex;
-      .title {
-        @include flexy-box();
-        padding-left: 30px;
-        h4 {
-          @include text(22px, 600, $text-color);
-        }
-      }
-    }
-    .tab-main {
-      .type {
-        margin-top: 40px;
-        .type-title {
-          h5 {
-            @include text(16px, 600, $text-color);
-          }
-        }
-        ul {
-          list-style-type: none;
-          padding-left: 0;
-          li {
-            @include flexy-box-between();
-            padding: 10px 0;
-            border-bottom: 1px dashed $border-color;
-            .tariff-title {
-              @include text(16px, 400, $text-color);
-            }
-            .tariff-price {
-              @include text(20px, 600, $second-text-color);
-            }
-          }
-        }
-      }
-    }
-    .tab-description {
-      margin-top: 50px;
-      p {
-        @include text(14px, 400, $text-color);
-        line-height: 28px;
-      }
     }
   }
 }
@@ -445,6 +315,103 @@
         &:focus {
           outline: none;
           box-shadow: none;
+        }
+      }
+    }
+  }
+}
+.countries-wrapper {
+  .countries-header {
+    padding: 30px 0;
+    h4 {
+      @include text(23px, 400, $text-color);
+      text-transform: uppercase;
+    }
+    .countries-header-wrapper {
+      @include flexy-box-between();
+    }
+  }
+  .countries-content {
+    background-color: $secondary-color;
+    padding: 60px 0;
+  }
+}
+.calculator-wrapper {
+  .calculator-header {
+    padding: 30px 0;
+    h4 {
+      @include text(23px, 400, $text-color);
+      text-transform: uppercase;
+    }
+    .calculator-header-wrapper {
+      @include flexy-box-between();
+    }
+  }
+  .calculator-content {
+    background-color: $secondary-color;
+    padding: 60px 0;
+    .exchange-wrapper {
+      background-color: $third-background-color;
+      margin-top: 30px;
+      border-radius: 10px;
+      padding: 30px 15px 25px;
+      .exchange-header {
+        margin-bottom: 20px;
+        h4 {
+          @include text(16px, 600, $text-color);
+        }
+      }
+      .form-control {
+        @include text(13px, 400, $form-color);
+        &::placeholder {
+          @include text(15px, 400, $form-color);
+        }
+        &:focus {
+          border-color: inherit;
+          box-shadow: none;
+        }
+      }
+      .form-control[type="number"] {
+        @include text(15px, 400, $form-color);
+      }
+      .exchange-footer {
+        @include flexy-box-between();
+        margin-top: 15px;
+        .footer-description {
+          @include flexy-box();
+          p {
+            @include text(12px, 400, $third-text-color);
+            margin-bottom: 0;
+          }
+        }
+        .footer-btn {
+          .btn {
+            @include btn(7px 40px, transparent, 14px, $primary-color);
+            text-transform: capitalize;
+            transition: all 0.3s;
+            &:hover {
+              @include btnHover(transparent);
+            }
+            &:focus {
+              outline: none;
+              box-shadow: none;
+            }
+            &:active {
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+    }
+    .help-box {
+      padding-left: 30px;
+      p {
+        @include text(15px, 400, $text-color);
+      }
+      .how-to-calculate {
+        h4 {
+          @include text(20px, 600, $text-color);
+          margin: 35px 0 25px;
         }
       }
     }
