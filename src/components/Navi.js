@@ -21,6 +21,8 @@ import {
   fetchCountryContent,
   fetchCalculatorInformationContent,
   fetchCalculatorPageContent,
+  fetchRules,
+  fetchRuleContents
 } from "../actions";
 import language from "../translation/language.json";
 
@@ -64,6 +66,8 @@ const Navi = () => {
       fetchCalculatorInformationContent(localStorage.getItem("language"))
     );
     dispatch(fetchCalculatorPageContent(localStorage.getItem("language")));
+    dispatch(fetchRules(localStorage.getItem("language")));
+    dispatch(fetchRuleContents(localStorage.getItem("language")));
   };
 
   const handleClickHamburgerMenu = () => {

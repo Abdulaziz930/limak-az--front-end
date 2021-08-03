@@ -81,7 +81,8 @@
     "section_title": "Bölmələr",
     "phone": "Dəstək <br /> Xətti",
     "app": "Mobil Tətbiqlərimiz",
-    "copy_right": "© 2018 Limak.az | Bütün hüquqlar qorunur"
+    "copy_right": "© 2018 Limak.az | Bütün hüquqlar qorunur",
+    "section_box_title": "Köməkçi bölmələr"
   },
   "RU": {
     "sections": [
@@ -165,7 +166,8 @@
     "section_title": "Разделы",
     "phone": "СЛУЖБА <br /> ПОДДЕРЖКИ",
     "app": "Наши мобильные приложения",
-    "copy_right": "© 2018 Limak.az | Все права защищены"
+    "copy_right": "© 2018 Limak.az | Все права защищены",
+    "section_box_title": "Вспомогательные разделы"
   },
   "EN": {
     "sections": [
@@ -249,6 +251,7 @@
     "section_title": "Sections",
     "phone": "Support <br /> Service",
     "app": "Our Mobile Applications",
-    "copy_right": "© 2018 Limak.az | All rights reserved"
+    "copy_right": "© 2018 Limak.az | All rights reserved",
+    "section_box_title": "Auxiliary Sections"
   }
 }

@@ -545,3 +545,43 @@ export const fetchCalculatorPageContent =
       });
     }
   };
+
+export const fetchRules =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_RULES });
+
+    try {
+      const response = await mainAPI.get(`Rule/getRules/${languageCode}`);
+
+      dispatch({
+        type: CONSTANT.FETCH_RULES_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_RULES_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchRuleContents =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_RULES_CONTENT });
+
+    try {
+      const response = await mainAPI.get(`Rule/getRuleContent/${languageCode}`);
+
+      dispatch({
+        type: CONSTANT.FETCH_RULES_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_RULES_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

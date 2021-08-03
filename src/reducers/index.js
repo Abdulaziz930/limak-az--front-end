@@ -706,3 +706,57 @@ export const calculatorContentReducers = (
       return state;
   }
 };
+
+export const rulesReducers = (
+  state = { loading: false, rules: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_RULES:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_RULES_SUCCESS:
+      return {
+        ...state,
+        rules: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_RULES_FAIL:
+      return {
+        ...state,
+        rules: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const ruleContentReducers = (
+  state = { loading: false, ruleContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_RULES_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_RULES_CONTENT_SUCCESS:
+      return {
+        ...state,
+        ruleContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_RULES_CONTENT_FAIL:
+      return {
+        ...state,
+        ruleContent: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
