@@ -614,7 +614,9 @@ export const fetchQuestionsContents =
     dispatch({ type: CONSTANT.FETCH_QUESTIONS_CONTENT });
 
     try {
-      const response = await mainAPI.get(`Question/getQuestionContent/${languageCode}`);
+      const response = await mainAPI.get(
+        `Question/getQuestionContent/${languageCode}`
+      );
 
       dispatch({
         type: CONSTANT.FETCH_QUESTIONS_CONTENT_SUCCESS,
@@ -623,6 +625,26 @@ export const fetchQuestionsContents =
     } catch (e) {
       dispatch({
         type: CONSTANT.FETCH_QUESTIONS_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchAbout =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_ABOUT });
+
+    try {
+      const response = await mainAPI.get(`About/${languageCode}`);
+
+      dispatch({
+        type: CONSTANT.FETCH_ABOUT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_ABOUT_FAIL,
         payload: e.message ? e.message : e,
       });
     }

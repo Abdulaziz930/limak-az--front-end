@@ -814,3 +814,30 @@ export const questionContentReducers = (
       return state;
   }
 };
+
+export const aboutReducers = (
+  state = { loading: false, about: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_ABOUT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_ABOUT_SUCCESS:
+      return {
+        ...state,
+        about: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_ABOUT_FAIL:
+      return {
+        ...state,
+        about: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

@@ -30,6 +30,7 @@ import {
   ruleContentReducers,
   questionsReducers,
   questionContentReducers,
+  aboutReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -65,6 +66,7 @@ const reducers = combineReducers({
   ruleContent: ruleContentReducers,
   questions: questionsReducers,
   questionContent: questionContentReducers,
+  about: aboutReducers,
 });
 
 const store = createStore(
