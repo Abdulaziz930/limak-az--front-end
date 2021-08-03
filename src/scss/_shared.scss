@@ -1,6 +1,8 @@
 body {
   background-color: $background-color;
   font-family: $primary-font;
+
+  /* Spinner styles start */
   #spinner {
     .spinner-box {
       padding-top: 15%;
@@ -9,6 +11,9 @@ body {
       }
     }
   }
+  /* Spinner styles end */
+
+  /* Breadcrumb styles start */
   .breadcrumb {
     background-color: transparent;
     margin-bottom: 0;
@@ -28,6 +33,9 @@ body {
       }
     }
   }
+  /* Breadcrumb styles end */
+
+  /* Tabs styles start */
   .content {
     .tab-content {
       background-color: $secondary-color;
@@ -90,6 +98,9 @@ body {
       }
     }
   }
+  /* Tabs styles end */
+
+  /* Calculator styles start */
   .calculator {
     background-color: $secondary-color;
     border: 1px solid $border-color;
@@ -159,4 +170,96 @@ body {
       }
     }
   }
+  /* Calculator styles end */
+
+  /* Section box styles start */
+  .section-box {
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    padding: 25px 25px 5px;
+    h4 {
+      position: relative;
+      @include text(17px, 600, $primary-color);
+      margin-bottom: 22px;
+      &::before {
+        content: "";
+        height: 4px;
+        position: absolute;
+        width: 52px;
+        left: 0;
+        background-color: $primary-color;
+        bottom: -15px;
+      }
+    }
+    .sections {
+      list-style-type: none;
+      padding-left: 0;
+      li {
+        padding: 10px 0;
+        a {
+          @include text(16px, 400, $text-color);
+          text-transform: capitalize;
+          cursor: pointer;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        .active {
+          color: $primary-color;
+          border-bottom: 1px solid $primary-color;
+        }
+      }
+    }
+  }
+  /* Section box styles end */
+
+  /* Accordion styles start */
+  .accordion__section {
+    display: flex;
+    flex-direction: column;
+    .accordion {
+      background-color: $secondary-color;
+      color: #444;
+      cursor: pointer;
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      border: none;
+      outline: none;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom: 3px solid $third-background-color;
+      transition: background-color 0.6s ease;
+      .accordion__title {
+        font-weight: 600;
+        font-size: 14px;
+        text-align: left;
+        margin-bottom: 0;
+      }
+      .accordion__icon {
+        margin-left: auto;
+        transition: transform 0.6s ease;
+      }
+      .rotate {
+        transform: rotate(90deg);
+      }
+    }
+    .active {
+      background-color: $third-background-color;
+      border-bottom: none;
+    }
+    .accordion__content {
+      background-color: $third-background-color;
+      overflow: hidden;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      transition: max-height 0.6s ease;
+      .accordion__text {
+        font-weight: 400;
+        font-size: 14px;
+        padding: 18px;
+      }
+    }
+  }
+  /* Accordion styles end */
 }

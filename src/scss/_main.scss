@@ -24,14 +24,16 @@
     .col-md-4 {
       padding-left: 0;
       padding-right: 0;
+      &:first-child,
+      &:nth-child(2) {
+        .How-It-Works__item {
+          border-right: none;
+        }
+      }
       .How-It-Works__item {
         border: 1px solid #e6e9ef;
         padding: 30px 60px;
         height: 100%;
-        &:first-child,
-        :nth-child(2) {
-          border-right: none;
-        }
         .imgBox {
           @include flexy-box();
           margin-bottom: 35px;
@@ -413,6 +415,29 @@
           @include text(20px, 600, $text-color);
           margin: 35px 0 25px;
         }
+      }
+    }
+  }
+}
+
+.rules-wrapper {
+  .rules-header {
+    padding: 30px 0;
+    h4 {
+      @include text(23px, 400, $text-color);
+      text-transform: uppercase;
+    }
+    .rules-header-wrapper {
+      @include flexy-box-between();
+    }
+  }
+  .rules-content {
+    background-color: $secondary-color;
+    padding: 60px 0;
+    .rules-content-header {
+      margin-bottom: 20px;
+      h2 {
+        @include text(30px, 600, $text-color);
       }
     }
   }

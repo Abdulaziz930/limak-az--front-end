@@ -10,6 +10,7 @@ function App() {
   const Shops = React.lazy(() => import("./components/Shops"));
   const Countries = React.lazy(() => import("./components/Countries"));
   const Calculator = React.lazy(() => import("./components/Calculator"));
+  const Rules = React.lazy(() => import("./components/Rules"));
 
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
           <Route path='/shops' component={Shops} />
           <Route path='/countries' component={Countries} />
           <Route path='/calculator' component={Calculator} />
+          <Route path='/rules' component={Rules} />
         </Switch>
       </Suspense>
       <Footer />

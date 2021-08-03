@@ -73,7 +73,7 @@ const Calculator = () => {
                 </div>
                 <div className='form-group'>
                   <div className='row'>
-                    <div className='col-md-8'>
+                    <div className='col-lg-8'>
                       <input
                         type='number'
                         className='form-control'
@@ -82,7 +82,7 @@ const Calculator = () => {
                         onChange={(e) => handleChangeNumber(e)}
                       />
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-lg-4'>
                       <select
                         className='form-control'
                         onChange={(e) => handleChangeMainCurrecy(e)}>
@@ -101,7 +101,7 @@ const Calculator = () => {
                 </div>
                 <div className='form-group'>
                   <div className='row'>
-                    <div className='col-md-8'>
+                    <div className='col-lg-8'>
                       <input
                         type='number'
                         className='form-control'
@@ -111,7 +111,7 @@ const Calculator = () => {
                         disabled
                       />
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-lg-4'>
                       <select
                         className='form-control'
                         value={secondCurrency}
