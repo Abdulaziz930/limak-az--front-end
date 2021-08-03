@@ -28,6 +28,8 @@ import {
   calculatorContentReducers,
   rulesReducers,
   ruleContentReducers,
+  questionsReducers,
+  questionContentReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -61,6 +63,8 @@ const reducers = combineReducers({
   calculatorPageContent: calculatorContentReducers,
   rules: rulesReducers,
   ruleContent: ruleContentReducers,
+  questions: questionsReducers,
+  questionContent: questionContentReducers,
 });
 
 const store = createStore(

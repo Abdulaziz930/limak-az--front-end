@@ -760,3 +760,57 @@ export const ruleContentReducers = (
       return state;
   }
 };
+
+export const questionsReducers = (
+  state = { loading: false, questions: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_QUESTIONS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_QUESTIONS_SUCCESS:
+      return {
+        ...state,
+        questions: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_QUESTIONS_FAIL:
+      return {
+        ...state,
+        questions: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const questionContentReducers = (
+  state = { loading: false, questionContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_QUESTIONS_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_QUESTIONS_CONTENT_SUCCESS:
+      return {
+        ...state,
+        questionContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_QUESTIONS_CONTENT_FAIL:
+      return {
+        ...state,
+        questionContent: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

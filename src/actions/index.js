@@ -585,3 +585,45 @@ export const fetchRuleContents =
       });
     }
   };
+
+export const fetchQuestions =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_QUESTIONS });
+
+    try {
+      const response = await mainAPI.get(
+        `Question/getQuestions/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_QUESTIONS_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_QUESTIONS_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchQuestionsContents =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_QUESTIONS_CONTENT });
+
+    try {
+      const response = await mainAPI.get(`Question/getQuestionContent/${languageCode}`);
+
+      dispatch({
+        type: CONSTANT.FETCH_QUESTIONS_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_QUESTIONS_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

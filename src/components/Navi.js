@@ -22,7 +22,7 @@ import {
   fetchCalculatorInformationContent,
   fetchCalculatorPageContent,
   fetchRules,
-  fetchRuleContents
+  fetchRuleContents,
 } from "../actions";
 import language from "../translation/language.json";
 

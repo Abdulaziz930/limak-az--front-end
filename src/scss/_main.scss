@@ -392,3 +392,16 @@
     }
   }
 }
+
+.questions-wrapper {
+  .questions-content {
+    background-color: $secondary-color;
+    padding: 60px 0;
+    .questions-content-header {
+      margin-bottom: 20px;
+      h2 {
+        @include text(30px, 600, $text-color);
+      }
+    }
+  }
+}
