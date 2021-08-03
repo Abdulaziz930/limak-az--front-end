@@ -649,3 +649,23 @@ export const fetchAbout =
       });
     }
   };
+
+export const fetchPrivacy =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_PRIVACY });
+
+    try {
+      const response = await mainAPI.get(`Privacy/${languageCode}`);
+
+      dispatch({
+        type: CONSTANT.FETCH_PRIVACY_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_PRIVACY_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

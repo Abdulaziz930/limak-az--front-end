@@ -841,3 +841,30 @@ export const aboutReducers = (
       return state;
   }
 };
+
+export const privacyReducers = (
+  state = { loading: false, privacy: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_PRIVACY:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_PRIVACY_SUCCESS:
+      return {
+        ...state,
+        privacy: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_PRIVACY_FAIL:
+      return {
+        ...state,
+        privacy: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

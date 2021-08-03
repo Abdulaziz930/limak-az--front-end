@@ -418,3 +418,16 @@
     }
   }
 }
+
+.privacy-wrapper {
+  .privacy-content {
+    background-color: $secondary-color;
+    padding: 60px 0;
+    .img-box {
+      margin-bottom: 30px;
+      img {
+        border-radius: 10px;
+      }
+    }
+  }
+}

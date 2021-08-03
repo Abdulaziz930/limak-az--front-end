@@ -296,6 +296,16 @@
         }
       }
     }
+    .privacy-wrapper {
+      .privacy-content {
+        .img-box {
+          margin-top: 30px;
+        }
+        .description {
+          text-align: center;
+        }
+      }
+    }
   }
 }
 @media screen and(max-width: 360px) {

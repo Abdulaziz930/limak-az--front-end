@@ -13,6 +13,7 @@ function App() {
   const Rules = React.lazy(() => import("./components/Rules"));
   const Questions = React.lazy(() => import("./components/Questions"));
   const About = React.lazy(() => import("./components/About"));
+  const Privacy = React.lazy(() => import("./components/Privacy"));
 
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
           <Route path='/rules' component={Rules} />
           <Route path='/questions' component={Questions} />
           <Route path='/about' component={About} />
+          <Route path='/privacy' component={Privacy} />
         </Switch>
       </Suspense>
       <Footer />

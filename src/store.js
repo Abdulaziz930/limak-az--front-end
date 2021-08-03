@@ -31,6 +31,7 @@ import {
   questionsReducers,
   questionContentReducers,
   aboutReducers,
+  privacyReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -67,6 +68,7 @@ const reducers = combineReducers({
   questions: questionsReducers,
   questionContent: questionContentReducers,
   about: aboutReducers,
+  privacy: privacyReducers,
 });
 
 const store = createStore(
