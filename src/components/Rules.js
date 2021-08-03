@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Breadcrumbs from "./Breadcrumbs";
+import Banner from "./Banner";
 import SectionBox from "./SectionBox";
 import Accordion from "./Accordion";
 import { withRouter } from "react-router";
@@ -24,14 +24,7 @@ const Rules = (props) => {
 
   return (
     <div className='rules-wrapper'>
-      <div className='rules-header'>
-        <div className='container'>
-          <div className='rules-header-wrapper'>
-            <h4>{ruleContent.ruleTitle}</h4>
-            <Breadcrumbs />
-          </div>
-        </div>
-      </div>
+      <Banner bannerTitle={ruleContent.ruleTitle} />
       <div className='rules-content'>
         <div className='container'>
           <div className='row'>

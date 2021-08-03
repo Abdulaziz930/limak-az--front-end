@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Breadcrumbs from "./Breadcrumbs";
+import Banner from "./Banner";
 import CalculatorWrapper from "./CalculatorWrapper";
 import {
   getExchangeRate,
@@ -54,14 +54,7 @@ const Calculator = () => {
 
   return (
     <div className='calculator-wrapper'>
-      <div className='calculator-header'>
-        <div className='container'>
-          <div className='calculator-header-wrapper'>
-            <h4>{calculatorPageContent.calculatorHeading}</h4>
-            <Breadcrumbs />
-          </div>
-        </div>
-      </div>
+      <Banner bannerTitle={calculatorPageContent.calculatorHeading} />
       <div className='calculator-content'>
         <div className='container'>
           <div className='row'>

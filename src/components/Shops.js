@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Breadcrumbs from "./Breadcrumbs";
+import Banner from "./Banner";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchCountriesContent,
@@ -68,14 +68,7 @@ const Shops = () => {
 
   return (
     <div className='shops-wrapper'>
-      <div className='shop-header'>
-        <div className='container'>
-          <div className='shop-header-wrapper'>
-            <h4>{shopContent.title}</h4>
-            <Breadcrumbs />
-          </div>
-        </div>
-      </div>
+      <Banner bannerTitle={shopContent.title} />
       <div className='shop-content'>
         <div className='container'>
           <div className='row'>

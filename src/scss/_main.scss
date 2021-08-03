@@ -144,16 +144,6 @@
   }
 }
 .contact-wrapper {
-  .contact-header {
-    padding: 30px 0;
-    h4 {
-      @include text(23px, 400, $text-color);
-      text-transform: uppercase;
-    }
-    .contact-header-wrapper {
-      @include flexy-box-between();
-    }
-  }
   .contact-content {
     background-color: $secondary-color;
     padding: 60px 0 0;
@@ -227,16 +217,6 @@
   }
 }
 .shops-wrapper {
-  .shop-header {
-    padding: 30px 0;
-    h4 {
-      @include text(23px, 400, $text-color);
-      text-transform: uppercase;
-    }
-    .shop-header-wrapper {
-      @include flexy-box-between();
-    }
-  }
   .shop-content {
     background-color: $secondary-color;
     padding: 60px 0;
@@ -323,32 +303,12 @@
   }
 }
 .countries-wrapper {
-  .countries-header {
-    padding: 30px 0;
-    h4 {
-      @include text(23px, 400, $text-color);
-      text-transform: uppercase;
-    }
-    .countries-header-wrapper {
-      @include flexy-box-between();
-    }
-  }
   .countries-content {
     background-color: $secondary-color;
     padding: 60px 0;
   }
 }
 .calculator-wrapper {
-  .calculator-header {
-    padding: 30px 0;
-    h4 {
-      @include text(23px, 400, $text-color);
-      text-transform: uppercase;
-    }
-    .calculator-header-wrapper {
-      @include flexy-box-between();
-    }
-  }
   .calculator-content {
     background-color: $secondary-color;
     padding: 60px 0;
@@ -421,16 +381,6 @@
 }
 
 .rules-wrapper {
-  .rules-header {
-    padding: 30px 0;
-    h4 {
-      @include text(23px, 400, $text-color);
-      text-transform: uppercase;
-    }
-    .rules-header-wrapper {
-      @include flexy-box-between();
-    }
-  }
   .rules-content {
     background-color: $secondary-color;
     padding: 60px 0;
