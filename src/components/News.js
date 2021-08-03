@@ -9,10 +9,11 @@ const News = () => {
 
   const { content } = useSelector((state) => state.advertisimentTitleContent);
   const { advertisements } = useSelector((state) => state.advertisements);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   useEffect(() => {
     dispatch(fetchAdvertisementTitle());
-  }, [dispatch]);
+  }, [dispatch,activeLanguage]);
 
   return (
     <div className='news'>

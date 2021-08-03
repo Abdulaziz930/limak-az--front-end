@@ -51,7 +51,7 @@ const CalculatorWrapper = () => {
       setLengthUnitsValue(unitsOfLength[0]);
       setHeightUnitValue(unitsOfLength[0]);
     }
-  }, [dispatch]);
+  }, [dispatch,activeLanguage]);
 
   const handleChangeWeight = (e) => {
     setWeightValue(e.target.value);

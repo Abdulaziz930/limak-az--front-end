@@ -1,29 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchLanguages,
-  fetchCertificate,
-  fetchCalculatorContent,
-  fetchCountriesContent,
-  fetchCitiesContent,
-  fetchWeightContent,
-  fetchUnitsOfLengthContent,
-  fetchProductTypesContent,
-  fetchHowItWorksContent,
-  fetchHowItWorksCardContent,
-  fetchAdvertisementTitle,
-  fetchAdvertisements,
-  fetchContact,
-  fetchContacts,
-  fetchContactContent,
-  fetchShopContent,
-  fetchCountryContent,
-  fetchCalculatorInformationContent,
-  fetchCalculatorPageContent,
-  fetchRules,
-  fetchRuleContents,
-} from "../actions";
+import { fetchLanguages } from "../actions";
 import language from "../translation/language.json";
 
 const Navi = () => {
@@ -46,28 +24,6 @@ const Navi = () => {
   const handleClickLanguage = (code) => {
     localStorage.setItem("language", code);
     dispatch(fetchLanguages(code));
-    dispatch(fetchCalculatorContent(localStorage.getItem("language")));
-    dispatch(fetchCountriesContent(localStorage.getItem("language")));
-    dispatch(fetchCitiesContent(localStorage.getItem("language")));
-    dispatch(fetchWeightContent(localStorage.getItem("language")));
-    dispatch(fetchUnitsOfLengthContent(localStorage.getItem("language")));
-    dispatch(fetchProductTypesContent(localStorage.getItem("language")));
-    dispatch(fetchCertificate(localStorage.getItem("language")));
-    dispatch(fetchHowItWorksContent(localStorage.getItem("language")));
-    dispatch(fetchHowItWorksCardContent(localStorage.getItem("language")));
-    dispatch(fetchAdvertisementTitle(localStorage.getItem("language")));
-    dispatch(fetchAdvertisements(3, localStorage.getItem("language")));
-    dispatch(fetchContact(localStorage.getItem("language")));
-    dispatch(fetchContacts(localStorage.getItem("language")));
-    dispatch(fetchContactContent(localStorage.getItem("language")));
-    dispatch(fetchShopContent(localStorage.getItem("language")));
-    dispatch(fetchCountryContent(localStorage.getItem("language")));
-    dispatch(
-      fetchCalculatorInformationContent(localStorage.getItem("language"))
-    );
-    dispatch(fetchCalculatorPageContent(localStorage.getItem("language")));
-    dispatch(fetchRules(localStorage.getItem("language")));
-    dispatch(fetchRuleContents(localStorage.getItem("language")));
   };
 
   const handleClickHamburgerMenu = () => {

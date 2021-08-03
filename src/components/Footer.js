@@ -12,8 +12,11 @@ const Footer = () => {
   const { contact } = useSelector((state) => state.contact);
 
   useEffect(() => {
-    dispatch(fetchSocialMedias());
     dispatch(fetchContact());
+  }, [dispatch, activeLanguage]);
+
+  useEffect(() => {
+    dispatch(fetchSocialMedias());
   }, [dispatch]);
 
   return (

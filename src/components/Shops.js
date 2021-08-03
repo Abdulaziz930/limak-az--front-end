@@ -15,6 +15,7 @@ const Shops = () => {
   const { shops } = useSelector((state) => state.shops);
   const { shopsCount } = useSelector((state) => state.shopsCount);
   const { shopContent } = useSelector((state) => state.shopContent);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   const [currentCountry, setCurrentCountry] = useState("");
   const [currentCountryId, setCurrentCountryId] = useState(0);
@@ -28,7 +29,7 @@ const Shops = () => {
     dispatch(getShopsCount());
     dispatch(fetchShopContent());
     setCurrentCountry("Turkey");
-  }, [dispatch]);
+  }, [dispatch,activeLanguage]);
 
   useEffect(() => {
     if (isChanged === false) {

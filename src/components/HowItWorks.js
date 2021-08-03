@@ -7,11 +7,12 @@ const HowItWorks = () => {
 
   const { content } = useSelector((state) => state.howItWorkContent);
   const { contents } = useSelector((state) => state.howItWorkCardContent);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   useEffect(() => {
     dispatch(fetchHowItWorksContent());
     dispatch(fetchHowItWorksCardContent());
-  }, [dispatch]);
+  }, [dispatch,activeLanguage]);
 
   return (
     <div className='How-It-Works-wrapper'>

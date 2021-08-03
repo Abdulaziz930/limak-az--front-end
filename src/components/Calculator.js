@@ -20,6 +20,7 @@ const Calculator = () => {
   const { calculatorPageContent } = useSelector(
     (state) => state.calculatorPageContent
   );
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   const [number, setNumber] = useState(0.0);
   const [resultNumber, setResultNumber] = useState(0.0);
@@ -31,7 +32,7 @@ const Calculator = () => {
     dispatch(fetchCalculatorInformationContent());
     dispatch(fetchCurrency());
     dispatch(fetchCalculatorPageContent());
-  }, [dispatch, mainCurrency]);
+  }, [dispatch, mainCurrency,activeLanguage]);
 
   const handleChangeNumber = (e) => {
     setNumber(e.target.value);

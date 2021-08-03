@@ -10,9 +10,13 @@ const Certificates = () => {
   );
 
   const { certificate } = useSelector((state) => state.certificate);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   useEffect(() => {
     dispatch(fetchCertificate());
+  }, [dispatch, activeLanguage]);
+
+  useEffect(() => {
     dispatch(fetchCertificateContents());
   }, [dispatch]);
 

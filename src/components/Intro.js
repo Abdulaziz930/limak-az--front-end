@@ -18,10 +18,11 @@ const Intro = () => {
   };
 
   const { advertisements } = useSelector((state) => state.advertisements);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   useEffect(() => {
     dispatch(fetchAdvertisements(3));
-  }, [dispatch]);
+  }, [dispatch, activeLanguage]);
 
   return (
     <div className='intro'>

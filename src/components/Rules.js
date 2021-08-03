@@ -11,6 +11,7 @@ const Rules = (props) => {
 
   const { rules } = useSelector((state) => state.rules);
   const { ruleContent } = useSelector((state) => state.ruleContent);
+  const { activeLanguage } = useSelector((state) => state.languages);
   const {
     location: { pathname },
   } = props;
@@ -20,7 +21,7 @@ const Rules = (props) => {
   useEffect(() => {
     dispatch(fetchRules());
     dispatch(fetchRuleContents());
-  }, [dispatch]);
+  }, [dispatch,activeLanguage]);
 
   return (
     <div className='rules-wrapper'>

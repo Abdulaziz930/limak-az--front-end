@@ -10,11 +10,12 @@ const Contact = () => {
 
   const { contacts } = useSelector((state) => state.contacts);
   const { contactContent } = useSelector((state) => state.contactContent);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   useEffect(() => {
     dispatch(fetchContacts());
     dispatch(fetchContactContent());
-  }, [dispatch]);
+  }, [dispatch,activeLanguage]);
 
   //   const handleClickTab = (cityName) => {
   //     console.log(cityName);

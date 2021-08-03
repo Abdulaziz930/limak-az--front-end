@@ -8,10 +8,11 @@ const Countries = () => {
   const dispatch = useDispatch();
 
   const { countryContent } = useSelector((state) => state.countryContent);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   useEffect(() => {
     dispatch(fetchCountryContent());
-  }, [dispatch]);
+  }, [dispatch, activeLanguage]);
 
   return (
     <div className='countries-wrapper'>
