@@ -21,11 +21,14 @@ const Rules = (props) => {
   useEffect(() => {
     dispatch(fetchRules());
     dispatch(fetchRuleContents());
-  }, [dispatch,activeLanguage]);
+  }, [dispatch, activeLanguage]);
 
   return (
     <div className='rules-wrapper'>
-      <Banner bannerTitle={ruleContent.ruleTitle} />
+      <Banner
+        bannerTitle={ruleContent.ruleTitle}
+        pathName={ruleContent.breadcrumbPathname}
+      />
       <div className='rules-content'>
         <div className='container'>
           <div className='row'>

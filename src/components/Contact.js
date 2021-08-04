@@ -15,7 +15,7 @@ const Contact = () => {
   useEffect(() => {
     dispatch(fetchContacts());
     dispatch(fetchContactContent());
-  }, [dispatch,activeLanguage]);
+  }, [dispatch, activeLanguage]);
 
   //   const handleClickTab = (cityName) => {
   //     console.log(cityName);
@@ -23,7 +23,10 @@ const Contact = () => {
 
   return (
     <div className='contact-wrapper'>
-      <Banner bannerTitle={contactContent.pageTitle} />
+      <Banner
+        bannerTitle={contactContent.pageTitle}
+        pathName={contactContent.breadcrumbPathname}
+      />
       <div className='contact-content'>
         <div className='container'>
           <div className='row'>

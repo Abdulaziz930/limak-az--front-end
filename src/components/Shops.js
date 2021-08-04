@@ -29,7 +29,7 @@ const Shops = () => {
     dispatch(getShopsCount());
     dispatch(fetchShopContent());
     setCurrentCountry("Turkey");
-  }, [dispatch,activeLanguage]);
+  }, [dispatch, activeLanguage]);
 
   useEffect(() => {
     if (isChanged === false) {
@@ -69,7 +69,10 @@ const Shops = () => {
 
   return (
     <div className='shops-wrapper'>
-      <Banner bannerTitle={shopContent.title} />
+      <Banner
+        bannerTitle={shopContent.title}
+        pathName={shopContent.breadcrumbPathname}
+      />
       <div className='shop-content'>
         <div className='container'>
           <div className='row'>

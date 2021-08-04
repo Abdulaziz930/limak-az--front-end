@@ -16,7 +16,10 @@ const Countries = () => {
 
   return (
     <div className='countries-wrapper'>
-      <Banner bannerTitle={countryContent.title} />
+      <Banner
+        bannerTitle={countryContent.title}
+        pathName={countryContent.breadcrumbPathname}
+      />
       <div className='countries-content'>
         <div className='container'>
           <div className='row'>

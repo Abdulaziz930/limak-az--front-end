@@ -25,7 +25,10 @@ const Questions = (props) => {
 
   return (
     <div className='questions-wrapper'>
-      <Banner bannerTitle={questionContent.questionTitle} />
+      <Banner
+        bannerTitle={questionContent.questionTitle}
+        pathName={questionContent.breadcrumbPathname}
+      />
       <div className='questions-content'>
         <div className='container'>
           <div className='row'>

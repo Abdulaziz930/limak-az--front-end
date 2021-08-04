@@ -32,7 +32,7 @@ const Calculator = () => {
     dispatch(fetchCalculatorInformationContent());
     dispatch(fetchCurrency());
     dispatch(fetchCalculatorPageContent());
-  }, [dispatch, mainCurrency,activeLanguage]);
+  }, [dispatch, mainCurrency, activeLanguage]);
 
   const handleChangeNumber = (e) => {
     setNumber(e.target.value);
@@ -55,7 +55,10 @@ const Calculator = () => {
 
   return (
     <div className='calculator-wrapper'>
-      <Banner bannerTitle={calculatorPageContent.calculatorHeading} />
+      <Banner
+        bannerTitle={calculatorPageContent.calculatorHeading}
+        pathName={calculatorPageContent.breadcrumbPathname}
+      />
       <div className='calculator-content'>
         <div className='container'>
           <div className='row'>

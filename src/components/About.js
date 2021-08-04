@@ -22,7 +22,10 @@ const About = (props) => {
 
   return (
     <div className='about-wrapper'>
-      <Banner bannerTitle={about.aboutTitle} />
+      <Banner
+        bannerTitle={about.aboutTitle}
+        pathName={about.breadcrumbPathname}
+      />
       <div className='about-content'>
         <div className='container'>
           <div className='row'>

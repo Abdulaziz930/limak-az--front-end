@@ -22,7 +22,10 @@ const Privacy = (props) => {
 
   return (
     <div className='privacy-wrapper'>
-      <Banner bannerTitle={privacy.privacyTitle} />
+      <Banner
+        bannerTitle={privacy.privacyTitle}
+        pathName={privacy.breadcrumbPathname}
+      />
       <div className='privacy-content'>
         <div className='container'>
           <div className='row'>
