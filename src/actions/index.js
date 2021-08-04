@@ -691,3 +691,47 @@ export const fetchPrivacy =
       });
     }
   };
+
+export const fetchTariffs =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_TARIFFS });
+
+    try {
+      const response = await mainAPI.get(
+        `Content/getTariffContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_TARIFFS_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_TARIFFS_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchTariffHeader =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_TARIFF_HEADER });
+
+    try {
+      const response = await mainAPI.get(
+        `Content/getTariffHeaderContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_TARIFF_HEADER_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_TARIFF_HEADER_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

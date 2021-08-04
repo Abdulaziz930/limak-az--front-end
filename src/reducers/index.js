@@ -895,3 +895,57 @@ export const privacyReducers = (
       return state;
   }
 };
+
+export const tariffsReducers = (
+  state = { loading: false, tariffs: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_TARIFFS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_TARIFFS_SUCCESS:
+      return {
+        ...state,
+        tariffs: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_TARIFFS_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const tariffHeaderReducers = (
+  state = { loading: false, tariffHeader: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_TARIFF_HEADER:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_TARIFF_HEADER_SUCCESS:
+      return {
+        ...state,
+        tariffHeader: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_TARIFF_HEADER_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

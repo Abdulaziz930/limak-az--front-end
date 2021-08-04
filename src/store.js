@@ -33,6 +33,8 @@ import {
   aboutReducers,
   privacyReducers,
   advertisementDetailReducers,
+  tariffsReducers,
+  tariffHeaderReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -71,6 +73,8 @@ const reducers = combineReducers({
   about: aboutReducers,
   privacy: privacyReducers,
   advertisement: advertisementDetailReducers,
+  tariffs: tariffsReducers,
+  tariffHeader: tariffHeaderReducers,
 });
 
 const store = createStore(

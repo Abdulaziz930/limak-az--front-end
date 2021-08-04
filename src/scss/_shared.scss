@@ -63,12 +63,9 @@ body {
       .nav-link {
         border-top-left-radius: none !important;
         border-top-right-radius: none !important;
+        @include text(16px, 600, $link-color);
+        padding: 15px 30px;
       }
-    }
-    #uncontrolled-tab-example-tab-turkey,
-    #uncontrolled-tab-example-tab-usa {
-      @include text(16px, 600, $link-color);
-      padding: 15px 30px;
     }
     .tab-header {
       display: flex;
