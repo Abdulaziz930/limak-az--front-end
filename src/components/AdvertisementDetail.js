@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import Banner from "./Banner";
 import Moment from "moment";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAdvertisementDetail, fetchAdvertisements } from "../actions";
-import { Link } from "react-router-dom";
+import {
+  fetchAdvertisementDetail,
+  fetchAdvertisements,
+  fetchAdvertisementHeader,
+} from "../actions";
 
 const AdvertisementDetail = () => {
   const dispatch = useDispatch();
@@ -12,18 +15,26 @@ const AdvertisementDetail = () => {
   const { activeLanguage } = useSelector((state) => state.languages);
   const { advertisement } = useSelector((state) => state.advertisement);
   const { advertisements } = useSelector((state) => state.advertisements);
+  const { advertisementHeader } = useSelector(
+    (state) => state.advertisementHeader
+  );
   const { id } = useParams();
+  const { push } = useHistory();
 
   useEffect(() => {
     dispatch(fetchAdvertisementDetail(id, activeLanguage));
     dispatch(fetchAdvertisements(10));
-  }, [dispatch, activeLanguage]);
+    dispatch(fetchAdvertisementHeader());
+  }, [dispatch, activeLanguage, id]);
 
   const date = new Date(advertisement.creationDate);
 
   return (
     <div className='advertisement--detail-wrapper'>
-      <Banner bannerTitle='YENİLİKLƏR VƏ ELANLAR' />
+      <Banner
+        bannerTitle={advertisementHeader.header}
+        pathName={advertisementHeader.breadcrumb}
+      />
       <div className='advertisement--detail-content'>
         <div className='container'>
           <div className='row'>
@@ -55,10 +66,11 @@ const AdvertisementDetail = () => {
                 );
                 return (
                   <div className='advertisement-box' key={advertisementItem.id}>
-                    <h4>
-                      <Link to={`advertisements/${advertisement.id}`}>
-                        {advertisementItem.title}
-                      </Link>
+                    <h4
+                      onClick={() => {
+                        push(`${advertisementItem.id}`);
+                      }}>
+                      {advertisementItem.title}
                     </h4>
                     <div className='date-area'>
                       <i className='far fa-calendar-alt'></i>

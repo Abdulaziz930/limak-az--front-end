@@ -192,6 +192,28 @@ export const fetchAdvertisementDetail =
     }
   };
 
+export const fetchAdvertisementHeader =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_ADVERTISEMENT_HEADER });
+
+    try {
+      const response = await mainAPI.get(
+        `Advertisement/getAdvertisementHeader/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_ADVERTISEMENT_HEADER_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_ADVERTISEMENT_HEADER_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
 export const fetchHowItWorksContent =
   (languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {

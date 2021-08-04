@@ -458,12 +458,8 @@
     padding-left: 10px;
     h4 {
       margin: 10px 0 16px;
-      a {
-        @include text(18px, 600, $second-link-color);
-        &:hover {
-          text-decoration: none;
-        }
-      }
+      @include text(18px, 600, $second-link-color);
+      cursor: pointer;
     }
     .date-area {
       @include text(14px, 400, $third-text-color);

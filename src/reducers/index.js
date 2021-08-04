@@ -248,6 +248,33 @@ export const advertisementDetailReducers = (
   }
 };
 
+export const advertisementHeaderReducers = (
+  state = { loading: false, advertisementHeader: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_ADVERTISEMENT_HEADER:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_ADVERTISEMENT_HEADER_SUCCESS:
+      return {
+        ...state,
+        advertisementHeader: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_ADVERTISEMENT_HEADER_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
 export const howItWorksContentReducers = (
   state = { loading: false, content: {} },
   action

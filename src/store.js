@@ -35,6 +35,7 @@ import {
   advertisementDetailReducers,
   tariffsReducers,
   tariffHeaderReducers,
+  advertisementHeaderReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -75,6 +76,7 @@ const reducers = combineReducers({
   advertisement: advertisementDetailReducers,
   tariffs: tariffsReducers,
   tariffHeader: tariffHeaderReducers,
+  advertisementHeader: advertisementHeaderReducers,
 });
 
 const store = createStore(
