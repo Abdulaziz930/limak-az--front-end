@@ -170,6 +170,28 @@ export const fetchAdvertisements =
     }
   };
 
+export const fetchAdvertisementDetail =
+  (id, languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_ADVERTISEMENT_DETAIL });
+
+    try {
+      const response = await mainAPI.get(
+        `Advertisement/getAdvertisementDetail/${id}/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_ADVERTISEMENT_DETAIL_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_ADVERTISEMENT_DETAIL_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
 export const fetchHowItWorksContent =
   (languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {

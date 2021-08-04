@@ -431,3 +431,42 @@
     }
   }
 }
+
+.advertisement--detail-wrapper {
+  .advertisement--detail-content {
+    background-color: $secondary-color;
+    padding: 60px 0;
+    .content-header {
+      margin: 22px 0 15px;
+      h3 {
+        @include text(24px, 600, $text-color);
+      }
+      .date-area {
+        @include text(14px, 400, $third-text-color);
+        span {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+  .advertisement-box {
+    border-bottom: 1px solid $third-border-color;
+    padding-left: 10px;
+    h4 {
+      margin: 10px 0 16px;
+      a {
+        @include text(18px, 600, $second-link-color);
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .date-area {
+      @include text(14px, 400, $third-text-color);
+      padding-bottom: 20px;
+      span {
+        padding-left: 10px;
+      }
+    }
+  }
+}

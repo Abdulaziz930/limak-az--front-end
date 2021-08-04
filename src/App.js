@@ -14,6 +14,9 @@ function App() {
   const Questions = React.lazy(() => import("./components/Questions"));
   const About = React.lazy(() => import("./components/About"));
   const Privacy = React.lazy(() => import("./components/Privacy"));
+  const AdvertisementDetail = React.lazy(() =>
+    import("./components/AdvertisementDetail")
+  );
 
   return (
     <>
@@ -29,6 +32,7 @@ function App() {
           <Route path='/questions' component={Questions} />
           <Route path='/about' component={About} />
           <Route path='/privacy' component={Privacy} />
+          <Route path='/advertisements/:id' component={AdvertisementDetail} />
         </Switch>
       </Suspense>
       <Footer />

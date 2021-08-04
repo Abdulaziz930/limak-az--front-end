@@ -13,7 +13,7 @@ const News = () => {
 
   useEffect(() => {
     dispatch(fetchAdvertisementTitle());
-  }, [dispatch,activeLanguage]);
+  }, [dispatch, activeLanguage]);
 
   return (
     <div className='news'>
@@ -27,7 +27,7 @@ const News = () => {
               const date = new Date(advertisement.creationDate);
               return (
                 <div className='col-md-4' key={advertisement.id}>
-                  <Link to={`/Advertisement/${advertisement.id}`}>
+                  <Link to={`/advertisements/${advertisement.id}`}>
                     <div className='news-card'>
                       <img
                         src={`./images/${advertisement.image}`}

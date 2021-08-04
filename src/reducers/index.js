@@ -221,6 +221,33 @@ export const advertisementsReducers = (
   }
 };
 
+export const advertisementDetailReducers = (
+  state = { loading: false, advertisement: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_ADVERTISEMENT_DETAIL:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_ADVERTISEMENT_DETAIL_SUCCESS:
+      return {
+        ...state,
+        advertisement: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_ADVERTISEMENT_DETAIL_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
 export const howItWorksContentReducers = (
   state = { loading: false, content: {} },
   action
@@ -375,7 +402,7 @@ export const recommendedShopsReducers = (
     case CONSTANT.FETCH_RECOMMENDED_SHOPS_FAIL:
       return {
         ...state,
-        recommendedShops: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -402,7 +429,7 @@ export const socialMediasReducers = (
     case CONSTANT.FETCH_SOCIAL_MEDIAS_FAIL:
       return {
         ...state,
-        socialMedias: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -429,7 +456,7 @@ export const contactReducers = (
     case CONSTANT.FETCH_CONTACT_FAIL:
       return {
         ...state,
-        contact: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -456,7 +483,7 @@ export const contactsReducers = (
     case CONSTANT.FETCH_CONTACTS_FAIL:
       return {
         ...state,
-        contacts: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -483,7 +510,7 @@ export const contactContentReducers = (
     case CONSTANT.FETCH_CONTACT_CONTENT_FAIL:
       return {
         ...state,
-        contactContent: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -510,7 +537,7 @@ export const shopsReducers = (
     case CONSTANT.FETCH_SHOPS_FAIL:
       return {
         ...state,
-        shops: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -537,7 +564,7 @@ export const shopsCountReducers = (
     case CONSTANT.GET_SHOPS_COUNT_FAIL:
       return {
         ...state,
-        shopsCount: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -564,7 +591,7 @@ export const shopContentReducers = (
     case CONSTANT.FETCH_SHOP_CONTENT_FAIL:
       return {
         ...state,
-        shopContent: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -591,7 +618,7 @@ export const countriesContentReducers = (
     case CONSTANT.FETCH_COUNTRY_CONTENT_FAIL:
       return {
         ...state,
-        countryContent: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -618,7 +645,7 @@ export const exchangeRateReducers = (
     case CONSTANT.GET_EXCAHGE_RATE_FAIL:
       return {
         ...state,
-        exchangeRate: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -645,7 +672,7 @@ export const calculatorInformationContentReducers = (
     case CONSTANT.FETCH_CALCULATOR_INFORMATION_CONTENT_FAIL:
       return {
         ...state,
-        calculatorInformationContent: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -672,7 +699,7 @@ export const currencyReducers = (
     case CONSTANT.FETCH_CURRENCY_FAIL:
       return {
         ...state,
-        currencies: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -699,7 +726,7 @@ export const calculatorContentReducers = (
     case CONSTANT.FETCH_CALCULATOR_PAGE_CONTENT_FAIL:
       return {
         ...state,
-        calculatorPageContent: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -726,7 +753,7 @@ export const rulesReducers = (
     case CONSTANT.FETCH_RULES_FAIL:
       return {
         ...state,
-        rules: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -753,7 +780,7 @@ export const ruleContentReducers = (
     case CONSTANT.FETCH_RULES_CONTENT_FAIL:
       return {
         ...state,
-        ruleContent: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -780,7 +807,7 @@ export const questionsReducers = (
     case CONSTANT.FETCH_QUESTIONS_FAIL:
       return {
         ...state,
-        questions: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -807,7 +834,7 @@ export const questionContentReducers = (
     case CONSTANT.FETCH_QUESTIONS_CONTENT_FAIL:
       return {
         ...state,
-        questionContent: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -834,7 +861,7 @@ export const aboutReducers = (
     case CONSTANT.FETCH_ABOUT_FAIL:
       return {
         ...state,
-        about: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:
@@ -861,7 +888,7 @@ export const privacyReducers = (
     case CONSTANT.FETCH_PRIVACY_FAIL:
       return {
         ...state,
-        privacy: action.payload,
+        error: action.payload,
         loading: false,
       };
     default:

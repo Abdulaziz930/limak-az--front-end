@@ -35,7 +35,7 @@ const Intro = () => {
                   return (
                     <div key={advertisement.id}>
                       <Link
-                        to={`Advertisements/${advertisement.id}`}
+                        to={`advertisements/${advertisement.id}`}
                         className='slider-img-link'>
                         <img
                           src={`./images/${advertisement.image}`}
