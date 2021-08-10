@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 const useForm = (validateInfo, isChecked) => {
   const [values, setValues] = useState({
@@ -21,6 +22,7 @@ const useForm = (validateInfo, isChecked) => {
   });
   const [errors, setErrors] = useState({});
   const [isNull, setIsNull] = useState(false);
+  const { activeLanguage } = useSelector((state) => state.languages);
   const isInitialMount = useRef(true);
   const { push } = useHistory();
 
@@ -41,19 +43,7 @@ const useForm = (validateInfo, isChecked) => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
 
-    // if (!isChecked) {
-    //   setErrors({
-    //     ...errors,
-    //     isChecked: "wrong",
-    //   });
-    // } else {
-    //   setErrors({
-    //     ...errors,
-    //     isChecked: "",
-    //   });
-    // }
-
-    setErrors(validateInfo(values,isChecked));
+    setErrors(validateInfo(values, isChecked, activeLanguage));
 
     if (isNull && isChecked) {
       axios

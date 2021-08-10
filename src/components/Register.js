@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Banner from "./Banner";
 import useForm from "../hooks/useForm";
 import validateInfo from "../Helpers/validateInfo";
 import RuleModalWrapper from "./RuleModalWrapper";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchUserRule,
+  fetchRegisterContent,
+  fetchRegisterInformation,
+  fetchGenders,
+  fetchCitiesContent,
+} from "../actions";
+import language from "../translation/language.json";
 
 const Register = () => {
+  const dispatch = useDispatch();
+
+  const { userRule } = useSelector((state) => state.userRule);
+  const { registerContent } = useSelector((state) => state.registerContent);
+  const { registerInformation } = useSelector(
+    (state) => state.registerInformation
+  );
+  const { genders } = useSelector((state) => state.genders);
+  const { cities } = useSelector((state) => state.cities);
   const [isChecked, setIsChecked] = useState(false);
   const { values, handleChange, handleSubmitForm, errors } = useForm(
     validateInfo,
@@ -12,17 +30,29 @@ const Register = () => {
   );
   const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const { activeLanguage } = useSelector((state) => state.languages);
+
+  useEffect(() => {
+    dispatch(fetchUserRule());
+    dispatch(fetchRegisterContent());
+    dispatch(fetchRegisterInformation());
+    dispatch(fetchCitiesContent());
+    dispatch(fetchGenders());
+  }, [dispatch, activeLanguage]);
 
   return (
     <div className='register-wrapper'>
-      <Banner bannerTitle='İSTİFADƏÇİ QEYDİYYATI' pathName='QEYDIYYAT' />
+      <Banner
+        bannerTitle={registerContent.registerTitle}
+        pathName='QEYDIYYAT'
+      />
       <div className='container'>
         <div className='register-content'>
           <div className='row'>
             <div className='col-md-9'>
               <form method='POST' onSubmit={handleSubmitForm}>
                 <div className='content-header'>
-                  <h4>Profil məlumatları</h4>
+                  <h4>{registerContent.profileTitle}</h4>
                 </div>
                 <div className='content-box'>
                   <div className='row'>
@@ -32,7 +62,7 @@ const Register = () => {
                           type='text'
                           className='form-control'
                           value={values.name}
-                          placeholder='Ad *'
+                          placeholder={`${language[activeLanguage].nameInput.placeholder} *`}
                           name='name'
                           onChange={handleChange}
                         />
@@ -45,7 +75,7 @@ const Register = () => {
                           type='text'
                           className='form-control'
                           value={values.userName}
-                          placeholder='İstifadəçi Adı *'
+                          placeholder={`${language[activeLanguage].usernameInput.placeholder} *`}
                           name='userName'
                           onChange={handleChange}
                         />
@@ -58,7 +88,7 @@ const Register = () => {
                           type='password'
                           className='form-control'
                           value={values.password}
-                          placeholder='Şifrə *'
+                          placeholder={`${language[activeLanguage].passwordInput.placeholder} *`}
                           name='password'
                           onChange={handleChange}
                         />
@@ -71,7 +101,7 @@ const Register = () => {
                           type='text'
                           className='form-control'
                           value={values.phoneNumber}
-                          placeholder='Telefon *'
+                          placeholder={`${language[activeLanguage].phoneInput.placeholder} *`}
                           name='phoneNumber'
                           onChange={handleChange}
                         />
@@ -86,7 +116,7 @@ const Register = () => {
                           type='text'
                           className='form-control'
                           value={values.surname}
-                          placeholder='Soyad *'
+                          placeholder={`${language[activeLanguage].surnameInput.placeholder} *`}
                           name='surname'
                           onChange={handleChange}
                         />
@@ -99,7 +129,7 @@ const Register = () => {
                           type='email'
                           className='form-control'
                           value={values.email}
-                          placeholder='E-Mail *'
+                          placeholder={`${language[activeLanguage].emailInput.placeholder} *`}
                           name='email'
                           onChange={handleChange}
                         />
@@ -112,7 +142,7 @@ const Register = () => {
                           type='password'
                           className='form-control'
                           value={values.confirmPassword}
-                          placeholder='Şifrənin təkrarı *'
+                          placeholder={`${language[activeLanguage].confirmPasswordInput.placeholder} *`}
                           name='confirmPassword'
                           onChange={handleChange}
                         />
@@ -128,12 +158,16 @@ const Register = () => {
                           name='city'
                           value={values.city}
                           onChange={handleChange}>
-                          <option value=''>--Çatdırılma ofisi--</option>
-                          <option value='Baku'>Bakı</option>
-                          <option value='Khirdalan'>Xırdalan</option>
-                          <option value='Ganja'>Gəncə</option>
-                          <option value='Sumgayit'>Sumqayıt</option>
-                          <option value='Zaqatala'>Zaqatala</option>
+                          <option value=''>
+                            --{language[activeLanguage].cityInput.placeholder}--
+                          </option>
+                          {cities.map((city) => {
+                            return (
+                              <option value={city.value} key={city.id}>
+                                {city.name}
+                              </option>
+                            );
+                          })}
                         </select>
                         {errors.city && (
                           <p className='error-message'>{errors.city}</p>
@@ -143,7 +177,7 @@ const Register = () => {
                   </div>
                 </div>
                 <div className='content-header'>
-                  <h4>Şəxsiyyət vəsiqəsi məlumatları</h4>
+                  <h4>{registerContent.idTitle}</h4>
                 </div>
                 <div className='content-box'>
                   <div className='row'>
@@ -153,7 +187,7 @@ const Register = () => {
                           type='number'
                           className='form-control serial-number-input'
                           value={values.serialNumber}
-                          placeholder='Seriya Nömrəsi *'
+                          placeholder={`${language[activeLanguage].serialNumberInput.placeholder} *`}
                           name='serialNumber'
                           onChange={handleChange}
                         />
@@ -173,7 +207,7 @@ const Register = () => {
                           type='text'
                           className='form-control'
                           value={values.finCode}
-                          placeholder='Fin *'
+                          placeholder={`${language[activeLanguage].finCodeInput.placeholder} *`}
                           name='finCode'
                           onChange={handleChange}
                         />
@@ -205,9 +239,19 @@ const Register = () => {
                               name='gender'
                               value={values.gender}
                               onChange={handleChange}>
-                              <option value=''>Cinsi</option>
-                              <option value='male'>Kişi</option>
-                              <option value='female'>Qadın</option>
+                              <option value=''>
+                                {
+                                  language[activeLanguage].genderInput
+                                    .placeholder
+                                }
+                              </option>
+                              {genders.map((gender) => {
+                                return (
+                                  <option value='male' key={gender.id}>
+                                    {gender.name}
+                                  </option>
+                                );
+                              })}
                             </select>
                           </div>
                         </div>
@@ -219,7 +263,7 @@ const Register = () => {
                           type='text'
                           className='form-control'
                           value={values.address}
-                          placeholder='Ünvan *'
+                          placeholder={`${language[activeLanguage].addressInput.placeholder} *`}
                           name='address'
                           onChange={handleChange}
                         />
@@ -242,25 +286,23 @@ const Register = () => {
                             htmlFor='check'
                             onClick={() => setIsChecked(!isChecked)}></label>
                           <RuleModalWrapper
-                            modalTitle='Test'
+                            modalTitle={userRule.title}
                             isChecked={isRuleModalOpen}
                             onClose={() => setIsRuleModalOpen(false)}>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Ut enim ad minim veniam,
-                              quis nostrud exercitation ullamco laboris nisi ut
-                              aliquip ex ea commodo consequat.
-                            </p>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: userRule.description,
+                              }}
+                            />
                           </RuleModalWrapper>
                           <label
                             className='check-label'
                             onClick={() => setIsRuleModalOpen(true)}>
-                            Qaydalar ilə razıyam
+                            {registerContent.ruleTitle}
                           </label>
                         </div>
                         <button type='submit' className='btn' formNoValidate>
-                          Təstiq et
+                          {registerContent.buttonName}
                         </button>
                       </div>
                       {errors.Checked && (
@@ -273,15 +315,11 @@ const Register = () => {
             </div>
             <div className='col-md-3'>
               <div className='info-wrapper'>
-                <h3>Diqqət!</h3>
-                <p>
-                  Şəxsiyyət vəsiqənizin FİN kodu vəsiqənin aşağı sağ küncündə
-                  sonuncu rəqəmdən əvvəlki 7 işarədir. Daha aydın bilməniz üçün
-                  nümunə şəkilə diqqət edin!
-                </p>
+                <h3>{registerInformation.title}</h3>
+                <p>{registerInformation.description}</p>
                 <div className='imgBox'>
                   <img
-                    src='http://localhost:3000/images/fin-big.png'
+                    src={`http://localhost:3000/images/${registerInformation.image}`}
                     alt=''
                     className='img-fluid'
                   />
@@ -291,7 +329,7 @@ const Register = () => {
                   isChecked={isImageModalOpen}
                   onClose={() => setIsImageModalOpen(false)}>
                   <img
-                    src='http://localhost:3000/images/fin-big.png'
+                    src={`http://localhost:3000/images/${registerInformation.image}`}
                     alt=''
                     className='img-fluid'
                   />
@@ -300,7 +338,7 @@ const Register = () => {
                   <span
                     className='modal-btn'
                     onClick={() => setIsImageModalOpen(true)}>
-                    Şəkili böyüt
+                    {registerInformation.buttonName}
                   </span>
                 </div>
               </div>

@@ -76,6 +76,42 @@
     "boxCountInput": {
       "placeholder": "Bağlama sayı"
     },
+    "nameInput": {
+      "placeholder": "Ad"
+    },
+    "surnameInput": {
+      "placeholder": "Soyad"
+    },
+    "usernameInput": {
+      "placeholder": "İstifadəçi adı"
+    },
+    "passwordInput": {
+      "placeholder": "şifrə"
+    },
+    "confirmPasswordInput": {
+      "placeholder": "Şifrənin təkrarı"
+    },
+    "phoneInput": {
+      "placeholder": "Telefon"
+    },
+    "cityInput": {
+      "placeholder": "Çatdırılma ofisi"
+    },
+    "serialNumberInput": {
+      "placeholder": "Seriya nömrəsi"
+    },
+    "finCodeInput": {
+      "placeholder": "Fin"
+    },
+    "genderInput": {
+      "placeholder": "Cinsi"
+    },
+    "addressInput": {
+      "placeholder": "Ünvan"
+    },
+    "emailInput": {
+      "placeholder": "E-Poçt adresi"
+    },
     "description": "'Limak VM' MMC sürətli poçtdaşıma və kuryer şirkətidir. Fiziki və hüquqi şəxslərin sifariş etdikləri yükləri xaricdəki anbarlarına qəbul edir, onların Azərbaycana daşınıb, müştəriyə təhvil verilməsini təmin edir.",
     "social_media_title": "Bizi sosial şəbəkələrdən izləyin",
     "section_title": "Bölmələr",
@@ -83,7 +119,20 @@
     "app": "Mobil Tətbiqlərimiz",
     "copy_right": "© 2018 Limak.az | Bütün hüquqlar qorunur",
     "section_box_title": "Köməkçi bölmələr",
-    "breadcrumb_path": "Ana Səyfə"
+    "breadcrumb_path": "Ana Səyfə",
+    "nameErrorMessage": "Ad mütləqdir",
+    "surnameErrorMessage": "Soyad mütləqdir",
+    "emailErrorMessage": "E-Poçt adresi mütləqdir",
+    "phoneErrorMessage": "Telefon nömrəsi mütləqdir",
+    "passwordErrorMessage": "Şifrə mütləqdir",
+    "confirmPasswordErrorMessage": "Şifrənin təkrarı mütləqdir",
+    "officeErrorMessage": "Çatdırılma ofisi mütləqdir",
+    "serialNumberErrorMessage": "Seriya nömrəsi mütləqdir",
+    "finCodeErrorMessage": "Fin mütləqdir",
+    "birthDayErrorMessage": "Doğum tarixi mütləqdir",
+    "addressErrorMessage": "Adres mütlqədir",
+    "usernameErrorMessage": "İstifadəçi adı mütlqədir",
+    "checkErrorMessage": "Mütlqədir"
   },
   "RU": {
     "sections": [
@@ -162,6 +211,42 @@
     "boxCountInput": {
       "placeholder": "Количество"
     },
+    "nameInput": {
+      "placeholder": "Имя"
+    },
+    "surnameInput": {
+      "placeholder": "Фамилия"
+    },
+    "usernameInput": {
+      "placeholder": "имя пользователя"
+    },
+    "passwordInput": {
+      "placeholder": "Пароль"
+    },
+    "confirmPasswordInput": {
+      "placeholder": "Пароль еще раз"
+    },
+    "phoneInput": {
+      "placeholder": "Телефон"
+    },
+    "cityInput": {
+      "placeholder": "Офис доставки"
+    },
+    "serialNumberInput": {
+      "placeholder": "Номер серии"
+    },
+    "finCodeInput": {
+      "placeholder": "PİN"
+    },
+    "genderInput": {
+      "placeholder": "Пол"
+    },
+    "addressInput": {
+      "placeholder": "Адрес регистрации"
+    },
+    "emailInput": {
+      "placeholder": "Почта"
+    },
     "description": "ООО Limak VM - компания экспресс почтовой и курьерской службы. Принимает на свои зарубежные склады заказанные физическими и юридическими лицами грузы, обеспечивает их перевозку в Азербайджан и доставку клиентам.",
     "social_media_title": "Следите за нами в соцсетях",
     "section_title": "Разделы",
@@ -169,7 +254,20 @@
     "app": "Наши мобильные приложения",
     "copy_right": "© 2018 Limak.az | Все права защищены",
     "section_box_title": "Вспомогательные разделы",
-    "breadcrumb_path": "Главная страница"
+    "breadcrumb_path": "Главная страница",
+    "nameErrorMessage": "Имя обязательно",
+    "surnameErrorMessage": "Фамилия обязательна",
+    "emailErrorMessage": "Электронная почта обязательна",
+    "phoneErrorMessage": "Номер телефона обязателен",
+    "passwordErrorMessage": "необходим пароль",
+    "confirmPasswordErrorMessage": "Подтвердите пароль требуется",
+    "officeErrorMessage": "Офис обязателен",
+    "serialNumberErrorMessage": "Требуется серийный номер",
+    "finCodeErrorMessage": "Требуется Fin-код",
+    "birthDayErrorMessage": "Birthday is required",
+    "addressErrorMessage": "Адрес обязателен",
+    "usernameErrorMessage": "Username is required",
+    "checkErrorMessage": "необходимые"
   },
   "EN": {
     "sections": [
@@ -248,6 +346,42 @@
     "boxCountInput": {
       "placeholder": "Count"
     },
+    "nameInput": {
+      "placeholder": "Name"
+    },
+    "surnameInput": {
+      "placeholder": "Surname"
+    },
+    "usernameInput": {
+      "placeholder": "Username"
+    },
+    "passwordInput": {
+      "placeholder": "Password"
+    },
+    "confirmPasswordInput": {
+      "placeholder": "Confirm password"
+    },
+    "phoneInput": {
+      "placeholder": "Phone number"
+    },
+    "cityInput": {
+      "placeholder": "Delivery office"
+    },
+    "serialNumberInput": {
+      "placeholder": "Serial number"
+    },
+    "finCodeInput": {
+      "placeholder": "Fin"
+    },
+    "genderInput": {
+      "placeholder": "Gender"
+    },
+    "addressInput": {
+      "placeholder": "Address"
+    },
+    "emailInput": {
+      "placeholder": "E-Mail"
+    },
     "description": "Limak VM LLC is an express postal and courier service company. It accepts goods ordered by individuals and legal entities to its foreign warehouses, ensures their transportation to Azerbaijan and delivery to customers.",
     "social_media_title": "Follow us on social networks",
     "section_title": "Sections",
@@ -255,6 +389,19 @@
     "app": "Our Mobile Applications",
     "copy_right": "© 2018 Limak.az | All rights reserved",
     "section_box_title": "Auxiliary Sections",
-    "breadcrumb_path": "Home"
+    "breadcrumb_path": "Home",
+    "nameErrorMessage": "Name is required",
+    "surnameErrorMessage": "Surname is required",
+    "emailErrorMessage": "Email is required",
+    "phoneErrorMessage": "Phone number is required",
+    "passwordErrorMessage": "Password is required",
+    "confirmPasswordErrorMessage": "Confirm password is required",
+    "officeErrorMessage": "Office is required",
+    "serialNumberErrorMessage": "Serial number is required",
+    "finCodeErrorMessage": "Fin is required",
+    "birthDayErrorMessage": "Birthday is required",
+    "addressErrorMessage": "Address is required",
+    "usernameErrorMessage": "Username is required",
+    "checkErrorMessage": "Required"
   }
 }

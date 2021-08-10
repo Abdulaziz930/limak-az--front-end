@@ -758,24 +758,6 @@ export const fetchTariffHeader =
     }
   };
 
-export const fetchUsers = () => async (dispatch) => {
-  dispatch({ type: CONSTANT.FETCH_USERS });
-
-  try {
-    const response = await mainAPI.get(`Authenticate/getUsers`);
-
-    dispatch({
-      type: CONSTANT.FETCH_USERS_SUCCESS,
-      payload: response.data,
-    });
-  } catch (e) {
-    dispatch({
-      type: CONSTANT.FETCH_USERS_FAIL,
-      payload: e.message ? e.message : e,
-    });
-  }
-};
-
 export const fetchUserRule =
   (languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {
@@ -783,7 +765,7 @@ export const fetchUserRule =
 
     try {
       const response = await mainAPI.get(
-        `UserRule/getUserRule/${languageCode}`
+        `RegisterContent/getUserRule/${languageCode}`
       );
 
       dispatch({
@@ -793,6 +775,72 @@ export const fetchUserRule =
     } catch (e) {
       dispatch({
         type: CONSTANT.FETCH_USER_RULE_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchRegisterContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_REGISTER_CONTENT });
+
+    try {
+      const response = await mainAPI.get(
+        `RegisterContent/getRegisterContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_REGISTER_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_REGISTER_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchRegisterInformation =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_REGISTER_INFORMATION });
+
+    try {
+      const response = await mainAPI.get(
+        `RegisterContent/getRegisterInformation/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_REGISTER_INFORMATION_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_REGISTER_INFORMATION_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };
+
+export const fetchGenders =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_GENDERS });
+
+    try {
+      const response = await mainAPI.get(
+        `RegisterContent/getGenders/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_GENDERS_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_GENDERS_FAIL,
         payload: e.message ? e.message : e,
       });
     }

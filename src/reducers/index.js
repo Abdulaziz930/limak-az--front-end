@@ -977,23 +977,104 @@ export const tariffHeaderReducers = (
   }
 };
 
-export const usersReducers = (
-  state = { loading: false, users: [] },
+export const userRuleReducers = (
+  state = { loading: false, userRule: {} },
   action
 ) => {
   switch (action.type) {
-    case CONSTANT.FETCH_USERS:
+    case CONSTANT.FETCH_USER_RULE:
       return {
         ...state,
         loading: true,
       };
-    case CONSTANT.FETCH_USERS_SUCCESS:
+    case CONSTANT.FETCH_USER_RULE_SUCCESS:
       return {
         ...state,
-        users: action.payload,
+        userRule: action.payload,
         loading: false,
       };
-    case CONSTANT.FETCH_USERS_FAIL:
+    case CONSTANT.FETCH_USER_RULE_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const registerContentReducers = (
+  state = { loading: false, registerContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_REGISTER_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_REGISTER_CONTENT_SUCCESS:
+      return {
+        ...state,
+        registerContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_REGISTER_CONTENT_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const registerInformationReducers = (
+  state = { loading: false, registerInformation: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_REGISTER_INFORMATION:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_REGISTER_INFORMATION_SUCCESS:
+      return {
+        ...state,
+        registerInformation: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_REGISTER_INFORMATION_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const gendersReducers = (
+  state = { loading: false, genders: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_GENDERS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_GENDERS_SUCCESS:
+      return {
+        ...state,
+        genders: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_GENDERS_FAIL:
       return {
         ...state,
         error: action.payload,
