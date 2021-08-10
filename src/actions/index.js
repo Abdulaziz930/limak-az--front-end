@@ -757,3 +757,43 @@ export const fetchTariffHeader =
       });
     }
   };
+
+export const fetchUsers = () => async (dispatch) => {
+  dispatch({ type: CONSTANT.FETCH_USERS });
+
+  try {
+    const response = await mainAPI.get(`Authenticate/getUsers`);
+
+    dispatch({
+      type: CONSTANT.FETCH_USERS_SUCCESS,
+      payload: response.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: CONSTANT.FETCH_USERS_FAIL,
+      payload: e.message ? e.message : e,
+    });
+  }
+};
+
+export const fetchUserRule =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_USER_RULE });
+
+    try {
+      const response = await mainAPI.get(
+        `UserRule/getUserRule/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_USER_RULE_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_USER_RULE_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

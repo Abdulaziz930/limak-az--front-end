@@ -274,4 +274,69 @@ body {
     }
   }
   /* Accordion styles end */
+
+  #rule-modal {
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 10;
+    }
+    .rule-modal-wrapper {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $secondary-color;
+      z-index: 10;
+      border-radius: 10px;
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s;
+      .rule-modal-header {
+        @include flexy-box-between();
+        border-bottom: 1px solid $border-color;
+        padding: 15px 30px;
+        .icon-box {
+          i {
+            cursor: pointer;
+            font-size: 20px;
+          }
+        }
+      }
+      .rule-modal-body {
+        padding: 15px 30px;
+      }
+      .rule-modal-footer {
+        padding: 0 30px 15px;
+      }
+    }
+  }
+  .error-message {
+    position: absolute;
+    margin-bottom: 0;
+    @include text(13px, 500, $error-color);
+  }
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+  }
+  to {
+    top: 50%;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+  }
+  to {
+    top: 50%;
+  }
 }

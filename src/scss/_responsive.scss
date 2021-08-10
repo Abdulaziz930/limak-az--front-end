@@ -101,6 +101,19 @@
       }
     }
   }
+  .register-wrapper {
+    .register-content {
+      form {
+        padding: 57px 25px 80px;
+      }
+      .info-wrapper {
+        padding: 40px 22px 90px;
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
 }
 @media screen and(max-width: 576px) {
   body {
@@ -303,6 +316,23 @@
         }
         .description {
           text-align: center;
+        }
+      }
+    }
+    .register-wrapper {
+      .register-content {
+        form {
+          padding: 57px 20px 80px;
+          .content-box {
+            .submitBox {
+              display: block;
+              .checkbox-wrapper {
+                display: flex;
+                justify-content: left;
+                margin-bottom: 10px;
+              }
+            }
+          }
         }
       }
     }

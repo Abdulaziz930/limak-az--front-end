@@ -25,11 +25,21 @@ const Shops = () => {
 
   useEffect(() => {
     dispatch(fetchCountriesContent());
-    dispatch(fetchShops());
+    dispatch(fetchShops(localStorage.getItem("currentCountryId")));
     dispatch(getShopsCount());
     dispatch(fetchShopContent());
-    setCurrentCountry("Turkey");
+    setCurrentCountry(localStorage.getItem("currentCountry"));
   }, [dispatch, activeLanguage]);
+
+  if (localStorage.getItem("currentCountryId") === null) {
+    localStorage.setItem("currentCountryId", 1);
+  }
+
+  if (localStorage.getItem("currentCountry") === null) {
+    if (countries[0] !== undefined) {
+      localStorage.setItem("currentCountry", countries[0].value);
+    }
+  }
 
   useEffect(() => {
     if (isChanged === false) {
@@ -51,6 +61,8 @@ const Shops = () => {
     dispatch(fetchShops(country.id));
     dispatch(getShopsCount(country.id));
     setCurrentCountry(country.value);
+    localStorage.setItem("currentCountryId", country.id);
+    localStorage.setItem("currentCountry", country.value);
     setCurrentCountryId(country.id);
     setIsChanged(true);
   };

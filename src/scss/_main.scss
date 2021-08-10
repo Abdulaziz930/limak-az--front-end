@@ -470,3 +470,145 @@
     }
   }
 }
+
+.register-wrapper {
+  .register-content {
+    padding-bottom: 50px;
+    form {
+      background-color: $secondary-color;
+      padding: 57px 88px 80px;
+      border-radius: 10px;
+      .content-header {
+        margin-bottom: 20px;
+        h4 {
+          @include text(16px, 500, $text-color);
+        }
+      }
+      .content-box {
+        .form-group {
+          position: relative;
+          margin-bottom: 1.5rem;
+          .icon-box {
+            position: absolute;
+            right: 5%;
+            top: 23%;
+            cursor: pointer;
+            color: $primary-color;
+          }
+          
+        }
+        .form-control {
+          @include text(12px, 400, $form-color);
+          border-radius: 5px;
+          height: 40px;
+          padding-left: 20px;
+          &::placeholder {
+            @include text(12px, 400, $form-color);
+          }
+          &:focus {
+            border-color: $primary-color;
+            box-shadow: none;
+          }
+        }
+        .serial-number-input {
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          -moz-appearance: textfield;
+        }
+        ::-webkit-calendar-picker-indicator {
+          cursor: pointer;
+          border-radius: 4px;
+          margin-right: 2px;
+          opacity: 0.6;
+          filter: invert(0.8);
+          &:hover {
+            opacity: 1;
+            filter: invert(0);
+          }
+        }
+        .submitBox {
+          @include flexy-box-between();
+          margin-top: 10px;
+          .checkbox-wrapper {
+            @include flexy-box();
+            .check-label {
+              margin-left: 10px;
+              cursor: pointer;
+              color: $second-link-color;
+              border-bottom: 1px solid $second-link-color;
+            }
+            .checkmark {
+              position: relative;
+              display: block;
+              width: 25px;
+              height: 25px;
+              background-color: $fourth-background-color;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: background-color 0.2s;
+              &::after {
+                content: "";
+                position: absolute;
+                width: 7px;
+                height: 18px;
+                border-right: 3px solid $secondary-color;
+                border-bottom: 3px solid $secondary-color;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotateZ(40deg);
+                opacity: 0;
+              }
+            }
+            #check {
+              &:checked ~ .checkmark {
+                background-color: $primary-color;
+                &::after {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+          .btn {
+            @include btn(10px 45px, $primary-color, 16px, $primary-color);
+            text-transform: uppercase;
+            &:hover {
+              @include btnHover($primary-color);
+            }
+            &:focus {
+              outline: none;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+    .info-wrapper {
+      background-color: $secondary-color;
+      padding: 40px 22px 90px;
+      border-radius: 10px;
+      height: 100%;
+      h3 {
+        @include text(28px, 500, $text-color);
+        text-align: center;
+        margin-bottom: 25px;
+      }
+      p {
+        @include text(18px, 400, $text-color);
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .btnBox {
+        @include flexy-box();
+        margin-top: 30px;
+        span {
+          @include text(16px, 400, $primary-color);
+          border-bottom: 1px solid $primary-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

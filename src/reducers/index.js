@@ -976,3 +976,30 @@ export const tariffHeaderReducers = (
       return state;
   }
 };
+
+export const usersReducers = (
+  state = { loading: false, users: [] },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_USERS:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_USERS_SUCCESS:
+      return {
+        ...state,
+        users: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_USERS_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
