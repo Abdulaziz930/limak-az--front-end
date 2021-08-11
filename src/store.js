@@ -40,6 +40,8 @@ import {
   registerContentReducers,
   registerInformationReducers,
   gendersReducers,
+  setUserReducers,
+  loginContentReducers,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -85,6 +87,8 @@ const reducers = combineReducers({
   registerContent: registerContentReducers,
   registerInformation: registerInformationReducers,
   genders: gendersReducers,
+  user: setUserReducers,
+  loginContent: loginContentReducers,
 });
 
 const store = createStore(

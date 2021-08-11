@@ -845,3 +845,41 @@ export const fetchGenders =
       });
     }
   };
+
+export const setUser = (user) => async (dispatch) => {
+  dispatch({ type: CONSTANT.SET_USER });
+
+  try {
+    dispatch({
+      type: CONSTANT.SET_USER_SUCCESS,
+      payload: user,
+    });
+  } catch (e) {
+    dispatch({
+      type: CONSTANT.SET_USER_FAIL,
+      payload: e.message ? e.message : e,
+    });
+  }
+};
+
+export const fetchLoginContent =
+  (languageCode = localStorage.getItem("language")) =>
+  async (dispatch) => {
+    dispatch({ type: CONSTANT.FETCH_LOGIN_CONTENT });
+
+    try {
+      const response = await mainAPI.get(
+        `LoginContent/getLoginContent/${languageCode}`
+      );
+
+      dispatch({
+        type: CONSTANT.FETCH_LOGIN_CONTENT_SUCCESS,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: CONSTANT.FETCH_LOGIN_CONTENT_FAIL,
+        payload: e.message ? e.message : e,
+      });
+    }
+  };

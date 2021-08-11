@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLanguages } from "../actions";
+import { fetchLanguages, setUser } from "../actions";
 import language from "../translation/language.json";
 
 const Navi = () => {
   const dispatch = useDispatch();
 
   const { languages, activeLanguage } = useSelector((state) => state.languages);
+  const { user } = useSelector((state) => state.user);
 
   const [isOpen, setIsOpen] = useState(false);
   const [hamburgerMenuClassName, setHamburgerMenuClassName] =
@@ -19,6 +20,11 @@ const Navi = () => {
 
   useEffect(() => {
     dispatch(fetchLanguages());
+    if (localStorage.getItem("username")) {
+      dispatch(setUser(localStorage.getItem("username")));
+    } else if (sessionStorage.getItem("username")) {
+      dispatch(setUser(sessionStorage.getItem("username")));
+    }
   }, [dispatch]);
 
   const handleClickLanguage = (code) => {
@@ -35,6 +41,20 @@ const Navi = () => {
       setIsOpen(false);
     }
   };
+
+  const logout = () => {
+    if (localStorage.getItem("token")) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      dispatch(setUser(""));
+    } else if (sessionStorage.getItem("token")) {
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("username");
+      dispatch(setUser(""));
+    }
+  };
+
+  let count = 0;
 
   return (
     <>
@@ -53,18 +73,56 @@ const Navi = () => {
               })}
             </ul>
             <ul className='nav-items right-items'>
-              {language[activeLanguage].authentications.map(
-                (authentication) => {
-                  return (
-                    <li className='navbar-top__item' key={authentication.id}>
-                      <Link
-                        className='navbar-top__link'
-                        to={`/${authentication.url}`}>
-                        {authentication.name}
-                      </Link>
-                    </li>
-                  );
-                }
+              {localStorage.getItem("token") ||
+              sessionStorage.getItem("token") ? (
+                <>
+                  <li className='nav-item dropdown panel-items'>
+                    <p
+                      className='nav-link dropdown-toggle'
+                      id='navbarDropdown'
+                      role='button'
+                      data-toggle='dropdown'
+                      aria-haspopup='true'
+                      aria-expanded='false'>
+                      {user}
+                    </p>
+                    <div
+                      className='dropdown-menu'
+                      aria-labelledby='navbarDropdown'>
+                      {language[activeLanguage].panels.map((panel) => {
+                        count++;
+                        return (
+                          <React.Fragment key={panel.id}>
+                            {count ===
+                            language[activeLanguage].panels.length ? (
+                              <span className='dropdown-item' onClick={logout}>
+                                {panel.name}
+                              </span>
+                            ) : (
+                              <Link className='dropdown-item' to={panel.url}>
+                                {panel.name}
+                              </Link>
+                            )}
+                          </React.Fragment>
+                        );
+                      })}
+                    </div>
+                  </li>
+                </>
+              ) : (
+                language[activeLanguage].authentications.map(
+                  (authentication) => {
+                    return (
+                      <li className='navbar-top__item' key={authentication.id}>
+                        <Link
+                          className='navbar-top__link'
+                          to={`/${authentication.url}`}>
+                          {authentication.name}
+                        </Link>
+                      </li>
+                    );
+                  }
+                )
               )}
             </ul>
           </div>

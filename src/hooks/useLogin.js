@@ -1,12 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../actions";
 
 const useLogin = (loginValidateInfo, isChecked) => {
+  const dispatch = useDispatch();
+
   const [values, setValues] = useState({
     userName: "",
     password: "",
+    common: "",
   });
   const [errors, setErrors] = useState({});
   const [isNull, setIsNull] = useState(false);
@@ -37,15 +41,25 @@ const useLogin = (loginValidateInfo, isChecked) => {
     if (isNull) {
       axios
         .post("https://localhost:44393/api/Authenticate/login", values)
-        .then((response) => setToken(response.data.token));
+        .then((response) => setToken(response.data.token))
+        .catch(({ response }) =>
+          setErrors({
+            ...errors,
+            common: response.data.message,
+          })
+        );
     }
   };
 
   if (token !== "") {
     if (isChecked) {
       localStorage.setItem("token", token);
+      localStorage.setItem("username", values.userName);
+      dispatch(setUser(localStorage.getItem("username")));
     } else {
       sessionStorage.setItem("token", token);
+      sessionStorage.setItem("username", values.userName);
+      dispatch(setUser(sessionStorage.getItem("username")));
     }
     push("/");
   }

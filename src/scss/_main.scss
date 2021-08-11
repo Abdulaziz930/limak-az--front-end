@@ -686,7 +686,7 @@
         }
       }
       .link-box {
-        span {
+        a {
           @include text(14px, 400, $second-link-color);
           cursor: pointer;
           &:hover {

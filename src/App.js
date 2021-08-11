@@ -3,8 +3,9 @@ import SpinnerWrapper from "./components/SpinnerWrapper";
 import Navi from "./components/Navi";
 import { Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
+import { withRouter } from "react-router";
 
-function App() {
+function App(props) {
   const Home = React.lazy(() => import("./components/Home"));
   const Contact = React.lazy(() => import("./components/Contact"));
   const Shops = React.lazy(() => import("./components/Shops"));
@@ -21,6 +22,20 @@ function App() {
   const Login = React.lazy(() => import("./components/Login"));
   const Error = React.lazy(() => import("./components/Error"));
 
+  const {
+    location: { pathname },
+  } = props;
+
+  const pathnames = pathname.split("/").filter((x) => x);
+
+  function check() {
+    if (pathnames[0] === "register" || pathnames[0] === "login") {
+      if (localStorage.getItem("token") || sessionStorage.getItem("token")) {
+        return true;
+      }
+    }
+  }
+
   return (
     <>
       <Navi />
@@ -36,8 +51,14 @@ function App() {
           <Route path='/about' component={About} />
           <Route path='/privacy' component={Privacy} />
           <Route path='/advertisements/:id' component={AdvertisementDetail} />
-          <Route path='/register' component={Register} />
-          <Route path='/login' component={Login} />
+          {check() === true ? (
+            <Route path='*' component={Error} />
+          ) : (
+            <>
+              <Route path='/register' component={Register} />
+              <Route path='/login' component={Login} />
+            </>
+          )}
           <Route path='*' component={Error} />
         </Switch>
       </Suspense>
@@ -46,4 +67,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

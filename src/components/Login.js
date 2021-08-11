@@ -1,30 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Banner from "./Banner";
-import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchLoginContent } from "../actions";
 import loginValidateInfo from "../Helpers/loginValidateInfo";
 import useLogin from "../hooks/useLogin";
+import language from "../translation/language.json";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const { loginContent } = useSelector((state) => state.loginContent);
+  const { activeLanguage } = useSelector((state) => state.languages);
+
   const [isChecked, setIsChecked] = useState(false);
   const { values, handleChange, handleSubmitForm, errors } = useLogin(
     loginValidateInfo,
     isChecked
   );
-  const { push } = useHistory();
+
+  useEffect(() => {
+    dispatch(fetchLoginContent());
+  }, [dispatch, activeLanguage]);
+
   return (
     <div className='login-wrapper'>
-      <Banner bannerTitle='Daxil ol' pathName='Daxil ol' />
+      <Banner bannerTitle={loginContent.title} pathName='Daxil ol' />
       <div className='container'>
         <form method='POST' onSubmit={handleSubmitForm}>
           <div className='login-content'>
             <div className='login-content-body'>
               <div className='form-group'>
-                <label htmlFor='userName'>Username:</label>
+                <label htmlFor='userName'>
+                  {language[activeLanguage].usernameInput.placeholder}:
+                </label>
                 <input
                   type='text'
                   className='form-control'
                   value={values.userName}
-                  placeholder='İstifadəçi adı'
+                  placeholder={
+                    language[activeLanguage].usernameInput.placeholder
+                  }
                   name='userName'
                   id='userName'
                   onChange={handleChange}
@@ -34,18 +50,25 @@ const Login = () => {
                 )}
               </div>
               <div className='form-group'>
-                <label htmlFor='password'>Password:</label>
+                <label htmlFor='password'>
+                  {language[activeLanguage].passwordInput.placeholder}:
+                </label>
                 <input
                   type='password'
                   className='form-control'
                   value={values.password}
-                  placeholder='Şifrə'
+                  placeholder={
+                    language[activeLanguage].passwordInput.placeholder
+                  }
                   name='password'
                   id='password'
                   onChange={handleChange}
                 />
                 {errors.password && (
                   <p className='error-message'>{errors.password}</p>
+                )}
+                {errors.common && (
+                  <p className='error-message'>{errors.common}</p>
                 )}
               </div>
             </div>
@@ -63,17 +86,19 @@ const Login = () => {
                     htmlFor='check'
                     onClick={() => setIsChecked(!isChecked)}></label>
                   <label className='check-label' htmlFor='check'>
-                    Məni xatırla
+                    {loginContent.rememberMeLabel}
                   </label>
                 </div>
                 <div className='link-box'>
-                  <span>Şifrəni unutmusunuz?</span>
-                  <span onClick={() => push("/register")}>Qeydiyyat</span>
+                  <Link to='/forgot-password'>
+                    {loginContent.forgotPasswordName}
+                  </Link>
+                  <Link to='/register'>{loginContent.registerLinkName}</Link>
                 </div>
               </div>
               <div className='btnBox'>
                 <button type='submit' className='btn' formNoValidate>
-                  Daxil Ol
+                  {loginContent.buttonName}
                 </button>
               </div>
             </div>

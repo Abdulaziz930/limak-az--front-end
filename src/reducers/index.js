@@ -1084,3 +1084,57 @@ export const gendersReducers = (
       return state;
   }
 };
+
+export const setUserReducers = (
+  state = { loading: false, user: "" },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.SET_USER:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.SET_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        loading: false,
+      };
+    case CONSTANT.SET_USER_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const loginContentReducers = (
+  state = { loading: false, loginContent: {} },
+  action
+) => {
+  switch (action.type) {
+    case CONSTANT.FETCH_LOGIN_CONTENT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CONSTANT.FETCH_LOGIN_CONTENT_SUCCESS:
+      return {
+        ...state,
+        loginContent: action.payload,
+        loading: false,
+      };
+    case CONSTANT.FETCH_LOGIN_CONTENT_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
