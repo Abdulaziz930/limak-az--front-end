@@ -495,7 +495,6 @@
             cursor: pointer;
             color: $primary-color;
           }
-          
         }
         .form-control {
           @include text(12px, 400, $form-color);
@@ -607,6 +606,109 @@
           @include text(16px, 400, $primary-color);
           border-bottom: 1px solid $primary-color;
           cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.login-wrapper {
+  margin-bottom: 60px;
+  .login-content {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 30px 250px;
+    .login-content-body {
+      label {
+        @include text(13px, 400, $text-color);
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-control {
+        @include text(12px, 400, $form-color);
+        border-radius: 5px;
+        height: 40px;
+        padding-left: 20px;
+        &::placeholder {
+          @include text(12px, 400, $form-color);
+        }
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: none;
+        }
+      }
+    }
+    .login-content-footer {
+      @include flexy-box-between();
+      .checkbox-wrapper {
+        .remmeber-me {
+          display: flex;
+          margin-bottom: 10px;
+          .check-label {
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-bottom: 0;
+            @include flexy-box();
+          }
+          .checkmark {
+            position: relative;
+            display: block;
+            width: 25px;
+            height: 25px;
+            background-color: $fourth-background-color;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 0;
+            &::after {
+              content: "";
+              position: absolute;
+              width: 7px;
+              height: 18px;
+              border-right: 3px solid $secondary-color;
+              border-bottom: 3px solid $secondary-color;
+              top: 40%;
+              left: 50%;
+              transform: translate(-50%, -50%) rotateZ(40deg);
+              opacity: 0;
+            }
+          }
+          #check {
+            &:checked ~ .checkmark {
+              background-color: $primary-color;
+              &::after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      .link-box {
+        span {
+          @include text(14px, 400, $second-link-color);
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+          &:last-child {
+            padding-left: 10px;
+          }
+        }
+      }
+      .btnBox {
+        .btn {
+          @include flexy-box();
+          @include btn(10px 45px, $primary-color, 16px, $primary-color);
+          text-transform: uppercase;
+          &:hover {
+            @include btnHover($primary-color);
+          }
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
         }
       }
     }

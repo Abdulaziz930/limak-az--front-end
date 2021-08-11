@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Banner from "./Banner";
-import useForm from "../hooks/useForm";
-import validateInfo from "../Helpers/validateInfo";
+import useRegister from "../hooks/useRegister";
+import registerValidateInfo from "../Helpers/registerValidateInfo";
 import RuleModalWrapper from "./RuleModalWrapper";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -24,8 +24,8 @@ const Register = () => {
   const { genders } = useSelector((state) => state.genders);
   const { cities } = useSelector((state) => state.cities);
   const [isChecked, setIsChecked] = useState(false);
-  const { values, handleChange, handleSubmitForm, errors } = useForm(
-    validateInfo,
+  const { values, handleChange, handleSubmitForm, errors } = useRegister(
+    registerValidateInfo,
     isChecked
   );
   const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
@@ -81,7 +81,7 @@ const Register = () => {
                         />
                         {errors.userName && (
                           <p className='error-message'>{errors.userName}</p>
-                        )}
+                        )}  
                       </div>
                       <div className='form-group'>
                         <input

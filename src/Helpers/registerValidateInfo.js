@@ -1,8 +1,13 @@
 import language from "../translation/language.json";
 
-export default function validateInfo(values, isChecked, activeLanguage) {
+export default function registerValidateInfo(
+  values,
+  isChecked,
+  activeLanguage
+) {
   let errors = {};
 
+  //check box validation
   if (!isChecked) {
     errors.Checked = language[activeLanguage].checkErrorMessage;
   }

@@ -18,6 +18,7 @@ function App() {
     import("./components/AdvertisementDetail")
   );
   const Register = React.lazy(() => import("./components/Register"));
+  const Login = React.lazy(() => import("./components/Login"));
   const Error = React.lazy(() => import("./components/Error"));
 
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path='/privacy' component={Privacy} />
           <Route path='/advertisements/:id' component={AdvertisementDetail} />
           <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
           <Route path='*' component={Error} />
         </Switch>
       </Suspense>

@@ -13,6 +13,11 @@
       }
     }
   }
+  .login-wrapper {
+    .login-content {
+      padding: 30px 200px;
+    }
+  }
 }
 @media screen and(max-width: 768px) {
   body {
@@ -114,6 +119,11 @@
       }
     }
   }
+  .login-wrapper {
+    .login-content {
+      padding: 30px 100px;
+    }
+  }
 }
 @media screen and(max-width: 576px) {
   body {
@@ -205,6 +215,7 @@
           }
         }
         .sections {
+          padding-left: 0;
           .section-title {
             h4 {
               text-align: center;
@@ -332,6 +343,26 @@
                 margin-bottom: 10px;
               }
             }
+          }
+        }
+      }
+    }
+    .login-wrapper {
+      .login-content {
+        padding: 30px 15px;
+        .login-content-footer {
+          display: block;
+          .link-box {
+            span {
+              display: block;
+              margin-top: 10px;
+              &:last-child {
+                padding-left: 0;
+              }
+            }
+          }
+          .btnBox {
+            margin-top: 20px;
           }
         }
       }

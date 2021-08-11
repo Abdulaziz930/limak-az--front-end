@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 
-const useForm = (validateInfo, isChecked) => {
+const useRegister = (registerValidateInfo, isChecked) => {
   const [values, setValues] = useState({
     userName: "",
     name: "",
@@ -43,7 +43,7 @@ const useForm = (validateInfo, isChecked) => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
 
-    setErrors(validateInfo(values, isChecked, activeLanguage));
+    setErrors(registerValidateInfo(values, isChecked, activeLanguage));
 
     if (isNull && isChecked) {
       axios
@@ -65,4 +65,4 @@ const useForm = (validateInfo, isChecked) => {
   return { values, handleChange, handleSubmitForm, errors };
 };
 
-export default useForm;
+export default useRegister;
