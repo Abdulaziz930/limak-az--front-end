@@ -3,12 +3,9 @@ body {
   font-family: $primary-font;
 
   /* Spinner styles start */
-  #spinner {
-    .spinner-box {
-      padding-top: 15%;
-      .text-primary-color {
-        color: $primary-color;
-      }
+  .spinner-box {
+    .text-primary-color {
+      color: $primary-color;
     }
   }
   /* Spinner styles end */

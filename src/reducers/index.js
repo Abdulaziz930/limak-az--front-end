@@ -1112,6 +1112,18 @@ export const setUserReducers = (
   }
 };
 
+export const setPriceReducer = (state = { priceValue: 0 }, action) => {
+  switch (action.type) {
+    case CONSTANT.SET_PRICE:
+      return {
+        ...state,
+        priceValue: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
 export const loginContentReducers = (
   state = { loading: false, loginContent: {} },
   action
@@ -1133,6 +1145,26 @@ export const loginContentReducers = (
         ...state,
         error: action.payload,
         loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export const counterReducer = (state = { counter: 1 }, action) => {
+  switch (action.type) {
+    case CONSTANT.INCREASE_COUNTER:
+      return {
+        ...state,
+        counter: state.counter + action.payload,
+      };
+    case CONSTANT.DECREASE_COUNTER:
+      if (state.counter <= 1) {
+        return state;
+      }
+      return {
+        ...state,
+        counter: state.counter - action.payload,
       };
     default:
       return state;

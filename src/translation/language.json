@@ -89,12 +89,18 @@
       },
       {
         "id": 6,
+        "name": "Sorğu",
+        "icon": "fas fa-question-circle",
+        "url": "/write-question"
+      },
+      {
+        "id": 7,
         "name": "Tənzimləmələr",
         "icon": "fas fa-map-marker-alt",
         "url": "/settings"
       },
       {
-        "id": 7,
+        "id": 8,
         "name": "Hesabdan çıx",
         "icon": "fas fa-map-marker-alt"
       }
@@ -102,7 +108,7 @@
     "order": {
       "id": 1,
       "buttonName": "Sifariş et",
-      "buttonUrl": "order"
+      "buttonUrl": "make-order"
     },
     "weightInput": {
       "placeholder": "Çəki"
@@ -175,7 +181,12 @@
     "birthDayErrorMessage": "Doğum tarixi mütləqdir",
     "addressErrorMessage": "Adres mütlqədir",
     "usernameErrorMessage": "İstifadəçi adı mütlqədir",
-    "checkErrorMessage": "Mütlqədir"
+    "checkErrorMessage": "Mütlqədir",
+    "linkErrorMessage": "Link Mütlqədir",
+    "priceErrorMessage": "Qiymət Mütlqədir",
+    "noteErrorMessage": "Mütlqədir",
+    "resetPasswordTitle": "Parolu sıfırlamaq",
+    "resetPasswordBtn": "Parolu yenilə"
   },
   "RU": {
     "sections": [
@@ -267,12 +278,18 @@
       },
       {
         "id": 6,
+        "name": "Запрос",
+        "icon": "fas fa-question-circle",
+        "url": "/write-question"
+      },
+      {
+        "id": 7,
         "name": "Настройки",
         "icon": "fas fa-map-marker-alt",
         "url": "/settings"
       },
       {
-        "id": 7,
+        "id": 8,
         "name": "Выйти из профиля",
         "icon": "fas fa-map-marker-alt"
       }
@@ -353,7 +370,12 @@
     "birthDayErrorMessage": "Birthday is required",
     "addressErrorMessage": "Адрес обязателен",
     "usernameErrorMessage": "Username is required",
-    "checkErrorMessage": "необходимые"
+    "checkErrorMessage": "необходимые",
+    "linkErrorMessage": "Ссылка обязательна",
+    "priceErrorMessage": "Цена обязательна",
+    "noteErrorMessage": "обязательный",
+    "resetPasswordTitle": "Сброс пароля",
+    "resetPasswordBtn": "Сброс пароля"
   },
   "EN": {
     "sections": [
@@ -445,12 +467,18 @@
       },
       {
         "id": 6,
+        "name": "Question",
+        "icon": "fas fa-question-circle",
+        "url": "/write-question"
+      },
+      {
+        "id": 7,
         "name": "Settings",
         "icon": "fas fa-map-marker-alt",
         "url": "/settings"
       },
       {
-        "id": 7,
+        "id": 8,
         "name": "Logout",
         "icon": "fas fa-map-marker-alt"
       }
@@ -531,6 +559,11 @@
     "birthDayErrorMessage": "Birthday is required",
     "addressErrorMessage": "Address is required",
     "usernameErrorMessage": "Username is required",
-    "checkErrorMessage": "Required"
+    "checkErrorMessage": "Required",
+    "linkErrorMessage": "Link is required",
+    "priceErrorMessage": "Price is required",
+    "noteErrorMessage": "Required",
+    "resetPasswordTitle": "Reset Password",
+    "resetPasswordBtn": "Reset password"
   }
 }

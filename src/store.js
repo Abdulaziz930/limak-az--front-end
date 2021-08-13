@@ -42,6 +42,8 @@ import {
   gendersReducers,
   setUserReducers,
   loginContentReducers,
+  counterReducer,
+  setPriceReducer
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -89,6 +91,8 @@ const reducers = combineReducers({
   genders: gendersReducers,
   user: setUserReducers,
   loginContent: loginContentReducers,
+  counter: counterReducer,
+  priceValue: setPriceReducer
 });
 
 const store = createStore(

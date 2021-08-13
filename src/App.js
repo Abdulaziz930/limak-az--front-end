@@ -20,6 +20,11 @@ function App(props) {
   );
   const Register = React.lazy(() => import("./components/Register"));
   const Login = React.lazy(() => import("./components/Login"));
+  const ForgotPassword = React.lazy(() =>
+    import("./components/ForgotPassword")
+  );
+  const MakeOrder = React.lazy(() => import("./components/MakeOrder"));
+  const ResetPassword = React.lazy(() => import("./components/ResetPassword"));
   const Error = React.lazy(() => import("./components/Error"));
 
   const {
@@ -34,6 +39,8 @@ function App(props) {
         return true;
       }
     }
+
+    return false;
   }
 
   return (
@@ -51,12 +58,15 @@ function App(props) {
           <Route path='/about' component={About} />
           <Route path='/privacy' component={Privacy} />
           <Route path='/advertisements/:id' component={AdvertisementDetail} />
+          <Route path='/make-order' component={MakeOrder} />
+          <Route path='/reset-password' component={ResetPassword} />
           {check() === true ? (
             <Route path='*' component={Error} />
           ) : (
             <>
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
+              <Route path='/forgot-password' component={ForgotPassword} />
             </>
           )}
           <Route path='*' component={Error} />

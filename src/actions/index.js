@@ -862,6 +862,12 @@ export const setUser = (user) => async (dispatch) => {
   }
 };
 
+export const setPrice =
+  (priceValue = 0) =>
+  (dispatch) => {
+    dispatch({ type: CONSTANT.SET_PRICE, payload: priceValue });
+  };
+
 export const fetchLoginContent =
   (languageCode = localStorage.getItem("language")) =>
   async (dispatch) => {
@@ -883,3 +889,11 @@ export const fetchLoginContent =
       });
     }
   };
+
+export const increaseCounter = () => (dispatch) => {
+  dispatch({ type: CONSTANT.INCREASE_COUNTER, payload: 1 });
+};
+
+export const decreaseCounter = () => (dispatch) => {
+  dispatch({ type: CONSTANT.DECREASE_COUNTER, payload: 1 });
+};

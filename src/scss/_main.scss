@@ -714,3 +714,272 @@
     }
   }
 }
+
+.forgot-password-wrapper {
+  margin-bottom: 60px;
+  .forgot-password-content {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 114px 30px 144px;
+    .success-message-wrapper {
+      @include flexy-box();
+      .success-message-content {
+        text-align: center;
+        h4 {
+          @include text(30px, 500, $text-color);
+          line-height: 50px;
+          .email-text {
+            color: $primary-color;
+          }
+        }
+        .timer-wrapper {
+          @include flexy-box();
+          color: $error-color;
+          .timer-text {
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+    .content-body {
+      padding: 0 83px;
+      .header {
+        h1 {
+          @include text(46px, 700, $text-color);
+          margin-bottom: 15px;
+        }
+        p {
+          @include text(14px, 400, $text-color);
+        }
+      }
+    }
+    .form-control {
+      @include text(12px, 400, $form-color);
+      border-radius: 5px;
+      height: 40px;
+      padding-left: 20px;
+      &::placeholder {
+        @include text(12px, 400, $form-color);
+      }
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: none;
+      }
+    }
+    .btnBox {
+      margin-top: 20px;
+      .btn {
+        @include btn(10px 25px, $primary-color, 16px, $primary-color);
+        text-transform: uppercase;
+        &:hover {
+          @include btnHover($primary-color);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+    .content-image {
+      height: 100%;
+      .img-box {
+        @include flexy-box();
+        height: 100%;
+      }
+    }
+  }
+}
+
+.make-order-wrapper {
+  margin-bottom: 60px;
+  .order-content-wrapper {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 100px 135px;
+  }
+  .order-content {
+    margin-top: 30px;
+    .content-bottom {
+      margin-top: 20px;
+    }
+    .form-control {
+      @include text(12px, 400, $form-color);
+      border-radius: 5px;
+      height: 40px;
+      padding-left: 20px;
+      &::placeholder {
+        @include text(12px, 400, $form-color);
+      }
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: none;
+      }
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      -moz-appearance: textfield;
+    }
+    .input-group {
+      .form-control {
+        border-radius: 0;
+        text-align: center;
+      }
+    }
+  }
+  .btnBox {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    .btn {
+      @include btn(10px 20px, $primary-color, 13px, $primary-color);
+      text-transform: uppercase;
+      &:hover {
+        @include btnHover($primary-color);
+      }
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    .btn-delete {
+      @include btn(10px 20px, $error-color, 13px, $error-color);
+      text-transform: uppercase;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+  .payment-box {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 72px 30px;
+    .payment-header {
+      text-align: center;
+      margin-bottom: 25px;
+      h4 {
+        @include text(18px, 500, $text-color);
+      }
+    }
+    .payment-content {
+      .form-check {
+        &:nth-child(2) {
+          margin: 10px 0;
+        }
+        .form-check-label {
+          @include text(16px, 400, $text-color);
+          cursor: pointer;
+        }
+      }
+      .sum {
+        @include flexy-box-between();
+      }
+    }
+    .payment-footer {
+      margin-top: 20px;
+      .checkbox-wrapper {
+        display: flex;
+        .check-label {
+          margin-left: 10px;
+          cursor: pointer;
+          color: $second-link-color;
+          border-bottom: 1px solid $second-link-color;
+          font-size: 13px;
+        }
+        .checkmark {
+          position: relative;
+          display: block;
+          width: 20px;
+          height: 20px;
+          background-color: $fourth-background-color;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.2s;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 13px;
+            border-right: 3px solid $secondary-color;
+            border-bottom: 3px solid $secondary-color;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateZ(40deg);
+            opacity: 0;
+          }
+        }
+        #check {
+          &:checked ~ .checkmark {
+            background-color: $primary-color;
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .btnBox {
+        margin-top: 20px;
+        .btn {
+          @include btn(10px 20px, transparent, 13px, $primary-color);
+          text-transform: uppercase;
+          width: 100%;
+          &:hover {
+            @include btnHover(transparent);
+          }
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.reset-password-wrapper {
+  margin-bottom: 60px;
+  .reset-content {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 30px 250px;
+    .reset-content-body {
+      label {
+        @include text(13px, 400, $text-color);
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-control {
+        @include text(12px, 400, $form-color);
+        border-radius: 5px;
+        height: 40px;
+        padding-left: 20px;
+        &::placeholder {
+          @include text(12px, 400, $form-color);
+        }
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: none;
+        }
+      }
+    }
+    .reset-content-footer {
+      .btnBox {
+        .btn {
+          @include flexy-box();
+          @include btn(10px 45px, $primary-color, 16px, $primary-color);
+          text-transform: uppercase;
+          &:hover {
+            @include btnHover($primary-color);
+          }
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
