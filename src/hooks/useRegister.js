@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 
 const useRegister = (registerValidateInfo, isChecked) => {
@@ -22,9 +21,10 @@ const useRegister = (registerValidateInfo, isChecked) => {
   });
   const [errors, setErrors] = useState({});
   const [isNull, setIsNull] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { activeLanguage } = useSelector((state) => state.languages);
   const isInitialMount = useRef(true);
-  const { push } = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +48,15 @@ const useRegister = (registerValidateInfo, isChecked) => {
     if (isNull && isChecked) {
       axios
         .post("https://localhost:44393/api/Authenticate/register", values)
-        .then(push("/login"));
+        .then(
+          (response) =>
+            response.status === 200
+              ? (localStorage.setItem("email", values.email),
+                setIsSubmitted(true),
+                setLoading(false))
+              : setIsSubmitted(false),
+          setLoading(true)
+        );
     }
   };
 
@@ -62,7 +70,14 @@ const useRegister = (registerValidateInfo, isChecked) => {
     }
   }, [errors]);
 
-  return { values, handleChange, handleSubmitForm, errors };
+  return {
+    values,
+    handleChange,
+    handleSubmitForm,
+    errors,
+    isSubmitted,
+    loading,
+  };
 };
 
 export default useRegister;

@@ -25,6 +25,7 @@ function App(props) {
   );
   const MakeOrder = React.lazy(() => import("./components/MakeOrder"));
   const ResetPassword = React.lazy(() => import("./components/ResetPassword"));
+  const VerifyEmail = React.lazy(() => import("./components/VerifyEmail"));
   const Error = React.lazy(() => import("./components/Error"));
 
   const {
@@ -65,6 +66,7 @@ function App(props) {
           ) : (
             <>
               <Route path='/register' component={Register} />
+              <Route path='/verify-email' component={VerifyEmail} />
               <Route path='/login' component={Login} />
               <Route path='/forgot-password' component={ForgotPassword} />
             </>

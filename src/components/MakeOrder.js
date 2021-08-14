@@ -21,19 +21,12 @@ const MakeOrder = () => {
     isChecked
   );
 
-  // useEffect(() => {
-  //   setPrice(priceValue);
-  // }, [priceValue]);
-
   const handleAddComponent = () => {
     setCountComponent((countComponent) => [
       ...countComponent,
       Number(countComponent) + 1,
     ]);
     setPrice(priceValue);
-    // console.log("priceValue", priceValue);
-    // console.log("price", price);
-    // setPrice(Number(priceValue) + Number(price));
   };
 
   return (

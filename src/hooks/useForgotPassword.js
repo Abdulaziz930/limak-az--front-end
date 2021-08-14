@@ -33,6 +33,7 @@ const useForgotPassword = (forgotPassowordValidateInfo) => {
     setErrors(forgotPassowordValidateInfo(values, activeLanguage));
 
     if (isNull) {
+      setLoading(true);
       axios
         .post("https://localhost:44393/api/Authenticate/forgotPassword", values)
         .then(
@@ -40,7 +41,7 @@ const useForgotPassword = (forgotPassowordValidateInfo) => {
             response.status === 200
               ? (setIsSubmitted(true), setLoading(false))
               : setIsSubmitted(false),
-          setLoading(true)
+          setLoading(false)
         )
         .catch(({ response }) =>
           setErrors({

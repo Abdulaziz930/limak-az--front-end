@@ -9,18 +9,12 @@ const MakeOrderContent = ({ changeSum, deleteBtn, item, price, sum }) => {
   const dispatch = useDispatch();
   const [test, setTest] = useState(false);
 
-  //   const { activeLanguage } = useSelector((state) => state.languages);
   const { counter } = useSelector((state) => state.counter);
   const { priceValue } = useSelector((state) => state.priceValue);
   const { values, handleChange, errors } = useMakeOrder(orderValidateInfo);
   const deleteRef = React.useRef();
-  // const [priceValue, setPriceValue] = useState(values.price);
-
-  // let a = Number(values.price) + Number(priceValue);
   useEffect(() => {
     if (values.price !== 0) {
-      // console.log("price inside", values.price);
-      // console.log("sum", Number(values.price) + Number(price));
       dispatch(setPrice(Number(values.price) + Number(price)));
       const percent = (priceValue * counter * 5) / 100;
       changeSum(counter * priceValue + percent);
@@ -35,19 +29,11 @@ const MakeOrderContent = ({ changeSum, deleteBtn, item, price, sum }) => {
     }
   };
 
-  const handleClickPrice = () => {
-    console.log("priceVal", priceValue);
-    console.log("price", price);
-  };
-
   return (
     <div
       className='order-content'
       style={test ? { display: "none" } : { display: "block" }}>
       <div className={`content-top ${item}`} ref={deleteRef}>
-        <button type='button' onClick={handleClickPrice}>
-          test
-        </button>
         <div className='row'>
           <div className='col-md-9'>
             <div className='form-group'>

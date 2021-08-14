@@ -721,26 +721,6 @@
     background-color: $secondary-color;
     border-radius: 10px;
     padding: 114px 30px 144px;
-    .success-message-wrapper {
-      @include flexy-box();
-      .success-message-content {
-        text-align: center;
-        h4 {
-          @include text(30px, 500, $text-color);
-          line-height: 50px;
-          .email-text {
-            color: $primary-color;
-          }
-        }
-        .timer-wrapper {
-          @include flexy-box();
-          color: $error-color;
-          .timer-text {
-            padding-right: 8px;
-          }
-        }
-      }
-    }
     .content-body {
       padding: 0 83px;
       .header {
@@ -978,6 +958,39 @@
             outline: none;
             box-shadow: none;
           }
+        }
+      }
+    }
+  }
+}
+
+.verify-email-wrapper {
+  margin-bottom: 80px;
+  .verify-email-content {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 80px;
+    text-align: center;
+    h2 {
+      @include text(60px, 600, $primary-color);
+    }
+    h4 {
+      @include text(30px, 600, $primary-color);
+    }
+    p {
+      @include text(15px, 400, $text-color);
+    }
+    .btnBox {
+      margin-top: 20px;
+      .btn {
+        @include btn(10px 45px, transparent, 16px, $primary-color);
+        text-transform: uppercase;
+        &:hover {
+          @include btnHover(transparent);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
         }
       }
     }

@@ -34,18 +34,6 @@ const useMakeOrder = (orderValidateInfo, isChecked) => {
     e.preventDefault();
 
     setErrors(orderValidateInfo(values, isChecked, activeLanguage));
-
-    // if (isNull && isChecked) {
-    //   axios
-    //     .post("https://localhost:44393/api/Authenticate/login", values)
-    //     .then((response) => setToken(response.data.token))
-    //     .catch(({ response }) =>
-    //       setErrors({
-    //         ...errors,
-    //         common: response.data.message,
-    //       })
-    //     );
-    // }
   };
 
   useEffect(() => {

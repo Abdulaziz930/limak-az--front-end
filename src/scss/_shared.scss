@@ -4,6 +4,7 @@ body {
 
   /* Spinner styles start */
   .spinner-box {
+    z-index: 10;
     .text-primary-color {
       color: $primary-color;
     }
@@ -320,6 +321,29 @@ body {
     position: absolute;
     margin-bottom: 0;
     @include text(13px, 500, $error-color);
+  }
+  .success-message-wrapper {
+    @include flexy-box();
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 100px 30px;
+    .success-message-content {
+      text-align: center;
+      h4 {
+        @include text(30px, 500, $text-color);
+        line-height: 50px;
+        .email-text {
+          color: $primary-color;
+        }
+      }
+      .timer-wrapper {
+        @include flexy-box();
+        color: $error-color;
+        .timer-text {
+          padding-right: 8px;
+        }
+      }
+    }
   }
 }
 
