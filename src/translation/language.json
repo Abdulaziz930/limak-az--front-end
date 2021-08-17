@@ -153,6 +153,9 @@
     "emailInput": {
       "placeholder": "E-Poçt adresi"
     },
+    "balanceInput": {
+      "placeholder": "Məbləğ"
+    },
     "description": "'Limak VM' MMC sürətli poçtdaşıma və kuryer şirkətidir. Fiziki və hüquqi şəxslərin sifariş etdikləri yükləri xaricdəki anbarlarına qəbul edir, onların Azərbaycana daşınıb, müştəriyə təhvil verilməsini təmin edir.",
     "social_media_title": "Bizi sosial şəbəkələrdən izləyin",
     "section_title": "Bölmələr",
@@ -177,6 +180,7 @@
     "linkErrorMessage": "Link Mütlqədir",
     "priceErrorMessage": "Qiymət Mütlqədir",
     "noteErrorMessage": "Mütlqədir",
+    "balanceErrorMessage": "Mütlqədir",
     "resetPasswordTitle": "Parolu sıfırlamaq",
     "resetPasswordBtn": "Parolu yenilə"
   },
@@ -342,6 +346,9 @@
     "emailInput": {
       "placeholder": "Почта"
     },
+    "balanceInput": {
+      "placeholder": "сумма"
+    },
     "description": "ООО Limak VM - компания экспресс почтовой и курьерской службы. Принимает на свои зарубежные склады заказанные физическими и юридическими лицами грузы, обеспечивает их перевозку в Азербайджан и доставку клиентам.",
     "social_media_title": "Следите за нами в соцсетях",
     "section_title": "Разделы",
@@ -366,6 +373,7 @@
     "linkErrorMessage": "Ссылка обязательна",
     "priceErrorMessage": "Цена обязательна",
     "noteErrorMessage": "обязательный",
+    "balanceErrorMessage": "обязательный",
     "resetPasswordTitle": "Сброс пароля",
     "resetPasswordBtn": "Сброс пароля"
   },
@@ -531,6 +539,9 @@
     "emailInput": {
       "placeholder": "E-Mail"
     },
+    "balanceInput": {
+      "placeholder": "Amount"
+    },
     "description": "Limak VM LLC is an express postal and courier service company. It accepts goods ordered by individuals and legal entities to its foreign warehouses, ensures their transportation to Azerbaijan and delivery to customers.",
     "social_media_title": "Follow us on social networks",
     "section_title": "Sections",
@@ -555,6 +566,7 @@
     "linkErrorMessage": "Link is required",
     "priceErrorMessage": "Price is required",
     "noteErrorMessage": "Required",
+    "balanceErrorMessage": "Required",
     "resetPasswordTitle": "Reset Password",
     "resetPasswordBtn": "Reset password"
   }
