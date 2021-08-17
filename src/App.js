@@ -26,7 +26,16 @@ function App(props) {
   const MakeOrder = React.lazy(() => import("./components/MakeOrder"));
   const ResetPassword = React.lazy(() => import("./components/ResetPassword"));
   const VerifyEmail = React.lazy(() => import("./components/VerifyEmail"));
+  const UserPanel = React.lazy(() => import("./components/UserPanel"));
+  const Addresses = React.lazy(() => import("./components/Addresses"));
+  const Balance = React.lazy(() => import("./components/Balance"));
+  const WriteQuestion = React.lazy(() => import("./components/WriteQuestion"));
+  const Settings = React.lazy(() => import("./components/Settings"));
+  const Parcels = React.lazy(() => import("./components/Parcels"));
+  const Courier = React.lazy(() => import("./components/Courier"));
   const Error = React.lazy(() => import("./components/Error"));
+
+  const TestComponent = React.lazy(() => import("./components/TestComponent"));
 
   const {
     location: { pathname },
@@ -61,6 +70,14 @@ function App(props) {
           <Route path='/advertisements/:id' component={AdvertisementDetail} />
           <Route path='/make-order' component={MakeOrder} />
           <Route path='/reset-password' component={ResetPassword} />
+          <Route path='/panel' component={UserPanel} />
+          <Route path='/address' component={Addresses} />
+          <Route path='/balance' component={Balance} />
+          <Route path='/write-question' component={WriteQuestion} />
+          <Route path='/settings' component={Settings} />
+          <Route path='/test' component={TestComponent} />
+          <Route path='/parcels' component={Parcels} />
+          <Route path='/courier' component={Courier} />
           {check() === true ? (
             <Route path='*' component={Error} />
           ) : (

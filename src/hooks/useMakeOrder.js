@@ -19,6 +19,8 @@ const useMakeOrder = (orderValidateInfo, isChecked) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    console.log(value);
     setValues({
       ...values,
       [name]: value,
@@ -32,6 +34,8 @@ const useMakeOrder = (orderValidateInfo, isChecked) => {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
+
+    console.log(values, "values");
 
     setErrors(orderValidateInfo(values, isChecked, activeLanguage));
   };

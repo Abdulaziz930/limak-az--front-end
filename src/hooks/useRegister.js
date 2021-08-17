@@ -46,6 +46,7 @@ const useRegister = (registerValidateInfo, isChecked) => {
     setErrors(registerValidateInfo(values, isChecked, activeLanguage));
 
     if (isNull && isChecked) {
+      setLoading(true);
       axios
         .post("https://localhost:44393/api/Authenticate/register", values)
         .then(
@@ -55,7 +56,7 @@ const useRegister = (registerValidateInfo, isChecked) => {
                 setIsSubmitted(true),
                 setLoading(false))
               : setIsSubmitted(false),
-          setLoading(true)
+          setLoading(false)
         );
     }
   };

@@ -996,3 +996,323 @@
     }
   }
 }
+
+.user-panel-wrapper {
+  margin-bottom: 60px;
+  .user-panel-content {
+    .balance-box {
+      position: relative;
+      height: 100%;
+      img {
+        height: 100%;
+      }
+      .balance-content {
+        position: absolute;
+        top: 15%;
+        padding: 0 15px;
+        .balance-text {
+          .header {
+            @include text(18px, 600, $secondary-color);
+          }
+          .balance-count {
+            .count {
+              @include text(45px, 700, $secondary-color);
+            }
+          }
+          .balance-description {
+            @include flexy-box-between();
+            .description-text {
+              @include text(15px, 400, $secondary-color);
+              width: 70%;
+              margin-bottom: 0;
+            }
+            .strong-text {
+              font-weight: 600;
+            }
+            .balance-btn {
+              display: flex;
+              align-items: flex-end;
+              .btnBox {
+                margin-top: 20px;
+                .btn {
+                  padding: 10px;
+                  font-size: 14px;
+                  font-weight: 500;
+                  border: 1px solid $secondary-color;
+                  color: $secondary-color;
+                  background-color: transparent;
+                  text-transform: uppercase;
+                  transition: all 0.5s;
+                  &:hover {
+                    background-color: $secondary-color;
+                    color: $text-color;
+                  }
+                  &:focus {
+                    outline: none;
+                    box-shadow: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .wallet-box {
+      background-color: $secondary-color;
+      padding: 30px;
+      border-radius: 10px;
+    }
+  }
+}
+.balance-wrapper {
+  margin-bottom: 60px;
+  .balance-body {
+    @include flexy-box();
+    .balance-box {
+      position: relative;
+      .balance-content {
+        position: absolute;
+        padding: 10px;
+        top: 12%;
+        .balance-text {
+          .header {
+            @include text(18px, 600, $secondary-color);
+          }
+          .balance-count {
+            .count {
+              @include text(45px, 700, $secondary-color);
+            }
+          }
+          .balance-description {
+            @include flexy-box-between();
+            .description-text {
+              @include text(15px, 400, $secondary-color);
+              margin-bottom: 0;
+            }
+            .strong-text {
+              font-weight: 600;
+            }
+            .balance-btn {
+              display: flex;
+              align-items: flex-end;
+              .btnBox {
+                margin-top: 20px;
+                .btn {
+                  padding: 10px;
+                  font-size: 14px;
+                  font-weight: 500;
+                  border: 1px solid $secondary-color;
+                  color: $secondary-color;
+                  background-color: transparent;
+                  text-transform: uppercase;
+                  transition: all 0.5s;
+                  &:hover {
+                    background-color: $secondary-color;
+                    color: $text-color;
+                  }
+                  &:focus {
+                    outline: none;
+                    box-shadow: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .increase-balance-wrapper {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 30px;
+    @include flexy-box();
+    height: 100%;
+    .increase-balance-content {
+      text-align: center;
+      h4 {
+        @include text(20px, 500, $text-color);
+        margin-bottom: 30px;
+      }
+      .form-control {
+        @include text(12px, 400, $form-color);
+        border-radius: 5px;
+        height: 40px;
+        padding-left: 20px;
+        &::placeholder {
+          @include text(12px, 400, $form-color);
+        }
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: none;
+        }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        -moz-appearance: textfield;
+      }
+      .btnBox {
+        .btn {
+          @include btn(10px 20px, transparent, 13px, $primary-color);
+          text-transform: uppercase;
+          width: 100%;
+          &:hover {
+            @include btnHover(transparent);
+          }
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+      .description {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.write-question-wrapper {
+  margin-bottom: 60px;
+  .write-question-content {
+    background-color: $secondary-color;
+    padding: 50px;
+    border-radius: 10px;
+    .header {
+      margin-bottom: 25px;
+    }
+    .subject {
+      .form-control {
+        @include text(12px, 400, $form-color);
+        border-radius: 5px;
+        height: 40px;
+        padding-left: 20px;
+        &::placeholder {
+          @include text(12px, 400, $form-color);
+        }
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: none;
+        }
+      }
+    }
+    .content {
+      .form-control {
+        @include text(12px, 400, $form-color);
+        border-radius: 5px;
+        padding-left: 20px;
+        &::placeholder {
+          @include text(12px, 400, $form-color);
+        }
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: none;
+        }
+      }
+    }
+    .btnBox {
+      .btn {
+        @include btn(10px 20px, transparent, 13px, $primary-color);
+        text-transform: uppercase;
+        &:hover {
+          @include btnHover(transparent);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.settings-wrapper {
+  margin-bottom: 60px;
+  .content {
+    .form-control {
+      @include text(12px, 400, $form-color);
+      border-radius: 5px;
+      padding-left: 20px;
+      &::placeholder {
+        @include text(12px, 400, $form-color);
+      }
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: none;
+      }
+    }
+    .btnBox {
+      .btn {
+        @include btn(10px 20px, transparent, 13px, $primary-color);
+        text-transform: uppercase;
+        &:hover {
+          @include btnHover(transparent);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.parcels-wrapper {
+  margin-bottom: 60px;
+  .btn {
+    @include btn(5px 20px, transparent, 13px, $primary-color);
+    text-transform: uppercase;
+    &:hover {
+      @include btnHover(transparent);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.courier-wrapper {
+  margin-bottom: 60px;
+  .courier-content {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 30px 30px 55px;
+    .header {
+      margin-bottom: 30px;
+    }
+    .form-control {
+      @include text(12px, 400, $form-color);
+      border-radius: 5px;
+      padding-left: 20px;
+      &::placeholder {
+        @include text(12px, 400, $form-color);
+      }
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: none;
+      }
+    }
+    .btnBox {
+      margin-top: 20px;
+      .btn {
+        @include btn(10px 20px, transparent, 13px, $primary-color);
+        text-transform: uppercase;
+        &:hover {
+          @include btnHover(transparent);
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.address-wrapper {
+  margin-bottom: 60px;
+}

@@ -60,49 +60,41 @@
       {
         "id": 1,
         "name": "Panel səhifəsi",
-        "icon": "fas fa-window-restore",
         "url": "/panel"
       },
       {
         "id": 2,
         "name": "Xaricdəki ünvanlarım",
-        "icon": "fas fa-map-marker-alt",
         "url": "/address"
       },
       {
         "id": 3,
         "name": "Bağlamalarım",
-        "icon": "fas fa-map-marker-alt",
         "url": "/parcels"
       },
       {
         "id": 4,
         "name": "Balansım",
-        "icon": "fas fa-map-marker-alt",
         "url": "/balance"
       },
       {
         "id": 5,
         "name": "Kuryer",
-        "icon": "fas fa-map-marker-alt",
         "url": "/courier"
       },
       {
         "id": 6,
         "name": "Sorğu",
-        "icon": "fas fa-question-circle",
         "url": "/write-question"
       },
       {
         "id": 7,
         "name": "Tənzimləmələr",
-        "icon": "fas fa-map-marker-alt",
         "url": "/settings"
       },
       {
         "id": 8,
-        "name": "Hesabdan çıx",
-        "icon": "fas fa-map-marker-alt"
+        "name": "Hesabdan çıx"
       }
     ],
     "order": {
@@ -249,7 +241,7 @@
       {
         "id": 1,
         "name": "Панельная страница",
-        "icon": "fas fa-window-restore",
+        "icon": "fas fa-th-large",
         "url": "/panel"
       },
       {
@@ -261,19 +253,19 @@
       {
         "id": 3,
         "name": "Посылки",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-box-open",
         "url": "/parcels"
       },
       {
         "id": 4,
         "name": "Баланс",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-dollar-sign",
         "url": "/balance"
       },
       {
         "id": 5,
         "name": "Курьер",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-people-carry",
         "url": "/courier"
       },
       {
@@ -285,13 +277,13 @@
       {
         "id": 7,
         "name": "Настройки",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-sliders-h",
         "url": "/settings"
       },
       {
         "id": 8,
         "name": "Выйти из профиля",
-        "icon": "fas fa-map-marker-alt"
+        "icon": "fas fa-sign-out-alt"
       }
     ],
     "order": {
@@ -438,7 +430,7 @@
       {
         "id": 1,
         "name": "Panel page",
-        "icon": "fas fa-window-restore",
+        "icon": "fas fa-th-large",
         "url": "/panel"
       },
       {
@@ -450,19 +442,19 @@
       {
         "id": 3,
         "name": "Parcels",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-box-open",
         "url": "/parcels"
       },
       {
         "id": 4,
         "name": "Balance",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-dollar-sign",
         "url": "/balance"
       },
       {
         "id": 5,
         "name": "Courier",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-people-carry",
         "url": "/courier"
       },
       {
@@ -474,13 +466,13 @@
       {
         "id": 7,
         "name": "Settings",
-        "icon": "fas fa-map-marker-alt",
+        "icon": "fas fa-sliders-h",
         "url": "/settings"
       },
       {
         "id": 8,
         "name": "Logout",
-        "icon": "fas fa-map-marker-alt"
+        "icon": "fas fa-sign-out-alt"
       }
     ],
     "order": {

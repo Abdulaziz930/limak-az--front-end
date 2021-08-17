@@ -6,9 +6,10 @@ import orderValidateInfo from "../Helpers/orderValidateInfo";
 import MakeOrderContent from "./MakeOrderContent";
 import { useSelector, useDispatch } from "react-redux";
 
+import { useForm } from "react-hook-form";
+
 const MakeOrder = () => {
   const dispatch = useDispatch();
-
   const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [sum, setSum] = useState(0);
@@ -16,9 +17,9 @@ const MakeOrder = () => {
   const { priceValue } = useSelector((state) => state.priceValue);
   const [price, setPrice] = useState(0);
 
-  const { handleSubmitForm, errors } = useMakeOrder(
+  const { handleSubmitForm } = useMakeOrder(
     orderValidateInfo,
-    isChecked
+    isChecked,
   );
 
   const handleAddComponent = () => {
@@ -126,9 +127,6 @@ const MakeOrder = () => {
                       Qaydalar ilə razıyam
                     </label>
                   </div>
-                  {errors.Checked && (
-                    <p className='error-message'>{errors.Checked}</p>
-                  )}
                   <div className='btnBox'>
                     <button type='submit' className='btn'>
                       ödəniş et

@@ -345,6 +345,177 @@ body {
       }
     }
   }
+  .panels-body {
+    .exchange-wrapper {
+      text-align: center;
+      background-color: $secondary-color;
+      margin-top: 30px;
+      border-radius: 10px;
+      padding: 30px 15px 25px;
+      .exchange-header {
+        margin-bottom: 20px;
+        h4 {
+          @include text(16px, 600, $text-color);
+        }
+      }
+      .form-control {
+        @include text(13px, 400, $form-color);
+        &::placeholder {
+          @include text(15px, 400, $form-color);
+        }
+        &:focus {
+          border-color: inherit;
+          box-shadow: none;
+        }
+      }
+      .form-control[type="number"] {
+        @include text(15px, 400, $form-color);
+      }
+      .exchange-footer {
+        text-align: center;
+        margin-top: 15px;
+        .footer-description {
+          @include flexy-box();
+          p {
+            @include text(12px, 400, $third-text-color);
+            margin-bottom: 0;
+          }
+        }
+        .footer-btn {
+          margin-top: 10px;
+          .btn {
+            @include btn(7px 40px, transparent, 14px, $primary-color);
+            text-transform: capitalize;
+            transition: all 0.3s;
+            &:hover {
+              @include btnHover(transparent);
+            }
+            &:focus {
+              outline: none;
+              box-shadow: none;
+            }
+            &:active {
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+    }
+  }
+  .panels-wrapper {
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 25px 35px 5px;
+    .panels-content {
+      .panels {
+        list-style-type: none;
+        padding-left: 0;
+        li {
+          position: relative;
+          padding: 10px 0;
+          a {
+            @include text(16px, 400, $third-text-color);
+            text-transform: capitalize;
+            cursor: pointer;
+            padding-left: 10px;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          .panel-1 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f009";
+              position: absolute;
+              left: -5%;
+            }
+          }
+          .panel-2 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f3c5";
+              position: absolute;
+              left: -5%;
+            }
+          }
+          .panel-3 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f49e";
+              position: absolute;
+              left: -7%;
+            }
+          }
+          .panel-4 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f155";
+              position: absolute;
+              left: -5%;
+            }
+          }
+          .panel-5 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f4ce";
+              position: absolute;
+              left: -7%;
+            }
+          }
+          .panel-6 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f059";
+              position: absolute;
+              left: -7%;
+            }
+          }
+          .panel-7 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f1de";
+              position: absolute;
+              left: -7%;
+            }
+          }
+          .panel-8 {
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              content: "\f2f5";
+              position: absolute;
+              left: -7%;
+            }
+          }
+          .active {
+            color: $primary-color;
+            border-bottom: 1px solid $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  .actions {
+    background-color: $secondary-color;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    .table {
+      thead {
+        th {
+          border-bottom-width: 1px;
+        }
+      }
+    }
+  }
 }
 
 @-webkit-keyframes animatetop {
