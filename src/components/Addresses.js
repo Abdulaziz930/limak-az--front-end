@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import Banner from "./Banner";
 import Panles from "./Panles";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Addresses = () => {
+  const [contents, setContents] = useState([]);
+
+  const { activeLanguage } = useSelector((state) => state.languages);
+
+  useEffect(() => {
+    const getContent = async () => {
+      axios
+        .get(
+          `https://localhost:44393/api/AddressContent/getAddressContent/${activeLanguage}`
+        )
+        .then((response) => setContents(response.data));
+    };
+
+    getContent();
+  }, [activeLanguage]);
+
   return (
     <div className='address-wrapper'>
       <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
@@ -18,54 +36,27 @@ const Addresses = () => {
                 defaultActiveKey='Turkey'
                 transition={false}
                 id='uncontrolled-tab-example'>
-                <Tab eventKey='Turkey' title='Türkiyə'>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='info-box'>
-                        <h5>Adres</h5>
-                        <p>0075635 - LİMAK İTHALAT VE İHRACAT LİMİTED</p>
+                {contents?.map((content) => {
+                  return (
+                    <Tab
+                      eventKey={content.countryValue}
+                      title={content.country}
+                      key={content.id}>
+                      <div className='row'>
+                        {content.addresses?.map((address) => {
+                          return (
+                            <div className='col-md-6' key={address.id}>
+                              <div className='info-box'>
+                                <h5>{address.title}</h5>
+                                <p>{address.content}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
-                      <div className='info-box'>
-                        <h5>Şəhər</h5>
-                        <p>İstanbul</p>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='info-box'>
-                        <h5>Zip/Poct</h5>
-                        <p>34400</p>
-                      </div>
-                      <div className='info-box'>
-                        <h5>Telefon</h5>
-                        <p>35650276048</p>
-                      </div>
-                    </div>
-                  </div>
-                </Tab>
-                <Tab eventKey='USA' title='Amerika'>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='info-box'>
-                        <h5>Adres</h5>
-                        <p>0075635 - LİMAK İTHALAT VE İHRACAT LİMİTED</p>
-                      </div>
-                      <div className='info-box'>
-                        <h5>Şəhər</h5>
-                        <p>İstanbul</p>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='info-box'>
-                        <h5>Zip/Poct</h5>
-                        <p>34400</p>
-                      </div>
-                      <div className='info-box'>
-                        <h5>Telefon</h5>
-                        <p>35650276048</p>
-                      </div>
-                    </div>
-                  </div>
-                </Tab>
+                    </Tab>
+                  );
+                })}
               </Tabs>
             </div>
           </div>

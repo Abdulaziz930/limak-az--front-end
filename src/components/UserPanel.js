@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Panles from "./Panles";
 import Banner from "./Banner";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const UserPanel = () => {
+  const [content, setContent] = useState({});
+
+  const { activeLanguage } = useSelector((state) => state.languages);
+
+  useEffect(() => {
+    const getContent = async () => {
+      axios
+        .get(
+          `https://localhost:44393/api/BalanceContent/balanceContent/${activeLanguage}`
+        )
+        .then((response) => setContent(response.data));
+    };
+
+    getContent();
+  }, [activeLanguage]);
+
   return (
     <div className='user-panel-wrapper'>
       <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
@@ -24,22 +42,20 @@ const UserPanel = () => {
                     />
                     <div className='balance-content'>
                       <div className='balance-text'>
-                        <span className='header'>Balansım</span>
+                        <span className='header'>{content.header}</span>
                         <div className='balance-count'>
                           <span className='count'>0.00 &#8380;</span>
                         </div>
                         <div className='balance-description'>
-                          <p className='description-text'>
-                            Azərbaycana çatdırılma haqqının ödənilməsi və online
-                            kuryer sifarişi üçün balansınızı artıra bilərsiniz.
-                            <span className='strong-text'>
-                              ARTIRILAN BALANS GERİ QAYTARILMIR.
-                            </span>
-                          </p>
+                          <p
+                            className='description-text'
+                            dangerouslySetInnerHTML={{
+                              __html: content.description,
+                            }}></p>
                           <div className='balance-btn'>
                             <div className='btnBox'>
                               <Link to='/balance' className='btn'>
-                                Balansı Artır
+                                {content.buttonName}
                               </Link>
                             </div>
                           </div>
@@ -62,9 +78,9 @@ const UserPanel = () => {
                     <table className='table table-bordered'>
                       <thead>
                         <tr>
-                          <th scope='col'>Əməliyyat</th>
-                          <th scope='col'>Məbləğ</th>
-                          <th scope='col'>Tarix</th>
+                          <th scope='col'>{content.tableActionHeader}</th>
+                          <th scope='col'>{content.tablePriceHeader}</th>
+                          <th scope='col'>{content.tableDateHeader}</th>
                         </tr>
                       </thead>
                       <tbody></tbody>

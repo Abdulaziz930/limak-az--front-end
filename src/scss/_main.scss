@@ -1025,9 +1025,12 @@
               @include text(15px, 400, $secondary-color);
               width: 70%;
               margin-bottom: 0;
+              .span {
+                font-weight: 600;
+              }
             }
-            .strong-text {
-              font-weight: 600;
+            p {
+              margin-bottom: 0;
             }
             .balance-btn {
               display: flex;
