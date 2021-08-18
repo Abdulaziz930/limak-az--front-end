@@ -4,7 +4,7 @@ export default function balanceValidateInfo(values, activeLanguage) {
   let errors = {};
 
   //balance validation
-  if (!values.balance) {
+  if (!values.balance.trim()) {
     errors.balance = language[activeLanguage].balanceErrorMessage;
   } else if (values.balance <= 0 || values.balance > 50) {
     errors.balance = "Məbləğ 1 ilə 50 arasında ola bilər";

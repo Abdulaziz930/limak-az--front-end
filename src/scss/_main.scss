@@ -1313,6 +1313,19 @@
         }
       }
     }
+    label {
+      @include text(14px, 400, $text-color);
+    }
+    .description {
+      margin-top: 20px;
+      p {
+        @include text(14px, 600, $text-color);
+        margin-bottom: 5px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 

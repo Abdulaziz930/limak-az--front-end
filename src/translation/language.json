@@ -102,6 +102,13 @@
       "buttonName": "Sifariş et",
       "buttonUrl": "make-order"
     },
+    "courier": {
+      "header": "Kuryer",
+      "buttonName": "Sifariş et",
+      "firstDescription": "Kuryer sifarişiniz 24 saat ərzində təyin olunur.",
+      "secondDescription": "Kuryerin iş saatları 10:00 - 19:00 (həftənin 6 günü).",
+      "thirdDescription": "Ödəniş - 3 AZN"
+    },
     "weightInput": {
       "placeholder": "Çəki"
     },
@@ -136,7 +143,8 @@
       "placeholder": "Telefon"
     },
     "cityInput": {
-      "placeholder": "Çatdırılma ofisi"
+      "placeholder": "Çatdırılma ofisi",
+      "secondPlaceholder": "Şəhər"
     },
     "serialNumberInput": {
       "placeholder": "Seriya nömrəsi"
@@ -155,6 +163,21 @@
     },
     "balanceInput": {
       "placeholder": "Məbləğ"
+    },
+    "areaInput": {
+      "placeholder": "Rayon"
+    },
+    "settlementInput": {
+      "placeholder": "Qəsəbə"
+    },
+    "streetInput": {
+      "placeholder": "Küçə"
+    },
+    "homeInput": {
+      "placeholder": "Ev"
+    },
+    "parcelInput": {
+      "placeholder": "Bağlama seçin"
     },
     "description": "'Limak VM' MMC sürətli poçtdaşıma və kuryer şirkətidir. Fiziki və hüquqi şəxslərin sifariş etdikləri yükləri xaricdəki anbarlarına qəbul edir, onların Azərbaycana daşınıb, müştəriyə təhvil verilməsini təmin edir.",
     "social_media_title": "Bizi sosial şəbəkələrdən izləyin",
@@ -295,6 +318,13 @@
       "buttonName": "ЗАКАЗАТЬ",
       "buttonUrl": "order"
     },
+    "courier": {
+      "header": "Курьер",
+      "buttonName": "Подтвердить",
+      "firstDescription": "Курьер назначается в течении 24 часов.",
+      "secondDescription": "График работы курьера с 10:00 до 19:00 (6 дней в неделю).",
+      "thirdDescription": "Оплата - 3 AZN"
+    },
     "weightInput": {
       "placeholder": "Вес"
     },
@@ -329,7 +359,8 @@
       "placeholder": "Телефон"
     },
     "cityInput": {
-      "placeholder": "Офис доставки"
+      "placeholder": "Офис доставки",
+      "secondPlaceholder": "город"
     },
     "serialNumberInput": {
       "placeholder": "Номер серии"
@@ -348,6 +379,21 @@
     },
     "balanceInput": {
       "placeholder": "сумма"
+    },
+    "areaInput": {
+      "placeholder": "Район"
+    },
+    "settlementInput": {
+      "placeholder": "Поселение"
+    },
+    "streetInput": {
+      "placeholder": "улица"
+    },
+    "homeInput": {
+      "placeholder": "Дом"
+    },
+    "parcelInput": {
+      "placeholder": "Выберите посылку"
     },
     "description": "ООО Limak VM - компания экспресс почтовой и курьерской службы. Принимает на свои зарубежные склады заказанные физическими и юридическими лицами грузы, обеспечивает их перевозку в Азербайджан и доставку клиентам.",
     "social_media_title": "Следите за нами в соцсетях",
@@ -488,6 +534,13 @@
       "buttonName": "Order",
       "buttonUrl": "order"
     },
+    "courier": {
+      "header": "Courier",
+      "buttonName": "Order",
+      "firstDescription": "The courier is appointed within 24 hours.",
+      "secondDescription": "The courier's working hours are from 10:00 to 19:00 (6 days a week).",
+      "thirdDescription": "Payment - 3 AZN"
+    },
     "weightInput": {
       "placeholder": "Weight"
     },
@@ -522,7 +575,8 @@
       "placeholder": "Phone number"
     },
     "cityInput": {
-      "placeholder": "Delivery office"
+      "placeholder": "Delivery office",
+      "secondPlaceholder": "City"
     },
     "serialNumberInput": {
       "placeholder": "Serial number"
@@ -541,6 +595,21 @@
     },
     "balanceInput": {
       "placeholder": "Amount"
+    },
+    "areaInput": {
+      "placeholder": "Area"
+    },
+    "settlementInput": {
+      "placeholder": "Settlement"
+    },
+    "streetInput": {
+      "placeholder": "Street"
+    },
+    "homeInput": {
+      "placeholder": "Home"
+    },
+    "parcelInput": {
+      "placeholder": "Choose Parcel"
     },
     "description": "Limak VM LLC is an express postal and courier service company. It accepts goods ordered by individuals and legal entities to its foreign warehouses, ensures their transportation to Azerbaijan and delivery to customers.",
     "social_media_title": "Follow us on social networks",
