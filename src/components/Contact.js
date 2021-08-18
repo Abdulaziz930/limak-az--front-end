@@ -30,7 +30,7 @@ const Contact = () => {
       <div className='contact-content'>
         <div className='container'>
           <div className='row'>
-            <div className='col-md-9'>
+            <div className='col-md-12'>
               <h1>{contactContent.pageTitle}</h1>
               <div className='contact-content-wrapper'>
                 <Tabs
@@ -75,14 +75,6 @@ const Contact = () => {
                     );
                   })}
                 </Tabs>
-              </div>
-            </div>
-            <div className='col-md-2 offset-md-1'>
-              <div className='question-box'>
-                <h4>{contactContent.writeUsTitle}</h4>
-                <Link to='/write-question' className='btn'>
-                  {contactContent.writeUsButton}
-                </Link>
               </div>
             </div>
           </div>

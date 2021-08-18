@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./scss/index.scss";
 import "@fortawesome/fontawesome-free";
+import "alertifyjs/build/css/alertify.min.css";
 
 ReactDOM.render(
   <React.StrictMode>

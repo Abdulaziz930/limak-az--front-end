@@ -83,11 +83,6 @@
         "url": "/courier"
       },
       {
-        "id": 6,
-        "name": "Sorğu",
-        "url": "/write-question"
-      },
-      {
         "id": 7,
         "name": "Tənzimləmələr",
         "url": "/settings"
@@ -138,6 +133,12 @@
     },
     "confirmPasswordInput": {
       "placeholder": "Şifrənin təkrarı"
+    },
+    "oldPassword": {
+      "placeholder": "Köhnə şifrə"
+    },
+    "newPassword": {
+      "placeholder": "Yeni şifrə"
     },
     "phoneInput": {
       "placeholder": "Telefon"
@@ -296,12 +297,6 @@
         "url": "/courier"
       },
       {
-        "id": 6,
-        "name": "Запрос",
-        "icon": "fas fa-question-circle",
-        "url": "/write-question"
-      },
-      {
         "id": 7,
         "name": "Настройки",
         "icon": "fas fa-sliders-h",
@@ -324,6 +319,12 @@
       "firstDescription": "Курьер назначается в течении 24 часов.",
       "secondDescription": "График работы курьера с 10:00 до 19:00 (6 дней в неделю).",
       "thirdDescription": "Оплата - 3 AZN"
+    },
+    "question": {
+      "header": "Запрос",
+      "subject": "Предмет",
+      "content": "Примечание ",
+      "buttonName": "Отправить"
     },
     "weightInput": {
       "placeholder": "Вес"
@@ -354,6 +355,12 @@
     },
     "confirmPasswordInput": {
       "placeholder": "Пароль еще раз"
+    },
+    "oldPassword": {
+      "placeholder": "Старый пароль"
+    },
+    "newPassword": {
+      "placeholder": "Новый пароль"
     },
     "phoneInput": {
       "placeholder": "Телефон"
@@ -512,12 +519,6 @@
         "url": "/courier"
       },
       {
-        "id": 6,
-        "name": "Question",
-        "icon": "fas fa-question-circle",
-        "url": "/write-question"
-      },
-      {
         "id": 7,
         "name": "Settings",
         "icon": "fas fa-sliders-h",
@@ -540,6 +541,12 @@
       "firstDescription": "The courier is appointed within 24 hours.",
       "secondDescription": "The courier's working hours are from 10:00 to 19:00 (6 days a week).",
       "thirdDescription": "Payment - 3 AZN"
+    },
+    "question": {
+      "header": "Inquiry",
+      "subject": "Subject",
+      "content": "Content",
+      "buttonName": "Send"
     },
     "weightInput": {
       "placeholder": "Weight"
@@ -570,6 +577,12 @@
     },
     "confirmPasswordInput": {
       "placeholder": "Confirm password"
+    },
+    "oldPassword": {
+      "placeholder": "Old Password"
+    },
+    "newPassword": {
+      "placeholder": "New Password"
     },
     "phoneInput": {
       "placeholder": "Phone number"

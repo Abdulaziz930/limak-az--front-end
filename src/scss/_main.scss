@@ -1332,3 +1332,38 @@
 .address-wrapper {
   margin-bottom: 60px;
 }
+
+.settings-wrapper {
+  .k-widget.k-datepicker {
+    width: 100%;
+    .k-picker-wrap.k-picker-wrap {
+      border-radius: 5px;
+    }
+  }
+  .MuiGrid-root {
+    display: block;
+    .MuiFormControl-root {
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 100%;
+      label {
+        display: none;
+      }
+      .MuiInputBase-root {
+        margin-top: 0;
+      }
+      .MuiInput-underline {
+        &:hover {
+          &:not(.Mui-disabled) {
+            &::before {
+              border-bottom: 1px solid $form-color !important;
+            }
+          }
+        }
+        &:after {
+          border-bottom: 2px solid $primary-color;
+        }
+      }
+    }
+  }
+}
