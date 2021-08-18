@@ -14,7 +14,9 @@ import moment from "moment";
 import { Grid } from "@material-ui/core";
 import { fetchGenders } from "../actions";
 import settingValidateInfo from "../Helpers/settingValidateInfo";
+import changePasswordValidateInfo from "../Helpers/changePasswordValidateInfo";
 import useSetting from "../hooks/useSetting";
+import useChangePassword from "../hooks/useChangePassword";
 import { mainAPI } from "../api";
 
 const Settings = () => {
@@ -27,6 +29,11 @@ const Settings = () => {
   const [content, setContent] = useState({});
   const { values, handleChange, handleSubmitForm } =
     useSetting(settingValidateInfo);
+  const { cpValues, cpErrors, handleChangeCp, handleSubmitCpForm } =
+    useChangePassword(
+      changePasswordValidateInfo,
+      localStorage.getItem("username") || sessionStorage.getItem("username")
+    );
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -229,39 +236,64 @@ const Settings = () => {
                   </form>
                 </Tab>
                 <Tab eventKey='Password' title={content.changePasswordTitle}>
-                  <div className='form-group'>
-                    <input
-                      type='password'
-                      className='form-control'
-                      placeholder={
-                        language[activeLanguage].oldPassword.placeholder
-                      }
-                    />
-                  </div>
-                  <div className='form-group'>
-                    <input
-                      type='password'
-                      className='form-control'
-                      placeholder={
-                        language[activeLanguage].newPassword.placeholder
-                      }
-                    />
-                  </div>
-                  <div className='form-group'>
-                    <input
-                      type='password'
-                      className='form-control'
-                      placeholder={
-                        language[activeLanguage].confirmPasswordInput
-                          .placeholder
-                      }
-                    />
-                  </div>
-                  <div className='btnBox'>
-                    <button className='btn' type='submit'>
-                      {content.buttonName}
-                    </button>
-                  </div>
+                  <form onSubmit={handleSubmitCpForm}>
+                    <div className='form-group'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        name='oldPassword'
+                        placeholder={
+                          language[activeLanguage].oldPassword.placeholder
+                        }
+                        value={cpValues.oldPassword}
+                        onChange={handleChangeCp}
+                      />
+                      {cpErrors.oldPassword && (
+                        <p className='error-message'>{cpErrors.oldPassword}</p>
+                      )}
+                    </div>
+                    <div className='form-group'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        name='newPassword'
+                        placeholder={
+                          language[activeLanguage].newPassword.placeholder
+                        }
+                        value={cpValues.newPassword}
+                        onChange={handleChangeCp}
+                      />
+                      {cpErrors.newPassword && (
+                        <p className='error-message'>{cpErrors.newPassword}</p>
+                      )}
+                    </div>
+                    <div className='form-group'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        name='confirmPassword'
+                        placeholder={
+                          language[activeLanguage].confirmPasswordInput
+                            .placeholder
+                        }
+                        value={cpValues.confirmPassword}
+                        onChange={handleChangeCp}
+                      />
+                      {cpErrors.confirmPassword && (
+                        <p className='error-message'>
+                          {cpErrors.confirmPassword}
+                        </p>
+                      )}
+                      {cpErrors.common && (
+                        <p className='error-message'>{cpErrors.common}</p>
+                      )}
+                    </div>
+                    <div className='btnBox'>
+                      <button className='btn' type='submit'>
+                        {content.buttonName}
+                      </button>
+                    </div>
+                  </form>
                 </Tab>
               </Tabs>
             </div>
