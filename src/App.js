@@ -3,8 +3,15 @@ import SpinnerWrapper from "./components/SpinnerWrapper";
 import Navi from "./components/Navi";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
+import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { setUser } from "./actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const { push } = useHistory();
+
   const Home = React.lazy(() => import("./components/Home"));
   const Contact = React.lazy(() => import("./components/Contact"));
   const Shops = React.lazy(() => import("./components/Shops"));
@@ -63,6 +70,27 @@ function App() {
         }}
       />
     );
+  }
+
+  let expiresDate = new Date(
+    localStorage.getItem("expires") || sessionStorage.getItem("expires")
+  );
+  let dateNow = new Date();
+
+  if (expiresDate < dateNow) {
+    if (localStorage.getItem("token")) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      localStorage.removeItem("expires");
+      dispatch(setUser(""));
+    } else if (sessionStorage.getItem("token")) {
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("username");
+      sessionStorage.removeItem("expires");
+      dispatch(setUser(""));
+    }
+
+    push("/");
   }
 
   return (

@@ -57,10 +57,12 @@ const Panles = ({ pathName }) => {
     if (localStorage.getItem("token")) {
       localStorage.removeItem("token");
       localStorage.removeItem("username");
+      localStorage.removeItem("expires");
       dispatch(setUser(""));
     } else if (sessionStorage.getItem("token")) {
       sessionStorage.removeItem("token");
       sessionStorage.removeItem("username");
+      sessionStorage.removeItem("expires");
       dispatch(setUser(""));
     }
 
