@@ -174,6 +174,9 @@ const Settings = (props) => {
                                 disableToolbar
                                 variant='inline'
                                 format='MM/dd/yyyy'
+                                maxDate={Date.parse(
+                                  new Date().getFullYear() - 17
+                                )}
                                 margin='normal'
                                 id='date-picker-inline'
                                 label='BirthDay'

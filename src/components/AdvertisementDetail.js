@@ -1,19 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import Moment from "moment";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchAdvertisementDetail,
-  fetchAdvertisements,
-  fetchAdvertisementHeader,
-} from "../actions";
+import { fetchAdvertisements, fetchAdvertisementHeader } from "../actions";
+import { mainAPI } from "../api";
 
 const AdvertisementDetail = () => {
   const dispatch = useDispatch();
 
   const { activeLanguage } = useSelector((state) => state.languages);
-  const { advertisement } = useSelector((state) => state.advertisement);
   const { advertisements } = useSelector((state) => state.advertisements);
   const { advertisementHeader } = useSelector(
     (state) => state.advertisementHeader
@@ -21,11 +17,24 @@ const AdvertisementDetail = () => {
   const { id } = useParams();
   const { push } = useHistory();
 
+  const [advertisement, setAdvertisement] = useState({});
+
   useEffect(() => {
-    dispatch(fetchAdvertisementDetail(id, activeLanguage));
+    const getAdvertisement = async () => {
+      await mainAPI
+        .get(`Advertisement/getAdvertisementDetail/${id}/${activeLanguage}`)
+        .then((response) => setAdvertisement(response.data))
+        .catch(({ response }) =>
+          response === undefined || response.status === 404
+            ? push("/error")
+            : ""
+        );
+    };
+
+    getAdvertisement();
     dispatch(fetchAdvertisements(10));
     dispatch(fetchAdvertisementHeader());
-  }, [dispatch, activeLanguage, id]);
+  }, [dispatch, activeLanguage, id, push]);
 
   const date = new Date(advertisement.creationDate);
 

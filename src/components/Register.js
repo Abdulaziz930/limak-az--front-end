@@ -14,6 +14,7 @@ import {
 } from "../actions";
 import language from "../translation/language.json";
 import VerifyEmailRediretion from "./VerifyEmailRediretion";
+import moment from "moment";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -243,6 +244,9 @@ const Register = () => {
                                   className='form-control date'
                                   value={values.birthDay}
                                   name='birthDay'
+                                  max={moment(
+                                    Date.parse(new Date().getFullYear() - 17)
+                                  ).format("YYYY-MM-DD")}
                                   onChange={handleChange}
                                 />
                                 {errors.birthDay && (

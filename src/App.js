@@ -83,14 +83,14 @@ function App() {
       localStorage.removeItem("username");
       localStorage.removeItem("expires");
       dispatch(setUser(""));
+      push("/");
     } else if (sessionStorage.getItem("token")) {
       sessionStorage.removeItem("token");
       sessionStorage.removeItem("username");
       sessionStorage.removeItem("expires");
       dispatch(setUser(""));
+      push("/");
     }
-
-    push("/");
   }
 
   return (
