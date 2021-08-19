@@ -422,6 +422,9 @@ body {
               text-decoration: none;
             }
           }
+          .active-panel {
+            color: $primary-color;
+          }
           .panel-1 {
             &::before {
               font-family: "Font Awesome 5 Free";
@@ -485,18 +488,21 @@ body {
               left: -7%;
             }
           }
-          .panel-8 {
-            &::before {
-              font-family: "Font Awesome 5 Free";
-              font-weight: 900;
-              content: "\f2f5";
-              position: absolute;
-              left: -7%;
-            }
+        }
+        .panel-8 {
+          @include text(16px, 400, $third-text-color);
+          text-transform: capitalize;
+          cursor: pointer;
+          padding-left: 10px;
+          &:hover {
+            text-decoration: none;
           }
-          .active {
-            color: $primary-color;
-            border-bottom: 1px solid $primary-color;
+          &::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f2f5";
+            position: absolute;
+            left: -7%;
           }
         }
       }

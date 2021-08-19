@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchLanguages, setUser } from "../actions";
 import language from "../translation/language.json";
@@ -9,6 +9,7 @@ const Navi = () => {
 
   const { languages, activeLanguage } = useSelector((state) => state.languages);
   const { user } = useSelector((state) => state.user);
+  const { push } = useHistory();
 
   const [isOpen, setIsOpen] = useState(false);
   const [hamburgerMenuClassName, setHamburgerMenuClassName] =
@@ -52,6 +53,8 @@ const Navi = () => {
       sessionStorage.removeItem("username");
       dispatch(setUser(""));
     }
+
+    push("/");
   };
 
   let count = 0;

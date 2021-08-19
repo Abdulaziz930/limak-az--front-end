@@ -1,11 +1,10 @@
 import React, { Suspense } from "react";
 import SpinnerWrapper from "./components/SpinnerWrapper";
 import Navi from "./components/Navi";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
-import { withRouter } from "react-router";
 
-function App(props) {
+function App() {
   const Home = React.lazy(() => import("./components/Home"));
   const Contact = React.lazy(() => import("./components/Contact"));
   const Shops = React.lazy(() => import("./components/Shops"));
@@ -34,22 +33,36 @@ function App(props) {
   const Courier = React.lazy(() => import("./components/Courier"));
   const Error = React.lazy(() => import("./components/Error"));
 
-  const TestComponent = React.lazy(() => import("./components/TestComponent"));
+  function PrivateRoute({ children, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={() => {
+          return localStorage.getItem("token") ||
+            sessionStorage.getItem("token") ? (
+            children
+          ) : (
+            <Redirect to='login' />
+          );
+        }}
+      />
+    );
+  }
 
-  const {
-    location: { pathname },
-  } = props;
-
-  const pathnames = pathname.split("/").filter((x) => x);
-
-  function check() {
-    if (pathnames[0] === "register" || pathnames[0] === "login") {
-      if (localStorage.getItem("token") || sessionStorage.getItem("token")) {
-        return true;
-      }
-    }
-
-    return false;
+  function LoginPrivateRoute({ children, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={() => {
+          return localStorage.getItem("token") ||
+            sessionStorage.getItem("token") ? (
+            <Redirect to='error' />
+          ) : (
+            children
+          );
+        }}
+      />
+    );
   }
 
   return (
@@ -68,24 +81,39 @@ function App(props) {
           <Route path='/privacy' component={Privacy} />
           <Route path='/advertisements/:id' component={AdvertisementDetail} />
           <Route path='/make-order' component={MakeOrder} />
-          <Route path='/reset-password' component={ResetPassword} />
-          <Route path='/panel' component={UserPanel} />
-          <Route path='/address' component={Addresses} />
-          <Route path='/balance' component={Balance} />
-          <Route path='/settings' component={Settings} />
-          <Route path='/test' component={TestComponent} />
-          <Route path='/parcels' component={Parcels} />
-          <Route path='/courier' component={Courier} />
-          {check() === true ? (
-            <Route path='*' component={Error} />
-          ) : (
-            <>
-              <Route path='/register' component={Register} />
-              <Route path='/verify-email' component={VerifyEmail} />
-              <Route path='/login' component={Login} />
-              <Route path='/forgot-password' component={ForgotPassword} />
-            </>
-          )}
+          <PrivateRoute path='/panel'>
+            <UserPanel />
+          </PrivateRoute>
+          <PrivateRoute path='/address'>
+            <Addresses />
+          </PrivateRoute>
+          <PrivateRoute path='/balance'>
+            <Balance />
+          </PrivateRoute>
+          <PrivateRoute path='/settings'>
+            <Settings />
+          </PrivateRoute>
+          <PrivateRoute path='/parcels'>
+            <Parcels />
+          </PrivateRoute>
+          <PrivateRoute path='/courier'>
+            <Courier />
+          </PrivateRoute>
+          <LoginPrivateRoute path='/login'>
+            <Login />
+          </LoginPrivateRoute>
+          <LoginPrivateRoute path='/register'>
+            <Register />
+          </LoginPrivateRoute>
+          <LoginPrivateRoute path='/verify-email'>
+            <VerifyEmail />
+          </LoginPrivateRoute>
+          <LoginPrivateRoute path='/forgot-password'>
+            <ForgotPassword />
+          </LoginPrivateRoute>
+          <LoginPrivateRoute path='/reset-password'>
+            <ResetPassword />
+          </LoginPrivateRoute>
           <Route path='*' component={Error} />
         </Switch>
       </Suspense>
@@ -94,4 +122,4 @@ function App(props) {
   );
 }
 
-export default withRouter(App);
+export default App;

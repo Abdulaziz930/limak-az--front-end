@@ -5,11 +5,17 @@ import language from "../translation/language.json";
 import { useSelector } from "react-redux";
 import courierValidateInfo from "../Helpers/courierValidateInfo";
 import useCourier from "../hooks/useCourier";
+import { withRouter } from "react-router-dom";
 
-const Courier = () => {
+const Courier = (props) => {
   const { activeLanguage } = useSelector((state) => state.languages);
   const { handleChange, handleSubmitForm, values, errors } =
     useCourier(courierValidateInfo);
+  const {
+    location: { pathname },
+  } = props;
+
+  const pathNames = pathname.split("/").filter((x) => x);
 
   return (
     <div className='courier-wrapper'>
@@ -17,7 +23,7 @@ const Courier = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
-            <Panles />
+            <Panles pathName={pathNames[0]} />
           </div>
           <div className='col-md-9'>
             <div className='courier-content'>
@@ -164,4 +170,4 @@ const Courier = () => {
   );
 };
 
-export default Courier;
+export default withRouter(Courier);

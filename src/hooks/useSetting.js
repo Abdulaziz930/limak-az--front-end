@@ -61,7 +61,14 @@ const useSetting = (settingValidateInfo) => {
             localStorage.getItem("username")
               ? localStorage.getItem("username")
               : sessionStorage.getItem("username")
-          }`
+          }`,
+          {
+            headers: {
+              Authorization: `Bearer ${
+                localStorage.getItem("token") || sessionStorage.getItem("token")
+              }`,
+            },
+          }
         )
         .then((response) => setValues(response.data));
     };

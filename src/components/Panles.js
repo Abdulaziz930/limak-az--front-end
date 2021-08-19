@@ -8,8 +8,10 @@ import {
   fetchCalculatorPageContent,
 } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../actions";
+import { useHistory } from "react-router";
 
-const Panles = () => {
+const Panles = ({ pathName }) => {
   const dispatch = useDispatch();
 
   const { exchangeRate } = useSelector((state) => state.exchangeRate);
@@ -18,6 +20,7 @@ const Panles = () => {
     (state) => state.calculatorPageContent
   );
   const { activeLanguage } = useSelector((state) => state.languages);
+  const { push } = useHistory();
 
   const [number, setNumber] = useState(0.0);
   const [resultNumber, setResultNumber] = useState(0.0);
@@ -50,18 +53,55 @@ const Panles = () => {
     }
   };
 
+  const logout = () => {
+    if (localStorage.getItem("token")) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      dispatch(setUser(""));
+    } else if (sessionStorage.getItem("token")) {
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("username");
+      dispatch(setUser(""));
+    }
+
+    push("/");
+  };
+
+  let count = 0;
+
   return (
     <div className='panels-body'>
       <div className='panels-wrapper'>
         <div className='panels-content'>
           <ul className='panels'>
             {language[activeLanguage].panels.map((panel) => {
+              count++;
               return (
-                <li key={panel.id}>
-                  <Link to={panel.url} className={`panel-${panel.id}`}>
-                    {panel.name}
-                  </Link>
-                </li>
+                <React.Fragment key={panel.id}>
+                  {count === language[activeLanguage].panels.length ? (
+                    <li className={`panel-${panel.id}`} onClick={logout}>
+                      {panel.name}
+                    </li>
+                  ) : (
+                    <>
+                      {pathName === panel.url ? (
+                        <li>
+                          <Link
+                            to={`/${panel.url}`}
+                            className={`panel-${panel.id} active-panel`}>
+                            {panel.name}
+                          </Link>
+                        </li>
+                      ) : (
+                        <li>
+                          <Link to={panel.url} className={`panel-${panel.id}`}>
+                            {panel.name}
+                          </Link>
+                        </li>
+                      )}
+                    </>
+                  )}
+                </React.Fragment>
               );
             })}
           </ul>

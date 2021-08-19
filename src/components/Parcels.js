@@ -2,15 +2,22 @@ import React from "react";
 import Banner from "./Banner";
 import Panles from "./Panles";
 import { Tabs, Tab } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
-const Parcels = () => {
+const Parcels = (props) => {
+  const {
+    location: { pathname },
+  } = props;
+
+  const pathNames = pathname.split("/").filter((x) => x);
+
   return (
     <div className='parcels-wrapper'>
       <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
-            <Panles />
+            <Panles pathName={pathNames[0]} />
           </div>
           <div className='col-md-9'>
             <div className='content'>
@@ -139,4 +146,4 @@ const Parcels = () => {
   );
 };
 
-export default Parcels;
+export default withRouter(Parcels);

@@ -6,12 +6,16 @@ import useBalance from "../hooks/useBalance";
 import { useSelector } from "react-redux";
 import language from "../translation/language.json";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
-const Balance = () => {
+const Balance = (props) => {
   const { activeLanguage } = useSelector((state) => state.languages);
 
   const { handleChange, handleSubmitForm, errors, values } =
     useBalance(balanceValidateInfo);
+  const {
+    location: { pathname },
+  } = props;
 
   const [content, setContent] = useState({});
 
@@ -19,7 +23,14 @@ const Balance = () => {
     const getContent = async () => {
       axios
         .get(
-          `https://localhost:44393/api/BalanceContent/balanceContent/${activeLanguage}`
+          `https://localhost:44393/api/BalanceContent/balanceContent/${activeLanguage}`,
+          {
+            headers: {
+              Authorization: `Bearer ${
+                localStorage.getItem("token") || sessionStorage.getItem("token")
+              }`,
+            },
+          }
         )
         .then((response) => setContent(response.data));
     };
@@ -27,13 +38,15 @@ const Balance = () => {
     getContent();
   }, [activeLanguage]);
 
+  const pathNames = pathname.split("/").filter((x) => x);
+
   return (
     <div className='balance-wrapper'>
       <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
-            <Panles />
+            <Panles pathName={pathNames[0]} />
           </div>
           <div className='col-md-9'>
             <div className='row'>
@@ -125,4 +138,4 @@ const Balance = () => {
   );
 };
 
-export default Balance;
+export default withRouter(Balance);

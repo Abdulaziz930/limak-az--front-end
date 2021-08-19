@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Panles from "./Panles";
 import Banner from "./Banner";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const UserPanel = () => {
+const UserPanel = (props) => {
   const [content, setContent] = useState({});
 
   const { activeLanguage } = useSelector((state) => state.languages);
+  const {
+    location: { pathname },
+  } = props;
 
   useEffect(() => {
     const getContent = async () => {
       axios
         .get(
-          `https://localhost:44393/api/BalanceContent/balanceContent/${activeLanguage}`
+          `https://localhost:44393/api/BalanceContent/balanceContent/${activeLanguage}`,
+          {
+            headers: {
+              Authorization: `Bearer ${
+                localStorage.getItem("token") || sessionStorage.getItem("token")
+              }`,
+            },
+          }
         )
         .then((response) => setContent(response.data));
     };
@@ -22,13 +32,15 @@ const UserPanel = () => {
     getContent();
   }, [activeLanguage]);
 
+  const pathNames = pathname.split("/").filter((x) => x);
+
   return (
     <div className='user-panel-wrapper'>
       <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
-            <Panles />
+            <Panles pathName={pathNames[0]} />
           </div>
           <div className='col-md-9'>
             <div className='user-panel-content'>
@@ -96,4 +108,4 @@ const UserPanel = () => {
   );
 };
 
-export default UserPanel;
+export default withRouter(UserPanel);

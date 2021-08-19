@@ -18,8 +18,9 @@ import changePasswordValidateInfo from "../Helpers/changePasswordValidateInfo";
 import useSetting from "../hooks/useSetting";
 import useChangePassword from "../hooks/useChangePassword";
 import { mainAPI } from "../api";
+import { withRouter } from "react-router-dom";
 
-const Settings = () => {
+const Settings = (props) => {
   const dispatch = useDispatch();
 
   const { activeLanguage } = useSelector((state) => state.languages);
@@ -34,6 +35,9 @@ const Settings = () => {
       changePasswordValidateInfo,
       localStorage.getItem("username") || sessionStorage.getItem("username")
     );
+  const {
+    location: { pathname },
+  } = props;
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -43,13 +47,26 @@ const Settings = () => {
             localStorage.getItem("username")
               ? localStorage.getItem("username")
               : sessionStorage.getItem("username")
-          }`
+          }`,
+          {
+            headers: {
+              Authorization: `Bearer ${
+                localStorage.getItem("token") || sessionStorage.getItem("token")
+              }`,
+            },
+          }
         )
         .then((response) => setUserInfo(response.data));
     };
     const getContent = async () => {
       await mainAPI
-        .get(`Profile/getSettingContent/${activeLanguage}`)
+        .get(`Profile/getSettingContent/${activeLanguage}`, {
+          headers: {
+            Authorization: `Bearer ${
+              localStorage.getItem("token") || sessionStorage.getItem("token")
+            }`,
+          },
+        })
         .then((response) => setContent(response.data));
     };
     dispatch(fetchCitiesContent());
@@ -59,13 +76,15 @@ const Settings = () => {
     getUserInfo();
   }, [dispatch, activeLanguage, userInfo.birthDay]);
 
+  const pathNames = pathname.split("/").filter((x) => x);
+
   return (
     <div className='settings-wrapper'>
       <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
-            <Panles />
+            <Panles pathName={pathNames[0]} />
           </div>
           <div className='col-md-9'>
             <div className='content'>
@@ -304,4 +323,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default withRouter(Settings);

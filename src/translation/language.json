@@ -60,32 +60,32 @@
       {
         "id": 1,
         "name": "Panel səhifəsi",
-        "url": "/panel"
+        "url": "panel"
       },
       {
         "id": 2,
         "name": "Xaricdəki ünvanlarım",
-        "url": "/address"
+        "url": "address"
       },
       {
         "id": 3,
         "name": "Bağlamalarım",
-        "url": "/parcels"
+        "url": "parcels"
       },
       {
         "id": 4,
         "name": "Balansım",
-        "url": "/balance"
+        "url": "balance"
       },
       {
         "id": 5,
         "name": "Kuryer",
-        "url": "/courier"
+        "url": "courier"
       },
       {
         "id": 7,
         "name": "Tənzimləmələr",
-        "url": "/settings"
+        "url": "settings"
       },
       {
         "id": 8,
@@ -270,37 +270,37 @@
         "id": 1,
         "name": "Панельная страница",
         "icon": "fas fa-th-large",
-        "url": "/panel"
+        "url": "panel"
       },
       {
         "id": 2,
         "name": "Адреса за границей",
         "icon": "fas fa-map-marker-alt",
-        "url": "/address"
+        "url": "address"
       },
       {
         "id": 3,
         "name": "Посылки",
         "icon": "fas fa-box-open",
-        "url": "/parcels"
+        "url": "parcels"
       },
       {
         "id": 4,
         "name": "Баланс",
         "icon": "fas fa-dollar-sign",
-        "url": "/balance"
+        "url": "balance"
       },
       {
         "id": 5,
         "name": "Курьер",
         "icon": "fas fa-people-carry",
-        "url": "/courier"
+        "url": "courier"
       },
       {
         "id": 7,
         "name": "Настройки",
         "icon": "fas fa-sliders-h",
-        "url": "/settings"
+        "url": "settings"
       },
       {
         "id": 8,
@@ -492,37 +492,37 @@
         "id": 1,
         "name": "Panel page",
         "icon": "fas fa-th-large",
-        "url": "/panel"
+        "url": "panel"
       },
       {
         "id": 2,
         "name": "Addresses abroad",
         "icon": "fas fa-map-marker-alt",
-        "url": "/address"
+        "url": "address"
       },
       {
         "id": 3,
         "name": "Parcels",
         "icon": "fas fa-box-open",
-        "url": "/parcels"
+        "url": "parcels"
       },
       {
         "id": 4,
         "name": "Balance",
         "icon": "fas fa-dollar-sign",
-        "url": "/balance"
+        "url": "balance"
       },
       {
         "id": 5,
         "name": "Courier",
         "icon": "fas fa-people-carry",
-        "url": "/courier"
+        "url": "courier"
       },
       {
         "id": 7,
         "name": "Settings",
         "icon": "fas fa-sliders-h",
-        "url": "/settings"
+        "url": "settings"
       },
       {
         "id": 8,
