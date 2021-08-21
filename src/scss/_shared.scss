@@ -284,9 +284,9 @@ body {
       z-index: 10;
     }
     .rule-modal-wrapper {
+      width: 30%;
       position: fixed;
       overflow-y: scroll;
-
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -519,6 +519,50 @@ body {
         th {
           border-bottom-width: 1px;
         }
+      }
+    }
+  }
+  .pagination {
+    .page-item {
+      cursor: pointer;
+      .page-link {
+        color: $primary-color;
+        border-color: $primary-color;
+        transition: all 0.3s;
+        &:hover {
+          background-color: $primary-color;
+          color: $secondary-color;
+        }
+      }
+    }
+    .disabled {
+      cursor: default;
+      .page-link {
+        background-color: $primary-color;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .transaction-table {
+    .btn {
+      @include btn(10px 20px, transparent, 13px, $primary-color);
+      text-transform: uppercase;
+      &:hover {
+        @include btnHover(transparent);
+      }
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+  .transaction-detail-content {
+    p {
+      @include text(18px, 600, $text-color);
+      span {
+        @include text(16px, 400, $text-color);
+        padding-left: 5px;
       }
     }
   }

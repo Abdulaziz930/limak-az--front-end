@@ -104,6 +104,12 @@
       "secondDescription": "Kuryerin iş saatları 10:00 - 19:00 (həftənin 6 günü).",
       "thirdDescription": "Ödəniş - 3 AZN"
     },
+    "excelTransaction": {
+      "oldBalance": "Köhnə qiymət",
+      "amount": "Məbləğ",
+      "dateTime": "Tarix",
+      "button": "Excel faylına ixrac edin"
+    },
     "weightInput": {
       "placeholder": "Çəki"
     },
@@ -206,7 +212,9 @@
     "noteErrorMessage": "Mütlqədir",
     "balanceErrorMessage": "Mütlqədir",
     "resetPasswordTitle": "Parolu sıfırlamaq",
-    "resetPasswordBtn": "Parolu yenilə"
+    "resetPasswordBtn": "Parolu yenilə",
+    "modalButton": "Bağla",
+    "userPanelBannerHeader": "ISTIFADƏÇI PANELI"
   },
   "RU": {
     "sections": [
@@ -326,6 +334,12 @@
       "content": "Примечание ",
       "buttonName": "Отправить"
     },
+    "excelTransaction": {
+      "oldBalance": "Старый баланс",
+      "amount": "Сумма",
+      "dateTime": "Дата время",
+      "button": "Экспорт в файл Excel"
+    },
     "weightInput": {
       "placeholder": "Вес"
     },
@@ -428,7 +442,9 @@
     "noteErrorMessage": "обязательный",
     "balanceErrorMessage": "обязательный",
     "resetPasswordTitle": "Сброс пароля",
-    "resetPasswordBtn": "Сброс пароля"
+    "resetPasswordBtn": "Сброс пароля",
+    "modalButton": "Закрывать",
+    "userPanelBannerHeader": "ПАНЕЛЬ ПОЛЬЗОВАТЕЛЯ"
   },
   "EN": {
     "sections": [
@@ -548,6 +564,12 @@
       "content": "Content",
       "buttonName": "Send"
     },
+    "excelTransaction": {
+      "oldBalance": "Old balance",
+      "amount": "Amount",
+      "dateTime": "Date time",
+      "button": "Export to excel file"
+    },
     "weightInput": {
       "placeholder": "Weight"
     },
@@ -650,6 +672,8 @@
     "noteErrorMessage": "Required",
     "balanceErrorMessage": "Required",
     "resetPasswordTitle": "Reset Password",
-    "resetPasswordBtn": "Reset password"
+    "resetPasswordBtn": "Reset password",
+    "modalButton": "Close",
+    "userPanelBannerHeader": "User Panel"
   }
 }

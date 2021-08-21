@@ -1162,6 +1162,7 @@
           @include btn(10px 20px, transparent, 13px, $primary-color);
           text-transform: uppercase;
           width: 100%;
+          border-radius: 5px;
           &:hover {
             @include btnHover(transparent);
           }
@@ -1364,6 +1365,55 @@
           border-bottom: 2px solid $primary-color;
         }
       }
+    }
+  }
+}
+
+.payment-btn {
+  background: transparent !important;
+  border: 1px solid $primary-color !important;
+  padding: 5px 20px !important;
+  box-shadow: none !important;
+  transition: all 0.5s !important;
+  &:hover {
+    background-color: $primary-color !important;
+    span {
+      color: $secondary-color !important;
+    }
+  }
+  span {
+    transition: all 0.5s !important;
+    background-image: none !important;
+    color: $primary-color !important;
+    font-family: $primary-font;
+    display: inline-block !important;
+    height: 30px;
+    line-height: initial !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-radius: 4px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+  }
+}
+
+.download-wrapper {
+  .btn {
+    @include btn(10px 20px, transparent, 13px, $primary-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    &:hover {
+      @include btnHover(transparent);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    i {
+      padding-left: 5px;
     }
   }
 }

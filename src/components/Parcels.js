@@ -3,17 +3,24 @@ import Banner from "./Banner";
 import Panles from "./Panles";
 import { Tabs, Tab } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+import language from "../translation/language.json";
+import { useSelector } from "react-redux";
 
 const Parcels = (props) => {
   const {
     location: { pathname },
   } = props;
 
+  const { activeLanguage } = useSelector((state) => state.languages);
+
   const pathNames = pathname.split("/").filter((x) => x);
 
   return (
     <div className='parcels-wrapper'>
-      <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
+      <Banner
+        bannerTitle={language[activeLanguage].userPanelBannerHeader}
+        pathName={language[activeLanguage].userPanelBannerHeader}
+      />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>

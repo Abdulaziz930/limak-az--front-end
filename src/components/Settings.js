@@ -80,7 +80,10 @@ const Settings = (props) => {
 
   return (
     <div className='settings-wrapper'>
-      <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
+      <Banner
+        bannerTitle={language[activeLanguage].userPanelBannerHeader}
+        pathName={language[activeLanguage].userPanelBannerHeader}
+      />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>

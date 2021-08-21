@@ -1,6 +1,10 @@
 import React from "react";
+import langauge from "../translation/language.json";
+import { useSelector } from "react-redux";
 
 const RuleModal = ({ isShowed, onClose, modalTitle, children }) => {
+  const { activeLanguage } = useSelector((state) => state.languages);
+
   if (!isShowed) return null;
 
   return (
@@ -17,7 +21,7 @@ const RuleModal = ({ isShowed, onClose, modalTitle, children }) => {
           <div className='rule-modal-body'>{children}</div>
           <div className='rule-modal-footer'>
             <button className='btn btn-cancle' onClick={onClose}>
-              Close
+              {langauge[activeLanguage].modalButton}
             </button>
           </div>
         </div>

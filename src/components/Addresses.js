@@ -5,6 +5,7 @@ import Panles from "./Panles";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
+import language from "../translation/language.json";
 
 const Addresses = (props) => {
   const [contents, setContents] = useState([]);
@@ -37,7 +38,10 @@ const Addresses = (props) => {
 
   return (
     <div className='address-wrapper'>
-      <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
+      <Banner
+        bannerTitle={language[activeLanguage].userPanelBannerHeader}
+        pathName={language[activeLanguage].userPanelBannerHeader}
+      />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>

@@ -2,41 +2,134 @@ import React, { useEffect, useState } from "react";
 import Panles from "./Panles";
 import Banner from "./Banner";
 import { Link, withRouter } from "react-router-dom";
-import axios from "axios";
 import { useSelector } from "react-redux";
+import { mainAPI } from "../api";
+import { Pagination } from "react-bootstrap";
+import moment from "moment";
+import RuleModalWrapper from "./RuleModalWrapper";
+import Download from "./Download";
+import language from "../translation/language.json";
 
 const UserPanel = (props) => {
   const [content, setContent] = useState({});
+  const [balance, setBalance] = useState(0);
+  const [transactions, setTransactions] = useState([]);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
+  const [transationDetail, setTransactionDetail] = useState({});
+  const [modalContent, setModalContent] = useState({});
 
   const { activeLanguage } = useSelector((state) => state.languages);
+  const { user } = useSelector((state) => state.user);
   const {
     location: { pathname },
   } = props;
 
   useEffect(() => {
     const getContent = async () => {
-      axios
-        .get(
-          `https://localhost:44393/api/BalanceContent/balanceContent/${activeLanguage}`,
-          {
-            headers: {
-              Authorization: `Bearer ${
-                localStorage.getItem("token") || sessionStorage.getItem("token")
-              }`,
-            },
-          }
-        )
+      await mainAPI
+        .get(`BalanceContent/getbalanceContent/${activeLanguage}`, {
+          headers: {
+            Authorization: `Bearer ${
+              localStorage.getItem("token") || sessionStorage.getItem("token")
+            }`,
+          },
+        })
         .then((response) => setContent(response.data));
+
+      await mainAPI
+        .get(`BalanceContent/getBalance/${user}`, {
+          headers: {
+            Authorization: `Bearer ${
+              localStorage.getItem("token") || sessionStorage.getItem("token")
+            }`,
+          },
+        })
+        .then((response) => setBalance(response.data.balance));
+
+      await mainAPI
+        .get(`BalanceContent/getBalanceModalContent/${activeLanguage}`, {
+          headers: {
+            Authorization: `Bearer ${
+              localStorage.getItem("token") || sessionStorage.getItem("token")
+            }`,
+          },
+        })
+        .then((response) => setModalContent(response.data));
     };
 
+    const getTransactions = async () => {
+      await mainAPI
+        .get(`Payment/getTransactions/${user}`, {
+          params: {
+            page: page,
+          },
+          headers: {
+            Authorization: `Bearer ${
+              localStorage.getItem("token") || sessionStorage.getItem("token")
+            }`,
+          },
+        })
+        .then((response) =>
+          response.status === 200
+            ? setTransactions(response.data)
+            : setTransactions([])
+        );
+
+      await mainAPI
+        .get(`Payment/getTransactionsCount/${user}`, {
+          headers: {
+            Authorization: `Bearer ${
+              localStorage.getItem("token") || sessionStorage.getItem("token")
+            }`,
+          },
+        })
+        .then((response) => setCount(response.data));
+    };
+
+    getTransactions();
     getContent();
-  }, [activeLanguage]);
+  }, [activeLanguage, user, page]);
 
   const pathNames = pathname.split("/").filter((x) => x);
 
+  const handleClickModal = async (id) => {
+    await mainAPI
+      .get(`Payment/getTransactionDetail/${user}/${id}`, {
+        headers: {
+          Authorization: `Bearer ${
+            localStorage.getItem("token") || sessionStorage.getItem("token")
+          }`,
+        },
+      })
+      .then((response) => setTransactionDetail(response.data));
+    setIsRuleModalOpen(true);
+  };
+
+  let items = [];
+  if (count !== 0) {
+    for (let item = 1; item <= count; item++) {
+      items.push(
+        <React.Fragment key={item}>
+          {item === page ? (
+            <Pagination.Item disabled>{item}</Pagination.Item>
+          ) : (
+            <Pagination.Item onClick={() => setPage(item)}>
+              {item}
+            </Pagination.Item>
+          )}
+        </React.Fragment>
+      );
+    }
+  }
+
   return (
     <div className='user-panel-wrapper'>
-      <Banner bannerTitle='Istifadəçi Paneli' pathName='Istifadəçi Paneli' />
+      <Banner
+        bannerTitle={language[activeLanguage].userPanelBannerHeader}
+        pathName={language[activeLanguage].userPanelBannerHeader}
+      />
       <div className='container'>
         <div className='row'>
           <div className='col-md-3'>
@@ -56,7 +149,7 @@ const UserPanel = (props) => {
                       <div className='balance-text'>
                         <span className='header'>{content.header}</span>
                         <div className='balance-count'>
-                          <span className='count'>0.00 &#8380;</span>
+                          <span className='count'>{balance} &#8380;</span>
                         </div>
                         <div className='balance-description'>
                           <p
@@ -87,16 +180,74 @@ const UserPanel = (props) => {
                 </div>
                 <div className='col-md-12'>
                   <div className='actions'>
-                    <table className='table table-bordered'>
+                    <Download />
+                    <table className='table table-bordered transaction-table'>
                       <thead>
                         <tr>
-                          <th scope='col'>{content.tableActionHeader}</th>
                           <th scope='col'>{content.tablePriceHeader}</th>
                           <th scope='col'>{content.tableDateHeader}</th>
+                          <th scope='col'>{content.tableDetailHeader}</th>
                         </tr>
                       </thead>
-                      <tbody></tbody>
+                      <tbody>
+                        {transactions?.map((transaction) => {
+                          return (
+                            <React.Fragment key={transaction.id}>
+                              {transactions.length === 0 ? (
+                                ""
+                              ) : (
+                                <tr>
+                                  <td>{transaction.amount} &#8380;</td>
+                                  <td>
+                                    {moment(transaction.dateTime).format(
+                                      "DD/MM/yyyy HH:mm:ss"
+                                    )}
+                                  </td>
+                                  <td>
+                                    <button
+                                      type='button'
+                                      className='btn'
+                                      onClick={() =>
+                                        handleClickModal(transaction.id)
+                                      }>
+                                      {content.tableButtonName}
+                                    </button>
+                                  </td>
+                                </tr>
+                              )}
+                            </React.Fragment>
+                          );
+                        })}
+                      </tbody>
                     </table>
+                    <RuleModalWrapper
+                      modalTitle={modalContent.modalHeader}
+                      isChecked={isRuleModalOpen}
+                      onClose={() => setIsRuleModalOpen(false)}>
+                      <div className='transaction-detail-content'>
+                        <p>
+                          {modalContent.oldBalanceTitle}:{" "}
+                          <span>{transationDetail.oldBalance}</span>
+                        </p>
+                        <p>
+                          {modalContent.amountTitle}:{" "}
+                          <span>{transationDetail.amount}</span>
+                        </p>
+                        <p>
+                          {modalContent.newBalanceTitle}:{" "}
+                          <span>{transationDetail.newBalance}</span>
+                        </p>
+                        <p>
+                          {modalContent.dateTimeTitle}:
+                          <span>
+                            {moment(transationDetail.dateTime).format(
+                              "DD/MM/yyyy HH:mm:ss"
+                            )}
+                          </span>
+                        </p>
+                      </div>
+                    </RuleModalWrapper>
+                    <Pagination>{items}</Pagination>
                   </div>
                 </div>
               </div>
