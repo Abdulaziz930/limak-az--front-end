@@ -36,7 +36,7 @@ const Download = () => {
         element={
           <button className='btn'>
             {language[activeLanguage].excelTransaction.button}
-            <i class='far fa-file-excel'></i>
+            <i className='far fa-file-excel'></i>
           </button>
         }>
         <ExcelSheet data={transactions} name='Transactions'>
