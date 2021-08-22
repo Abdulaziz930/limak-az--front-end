@@ -49,6 +49,10 @@ const Download = () => {
             value='amount'
           />
           <ExcelColumn
+            label={language[activeLanguage].excelTransaction.newBalance}
+            value='newBalance'
+          />
+          <ExcelColumn
             label={language[activeLanguage].excelTransaction.dateTime}
             value='dateTime'
           />

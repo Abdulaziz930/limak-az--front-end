@@ -11,8 +11,12 @@ const MakeOrderContent = ({ changeSum, deleteBtn, item, price, sum }) => {
 
   const { counter } = useSelector((state) => state.counter);
   const { priceValue } = useSelector((state) => state.priceValue);
-  const { values, handleChange, errors } = useMakeOrder(orderValidateInfo);
+  const { values, handleChange, errors } = useMakeOrder(
+    orderValidateInfo,
+    counter
+  );
   const deleteRef = React.useRef();
+
   useEffect(() => {
     if (values.price !== 0) {
       dispatch(setPrice(Number(values.price) + Number(price)));
@@ -23,7 +27,7 @@ const MakeOrderContent = ({ changeSum, deleteBtn, item, price, sum }) => {
     }
   }, [counter, values.price, priceValue]);
 
-  const handleClickTest = (item) => {
+  const handleClickDelete = (item) => {
     if (deleteRef.current.classList.contains(`${item}`)) {
       setTest(true);
     }
@@ -114,7 +118,7 @@ const MakeOrderContent = ({ changeSum, deleteBtn, item, price, sum }) => {
           <button
             type='button'
             onClick={() => {
-              handleClickTest(item);
+              handleClickDelete(item);
             }}
             className='btn btn-delete'>
             Delete

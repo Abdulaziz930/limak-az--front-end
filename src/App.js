@@ -108,7 +108,6 @@ function App() {
           <Route path='/about' component={About} />
           <Route path='/privacy' component={Privacy} />
           <Route path='/advertisements/:id' component={AdvertisementDetail} />
-          <Route path='/make-order' component={MakeOrder} />
           <PrivateRoute path='/panel'>
             <UserPanel />
           </PrivateRoute>
@@ -126,6 +125,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path='/courier'>
             <Courier />
+          </PrivateRoute>
+          <PrivateRoute path='/make-order'>
+            <MakeOrder />
           </PrivateRoute>
           <LoginPrivateRoute path='/login'>
             <Login />

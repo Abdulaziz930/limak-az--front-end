@@ -859,6 +859,11 @@
     }
     .payment-footer {
       margin-top: 20px;
+      .payment-btn {
+        margin-top: 20px;
+        width: 100%;
+        text-transform: uppercase;
+      }
       .checkbox-wrapper {
         display: flex;
         .check-label {

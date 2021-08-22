@@ -70,6 +70,7 @@ const Parcels = (props) => {
                 transition={false}
                 id='uncontrolled-tab-example'>
                 {orders?.map((order) => {
+                  let count = 0;
                   return (
                     <Tab eventKey={order.statusTitle} title={order.statusTitle}>
                       <table className='table'>
@@ -84,9 +85,10 @@ const Parcels = (props) => {
                         </thead>
                         <tbody>
                           {order.orders?.map((orderItem) => {
+                            count++;
                             return (
                               <tr>
-                                <th scope='row'>{orderItem.id}</th>
+                                <th scope='row'>{count}</th>
                                 <td>{orderItem.code}</td>
                                 <td>{orderItem.price}</td>
                                 <td>{orderItem.count}</td>

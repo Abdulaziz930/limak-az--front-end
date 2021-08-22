@@ -105,8 +105,9 @@
       "thirdDescription": "Ödəniş - 3 AZN"
     },
     "excelTransaction": {
-      "oldBalance": "Köhnə qiymət",
+      "oldBalance": "Köhnə balans",
       "amount": "Məbləğ",
+      "newBalance": "Yeni balans",
       "dateTime": "Tarix",
       "button": "Excel faylına ixrac edin"
     },
@@ -337,6 +338,7 @@
     "excelTransaction": {
       "oldBalance": "Старый баланс",
       "amount": "Сумма",
+      "newBalance": "Новый баланс",
       "dateTime": "Дата время",
       "button": "Экспорт в файл Excel"
     },
@@ -567,6 +569,7 @@
     "excelTransaction": {
       "oldBalance": "Old balance",
       "amount": "Amount",
+      "newBalance": "New Balance",
       "dateTime": "Date time",
       "button": "Export to excel file"
     },
