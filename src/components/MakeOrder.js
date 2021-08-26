@@ -16,9 +16,7 @@ const MakeOrder = () => {
   const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [sum, setSum] = useState(0);
-  const [countComponent, setCountComponent] = React.useState([]);
   const [balance, setBalance] = useState(0);
-  const [test, setTest] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("cart-payment");
 
   const { handleSubmitForm, errors, values, handleChange } = useMakeOrder(
@@ -28,13 +26,6 @@ const MakeOrder = () => {
     sum,
     balance
   );
-
-  const handleAddComponent = () => {
-    setCountComponent((countComponent) => [
-      ...countComponent,
-      Number(countComponent) + 1,
-    ]);
-  };
 
   useEffect(() => {
     if (values.price !== 0) {
@@ -56,14 +47,6 @@ const MakeOrder = () => {
 
     getBalance();
   }, [counter, values.price, user]);
-
-  const deleteRef = React.useRef();
-
-  const handleClickDelete = (item) => {
-    if (deleteRef.current.classList.contains(`${item}`)) {
-      setTest(true);
-    }
-  };
 
   const handleChangeRadio = (e) => {
     setPaymentMethod(e.target.value);
@@ -160,118 +143,6 @@ const MakeOrder = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                {countComponent?.map((item, idx) => (
-                  <React.Fragment key={idx}>
-                    <div
-                      className='order-content'
-                      style={test ? { display: "none" } : { display: "block" }}>
-                      <div className={`content-top ${item}`} ref={deleteRef}>
-                        <div className='row'>
-                          <div className='col-md-9'>
-                            <div className='form-group'>
-                              <input
-                                type='text'
-                                className='form-control'
-                                value={values.url}
-                                placeholder='Məhsul linki *'
-                                name='url'
-                                onChange={handleChange}
-                              />
-                              {errors.url && (
-                                <p className='error-message'>{errors.url}</p>
-                              )}
-                            </div>
-                          </div>
-                          <div className='col-md-3'>
-                            <div className='form-group'>
-                              <input
-                                type='number'
-                                className='form-control'
-                                value={values.price}
-                                placeholder='Məbləğ *'
-                                name='price'
-                                onChange={handleChange}
-                              />
-                              {errors.price && (
-                                <p className='error-message'>{errors.price}</p>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className='content-bottom'>
-                        <div className='row'>
-                          <div className='col-md-6'>
-                            <div className='form-group'>
-                              <div className='input-group'>
-                                <div className='input-group-prepend'>
-                                  <button
-                                    type='button'
-                                    className='input-group-text'
-                                    onClick={(e) =>
-                                      dispatch(decreaseCounter())
-                                    }>
-                                    -
-                                  </button>
-                                </div>
-                                <input
-                                  type='number'
-                                  className='form-control'
-                                  value={counter}
-                                  min='1'
-                                  name='count'
-                                />
-                                <div className='input-group-append'>
-                                  <button
-                                    type='button'
-                                    className='input-group-text'
-                                    onClick={(e) =>
-                                      dispatch(increaseCounter())
-                                    }>
-                                    +
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='col-md-6'>
-                            <div className='form-group'>
-                              <input
-                                type='text'
-                                className='form-control'
-                                value={values.note}
-                                placeholder='Ölçü,rəng və s. üçün qeyd *'
-                                name='note'
-                                onChange={handleChange}
-                              />
-                              {errors.note && (
-                                <p className='error-message'>{errors.note}</p>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className='btnBox'>
-                        <button
-                          type='button'
-                          onClick={() => {
-                            handleClickDelete(item);
-                          }}
-                          className='btn btn-delete'>
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </React.Fragment>
-                ))}
-                <div className='btnBox'>
-                  <button
-                    type='button'
-                    className='btn'
-                    onClick={handleAddComponent}>
-                    Yeni link əlavə et
-                  </button>
                 </div>
               </div>
             </div>

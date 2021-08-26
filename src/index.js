@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./scss/index.scss";
 import "@fortawesome/fontawesome-free";
 import "alertifyjs/build/css/alertify.min.css";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
         <App />
       </Provider>
     </Router>
+    <MessengerCustomerChat pageId='100219905732815' appId='268268381551408' />
   </React.StrictMode>,
   document.getElementById("root")
 );

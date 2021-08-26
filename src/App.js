@@ -37,7 +37,6 @@ function App() {
   const Balance = React.lazy(() => import("./components/Balance"));
   const Settings = React.lazy(() => import("./components/Settings"));
   const Parcels = React.lazy(() => import("./components/Parcels"));
-  const Courier = React.lazy(() => import("./components/Courier"));
   const Error = React.lazy(() => import("./components/Error"));
 
   function PrivateRoute({ children, ...rest }) {
@@ -122,9 +121,6 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path='/parcels'>
             <Parcels />
-          </PrivateRoute>
-          <PrivateRoute path='/courier'>
-            <Courier />
           </PrivateRoute>
           <PrivateRoute path='/make-order'>
             <MakeOrder />

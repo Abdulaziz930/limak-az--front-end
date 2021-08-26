@@ -78,11 +78,6 @@
         "url": "balance"
       },
       {
-        "id": 5,
-        "name": "Kuryer",
-        "url": "courier"
-      },
-      {
         "id": 7,
         "name": "Tənzimləmələr",
         "url": "settings"
@@ -96,13 +91,6 @@
       "id": 1,
       "buttonName": "Sifariş et",
       "buttonUrl": "make-order"
-    },
-    "courier": {
-      "header": "Kuryer",
-      "buttonName": "Sifariş et",
-      "firstDescription": "Kuryer sifarişiniz 24 saat ərzində təyin olunur.",
-      "secondDescription": "Kuryerin iş saatları 10:00 - 19:00 (həftənin 6 günü).",
-      "thirdDescription": "Ödəniş - 3 AZN"
     },
     "excelTransaction": {
       "oldBalance": "Köhnə balans",
@@ -300,12 +288,6 @@
         "url": "balance"
       },
       {
-        "id": 5,
-        "name": "Курьер",
-        "icon": "fas fa-people-carry",
-        "url": "courier"
-      },
-      {
         "id": 7,
         "name": "Настройки",
         "icon": "fas fa-sliders-h",
@@ -321,13 +303,6 @@
       "id": 2,
       "buttonName": "ЗАКАЗАТЬ",
       "buttonUrl": "order"
-    },
-    "courier": {
-      "header": "Курьер",
-      "buttonName": "Подтвердить",
-      "firstDescription": "Курьер назначается в течении 24 часов.",
-      "secondDescription": "График работы курьера с 10:00 до 19:00 (6 дней в неделю).",
-      "thirdDescription": "Оплата - 3 AZN"
     },
     "question": {
       "header": "Запрос",
@@ -531,12 +506,6 @@
         "url": "balance"
       },
       {
-        "id": 5,
-        "name": "Courier",
-        "icon": "fas fa-people-carry",
-        "url": "courier"
-      },
-      {
         "id": 7,
         "name": "Settings",
         "icon": "fas fa-sliders-h",
@@ -552,13 +521,6 @@
       "id": 3,
       "buttonName": "Order",
       "buttonUrl": "order"
-    },
-    "courier": {
-      "header": "Courier",
-      "buttonName": "Order",
-      "firstDescription": "The courier is appointed within 24 hours.",
-      "secondDescription": "The courier's working hours are from 10:00 to 19:00 (6 days a week).",
-      "thirdDescription": "Payment - 3 AZN"
     },
     "question": {
       "header": "Inquiry",
