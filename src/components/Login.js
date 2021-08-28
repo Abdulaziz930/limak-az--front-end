@@ -6,6 +6,8 @@ import { fetchLoginContent } from "../actions";
 import loginValidateInfo from "../Helpers/loginValidateInfo";
 import useLogin from "../hooks/useLogin";
 import language from "../translation/language.json";
+import GoogleLogin from "react-google-login";
+import { mainAPI } from "../api";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,15 @@ const Login = () => {
   useEffect(() => {
     dispatch(fetchLoginContent());
   }, [dispatch, activeLanguage]);
+
+  const responseGoogle = async (response) => {
+    console.log(response);
+
+    await mainAPI.post("Authenticate/externalLogin", {
+      provider: response.Zb.idpId,
+      idToken: response.tokenId,
+    });
+  };
 
   return (
     <div className='login-wrapper'>
@@ -97,6 +108,13 @@ const Login = () => {
                 </div>
               </div>
               <div className='btnBox'>
+                <GoogleLogin
+                  clientId='1097374928300-enh3hfnrqhilsd8gv0rlm8mhkftkfue1.apps.googleusercontent.com'
+                  buttonText='Login'
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={"single_host_origin"}
+                />
                 <button type='submit' className='btn' formNoValidate>
                   {loginContent.buttonName}
                 </button>

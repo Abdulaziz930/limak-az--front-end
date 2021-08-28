@@ -698,10 +698,12 @@
         }
       }
       .btnBox {
+        @include flexy-box();
         .btn {
           @include flexy-box();
           @include btn(10px 45px, $primary-color, 16px, $primary-color);
           text-transform: uppercase;
+          margin-left: 15px;
           &:hover {
             @include btnHover($primary-color);
           }

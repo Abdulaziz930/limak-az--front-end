@@ -39,7 +39,7 @@ const useSetting = (settingValidateInfo) => {
 
     setLoading(true);
     axios
-      .post("https://localhost:44393/api/Profile/updateUser", values)
+      .put("https://localhost:44393/api/Profile/updateUser", values)
       .then((response) =>
         response.status === 200
           ? alertify.success("Your profile successfully updated", 2)
