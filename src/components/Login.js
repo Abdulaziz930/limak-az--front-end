@@ -8,6 +8,8 @@ import useLogin from "../hooks/useLogin";
 import language from "../translation/language.json";
 import GoogleLogin from "react-google-login";
 import { mainAPI } from "../api";
+import { setUser } from "../actions";
+import { useHistory } from "react-router";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -25,13 +27,21 @@ const Login = () => {
     dispatch(fetchLoginContent());
   }, [dispatch, activeLanguage]);
 
-  const responseGoogle = async (response) => {
-    console.log(response);
+  const { push } = useHistory();
 
-    await mainAPI.post("Authenticate/externalLogin", {
-      provider: response.Zb.idpId,
-      idToken: response.tokenId,
-    });
+  const responseGoogle = async (response) => {
+    await mainAPI
+      .post("Authenticate/externalLogin", {
+        provider: response.Zb.idpId,
+        idToken: response.tokenId,
+      })
+      .then((dbResponse) => {
+        localStorage.setItem("token", dbResponse.data.token);
+        localStorage.setItem("token", dbResponse.data.expires);
+        localStorage.setItem("username", response.profileObj.name);
+        dispatch(setUser(localStorage.getItem("username")));
+        push("/");
+      });
   };
 
   return (
