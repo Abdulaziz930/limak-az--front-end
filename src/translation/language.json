@@ -203,7 +203,8 @@
     "resetPasswordTitle": "Parolu sıfırlamaq",
     "resetPasswordBtn": "Parolu yenilə",
     "modalButton": "Bağla",
-    "userPanelBannerHeader": "ISTIFADƏÇI PANELI"
+    "userPanelBannerHeader": "ISTIFADƏÇI PANELI",
+    "googleLoginButton": "Daxil ol"
   },
   "RU": {
     "sections": [
@@ -421,7 +422,8 @@
     "resetPasswordTitle": "Сброс пароля",
     "resetPasswordBtn": "Сброс пароля",
     "modalButton": "Закрывать",
-    "userPanelBannerHeader": "ПАНЕЛЬ ПОЛЬЗОВАТЕЛЯ"
+    "userPanelBannerHeader": "ПАНЕЛЬ ПОЛЬЗОВАТЕЛЯ",
+    "googleLoginButton": "Войти"
   },
   "EN": {
     "sections": [
@@ -639,6 +641,7 @@
     "resetPasswordTitle": "Reset Password",
     "resetPasswordBtn": "Reset password",
     "modalButton": "Close",
-    "userPanelBannerHeader": "User Panel"
+    "userPanelBannerHeader": "User Panel",
+    "googleLoginButton": "Login"
   }
 }

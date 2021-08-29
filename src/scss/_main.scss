@@ -699,6 +699,16 @@
       }
       .btnBox {
         @include flexy-box();
+        button {
+          &:nth-child(1) {
+            box-shadow: none !important;
+            border: 1px solid $primary-color !important;
+            color: $primary-color !important;
+            text-transform: uppercase !important;
+            padding: 1px !important;
+            border-radius: 5px !important;
+          }
+        }
         .btn {
           @include flexy-box();
           @include btn(10px 45px, $primary-color, 16px, $primary-color);

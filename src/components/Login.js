@@ -110,7 +110,7 @@ const Login = () => {
               <div className='btnBox'>
                 <GoogleLogin
                   clientId='1097374928300-enh3hfnrqhilsd8gv0rlm8mhkftkfue1.apps.googleusercontent.com'
-                  buttonText='Login'
+                  buttonText={`${language[activeLanguage].googleLoginButton}`}
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                   cookiePolicy={"single_host_origin"}
