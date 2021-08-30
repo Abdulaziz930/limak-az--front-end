@@ -1,43 +1,60 @@
 import React, { Suspense } from "react";
-import SpinnerWrapper from "./components/SpinnerWrapper";
-import Navi from "./components/Navi";
+import SpinnerWrapper from "./components/common/spinner/SpinnerWrapper";
+import Navi from "./components/layout/navbar/Navi";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Footer from "./components/Footer";
-// import { useHistory } from "react-router";
+import Footer from "./components/layout/footer/Footer";
 import { useDispatch } from "react-redux";
 import { setUser } from "./actions";
 
 function App() {
   const dispatch = useDispatch();
 
-  // const { push } = useHistory();
-
-  const Home = React.lazy(() => import("./components/Home"));
-  const Contact = React.lazy(() => import("./components/Contact"));
-  const Shops = React.lazy(() => import("./components/Shops"));
-  const Countries = React.lazy(() => import("./components/Countries"));
-  const Calculator = React.lazy(() => import("./components/Calculator"));
-  const Rules = React.lazy(() => import("./components/Rules"));
-  const Questions = React.lazy(() => import("./components/Questions"));
-  const About = React.lazy(() => import("./components/About"));
-  const Privacy = React.lazy(() => import("./components/Privacy"));
+  const Home = React.lazy(() => import("./components/pages/home/Home"));
+  const Contact = React.lazy(() =>
+    import("./components/pages/contact/Contact")
+  );
+  const Shops = React.lazy(() => import("./components/pages/shop/Shops"));
+  const Countries = React.lazy(() =>
+    import("./components/pages/country/Countries")
+  );
+  const Calculator = React.lazy(() =>
+    import("./components/pages/calculator/Calculator")
+  );
+  const Rules = React.lazy(() => import("./components/pages/rule/Rules"));
+  const Questions = React.lazy(() =>
+    import("./components/pages/question/Questions")
+  );
+  const About = React.lazy(() => import("./components/pages/about/About"));
+  const Privacy = React.lazy(() =>
+    import("./components/pages/privacy/Privacy")
+  );
   const AdvertisementDetail = React.lazy(() =>
-    import("./components/AdvertisementDetail")
+    import("./components/pages/advertisementDetail/AdvertisementDetail")
   );
-  const Register = React.lazy(() => import("./components/Register"));
-  const Login = React.lazy(() => import("./components/Login"));
+  const Register = React.lazy(() =>
+    import("./components/pages/auth/register/Register")
+  );
+  const Login = React.lazy(() => import("./components/pages/auth/login/Login"));
   const ForgotPassword = React.lazy(() =>
-    import("./components/ForgotPassword")
+    import("./components/pages/auth/resetPassword/ForgotPassword")
   );
-  const MakeOrder = React.lazy(() => import("./components/MakeOrder"));
-  const ResetPassword = React.lazy(() => import("./components/ResetPassword"));
-  const VerifyEmail = React.lazy(() => import("./components/VerifyEmail"));
-  const UserPanel = React.lazy(() => import("./components/UserPanel"));
-  const Addresses = React.lazy(() => import("./components/Addresses"));
-  const Balance = React.lazy(() => import("./components/Balance"));
-  const Settings = React.lazy(() => import("./components/Settings"));
-  const Parcels = React.lazy(() => import("./components/Parcels"));
-  const Error = React.lazy(() => import("./components/Error"));
+  const MakeOrder = React.lazy(() =>
+    import("./components/pages/makeOrder/MakeOrder")
+  );
+  const ResetPassword = React.lazy(() =>
+    import("./components/pages/auth/resetPassword/ResetPassword")
+  );
+  const VerifyEmail = React.lazy(() =>
+    import("./components/pages/auth/verifyEmail/VerifyEmail")
+  );
+  const UserPanel = React.lazy(() => import("./components/pages/userPanel/UserPanel"));
+  const Addresses = React.lazy(() =>
+    import("./components/pages/address/Addresses")
+  );
+  const Balance = React.lazy(() => import("./components/pages/balance/Balance"));
+  const Settings = React.lazy(() => import("./components/pages/setting/Settings"));
+  const Parcels = React.lazy(() => import("./components/pages/parcel/Parcels"));
+  const Error = React.lazy(() => import("./components/pages/error/Error"));
 
   function PrivateRoute({ children, ...rest }) {
     return (
