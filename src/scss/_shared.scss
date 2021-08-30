@@ -3,8 +3,18 @@ body {
   font-family: $primary-font;
 
   /* Spinner styles start */
-  .spinner-box {
+  .spinner {
     z-index: 10;
+    background-color: #fff;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+  .spinner-box {
+    transform: translateY(90%);
+    height: 50%;
     .text-primary-color {
       color: $primary-color;
     }
