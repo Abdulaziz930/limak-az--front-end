@@ -37,8 +37,8 @@ const Login = () => {
       })
       .then((dbResponse) => {
         localStorage.setItem("token", dbResponse.data.token);
-        localStorage.setItem("token", dbResponse.data.expires);
-        localStorage.setItem("username", response.profileObj.name);
+        localStorage.setItem("expires", dbResponse.data.expires);
+        localStorage.setItem("username", dbResponse.data.userName);
         dispatch(setUser(localStorage.getItem("username")));
         push("/");
       });
