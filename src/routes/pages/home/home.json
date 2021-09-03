@@ -1,0 +1,15 @@
+{
+  "pageRoute": "/",
+  "AZ": {
+    "pageTitle": "Limak.az",
+    "pageDescription": "Əsas səhifəsi"
+  },
+  "RU": {
+    "pageTitle": "Limak.az",
+    "pageDescription": "Домашняя страница"
+  },
+  "EN": {
+    "pageTitle": "Limak.az",
+    "pageDescription": "Home page"
+  }
+}

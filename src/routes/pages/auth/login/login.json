@@ -1,0 +1,19 @@
+{
+  "pageRoute": "/login",
+  "redirectRoute": "login",
+  "AZ": {
+    "breadcrumbRoute": "Daxil Ol",
+    "pageTitle": "Limak.az - Daxil Ol",
+    "pageDescription": "Daxil Ol səhifəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "Войти",
+    "pageTitle": "Limak.az - Войти",
+    "pageDescription": "Страница Войти"
+  },
+  "EN": {
+    "breadcrumbRoute": "Login",
+    "pageTitle": "Limak.az - Login",
+    "pageDescription": "Login page"
+  }
+}

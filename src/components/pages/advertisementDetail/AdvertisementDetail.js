@@ -8,7 +8,7 @@ import {
   fetchAdvertisementHeader,
 } from "../../../actions";
 import { mainAPI } from "../../../api";
-import advertisementDetailRoute from "../../../routes/advertisementDetail/advertisementDetail.json";
+import advertisementDetailRoute from "../../../routes/pages/advertisementDetail/advertisementDetail.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const AdvertisementDetail = () => {

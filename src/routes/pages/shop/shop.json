@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/shops",
+  "AZ": {
+    "breadcrumbRoute": "Mağazalar",
+    "pageTitle": "Limak.az - Mağazalar",
+    "pageDescription": "Mağazalar səhifəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "Магазины",
+    "pageTitle": "Limak.az - Магазины",
+    "pageDescription": "Страница Магазины"
+  },
+  "EN": {
+    "breadcrumbRoute": "Shops",
+    "pageTitle": "Limak.az - Shops",
+    "pageDescription": "Shops page"
+  }
+}

@@ -8,7 +8,7 @@ import {
   fetchCalculatorPageContent,
 } from "../../../actions";
 import { useDispatch, useSelector } from "react-redux";
-import calculatorRoute from "../../../routes/calculator/calculator.json";
+import calculatorRoute from "../../../routes/pages/calculator/calculator.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Calculator = () => {

@@ -19,7 +19,7 @@ import useSetting from "../../../hooks/useSetting";
 import useChangePassword from "../../../hooks/useChangePassword";
 import { mainAPI } from "../../../api";
 import { withRouter } from "react-router-dom";
-import settingsRoute from "../../../routes/setting/setting.json";
+import settingsRoute from "../../../routes/pages/setting/setting.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Settings = (props) => {

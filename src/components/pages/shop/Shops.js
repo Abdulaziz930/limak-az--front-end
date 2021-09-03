@@ -7,7 +7,7 @@ import {
   getShopsCount,
   fetchShopContent,
 } from "../../../actions";
-import shopsRoute from "../../../routes/shop/shop.json";
+import shopsRoute from "../../../routes/pages/shop/shop.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Shops = () => {

@@ -3,7 +3,7 @@ import Banner from "../../common/banner/Banner";
 import TariffsTab from "../../common/tariff/TariffsTab";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCountryContent } from "../../../actions";
-import countriesRoute from "../../../routes/country/country.json";
+import countriesRoute from "../../../routes/pages/country/country.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Countries = () => {

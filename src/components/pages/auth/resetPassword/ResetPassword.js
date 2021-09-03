@@ -4,7 +4,7 @@ import useResetPassword from "../../../../hooks/useResetPassword";
 import Banner from "../../../common/banner/Banner";
 import { useSelector } from "react-redux";
 import language from "../../../../translation/language.json";
-import resetPasswordRoute from "../../../../routes/auth/resetPassword/resetPassword.json";
+import resetPasswordRoute from "../../../../routes/pages/auth/resetPassword/resetPassword.json";
 import { useLocation } from "react-router";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 

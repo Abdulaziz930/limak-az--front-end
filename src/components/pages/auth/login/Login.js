@@ -10,8 +10,9 @@ import GoogleLogin from "react-google-login";
 import { mainAPI } from "../../../../api";
 import { setUser } from "../../../../actions";
 import { useHistory } from "react-router";
-import loginRoute from "../../../../routes/auth/login/login.json";
+import loginRoute from "../../../../routes/pages/auth/login/login.json";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
+import { APP_ROUTES } from "../../../../routes/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -120,10 +121,12 @@ const Login = () => {
                   </label>
                 </div>
                 <div className='link-box'>
-                  <Link to='/forgot-password'>
+                  <Link to={APP_ROUTES.ForgotPassword}>
                     {loginContent.forgotPasswordName}
                   </Link>
-                  <Link to='/register'>{loginContent.registerLinkName}</Link>
+                  <Link to={APP_ROUTES.Register}>
+                    {loginContent.registerLinkName}
+                  </Link>
                 </div>
               </div>
               <div className='btnBox'>

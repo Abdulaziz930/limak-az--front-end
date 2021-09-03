@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import language from "../../../translation/language.json";
 import { useSelector } from "react-redux";
 import { mainAPI } from "../../../api";
-import parcelsRoute from "../../../routes/parcel/parcel.json";
+import parcelsRoute from "../../../routes/pages/parcel/parcel.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Parcels = (props) => {

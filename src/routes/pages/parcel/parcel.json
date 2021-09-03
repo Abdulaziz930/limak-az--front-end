@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/parcels",
+  "AZ": {
+    "breadcrumbRoute": "Bağlamalarım",
+    "pageTitle": "Limak.az - Bağlamalarım",
+    "pageDescription": "Bağlamalarım səhifəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "Посылки",
+    "pageTitle": "Limak.az - Посылки",
+    "pageDescription": "Страница Посылки"
+  },
+  "EN": {
+    "breadcrumbRoute": "Parcels",
+    "pageTitle": "Limak.az - Parcels",
+    "pageDescription": "Parcels page"
+  }
+}

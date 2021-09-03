@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/panel",
+  "AZ": {
+    "breadcrumbRoute": "Panel səhifəsi",
+    "pageTitle": "Limak.az - Panel səhifəsi",
+    "pageDescription": "Panel səhifəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "Страница панели",
+    "pageTitle": "Limak.az - Страница панели",
+    "pageDescription": "Страница панели"
+  },
+  "EN": {
+    "breadcrumbRoute": "Panel page",
+    "pageTitle": "Limak.az - Panel page",
+    "pageDescription": "Panel page"
+  }
+}

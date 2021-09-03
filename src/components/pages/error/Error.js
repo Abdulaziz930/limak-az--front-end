@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import errorRoute from "../../../routes/error/error.json";
-import homeRoute from "../../../routes/home/home.json";
+import errorRoute from "../../../routes/pages/error/error.json";
+import homeRoute from "../../../routes/pages/home/home.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Error = () => {
@@ -30,7 +30,7 @@ const Error = () => {
             The page you are looking for might have been removed had its name
             changed or is temporarily unavailable.
           </p>
-          <Link to={homeRoute[activeLanguage].pageRoute}>HOMEPAGE</Link>
+          <Link to={homeRoute.pageRoute}>HOMEPAGE</Link>
         </div>
       </div>
     </div>

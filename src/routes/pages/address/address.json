@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/address",
+  "AZ": {
+    "breadcrumbRoute": "Xaricdəki ünvanlarım",
+    "pageTitle": "Limak.az - Xaricdəki ünvanlarım",
+    "pageDescription": "Xaricdəki ünvanlarım"
+  },
+  "RU": {
+    "breadcrumbRoute": "Адреса за границей",
+    "pageTitle": "Limak.az - Адреса за границей",
+    "pageDescription": "Страница Адреса за границей"
+  },
+  "EN": {
+    "breadcrumbRoute": "Addresses abroad",
+    "pageTitle": "Limak.az - Addresses abroad",
+    "pageDescription": "Addresses abroad page"
+  }
+}

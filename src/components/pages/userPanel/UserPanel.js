@@ -9,7 +9,7 @@ import moment from "moment";
 import RuleModalWrapper from "../../common/modal/RuleModalWrapper";
 import Download from "../../utils/excel/Download";
 import language from "../../../translation/language.json";
-import panelRoute from "../../../routes/userPanel/userPanel.json";
+import panelRoute from "../../../routes/pages/userPanel/userPanel.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const UserPanel = (props) => {

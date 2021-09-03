@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Banner from "../../../common/banner/Banner";
 import axios from "axios";
 import Spinner from "../../../common/spinner/Spinner";
-import verifyEmailRoute from "../../../../routes/auth/verifyEmail/verifyEmail.json";
+import verifyEmailRoute from "../../../../routes/pages/auth/verifyEmail/verifyEmail.json";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 
 const VerifyEmail = () => {

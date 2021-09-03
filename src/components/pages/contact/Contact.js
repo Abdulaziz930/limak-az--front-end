@@ -3,7 +3,7 @@ import { Tabs, Tab } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts, fetchContactContent } from "../../../actions";
 import Banner from "../../common/banner/Banner";
-import contactRoute from "../../../routes/contact/contact.json";
+import contactRoute from "../../../routes/pages/contact/contact.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Contact = () => {

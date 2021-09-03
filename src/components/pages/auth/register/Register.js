@@ -15,7 +15,7 @@ import {
 import language from "../../../../translation/language.json";
 import VerifyEmailRediretion from "../verifyEmail/VerifyEmailRediretion";
 import moment from "moment";
-import registerRoute from "../../../../routes/auth/register/register.json";
+import registerRoute from "../../../../routes/pages/auth/register/register.json";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 
 const Register = () => {

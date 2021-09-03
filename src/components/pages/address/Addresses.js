@@ -6,7 +6,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import language from "../../../translation/language.json";
-import addressRoute from "../../../routes/address/address.json";
+import addressRoute from "../../../routes/pages/address/address.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Addresses = (props) => {

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { decreaseCounter, increaseCounter } from "../../../actions";
 import { mainAPI } from "../../../api";
 import StripeCheckout from "react-stripe-checkout";
-import makeOrderRoute from "../../../routes/makeOrder/makeOrder.json";
+import makeOrderRoute from "../../../routes/pages/makeOrder/makeOrder.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const MakeOrder = () => {

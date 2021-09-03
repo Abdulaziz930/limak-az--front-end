@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAbout } from "../../../actions";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
-import aboutRoute from "../../../routes/about/about.json";
+import aboutRoute from "../../../routes/pages/about/about.json";
 
 const About = (props) => {
   const dispatch = useDispatch();

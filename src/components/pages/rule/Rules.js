@@ -5,7 +5,7 @@ import Accordion from "../../common/accordion/Accordion";
 import { withRouter } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRules, fetchRuleContents } from "../../../actions";
-import rulesRoute from "../../../routes/rule/rule.json";
+import rulesRoute from "../../../routes/pages/rule/rule.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Rules = (props) => {

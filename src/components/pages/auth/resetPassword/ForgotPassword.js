@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import language from "../../../../translation/language.json";
 import SuccessMessage from "../../../common/successMessage/SuccessMessage";
 import Spinner from "../../../common/spinner/Spinner";
-import forgotPasswordRoute from "../../../../routes/auth/resetPassword/forgotPassword.json";
+import forgotPasswordRoute from "../../../../routes/pages/auth/resetPassword/forgotPassword.json";
 import axios from "axios";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 

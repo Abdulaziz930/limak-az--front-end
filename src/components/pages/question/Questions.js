@@ -6,7 +6,7 @@ import { withRouter } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestions, fetchQuestionsContents } from "../../../actions";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
-import questionsRoute from "../../../routes/question/question.json";
+import questionsRoute from "../../../routes/pages/question/question.json";
 
 const Questions = (props) => {
   const dispatch = useDispatch();

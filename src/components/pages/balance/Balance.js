@@ -12,7 +12,7 @@ import moment from "moment";
 import { Pagination } from "react-bootstrap";
 import RuleModalWrapper from "../../common/modal/RuleModalWrapper";
 import Download from "../../utils/excel/Download";
-import balanceRoute from "../../../routes/balance/balance.json";
+import balanceRoute from "../../../routes/pages/balance/balance.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Balance = (props) => {

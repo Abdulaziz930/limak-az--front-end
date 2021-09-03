@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/about",
+  "AZ": {
+    "breadcrumbRoute": "Haqqımızda",
+    "pageTitle": "Limak.az - Haqqımızda",
+    "pageDescription": "Haqqımızda səyfəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "O нас",
+    "pageTitle": "Limak.az - O нас",
+    "pageDescription": "Страница о нас"
+  },
+  "EN": {
+    "breadcrumbRoute": "About",
+    "pageTitle": "Limak.az - About",
+    "pageDescription": "About page"
+  }
+}

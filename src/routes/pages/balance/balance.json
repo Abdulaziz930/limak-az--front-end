@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/balance",
+  "AZ": {
+    "breadcrumbRoute": "Balansım",
+    "pageTitle": "Limak.az - Balansım",
+    "pageDescription": "Balansım səhifəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "Баланс",
+    "pageTitle": "Limak.az - Баланс",
+    "pageDescription": "Страница Баланс"
+  },
+  "EN": {
+    "breadcrumbRoute": "Balance",
+    "pageTitle": "Limak.az - Balance",
+    "pageDescription": "Balance page"
+  }
+}

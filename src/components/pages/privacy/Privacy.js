@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPrivacy } from "../../../actions";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
-import privacyRoute from "../../../routes/privacy/privacy.json";
+import privacyRoute from "../../../routes/pages/privacy/privacy.json";
 
 const Privacy = (props) => {
   const dispatch = useDispatch();

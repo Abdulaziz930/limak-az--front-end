@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/countries",
+  "AZ": {
+    "breadcrumbRoute": "Ölkələr",
+    "pageTitle": "Limak.az - Ölkələr",
+    "pageDescription": "Ölkələr səhifəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "Страны",
+    "pageTitle": "Limak.az - Страны",
+    "pageDescription": "Страница Страны"
+  },
+  "EN": {
+    "breadcrumbRoute": "Countries",
+    "pageTitle": "Limak.az - Countries",
+    "pageDescription": "Countries page"
+  }
+}

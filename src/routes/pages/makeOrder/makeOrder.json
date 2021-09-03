@@ -1,0 +1,18 @@
+{
+  "pageRoute": "/make-order",
+  "AZ": {
+    "breadcrumbRoute": "Sifariş et",
+    "pageTitle": "Limak.az - Sifariş et",
+    "pageDescription": "Sifariş et səhifəsi"
+  },
+  "RU": {
+    "breadcrumbRoute": "Сделать заказ",
+    "pageTitle": "Limak.az - Сделать заказ",
+    "pageDescription": "Страница Сделать заказ"
+  },
+  "EN": {
+    "breadcrumbRoute": "Make order",
+    "pageTitle": "Limak.az - Make order",
+    "pageDescription": "Make order page"
+  }
+}
