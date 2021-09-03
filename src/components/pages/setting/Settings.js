@@ -19,6 +19,8 @@ import useSetting from "../../../hooks/useSetting";
 import useChangePassword from "../../../hooks/useChangePassword";
 import { mainAPI } from "../../../api";
 import { withRouter } from "react-router-dom";
+import settingsRoute from "../../../routes/setting/setting.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Settings = (props) => {
   const dispatch = useDispatch();
@@ -80,9 +82,13 @@ const Settings = (props) => {
 
   return (
     <div className='settings-wrapper'>
+      <MetaDecorator
+        title={settingsRoute[activeLanguage].pageTitle}
+        description={settingsRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={language[activeLanguage].userPanelBannerHeader}
-        pathName={language[activeLanguage].userPanelBannerHeader}
+        pathName={settingsRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='container'>
         <div className='row'>

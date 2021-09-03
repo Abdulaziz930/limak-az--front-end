@@ -4,6 +4,8 @@ import SectionBox from "../../common/sections/SectionBox";
 import { withRouter } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAbout } from "../../../actions";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
+import aboutRoute from "../../../routes/about/about.json";
 
 const About = (props) => {
   const dispatch = useDispatch();
@@ -22,9 +24,13 @@ const About = (props) => {
 
   return (
     <div className='about-wrapper'>
+      <MetaDecorator
+        title={aboutRoute[activeLanguage].pageTitle}
+        description={aboutRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={about.aboutTitle}
-        pathName={about.breadcrumbPathname}
+        pathName={aboutRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='about-content'>
         <div className='container'>

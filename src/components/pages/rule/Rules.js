@@ -5,6 +5,8 @@ import Accordion from "../../common/accordion/Accordion";
 import { withRouter } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRules, fetchRuleContents } from "../../../actions";
+import rulesRoute from "../../../routes/rule/rule.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Rules = (props) => {
   const dispatch = useDispatch();
@@ -25,9 +27,13 @@ const Rules = (props) => {
 
   return (
     <div className='rules-wrapper'>
+      <MetaDecorator
+        title={rulesRoute[activeLanguage].pageTitle}
+        description={rulesRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={ruleContent.ruleTitle}
-        pathName={ruleContent.breadcrumbPathname}
+        pathName={rulesRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='rules-content'>
         <div className='container'>

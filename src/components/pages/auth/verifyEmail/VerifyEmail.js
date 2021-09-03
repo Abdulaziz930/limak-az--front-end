@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
+import { useSelector } from "react-redux";
 import Banner from "../../../common/banner/Banner";
 import axios from "axios";
 import Spinner from "../../../common/spinner/Spinner";
+import verifyEmailRoute from "../../../../routes/auth/verifyEmail/verifyEmail.json";
+import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 
 const VerifyEmail = () => {
   const [error, setError] = useState({});
   const [loading, setLoading] = useState(true);
 
   const { search } = useLocation();
+  const { activeLanguage } = useSelector((state) => state.languages);
   const searchParams = new URLSearchParams(search);
   const id = searchParams.get("id");
   const token = searchParams.get("token");
@@ -32,7 +36,14 @@ const VerifyEmail = () => {
 
   return (
     <div className='verify-email-wrapper'>
-      <Banner bannerTitle='Verify Email' pathName='Verify Email' />
+      <MetaDecorator
+        title={verifyEmailRoute[activeLanguage].pageTitle}
+        description={verifyEmailRoute[activeLanguage].pageDescription}
+      />
+      <Banner
+        bannerTitle='Verify Email'
+        pathName={verifyEmailRoute[activeLanguage].breadcrumbRoute}
+      />
       <div className='container'>
         {loading ? (
           <Spinner />
@@ -40,13 +51,13 @@ const VerifyEmail = () => {
           <div className='verify-email-content'>
             <h4>Your e-mail address has been verified</h4>
             <p>
-              Your email address has been successfully verified, thank you for
-              choosing us. You can order your first cargo by clicking the
-              "Continue" button.
+              E-poçt adresiniz uğurla təsdiqləndi, bizi seçdiyiniz üçün təşəkkür
+              edirik. İlk kargonuzu "Davam et" düyməsi tıklayaraq sifariş edə
+              bilərsiniz.
             </p>
             <div className='btnBox'>
               <Link className='btn' to='/login'>
-                Continue
+                Davam et
               </Link>
             </div>
           </div>
@@ -57,10 +68,10 @@ const VerifyEmail = () => {
           </div>
         ) : (
           <div className='verify-email-content'>
-            <h4>This link has been expired</h4>
+            <h4>Bu link artıq keçərsizdir</h4>
             <p>
-              The new link sent your e-mail address, please check and verify
-              your e-mail address
+              Yeni link e-poçt adresinizə göndərildi, xahiş olunur e-poçt
+              adresinzi yoxlayın və e-poçt adresinzi təstiqləyin
             </p>
           </div>
         )}

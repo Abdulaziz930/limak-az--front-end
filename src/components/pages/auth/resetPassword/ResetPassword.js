@@ -4,7 +4,9 @@ import useResetPassword from "../../../../hooks/useResetPassword";
 import Banner from "../../../common/banner/Banner";
 import { useSelector } from "react-redux";
 import language from "../../../../translation/language.json";
+import resetPasswordRoute from "../../../../routes/auth/resetPassword/resetPassword.json";
 import { useLocation } from "react-router";
+import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 
 const ResetPassword = () => {
   const { search } = useLocation();
@@ -21,9 +23,13 @@ const ResetPassword = () => {
 
   return (
     <div className='reset-password-wrapper'>
+      <MetaDecorator
+        title={resetPasswordRoute[activeLanguage].pageTitle}
+        description={resetPasswordRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={language[activeLanguage].resetPasswordTitle}
-        pathName='Reset password'
+        pathName={resetPasswordRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='container'>
         <form method='POST' onSubmit={handleSubmitForm}>

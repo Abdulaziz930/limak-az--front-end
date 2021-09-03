@@ -8,6 +8,8 @@ import {
   fetchAdvertisementHeader,
 } from "../../../actions";
 import { mainAPI } from "../../../api";
+import advertisementDetailRoute from "../../../routes/advertisementDetail/advertisementDetail.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const AdvertisementDetail = () => {
   const dispatch = useDispatch();
@@ -43,9 +45,13 @@ const AdvertisementDetail = () => {
 
   return (
     <div className='advertisement--detail-wrapper'>
+      <MetaDecorator
+        title={advertisementDetailRoute[activeLanguage].pageTitle}
+        description={advertisementDetailRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={advertisementHeader.header}
-        pathName={advertisementHeader.breadcrumb}
+        pathName={advertisementDetailRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='advertisement--detail-content'>
         <div className='container'>

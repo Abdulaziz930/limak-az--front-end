@@ -1,0 +1,20 @@
+{
+  "AZ": {
+    "pageRoute": "/register",
+    "breadcrumbRoute": "Qeydiyyat",
+    "pageTitle": "Limak.az - Qeydiyyat",
+    "pageDescription": "Qeydiyyat səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/register",
+    "breadcrumbRoute": "Регистрация",
+    "pageTitle": "Limak.az - Регистрация",
+    "pageDescription": "Страница Регистрация"
+  },
+  "EN": {
+    "pageRoute": "/register",
+    "breadcrumbRoute": "Register",
+    "pageTitle": "Limak.az - Register",
+    "pageDescription": "Register page"
+  }
+}

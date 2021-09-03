@@ -1,0 +1,20 @@
+{
+  "AZ": {
+    "pageRoute": "/calculator",
+    "breadcrumbRoute": "Kalkulyator",
+    "pageTitle": "Limak.az - Kalkulyator",
+    "pageDescription": "Kalkulyator səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/calculator",
+    "breadcrumbRoute": "Калькулятор",
+    "pageTitle": "Limak.az - Калькулятор",
+    "pageDescription": "Страница Калькулятор"
+  },
+  "EN": {
+    "pageRoute": "/calculator",
+    "breadcrumbRoute": "Calculator",
+    "pageTitle": "Limak.az - Calculator",
+    "pageDescription": "Calculator page"
+  }
+}

@@ -4,6 +4,8 @@ import SectionBox from "../../common/sections/SectionBox";
 import { withRouter } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPrivacy } from "../../../actions";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
+import privacyRoute from "../../../routes/privacy/privacy.json";
 
 const Privacy = (props) => {
   const dispatch = useDispatch();
@@ -22,9 +24,13 @@ const Privacy = (props) => {
 
   return (
     <div className='privacy-wrapper'>
+      <MetaDecorator
+        title={privacyRoute[activeLanguage].pageTitle}
+        description={privacyRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={privacy.privacyTitle}
-        pathName={privacy.breadcrumbPathname}
+        pathName={privacyRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='privacy-content'>
         <div className='container'>

@@ -7,11 +7,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { decreaseCounter, increaseCounter } from "../../../actions";
 import { mainAPI } from "../../../api";
 import StripeCheckout from "react-stripe-checkout";
+import makeOrderRoute from "../../../routes/makeOrder/makeOrder.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const MakeOrder = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { counter } = useSelector((state) => state.counter);
+  const { activeLanguage } = useSelector((state) => state.languages);
 
   const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -54,7 +57,14 @@ const MakeOrder = () => {
 
   return (
     <div className='make-order-wrapper'>
-      <Banner bannerTitle='SİFARİŞ ET' pathName='SİFARİŞ ET' />
+      <MetaDecorator
+        title={makeOrderRoute[activeLanguage].pageTitle}
+        description={makeOrderRoute[activeLanguage].pageDescription}
+      />
+      <Banner
+        bannerTitle='SİFARİŞ ET'
+        pathName={makeOrderRoute[activeLanguage].breadcrumbRoute}
+      />
       <form method='POST' onSubmit={handleSubmitForm}>
         <div className='container'>
           <div className='row'>

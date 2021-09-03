@@ -15,6 +15,8 @@ import {
 import language from "../../../../translation/language.json";
 import VerifyEmailRediretion from "../verifyEmail/VerifyEmailRediretion";
 import moment from "moment";
+import registerRoute from "../../../../routes/auth/register/register.json";
+import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -49,9 +51,13 @@ const Register = () => {
 
   return (
     <div className='register-wrapper'>
+      <MetaDecorator
+        title={registerRoute[activeLanguage].pageTitle}
+        description={registerRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={registerContent.registerTitle}
-        pathName='QEYDIYYAT'
+        pathName={registerRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='container'>
         {loading ? (

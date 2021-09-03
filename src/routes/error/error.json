@@ -1,0 +1,19 @@
+{
+  "AZ": {
+    "pageRoute": "/error",
+    "pageTitle": "Limak.az - Xəta",
+    "pageDescription": "Xəta səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/error",
+    "breadcrumbRoute": "Ошибка",
+    "pageTitle": "Limak.az - Ошибка",
+    "pageDescription": "Страница Ошибка"
+  },
+  "EN": {
+    "pageRoute": "/error",
+    "breadcrumbRoute": "Error",
+    "pageTitle": "Limak.az - Error",
+    "pageDescription": "Error page"
+  }
+}

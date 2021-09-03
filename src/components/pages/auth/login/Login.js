@@ -10,6 +10,8 @@ import GoogleLogin from "react-google-login";
 import { mainAPI } from "../../../../api";
 import { setUser } from "../../../../actions";
 import { useHistory } from "react-router";
+import loginRoute from "../../../../routes/auth/login/login.json";
+import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -46,7 +48,14 @@ const Login = () => {
 
   return (
     <div className='login-wrapper'>
-      <Banner bannerTitle={loginContent.title} pathName='Daxil ol' />
+      <MetaDecorator
+        title={loginRoute[activeLanguage].pageTitle}
+        description={loginRoute[activeLanguage].pageDescription}
+      />
+      <Banner
+        bannerTitle={loginContent.title}
+        pathName={loginRoute[activeLanguage].breadcrumbRoute}
+      />
       <div className='container'>
         <form method='POST' onSubmit={handleSubmitForm}>
           <div className='login-content'>

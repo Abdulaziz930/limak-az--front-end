@@ -7,6 +7,8 @@ import {
   getShopsCount,
   fetchShopContent,
 } from "../../../actions";
+import shopsRoute from "../../../routes/shop/shop.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Shops = () => {
   const dispatch = useDispatch();
@@ -81,9 +83,13 @@ const Shops = () => {
 
   return (
     <div className='shops-wrapper'>
+      <MetaDecorator
+        title={shopsRoute[activeLanguage].pageTitle}
+        description={shopsRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={shopContent.title}
-        pathName={shopContent.breadcrumbPathname}
+        pathName={shopsRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='shop-content'>
         <div className='container'>

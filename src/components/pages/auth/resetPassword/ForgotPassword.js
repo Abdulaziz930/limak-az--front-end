@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 import language from "../../../../translation/language.json";
 import SuccessMessage from "../../../common/successMessage/SuccessMessage";
 import Spinner from "../../../common/spinner/Spinner";
+import forgotPasswordRoute from "../../../../routes/auth/resetPassword/forgotPassword.json";
 import axios from "axios";
+import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 
 const ForgotPassword = () => {
   const {
@@ -43,7 +45,14 @@ const ForgotPassword = () => {
 
   return (
     <div className='forgot-password-wrapper'>
-      <Banner bannerTitle={content.pageTitle} pathName='ŞİFRƏNİ UNUTDUM' />
+      <MetaDecorator
+        title={forgotPasswordRoute[activeLanguage].pageTitle}
+        description={forgotPasswordRoute[activeLanguage].pageDescription}
+      />
+      <Banner
+        bannerTitle={content.pageTitle}
+        pathName={forgotPasswordRoute[activeLanguage].breadcrumbRoute}
+      />
       <div className='container'>
         {loading ? (
           <Spinner />

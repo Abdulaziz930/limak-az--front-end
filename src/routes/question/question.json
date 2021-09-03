@@ -1,0 +1,20 @@
+{
+  "AZ": {
+    "pageRoute": "/questions",
+    "breadcrumbRoute": "Suallar",
+    "pageTitle": "Limak.az - Suallar",
+    "pageDescription": "Suallar səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/questions",
+    "breadcrumbRoute": "Вопросы",
+    "pageTitle": "Limak.az - Вопросы",
+    "pageDescription": "Страница Вопросы"
+  },
+  "EN": {
+    "pageRoute": "/questions",
+    "breadcrumbRoute": "Questions",
+    "pageTitle": "Limak.az - Questions",
+    "pageDescription": "Questions policy page"
+  }
+}

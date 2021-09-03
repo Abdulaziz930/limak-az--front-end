@@ -3,6 +3,8 @@ import { Tabs, Tab } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts, fetchContactContent } from "../../../actions";
 import Banner from "../../common/banner/Banner";
+import contactRoute from "../../../routes/contact/contact.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -18,9 +20,13 @@ const Contact = () => {
 
   return (
     <div className='contact-wrapper'>
+      <MetaDecorator
+        title={contactRoute[activeLanguage].pageTitle}
+        description={contactRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={contactContent.pageTitle}
-        pathName={contactContent.breadcrumbPathname}
+        pathName={contactRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='contact-content'>
         <div className='container'>

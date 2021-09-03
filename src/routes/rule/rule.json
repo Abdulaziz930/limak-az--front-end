@@ -1,0 +1,20 @@
+{
+  "AZ": {
+    "pageRoute": "/rules",
+    "breadcrumbRoute": "Qaydalar",
+    "pageTitle": "Limak.az - Qaydalar",
+    "pageDescription": "Qaydalar səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/rules",
+    "breadcrumbRoute": "Правила",
+    "pageTitle": "Limak.az - Правила",
+    "pageDescription": "Страница Правила"
+  },
+  "EN": {
+    "pageRoute": "/rules",
+    "breadcrumbRoute": "Rules",
+    "pageTitle": "Limak.az - Rules",
+    "pageDescription": "Rules page"
+  }
+}

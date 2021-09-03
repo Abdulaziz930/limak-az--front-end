@@ -7,8 +7,10 @@ import { mainAPI } from "../../../api";
 import { Pagination } from "react-bootstrap";
 import moment from "moment";
 import RuleModalWrapper from "../../common/modal/RuleModalWrapper";
-import Download from "../../common/excel/Download";
+import Download from "../../utils/excel/Download";
 import language from "../../../translation/language.json";
+import panelRoute from "../../../routes/userPanel/userPanel.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const UserPanel = (props) => {
   const [content, setContent] = useState({});
@@ -126,9 +128,13 @@ const UserPanel = (props) => {
 
   return (
     <div className='user-panel-wrapper'>
+      <MetaDecorator
+        title={panelRoute[activeLanguage].pageTitle}
+        description={panelRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={language[activeLanguage].userPanelBannerHeader}
-        pathName={language[activeLanguage].userPanelBannerHeader}
+        pathName={panelRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='container'>
         <div className='row'>

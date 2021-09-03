@@ -1,0 +1,20 @@
+{
+  "AZ": {
+    "pageRoute": "/privacy",
+    "breadcrumbRoute": "Gizlilik Şərtləri",
+    "pageTitle": "Limak.az - Gizlilik Şərtləri",
+    "pageDescription": "Gizlilik şərtləri səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/privacy",
+    "breadcrumbRoute": "Политика конфиденциальности",
+    "pageTitle": "Limak.az - Политика конфиденциальности",
+    "pageDescription": "Страница Политика конфиденциальности"
+  },
+  "EN": {
+    "pageRoute": "/privacy",
+    "breadcrumbRoute": "Privacy",
+    "pageTitle": "Limak.az - Privacy",
+    "pageDescription": "Privacy policy page"
+  }
+}

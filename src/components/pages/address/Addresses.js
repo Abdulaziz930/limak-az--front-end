@@ -6,6 +6,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import language from "../../../translation/language.json";
+import addressRoute from "../../../routes/address/address.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Addresses = (props) => {
   const [contents, setContents] = useState([]);
@@ -38,9 +40,13 @@ const Addresses = (props) => {
 
   return (
     <div className='address-wrapper'>
+      <MetaDecorator
+        title={addressRoute[activeLanguage].pageTitle}
+        description={addressRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={language[activeLanguage].userPanelBannerHeader}
-        pathName={language[activeLanguage].userPanelBannerHeader}
+        pathName={addressRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='container'>
         <div className='row'>

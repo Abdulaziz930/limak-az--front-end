@@ -1,0 +1,20 @@
+{
+  "AZ": {
+    "pageRoute": "/contact",
+    "breadcrumbRoute": "Əlaqə",
+    "pageTitle": "Limak.az - Əlaqə",
+    "pageDescription": "Əlaqə səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/contact",
+    "breadcrumbRoute": "Контакты",
+    "pageTitle": "Limak.az - Контакты",
+    "pageDescription": "Страница Контакты"
+  },
+  "EN": {
+    "pageRoute": "/contact",
+    "breadcrumbRoute": "Contact",
+    "pageTitle": "Limak.az - Contact",
+    "pageDescription": "Contact page"
+  }
+}

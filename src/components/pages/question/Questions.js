@@ -5,6 +5,8 @@ import Accordion from "../../common/accordion/Accordion";
 import { withRouter } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestions, fetchQuestionsContents } from "../../../actions";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
+import questionsRoute from "../../../routes/question/question.json";
 
 const Questions = (props) => {
   const dispatch = useDispatch();
@@ -25,9 +27,13 @@ const Questions = (props) => {
 
   return (
     <div className='questions-wrapper'>
+      <MetaDecorator
+        title={questionsRoute[activeLanguage].pageTitle}
+        description={questionsRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={questionContent.questionTitle}
-        pathName={questionContent.breadcrumbPathname}
+        pathName={questionsRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='questions-content'>
         <div className='container'>

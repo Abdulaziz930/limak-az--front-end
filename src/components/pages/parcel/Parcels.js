@@ -6,6 +6,8 @@ import { withRouter } from "react-router-dom";
 import language from "../../../translation/language.json";
 import { useSelector } from "react-redux";
 import { mainAPI } from "../../../api";
+import parcelsRoute from "../../../routes/parcel/parcel.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Parcels = (props) => {
   const {
@@ -54,9 +56,13 @@ const Parcels = (props) => {
 
   return (
     <div className='parcels-wrapper'>
+      <MetaDecorator
+        title={parcelsRoute[activeLanguage].pageTitle}
+        description={parcelsRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={language[activeLanguage].userPanelBannerHeader}
-        pathName={language[activeLanguage].userPanelBannerHeader}
+        pathName={parcelsRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='container'>
         <div className='row'>

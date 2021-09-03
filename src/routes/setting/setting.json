@@ -1,0 +1,20 @@
+{
+  "AZ": {
+    "pageRoute": "/settings",
+    "breadcrumbRoute": "Tənzimləmələr",
+    "pageTitle": "Limak.az - Tənzimləmələr",
+    "pageDescription": "Tənzimləmələr səhifəsi"
+  },
+  "RU": {
+    "pageRoute": "/settings",
+    "breadcrumbRoute": "Настройки",
+    "pageTitle": "Limak.az - Настройки",
+    "pageDescription": "Страница Настройки"
+  },
+  "EN": {
+    "pageRoute": "/settings",
+    "breadcrumbRoute": "Settings",
+    "pageTitle": "Limak.az - Settings",
+    "pageDescription": "Settings page"
+  }
+}

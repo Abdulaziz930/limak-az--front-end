@@ -6,9 +6,9 @@ const VerifyEmailRediretion = ({ email }) => {
     <>
       <SuccessMessage
         email={email}
-        firstSide='Link sent successfully to'
-        secondSide='<br />e-mail address, please check and confirm your e-mail address'
-        description='The email verify time will expire after'
+        firstSide='Link uğurla'
+        secondSide='<br />e-poçt adresinə göndərildi, xahiş olunur e-poçt adresinizi yoxlayın və e-poçt adresinizi doğrulayın'
+        description='E-poçt adresi doğrulama linki keçərsiz olacaq'
       />
     </>
   );

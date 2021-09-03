@@ -8,6 +8,8 @@ import {
   fetchCalculatorPageContent,
 } from "../../../actions";
 import { useDispatch, useSelector } from "react-redux";
+import calculatorRoute from "../../../routes/calculator/calculator.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Calculator = () => {
   const dispatch = useDispatch();
@@ -55,9 +57,13 @@ const Calculator = () => {
 
   return (
     <div className='calculator-wrapper'>
+      <MetaDecorator
+        title={calculatorRoute[activeLanguage].pageTitle}
+        description={calculatorRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={calculatorPageContent.calculatorHeading}
-        pathName={calculatorPageContent.breadcrumbPathname}
+        pathName={calculatorRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='calculator-content'>
         <div className='container'>

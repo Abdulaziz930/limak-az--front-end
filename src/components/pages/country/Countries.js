@@ -3,6 +3,8 @@ import Banner from "../../common/banner/Banner";
 import TariffsTab from "../../common/tariff/TariffsTab";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCountryContent } from "../../../actions";
+import countriesRoute from "../../../routes/country/country.json";
+import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -16,9 +18,13 @@ const Countries = () => {
 
   return (
     <div className='countries-wrapper'>
+      <MetaDecorator
+        title={countriesRoute[activeLanguage].pageTitle}
+        description={countriesRoute[activeLanguage].pageDescription}
+      />
       <Banner
         bannerTitle={countryContent.title}
-        pathName={countryContent.breadcrumbPathname}
+        pathName={countriesRoute[activeLanguage].breadcrumbRoute}
       />
       <div className='countries-content'>
         <div className='container'>
