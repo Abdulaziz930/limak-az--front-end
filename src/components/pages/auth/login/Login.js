@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Banner from "../../../common/banner/Banner";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchLoginContent } from "../../../../actions";
 import loginValidateInfo from "../../../../Helpers/loginValidateInfo";
 import useLogin from "../../../../hooks/useLogin";
 import language from "../../../../translation/language.json";
@@ -17,18 +16,25 @@ import { APP_ROUTES } from "../../../../routes/constants";
 const Login = () => {
   const dispatch = useDispatch();
 
-  const { loginContent } = useSelector((state) => state.loginContent);
   const { activeLanguage } = useSelector((state) => state.languages);
 
   const [isChecked, setIsChecked] = useState(false);
+  const [loginContent, setLoginContent] = useState({});
+
   const { values, handleChange, handleSubmitForm, errors } = useLogin(
     loginValidateInfo,
     isChecked
   );
 
   useEffect(() => {
-    dispatch(fetchLoginContent());
-  }, [dispatch, activeLanguage]);
+    const getLoginContent = async () => {
+      await mainAPI
+        .get(`LoginContent/getLoginContent/${activeLanguage}`)
+        .then((response) => setLoginContent(response.data));
+    };
+
+    getLoginContent();
+  }, [activeLanguage]);
 
   const { push } = useHistory();
 

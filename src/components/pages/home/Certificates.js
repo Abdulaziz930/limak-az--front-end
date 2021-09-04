@@ -1,30 +1,38 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchCertificate, fetchCertificateContents } from "../../../actions";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { mainAPI } from "../../../api";
 
 const Certificates = () => {
-  const dispatch = useDispatch();
-
-  const { certificateContents } = useSelector(
-    (state) => state.certificateContents
-  );
-
-  const { certificate } = useSelector((state) => state.certificate);
   const { activeLanguage } = useSelector((state) => state.languages);
 
-  useEffect(() => {
-    dispatch(fetchCertificate());
-  }, [dispatch, activeLanguage]);
+  const [certificateContents, setContent] = useState([]);
+  const [certificateHeader, setCertificateHeader] = useState({});
 
   useEffect(() => {
-    dispatch(fetchCertificateContents());
-  }, [dispatch]);
+    const getCertificateHeader = async () => {
+      await mainAPI
+        .get(`Content/getCertificateContent/${activeLanguage}`)
+        .then((response) => setCertificateHeader(response.data));
+    };
+
+    getCertificateHeader();
+  }, [activeLanguage]);
+
+  useEffect(() => {
+    const getCertificateContent = async () => {
+      await mainAPI
+        .get("CertificateContent")
+        .then((response) => setContent(response.data));
+    };
+
+    getCertificateContent();
+  }, []);
 
   return (
     <div className='certificates'>
       <div className='container'>
         <div className='header'>
-          <h2>{certificate.title}</h2>
+          <h2>{certificateHeader.title}</h2>
         </div>
         <div className='content'>
           <div className='row'>

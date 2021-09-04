@@ -1,17 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchTariffs } from "../../../actions";
+import { useSelector } from "react-redux";
+import { mainAPI } from "../../../api";
 
 const TariffsTab = () => {
-  const dispatch = useDispatch();
-
   const { activeLanguage } = useSelector((state) => state.languages);
-  const { tariffs } = useSelector((state) => state.tariffs);
+
+  const [tariffs, setTariffs] = useState([]);
 
   useEffect(() => {
-    dispatch(fetchTariffs());
-  }, [dispatch, activeLanguage]);
+    const getTariffs = async () => {
+      await mainAPI
+        .get(`Content/getTariffContent/${activeLanguage}`)
+        .then((response) => setTariffs(response.data));
+    };
+
+    getTariffs();
+  }, [activeLanguage]);
 
   return (
     <div className='content'>

@@ -3,10 +3,7 @@ import Banner from "../../common/banner/Banner";
 import Moment from "moment";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchAdvertisements,
-  fetchAdvertisementHeader,
-} from "../../../actions";
+import { fetchAdvertisements } from "../../../actions";
 import { mainAPI } from "../../../api";
 import advertisementDetailRoute from "../../../routes/pages/advertisementDetail/advertisementDetail.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
@@ -16,13 +13,11 @@ const AdvertisementDetail = () => {
 
   const { activeLanguage } = useSelector((state) => state.languages);
   const { advertisements } = useSelector((state) => state.advertisements);
-  const { advertisementHeader } = useSelector(
-    (state) => state.advertisementHeader
-  );
   const { id } = useParams();
   const { push } = useHistory();
 
   const [advertisement, setAdvertisement] = useState({});
+  const [advertisementHeader, setHeader] = useState({});
 
   useEffect(() => {
     const getAdvertisement = async () => {
@@ -36,9 +31,15 @@ const AdvertisementDetail = () => {
         );
     };
 
+    const getAdvertisementHeader = async () => {
+      await mainAPI
+        .get(`Advertisement/getAdvertisementHeader/${activeLanguage}`)
+        .then((response) => setHeader(response.data));
+    };
+
     getAdvertisement();
+    getAdvertisementHeader();
     dispatch(fetchAdvertisements(10));
-    dispatch(fetchAdvertisementHeader());
   }, [dispatch, activeLanguage, id, push]);
 
   const date = new Date(advertisement.creationDate);

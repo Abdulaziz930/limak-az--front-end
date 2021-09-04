@@ -1,26 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../../common/banner/Banner";
 import SectionBox from "../../common/sections/SectionBox";
 import { withRouter } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchPrivacy } from "../../../actions";
+import { useSelector } from "react-redux";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 import privacyRoute from "../../../routes/pages/privacy/privacy.json";
+import { mainAPI } from "../../../api";
 
 const Privacy = (props) => {
-  const dispatch = useDispatch();
-
-  const { privacy } = useSelector((state) => state.privacy);
   const { activeLanguage } = useSelector((state) => state.languages);
   const {
     location: { pathname },
   } = props;
 
+  const [privacy, setPrivacy] = useState({});
+
   const pathNames = pathname.split("/").filter((x) => x);
 
   useEffect(() => {
-    dispatch(fetchPrivacy());
-  }, [dispatch, activeLanguage]);
+    const getPrivacy = async () => {
+      await mainAPI
+        .get(`Privacy/${activeLanguage}`)
+        .then((response) => setPrivacy(response.data));
+    };
+
+    getPrivacy();
+  }, [activeLanguage]);
 
   return (
     <div className='privacy-wrapper'>

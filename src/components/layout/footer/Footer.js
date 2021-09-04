@@ -1,23 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import language from "../../../translation/language.json";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchSocialMedias, fetchContact } from "../../../actions";
+import { useSelector } from "react-redux";
+import { mainAPI } from "../../../api";
 
 const Footer = () => {
-  const dispatch = useDispatch();
-
   const { activeLanguage } = useSelector((state) => state.languages);
-  const { socialMedias } = useSelector((state) => state.socialMedias);
-  const { contact } = useSelector((state) => state.contact);
+
+  const [socialMedias, setSocialMedias] = useState([]);
+  const [contact, setContact] = useState({});
 
   useEffect(() => {
-    dispatch(fetchContact());
-  }, [dispatch, activeLanguage]);
+    const getContact = async () => {
+      await mainAPI
+        .get(`Content/getContactContent/${activeLanguage}`)
+        .then((response) => setContact(response.data));
+    };
+
+    getContact();
+  }, [activeLanguage]);
 
   useEffect(() => {
-    dispatch(fetchSocialMedias());
-  }, [dispatch]);
+    const getSocialMedias = async () => {
+      await mainAPI
+        .get("SocialMedia")
+        .then((response) => setSocialMedias(response.data));
+    };
+
+    getSocialMedias();
+  }, []);
 
   return (
     <div className='footer'>

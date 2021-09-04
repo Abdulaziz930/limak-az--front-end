@@ -1,18 +1,29 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchHowItWorksContent, fetchHowItWorksCardContent } from "../../../actions";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { mainAPI } from "../../../api";
 
 const HowItWorks = () => {
-  const dispatch = useDispatch();
-
-  const { content } = useSelector((state) => state.howItWorkContent);
-  const { contents } = useSelector((state) => state.howItWorkCardContent);
   const { activeLanguage } = useSelector((state) => state.languages);
 
+  const [content, setContent] = useState({});
+  const [contents, setContents] = useState([]);
+
   useEffect(() => {
-    dispatch(fetchHowItWorksContent());
-    dispatch(fetchHowItWorksCardContent());
-  }, [dispatch,activeLanguage]);
+    const getHowItWorkContent = async () => {
+      await mainAPI
+        .get(`Content/getHowItWorkContent/${activeLanguage}`)
+        .then((response) => setContent(response.data));
+    };
+
+    const getHowItWorkCardContent = async () => {
+      await mainAPI
+        .get(`Content/getHowItWorkCardContent/${activeLanguage}`)
+        .then((response) => setContents(response.data));
+    };
+
+    getHowItWorkContent();
+    getHowItWorkCardContent();
+  }, [activeLanguage]);
 
   return (
     <div className='How-It-Works-wrapper'>

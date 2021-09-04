@@ -5,10 +5,9 @@ import {
   fetchCalculatorContent,
   fetchCountriesContent,
   fetchCitiesContent,
-  fetchWeightContent,
-  fetchUnitsOfLengthContent,
   fetchProductTypesContent,
 } from "../../../actions";
+import { mainAPI } from "../../../api";
 
 const CalculatorWrapper = () => {
   const dispatch = useDispatch();
@@ -16,8 +15,6 @@ const CalculatorWrapper = () => {
   const { calculatorContent } = useSelector((state) => state.calculatorContent);
   const { countries } = useSelector((state) => state.countries);
   const { cities } = useSelector((state) => state.cities);
-  const { weights } = useSelector((state) => state.weights);
-  const { unitsOfLength } = useSelector((state) => state.unitsOfLength);
   const { productTypes } = useSelector((state) => state.productTypes);
   const { activeLanguage } = useSelector((state) => state.languages);
 
@@ -34,13 +31,27 @@ const CalculatorWrapper = () => {
   const [cityValue, setCityValue] = useState("");
   const [typeValue, setTypeValue] = useState("");
   const [sum, setSum] = useState(0.0);
+  const [weights, setWeights] = useState([]);
+  const [unitsOfLength, setUnitsOfLength] = useState([]);
 
   useEffect(() => {
+    const getWeightContent = async () => {
+      await mainAPI
+        .get(`Content/getWeightContent/${activeLanguage}`)
+        .then((response) => setWeights(response.data));
+    };
+
+    const getUnitsOfLengthContent = async () => {
+      await mainAPI
+        .get(`Content/getUnitsOfLengthContent/${activeLanguage}`)
+        .then((response) => setUnitsOfLength(response.data));
+    };
+
+    getWeightContent();
+    getUnitsOfLengthContent();
     dispatch(fetchCalculatorContent());
     dispatch(fetchCountriesContent());
     dispatch(fetchCitiesContent());
-    dispatch(fetchWeightContent());
-    dispatch(fetchUnitsOfLengthContent());
     dispatch(fetchProductTypesContent());
     if (countries !== undefined) {
       setCountryValue(countries[0]);

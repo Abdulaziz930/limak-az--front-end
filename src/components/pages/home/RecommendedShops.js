@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchRecommendedShops } from "../../../actions";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Slider from "react-slick";
+import { mainAPI } from "../../../api";
 
 const RecomendedShops = () => {
   const dispatch = useDispatch();
 
-  const { recommendedShops } = useSelector((state) => state.recommendedShops);
+  const [recommendedShops, setRecommendedShops] = useState([]);
 
   useEffect(() => {
-    dispatch(fetchRecommendedShops());
+    const getRecommendedShops = async () => {
+      await mainAPI
+        .get("Shop")
+        .then((response) => setRecommendedShops(response.data));
+    };
+
+    getRecommendedShops();
   }, [dispatch]);
 
   const settings = {

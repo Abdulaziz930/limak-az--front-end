@@ -5,27 +5,17 @@ import registerValidateInfo from "../../../../Helpers/registerValidateInfo";
 import RuleModalWrapper from "../../../common/modal/RuleModalWrapper";
 import Spinner from "../../../common/spinner/Spinner";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchUserRule,
-  fetchRegisterContent,
-  fetchRegisterInformation,
-  fetchGenders,
-  fetchCitiesContent,
-} from "../../../../actions";
+import { fetchGenders, fetchCitiesContent } from "../../../../actions";
 import language from "../../../../translation/language.json";
 import VerifyEmailRediretion from "../verifyEmail/VerifyEmailRediretion";
 import moment from "moment";
 import registerRoute from "../../../../routes/pages/auth/register/register.json";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
+import { mainAPI } from "../../../../api";
 
 const Register = () => {
   const dispatch = useDispatch();
 
-  const { userRule } = useSelector((state) => state.userRule);
-  const { registerContent } = useSelector((state) => state.registerContent);
-  const { registerInformation } = useSelector(
-    (state) => state.registerInformation
-  );
   const { genders } = useSelector((state) => state.genders);
   const { cities } = useSelector((state) => state.cities);
   const [isChecked, setIsChecked] = useState(false);
@@ -40,11 +30,32 @@ const Register = () => {
   const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const { activeLanguage } = useSelector((state) => state.languages);
+  const [userRule, setUserRule] = useState({});
+  const [registerContent, setRegisterContent] = useState({});
+  const [registerInformation, setRegisterInformation] = useState({});
 
   useEffect(() => {
-    dispatch(fetchUserRule());
-    dispatch(fetchRegisterContent());
-    dispatch(fetchRegisterInformation());
+    const getUserRule = async () => {
+      await mainAPI
+        .get(`RegisterContent/getUserRule/${activeLanguage}`)
+        .then((response) => setUserRule(response.data));
+    };
+
+    const getRegisterContent = async () => {
+      await mainAPI
+        .get(`RegisterContent/getRegisterContent/${activeLanguage}`)
+        .then((response) => setRegisterContent(response.data));
+    };
+
+    const getRegisterInformation = async () => {
+      await mainAPI
+        .get(`RegisterContent/getRegisterInformation/${activeLanguage}`)
+        .then((response) => setRegisterInformation(response.data));
+    };
+
+    getUserRule();
+    getRegisterContent();
+    getRegisterInformation();
     dispatch(fetchCitiesContent());
     dispatch(fetchGenders());
   }, [dispatch, activeLanguage]);
@@ -360,7 +371,7 @@ const Register = () => {
                       />
                     </div>
                     <RuleModalWrapper
-                      modalTitle='Test 1'
+                      modalTitle='Şəxsiyyət vəsiqəsi'
                       isChecked={isImageModalOpen}
                       onClose={() => setIsImageModalOpen(false)}>
                       <img

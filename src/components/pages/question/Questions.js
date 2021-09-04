@@ -1,29 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../../common/banner/Banner";
 import SectionBox from "../../common/sections/SectionBox";
 import Accordion from "../../common/accordion/Accordion";
 import { withRouter } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchQuestions, fetchQuestionsContents } from "../../../actions";
+import { useSelector } from "react-redux";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 import questionsRoute from "../../../routes/pages/question/question.json";
+import { mainAPI } from "../../../api";
 
 const Questions = (props) => {
-  const dispatch = useDispatch();
-
-  const { questions } = useSelector((state) => state.questions);
-  const { questionContent } = useSelector((state) => state.questionContent);
   const { activeLanguage } = useSelector((state) => state.languages);
   const {
     location: { pathname },
   } = props;
 
+  const [questions, setQuestions] = useState([]);
+  const [questionContent, setQuestionContent] = useState({});
+
   const pathNames = pathname.split("/").filter((x) => x);
 
   useEffect(() => {
-    dispatch(fetchQuestions());
-    dispatch(fetchQuestionsContents());
-  }, [dispatch, activeLanguage]);
+    const getQuestions = async () => {
+      await mainAPI
+        .get(`Question/getQuestions/${activeLanguage}`)
+        .then((response) => setQuestions(response.data));
+    };
+
+    const getQuestionContent = async () => {
+      await mainAPI
+        .get(`Question/getQuestionContent/${activeLanguage}`)
+        .then((response) => setQuestionContent(response.data));
+    };
+
+    getQuestions();
+    getQuestionContent();
+  }, [activeLanguage]);
 
   return (
     <div className='questions-wrapper'>

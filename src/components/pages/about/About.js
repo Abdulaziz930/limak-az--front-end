@@ -1,26 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../../common/banner/Banner";
 import SectionBox from "../../common/sections/SectionBox";
 import { withRouter } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchAbout } from "../../../actions";
+import { useSelector } from "react-redux";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 import aboutRoute from "../../../routes/pages/about/about.json";
+import { mainAPI } from "../../../api";
 
 const About = (props) => {
-  const dispatch = useDispatch();
-
-  const { about } = useSelector((state) => state.about);
   const { activeLanguage } = useSelector((state) => state.languages);
   const {
     location: { pathname },
   } = props;
 
+  const [about, setAbout] = useState({});
+
   const pathNames = pathname.split("/").filter((x) => x);
 
   useEffect(() => {
-    dispatch(fetchAbout());
-  }, [dispatch, activeLanguage]);
+    const getAbout = async () => {
+      await mainAPI
+        .get(`About/${activeLanguage}`)
+        .then((response) => setAbout(response.data));
+    };
+
+    getAbout();
+  }, [activeLanguage]);
 
   return (
     <div className='about-wrapper'>

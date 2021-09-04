@@ -1,25 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchAdvertisementTitle } from "../../../actions";
+import { useSelector } from "react-redux";
 import Moment from "moment";
+import { mainAPI } from "../../../api";
 
 const News = () => {
-  const dispatch = useDispatch();
-
-  const { content } = useSelector((state) => state.advertisimentTitleContent);
   const { advertisements } = useSelector((state) => state.advertisements);
   const { activeLanguage } = useSelector((state) => state.languages);
 
+  const [advertisementTitle, setTitle] = useState({});
+
   useEffect(() => {
-    dispatch(fetchAdvertisementTitle());
-  }, [dispatch, activeLanguage]);
+    const getAdvertisimentTitle = async () => {
+      await mainAPI
+        .get(`Content/GetAdvertisimentTitleContent/${activeLanguage}`)
+        .then((response) => setTitle(response.data));
+    };
+
+    getAdvertisimentTitle();
+  }, [activeLanguage]);
 
   return (
     <div className='news'>
       <div className='container'>
         <div className='title'>
-          <h2>{content.title}</h2>
+          <h2>{advertisementTitle.title}</h2>
         </div>
         <div className='content'>
           <div className='row'>

@@ -1,22 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts, fetchContactContent } from "../../../actions";
+import { useSelector } from "react-redux";
 import Banner from "../../common/banner/Banner";
 import contactRoute from "../../../routes/pages/contact/contact.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
+import { mainAPI } from "../../../api";
 
 const Contact = () => {
-  const dispatch = useDispatch();
-
-  const { contacts } = useSelector((state) => state.contacts);
-  const { contactContent } = useSelector((state) => state.contactContent);
   const { activeLanguage } = useSelector((state) => state.languages);
 
+  const [contacts, setContacts] = useState([]);
+  const [contactContent, setcontactContent] = useState([]);
+
   useEffect(() => {
-    dispatch(fetchContacts());
-    dispatch(fetchContactContent());
-  }, [dispatch, activeLanguage]);
+    const getContacts = async () => {
+      await mainAPI
+        .get(`ContactContent/getContactsContent/${activeLanguage}`)
+        .then((response) => setContacts(response.data));
+    };
+
+    const getContactContent = async () => {
+      await mainAPI
+        .get(`ContactContent/getContactContent/${activeLanguage}`)
+        .then((response) => setcontactContent(response.data));
+    };
+
+    getContacts();
+    getContactContent();
+  }, [activeLanguage]);
 
   return (
     <div className='contact-wrapper'>
