@@ -6,7 +6,7 @@ import {
   fetchCountriesContent,
   fetchCitiesContent,
   fetchProductTypesContent,
-} from "../../../actions";
+} from "../../../redux/actions";
 import { mainAPI } from "../../../api";
 
 const CalculatorWrapper = () => {

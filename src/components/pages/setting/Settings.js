@@ -4,7 +4,7 @@ import Panles from "../../common/panels/Panles";
 import { Tabs, Tab } from "react-bootstrap";
 import language from "../../../translation/language.json";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCitiesContent } from "../../../actions";
+import { fetchCitiesContent } from "../../../redux/actions";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
@@ -12,7 +12,7 @@ import {
 } from "@material-ui/pickers";
 import moment from "moment";
 import { Grid } from "@material-ui/core";
-import { fetchGenders } from "../../../actions";
+import { fetchGenders } from "../../../redux/actions";
 import settingValidateInfo from "../../../Helpers/settingValidateInfo";
 import changePasswordValidateInfo from "../../../Helpers/changePasswordValidateInfo";
 import useSetting from "../../../hooks/useSetting";

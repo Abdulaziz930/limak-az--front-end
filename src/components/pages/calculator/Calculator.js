@@ -6,7 +6,7 @@ import {
   fetchCalculatorInformationContent,
   fetchCurrency,
   fetchCalculatorPageContent,
-} from "../../../actions";
+} from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import calculatorRoute from "../../../routes/pages/calculator/calculator.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";

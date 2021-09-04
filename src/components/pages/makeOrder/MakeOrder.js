@@ -4,7 +4,7 @@ import RuleModalWrapper from "../../common/modal/RuleModalWrapper";
 import useMakeOrder from "../../../hooks/useMakeOrder";
 import orderValidateInfo from "../../../Helpers/orderValidateInfo";
 import { useSelector, useDispatch } from "react-redux";
-import { decreaseCounter, increaseCounter } from "../../../actions";
+import { decreaseCounter, increaseCounter } from "../../../redux/actions";
 import { mainAPI } from "../../../api";
 import StripeCheckout from "react-stripe-checkout";
 import makeOrderRoute from "../../../routes/pages/makeOrder/makeOrder.json";

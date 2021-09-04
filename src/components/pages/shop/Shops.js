@@ -6,7 +6,7 @@ import {
   fetchShops,
   getShopsCount,
   fetchShopContent,
-} from "../../../actions";
+} from "../../../redux/actions";
 import shopsRoute from "../../../routes/pages/shop/shop.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 

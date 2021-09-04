@@ -2,7 +2,7 @@ import React from "react";
 import Navi from "../layout/navbar/Navi";
 import Footer from "../layout/footer/Footer";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../actions";
+import { setUser } from "../../redux/actions";
 import Routes from "../routes/Routes";
 
 function App() {

@@ -7,7 +7,7 @@ import useLogin from "../../../../hooks/useLogin";
 import language from "../../../../translation/language.json";
 import GoogleLogin from "react-google-login";
 import { mainAPI } from "../../../../api";
-import { setUser } from "../../../../actions";
+import { setUser } from "../../../../redux/actions";
 import { useHistory } from "react-router";
 import loginRoute from "../../../../routes/pages/auth/login/login.json";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";

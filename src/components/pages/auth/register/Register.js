@@ -5,7 +5,7 @@ import registerValidateInfo from "../../../../Helpers/registerValidateInfo";
 import RuleModalWrapper from "../../../common/modal/RuleModalWrapper";
 import Spinner from "../../../common/spinner/Spinner";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGenders, fetchCitiesContent } from "../../../../actions";
+import { fetchGenders, fetchCitiesContent } from "../../../../redux/actions";
 import language from "../../../../translation/language.json";
 import VerifyEmailRediretion from "../verifyEmail/VerifyEmailRediretion";
 import moment from "moment";

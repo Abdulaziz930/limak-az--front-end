@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "../actions";
+import { setUser } from "../redux/actions";
 
 const useLogin = (loginValidateInfo, isChecked) => {
   const dispatch = useDispatch();

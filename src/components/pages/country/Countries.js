@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Banner from "../../common/banner/Banner";
 import TariffsTab from "../../common/tariff/TariffsTab";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCountryContent } from "../../../actions";
+import { fetchCountryContent } from "../../../redux/actions";
 import countriesRoute from "../../../routes/pages/country/country.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 

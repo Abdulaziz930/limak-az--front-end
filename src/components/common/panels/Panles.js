@@ -7,7 +7,7 @@ import {
   fetchCurrency,
   fetchCalculatorPageContent,
   setUser,
-} from "../../../actions";
+} from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 

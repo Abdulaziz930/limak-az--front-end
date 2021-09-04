@@ -1,5 +1,5 @@
 import * as CONSTANT from "../constants";
-import { mainAPI, excahgeRateAPI } from "../api";
+import { mainAPI, excahgeRateAPI } from "../../api";
 
 export const fetchLanguages = () => async (dispatch) => {
   dispatch({ type: CONSTANT.FETCH_LANGUAGES });

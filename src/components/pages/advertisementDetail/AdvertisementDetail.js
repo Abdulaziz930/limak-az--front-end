@@ -3,7 +3,7 @@ import Banner from "../../common/banner/Banner";
 import Moment from "moment";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAdvertisements } from "../../../actions";
+import { fetchAdvertisements } from "../../../redux/actions";
 import { mainAPI } from "../../../api";
 import advertisementDetailRoute from "../../../routes/pages/advertisementDetail/advertisementDetail.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAdvertisements } from "../../../actions";
+import { fetchAdvertisements } from "../../../redux/actions";
 import CalculatorWrapper from "../../common/calculator/CalculatorWrapper";
 
 const Intro = () => {
