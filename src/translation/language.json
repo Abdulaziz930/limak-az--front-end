@@ -99,6 +99,11 @@
       "dateTime": "Tarix",
       "button": "Excel faylına ixrac edin"
     },
+    "errorPage": {
+      "title": "Səhifə Tapılmadı",
+      "description": "Axtardığınız səhifənin adı silinmiş ola bilər dəyişdirilmiş və ya müvəqqəti olaraq mövcud deyil.",
+      "buttonName": "Əsas Səhifə"
+    },
     "weightInput": {
       "placeholder": "Çəki"
     },
@@ -318,6 +323,11 @@
       "dateTime": "Дата время",
       "button": "Экспорт в файл Excel"
     },
+    "errorPage": {
+      "title": "Страница не найдена",
+      "description": "Страница, которую вы ищете, могла быть удалена из-за изменения ее названия или временно недоступна.",
+      "buttonName": "Домашняя страница"
+    },
     "weightInput": {
       "placeholder": "Вес"
     },
@@ -536,6 +546,11 @@
       "newBalance": "New Balance",
       "dateTime": "Date time",
       "button": "Export to excel file"
+    },
+    "errorPage": {
+      "title": "Page Not Found",
+      "description": "The page you are looking for might have been removed had its name changed or is temporarily unavailable.",
+      "buttonName": "Home Page"
     },
     "weightInput": {
       "placeholder": "Weight"

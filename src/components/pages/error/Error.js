@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import errorRoute from "../../../routes/pages/error/error.json";
 import homeRoute from "../../../routes/pages/home/home.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
+import language from "../../../translation/language.json";
 
 const Error = () => {
   const { activeLanguage } = useSelector((state) => state.languages);
@@ -25,12 +26,11 @@ const Error = () => {
           <div className='notfound-404'>
             <h1>404</h1>
           </div>
-          <h2>Page Not Found</h2>
-          <p>
-            The page you are looking for might have been removed had its name
-            changed or is temporarily unavailable.
-          </p>
-          <Link to={homeRoute.pageRoute}>HOMEPAGE</Link>
+          <h2>{language[activeLanguage].errorPage.title}</h2>
+          <p>{language[activeLanguage].errorPage.description}</p>
+          <Link to={homeRoute.pageRoute}>
+            {language[activeLanguage].errorPage.buttonName}
+          </Link>
         </div>
       </div>
     </div>
