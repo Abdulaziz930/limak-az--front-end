@@ -100,9 +100,15 @@
       "button": "Excel faylına ixrac edin"
     },
     "errorPage": {
-      "title": "Səhifə Tapılmadı",
-      "description": "Axtardığınız səhifənin adı silinmiş ola bilər dəyişdirilmiş və ya müvəqqəti olaraq mövcud deyil.",
-      "buttonName": "Əsas Səhifə"
+      "buttonName": "Əsas Səhifə",
+      "notFound": {
+        "title": "Səhifə Tapılmadı",
+        "description": "Axtardığınız səhifənin adı silinmiş ola bilər dəyişdirilmiş və ya müvəqqəti olaraq mövcud deyil."
+      },
+      "connectionError": {
+        "title": "İnternet bağlantısı İTDİ",
+        "description": "İnternetiniz bağlantınız itmiş kimi görünür, internet bağlantınızı yoxlayın və yenidən internetə qoşulmağa çalışın"
+      }
     },
     "weightInput": {
       "placeholder": "Çəki"
@@ -324,9 +330,15 @@
       "button": "Экспорт в файл Excel"
     },
     "errorPage": {
-      "title": "Страница не найдена",
-      "description": "Страница, которую вы ищете, могла быть удалена из-за изменения ее названия или временно недоступна.",
-      "buttonName": "Домашняя страница"
+      "buttonName": "Домашняя страница",
+      "notFound": {
+        "title": "Страница не найдена",
+        "description": "Страница, которую вы ищете, могла быть удалена из-за изменения ее названия или временно недоступна."
+      },
+      "connectionError": {
+        "title": "Соединение потеряно",
+        "description": "Похоже, у вас пропал Интернет. Проверьте подключение к Интернету и попробуйте снова подключиться к Интернету."
+      }
     },
     "weightInput": {
       "placeholder": "Вес"
@@ -548,9 +560,15 @@
       "button": "Export to excel file"
     },
     "errorPage": {
-      "title": "Page Not Found",
-      "description": "The page you are looking for might have been removed had its name changed or is temporarily unavailable.",
-      "buttonName": "Home Page"
+      "buttonName": "Home Page",
+      "notFound": {
+        "title": "Page Not Found",
+        "description": "The page you are looking for might have been removed had its name changed or is temporarily unavailable."
+      },
+      "connectionError": {
+        "title": "Connection lost",
+        "description": "Looks like your internet has lost, please check your internet connection and try connecting to the internet again"
+      }
     },
     "weightInput": {
       "placeholder": "Weight"

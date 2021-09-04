@@ -4,8 +4,12 @@ import { APP_ROUTES } from "../../routes/constants";
 import PrivateRoute from "../guards/privateRoute/PrivateRoute";
 import AuthenticadePrivateRoute from "../guards/authenticadePrivateRoute/AuthenticadePrivateRoute";
 import SpinnerWrapper from "../common/spinner/SpinnerWrapper";
+import language from "../../translation/language.json";
+import { useSelector } from "react-redux";
 
 const Routes = () => {
+  const { activeLanguage } = useSelector((state) => state.languages);
+
   const Home = lazy(() => import("../pages/home/Home"));
   const Contact = lazy(() => import("../pages/contact/Contact"));
   const Shops = lazy(() => import("../pages/shop/Shops"));
@@ -86,7 +90,16 @@ const Routes = () => {
         <AuthenticadePrivateRoute path={APP_ROUTES.ResetPassword}>
           <ResetPassword />
         </AuthenticadePrivateRoute>
-        <Route path='*' component={Error} />
+        <Route path='*'>
+          <Error
+            statusCode={404}
+            title={language[activeLanguage].errorPage.notFound.title}
+            description={
+              language[activeLanguage].errorPage.notFound.description
+            }
+            buttonIsExist={true}
+          />
+        </Route>
       </Switch>
     </Suspense>
   );

@@ -6,7 +6,7 @@ import homeRoute from "../../../routes/pages/home/home.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
 import language from "../../../translation/language.json";
 
-const Error = () => {
+const Error = ({ statusCode, title, description, buttonIsExist }) => {
   const { activeLanguage } = useSelector((state) => state.languages);
 
   return (
@@ -24,13 +24,17 @@ const Error = () => {
         </div>
         <div className='notfound'>
           <div className='notfound-404'>
-            <h1>404</h1>
+            <h1>{statusCode}</h1>
           </div>
-          <h2>{language[activeLanguage].errorPage.title}</h2>
-          <p>{language[activeLanguage].errorPage.description}</p>
-          <Link to={homeRoute.pageRoute}>
-            {language[activeLanguage].errorPage.buttonName}
-          </Link>
+          <h2>{title}</h2>
+          <p>{description}</p>
+          {buttonIsExist ? (
+            <Link to={homeRoute.pageRoute}>
+              {language[activeLanguage].errorPage.buttonName}
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
