@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchLanguages, setUser } from "../../../redux/actions";
 import language from "../../../translation/language.json";
+import logout from "../../../Helpers/logout";
 
 const Navi = () => {
   const dispatch = useDispatch();
@@ -43,19 +44,9 @@ const Navi = () => {
     }
   };
 
-  const logout = () => {
-    if (localStorage.getItem("token")) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      localStorage.removeItem("expires");
-      dispatch(setUser(""));
-    } else if (sessionStorage.getItem("token")) {
-      sessionStorage.removeItem("token");
-      sessionStorage.removeItem("username");
-      sessionStorage.removeItem("expires");
-      dispatch(setUser(""));
-    }
-
+  const logoutUser = () => {
+    logout();
+    dispatch(setUser(""));
     push("/");
   };
 
@@ -100,7 +91,7 @@ const Navi = () => {
                           <React.Fragment key={panel.id}>
                             {count ===
                             language[activeLanguage].panels.length ? (
-                              <span className='dropdown-item' onClick={logout}>
+                              <span className='dropdown-item' onClick={logoutUser}>
                                 {panel.name}
                               </span>
                             ) : (

@@ -7,6 +7,7 @@ import Routes from "../routes/Routes";
 import { Offline, Online } from "react-detect-offline";
 import language from "../../translation/language.json";
 import Error from "../pages/error/Error";
+import logout from "../../Helpers/logout";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,19 +20,8 @@ function App() {
   let dateNow = new Date();
 
   if (expiresDate < dateNow) {
-    if (localStorage.getItem("token")) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      localStorage.removeItem("expires");
-      dispatch(setUser(""));
-      window.location.reload();
-    } else if (sessionStorage.getItem("token")) {
-      sessionStorage.removeItem("token");
-      sessionStorage.removeItem("username");
-      sessionStorage.removeItem("expires");
-      dispatch(setUser(""));
-      window.location.reload();
-    }
+    logout();
+    dispatch(setUser(""));
   }
 
   return (
