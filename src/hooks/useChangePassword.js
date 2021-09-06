@@ -50,13 +50,11 @@ const useChangePassword = (changePasswordValidateInfo, userName) => {
               }))
             : alertify.error("Your profile not updated", 2)
         )
-        .catch(
-          ({ response }) =>
-            setCpErrors({
-              ...cpErrors,
-              common: response.data.message,
-            }),
-          alertify.error("Your profile not updated", 2)
+        .catch(({ response }) =>
+          setCpErrors({
+            ...cpErrors,
+            common: response.data.message,
+          })
         );
     }
   };
