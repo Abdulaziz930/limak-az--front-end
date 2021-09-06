@@ -12,6 +12,7 @@ import moment from "moment";
 import registerRoute from "../../../../routes/pages/auth/register/register.json";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
 import { mainAPI } from "../../../../api";
+import PasswordStrengthMeter from "../../../common/password/PasswordStrengthMeter";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -122,6 +123,10 @@ const Register = () => {
                               name='password'
                               onChange={handleChange}
                             />
+                            <PasswordStrengthMeter
+                              password={values.password}
+                              hidden={false}
+                            />
                             {errors.password && (
                               <p className='error-message'>{errors.password}</p>
                             )}
@@ -178,6 +183,7 @@ const Register = () => {
                               name='confirmPassword'
                               onChange={handleChange}
                             />
+                            <PasswordStrengthMeter password={values.confirmPassword} hidden={true} />
                             {errors.confirmPassword && (
                               <p className='error-message'>
                                 {errors.confirmPassword}

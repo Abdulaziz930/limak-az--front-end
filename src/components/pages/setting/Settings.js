@@ -21,6 +21,7 @@ import { mainAPI } from "../../../api";
 import { withRouter } from "react-router-dom";
 import settingsRoute from "../../../routes/pages/setting/setting.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
+import PasswordStrengthMeter from "../../common/password/PasswordStrengthMeter";
 
 const Settings = (props) => {
   const dispatch = useDispatch();
@@ -293,6 +294,10 @@ const Settings = (props) => {
                         }
                         value={cpValues.newPassword}
                         onChange={handleChangeCp}
+                      />
+                      <PasswordStrengthMeter
+                        password={cpValues.newPassword}
+                        hidden={false}
                       />
                       {cpErrors.newPassword && (
                         <p className='error-message'>{cpErrors.newPassword}</p>

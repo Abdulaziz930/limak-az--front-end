@@ -110,6 +110,13 @@
         "description": "İnternetiniz bağlantınız itmiş kimi görünür, internet bağlantınızı yoxlayın və yenidən internetə qoşulmağa çalışın"
       }
     },
+    "passwordStrengthLabel": {
+      "veryWeak": "Çox zəif",
+      "weak": "Zəif",
+      "fear": "Orta",
+      "good": "Yaxşı",
+      "strong": "Əla"
+    },
     "weightInput": {
       "placeholder": "Çəki"
     },
@@ -340,6 +347,13 @@
         "description": "Похоже, у вас пропал Интернет. Проверьте подключение к Интернету и попробуйте снова подключиться к Интернету."
       }
     },
+    "passwordStrengthLabel": {
+      "veryWeak": "Очень слаб",
+      "weak": "Слабый",
+      "fear": "Умеренно",
+      "good": "Хороший",
+      "strong": "Сильный"
+    },
     "weightInput": {
       "placeholder": "Вес"
     },
@@ -569,6 +583,13 @@
         "title": "Connection lost",
         "description": "Looks like your internet has lost, please check your internet connection and try connecting to the internet again"
       }
+    },
+    "passwordStrengthLabel": {
+      "veryWeak": "Very weak",
+      "weak": "Weak",
+      "fear": "Fear",
+      "good": "Good",
+      "strong": "Strong"
     },
     "weightInput": {
       "placeholder": "Weight"
