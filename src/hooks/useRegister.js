@@ -49,14 +49,14 @@ const useRegister = (registerValidateInfo, isChecked) => {
       setLoading(true);
       axios
         .post("https://localhost:44393/api/Authenticate/register", values)
-        .then(
-          (response) =>
-            response.status === 200
-              ? (localStorage.setItem("email", values.email),
-                setIsSubmitted(true),
-                setLoading(false))
-              : setIsSubmitted(false),
-          setLoading(false)
+        .then((response) =>
+          response.status === 200 ||
+          response.status === 409 ||
+          response.status === 403
+            ? (localStorage.setItem("email", values.email),
+              setIsSubmitted(true),
+              setLoading(false))
+            : setIsSubmitted(false)
         );
     }
   };
