@@ -7,6 +7,7 @@ import language from "../../../../translation/language.json";
 import resetPasswordRoute from "../../../../routes/pages/auth/resetPassword/resetPassword.json";
 import { useLocation } from "react-router";
 import MetaDecorator from "../../../utils/metaDecorator/MetaDecorator";
+import PasswordStrengthMeter from "../../../common/password/PasswordStrengthMeter";
 
 const ResetPassword = () => {
   const { search } = useLocation();
@@ -49,6 +50,10 @@ const ResetPassword = () => {
                   name='password'
                   id='password'
                   onChange={handleChange}
+                />
+                <PasswordStrengthMeter
+                  password={values.password}
+                  hidden={false}
                 />
                 {errors.password && (
                   <p className='error-message'>{errors.password}</p>

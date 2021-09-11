@@ -47,9 +47,9 @@ const VerifyEmail = () => {
       <div className='container'>
         {loading ? (
           <Spinner />
-        ) : error === {} ? (
+        ) : Object.keys(error).length === 0 ? (
           <div className='verify-email-content'>
-            <h4>Your e-mail address has been verified</h4>
+            <h4>E-poçt adresiniz təsdiqləndi!!</h4>
             <p>
               E-poçt adresiniz uğurla təsdiqləndi, bizi seçdiyiniz üçün təşəkkür
               edirik. İlk kargonuzu "Davam et" düyməsi tıklayaraq sifariş edə
