@@ -42,13 +42,13 @@ const useChangePassword = (changePasswordValidateInfo, userName) => {
         )
         .then((response) =>
           response.status === 200
-            ? (alertify.success("Your profile successfully updated", 2),
+            ? (alertify.success("Profiliniz uğurla yeniləndi", 2),
               setCpValues({
                 oldPassword: "",
                 newPassword: "",
                 confirmPassword: "",
               }))
-            : alertify.error("Your profile not updated", 2)
+            : alertify.error("Profiliniz yenilənmədi", 2)
         )
         .catch(({ response }) =>
           setCpErrors({
