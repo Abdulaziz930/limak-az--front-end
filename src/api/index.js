@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const mainAPI = axios.create({
-  baseURL: "https://localhost:44393/api/",
+  baseURL: "http://abdulazizk-001-site1.ctempurl.com/api/",
 });
 
 export const excahgeRateAPI = axios.create({

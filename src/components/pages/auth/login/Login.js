@@ -41,7 +41,7 @@ const Login = () => {
   const responseGoogle = async (response) => {
     await mainAPI
       .post("Authenticate/externalLogin", {
-        provider: response.Zb.idpId,
+        provider: response.$b.idpId,
         idToken: response.tokenId,
       })
       .then((dbResponse) => {
