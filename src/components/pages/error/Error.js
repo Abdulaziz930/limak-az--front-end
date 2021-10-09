@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import errorRoute from "../../../routes/pages/error/error.json";
 import homeRoute from "../../../routes/pages/home/home.json";
 import MetaDecorator from "../../utils/metaDecorator/MetaDecorator";
-import language from "../../../translation/language.json";
+// import language from "../../../translation/language.json";
 
 const Error = ({ statusCode, title, description, buttonIsExist }) => {
   const { activeLanguage } = useSelector((state) => state.languages);
@@ -30,7 +30,7 @@ const Error = ({ statusCode, title, description, buttonIsExist }) => {
           <p>{description}</p>
           {buttonIsExist ? (
             <Link to={homeRoute.pageRoute}>
-              {language[activeLanguage].errorPage.buttonName}
+              {/* {language[activeLanguage].errorPage.buttonName} */}
             </Link>
           ) : (
             ""
